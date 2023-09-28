@@ -30,6 +30,9 @@ public class Player : MonoBehaviour
 
     private int curTwirlCharges = 0;
     private float twirlRechargeTimeLeft = 0f;
+    //for collision function; radius is currently determined by player
+    [SerializeField]
+    float collisionRadius = 1;
 
     // Start is called before the first frame update
     void Start() 
@@ -81,6 +84,11 @@ public class Player : MonoBehaviour
         velocity = direction * twirlSpeed;
         yield return new WaitForSeconds(twirlDuration);
         velocity = Vector2.zero;
+        // check collisions
+        var collisions = Physics2D.CircleCastAll(transform.position, collisionRadius, Vector2.zero);
+        foreach (var hit in collisions) {
+            OnCollision(hit);
+        }
     }
 
     //current placeholder for xp function
@@ -91,5 +99,14 @@ public class Player : MonoBehaviour
         //placeholder for leveling up
         xpLevel = (int)Mathf.Sqrt(xpPoints);
         
+    }
+
+    void OnCollision(RaycastHit2D hit) {
+        //hit xp
+        if (hit.collider.CompareTag("xp")) {
+            var xpObj = hit.transform.gameObject.GetComponent<XpOrb>();
+            addXP(xpObj.points);
+            Destroy(xpObj.gameObject);
+        }
     }
 }
