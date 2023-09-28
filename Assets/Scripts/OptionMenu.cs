@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OptionsMenu : MonoBehaviour
+public class OptionMenu : MonoBehaviour
 {
     public GameObject OptionsUI; // saves options ui prefab to toggle on/off, this script toggles OFF
     //public GameObject PauseMenu;
