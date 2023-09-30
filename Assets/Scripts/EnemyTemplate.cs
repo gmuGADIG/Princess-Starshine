@@ -17,12 +17,14 @@ public class EnemyTemplate : MonoBehaviour
     [Header("Health Settings")]
     [SerializeField] short maxHealth = 100;
 
-    [Header("Drops")]
-    [SerializeField] short xpDropAmount = 10;
-
     [Header("Character Settings")]
     [SerializeField] short movementSpeed = 5;
     [Tooltip("Where the enemy is moving too")][SerializeField] GameObject moveTowardsObject;
+
+    [Header("XP Settings")]
+    [SerializeField] GameObject XPOrb;
+    [SerializeField] short XpDropRadius = 3;
+    [SerializeField] short xpDropAmount = 10;
 
     [Header("Sound Effects")]
     [Tooltip("When the enemy has taken damage")][SerializeField] AudioSource TakenDamageSoundEffect;
@@ -61,21 +63,55 @@ public class EnemyTemplate : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Bullet")) {
-            // TODO : Make enemy take damage from the damage amount from bullet
             TakenDamageSoundEffect.Play();
             CheckDeath();
         }
     }
 
+    /*
+     * Copy object of XP
+     * Set XP position to the enemy position
+     * Get a random position around the enemy with a given radius
+     * Set XP orb to that random position around the enemy
+     */
+    private IEnumerator DistrubuteXP() {
+        // Gettings position of enemy
+        Vector3 ENEMY_POSITION = gameObject.transform.position;
+        for (int i = 0; i <= xpDropAmount; i++)
+        {
+            /// COPY OBJECT OF XP ///
+            GameObject @object = Instantiate(XPOrb);
+
+            /// SET XP OBJECT'S POSITION TO THE SAME POSITION AS ENEMY ///
+            @object.gameObject.transform.position = ENEMY_POSITION;
+            
+            /// GET A RANDOM POSITION AROUND THE ENEMY WITH A GIVEN RADIUS ///
+            Vector3 position = @object.gameObject.transform.position;
+
+            Vector3 topLeft = new Vector3(position.x - XpDropRadius, position.y + XpDropRadius, position.z);
+            Vector3 bottomRight = new Vector3(position.x + XpDropRadius, position.y - XpDropRadius, position.z);
+
+            float RandomX = UnityEngine.Random.Range(topLeft.x, bottomRight.x);
+            float RandomY = UnityEngine.Random.Range(bottomRight.y, topLeft.y);
+            Vector3 newPosition = new Vector3(RandomX, RandomY, 0) + position;
+
+            /// SET XP ORB TO A RANDOM POSITION AROUND THE ENEMY ///
+            @object.gameObject.transform.position = newPosition;
+        }
+        yield return null;
+    }
+
     void Start()
     {
         currentHealth = maxHealth;
+        CheckDeath();
     }
 
     private void Update()
     {
         MoveTowardsPlayer();
         if (isDead) {
+            StartCoroutine(DistrubuteXP());
             Destroy(gameObject); // Gets rid of enemy from game.
         }
     }
