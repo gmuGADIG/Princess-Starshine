@@ -57,7 +57,14 @@ public class Player : MonoBehaviour
         }
         transform.position += (Vector3)(velocity * Time.deltaTime);
 
+        // twirl
         UpdateTwirl(input);
+
+        // check collisions
+        var collisions = Physics2D.CircleCastAll(transform.position, collisionRadius, Vector2.zero);
+        foreach (var hit in collisions) {
+            OnCollision(hit);
+        }
     }
 
     void UpdateTwirl(Vector2 input) {
@@ -84,15 +91,10 @@ public class Player : MonoBehaviour
         velocity = direction * twirlSpeed;
         yield return new WaitForSeconds(twirlDuration);
         velocity = Vector2.zero;
-        // check collisions
-        var collisions = Physics2D.CircleCastAll(transform.position, collisionRadius, Vector2.zero);
-        foreach (var hit in collisions) {
-            OnCollision(hit);
-        }
     }
 
     //current placeholder for xp function
-    void addXP(int points) 
+    void AddXP(int points) 
     {
         xpPoints += points;
 
