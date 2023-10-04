@@ -100,3 +100,5 @@ MonoBehaviour:
   acceleration: 80
   maxSpeed: 10
   deceleration: 30
+  xpPoints: 0
+  dodgeCharge: 3
