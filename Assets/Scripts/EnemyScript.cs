@@ -6,7 +6,7 @@ public class EnemyScript : MonoBehaviour
 {
    
         public static EnemyScript Instance;
-
+        
         private float spawnRate = 2f; // Default enemy spawn rate
 
         private void Awake()

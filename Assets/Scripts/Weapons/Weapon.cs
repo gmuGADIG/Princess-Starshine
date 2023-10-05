@@ -4,9 +4,9 @@ using UnityEngine;
 
 public abstract class Weapon
 {
-    //
-    [SerializeField]
-    protected int damage;
+    //Declare it in the projectile prefab, too much effort to transfer over the data from the weapon to the projectile
+    //[SerializeField]
+    //protected int damage;
 
     //
     [SerializeField]
@@ -15,8 +15,8 @@ public abstract class Weapon
     protected float currentCooldownTime;
 
     //The number of enemies the projectile needs to hit before dissapearing. Set to 0 to ignore enemies.
-    [SerializeField]
-    protected bool doesDOT;
+    //[SerializeField]
+    //protected bool doesDOT;
 
     public abstract void Update();
 

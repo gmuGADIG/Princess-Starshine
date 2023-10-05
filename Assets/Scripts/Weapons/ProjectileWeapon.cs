@@ -8,25 +8,30 @@ public abstract class ProjectileWeapon : Weapon
     [SerializeField]
     protected int numProjectiles;
 
-    //The angle relative to the player to shoot at.
-    [SerializeField]
-    protected float fireDirectionAngleDegrees;
+    //The vector2 direction to shoot at, Normalized
+    //[SerializeField]
+    //protected Vector2 fireDirectionNormalized;
 
     //The uniform spread between projectiles
-    [SerializeField]
-    protected float fireSpreadAngleDegrees;
+    //[SerializeField]
+    //protected float fireSpreadAngleDegrees;
 
     //Variance added onto the uniform spread
-    [SerializeField]
-    protected float spreadVarianceDegrees;
+    //[SerializeField]
+    //protected float spreadVarianceDegrees;
 
     //The speed of the projectiles fired from this weapon
-    [SerializeField]
-    protected float projectileSpeed;
+    //[SerializeField]
+    //protected float projectileSpeed;
 
     //The number of enemies the projectile needs to hit before dissapearing. Set to 0 to ignore enemies.
-    [SerializeField]
-    protected float projectilePierce;
+    //[SerializeField]
+    //protected float projectilePierce;
+    //
+    //  ^
+    //  I
+    //  I
+    //move these fields to the projectile itself if you need them
 
     [SerializeField]
     protected static GameObject projectilePrefab;
