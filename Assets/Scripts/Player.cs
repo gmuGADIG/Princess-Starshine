@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {   
+    public static Player Instance;
 
     // accleeration is by default set to 80, maxSpeed is set to 10, and deceleration is set to 30
     Vector2 velocity = Vector2.zero;
@@ -34,13 +35,17 @@ public class Player : MonoBehaviour
     [SerializeField]
     float collisionRadius = 1;
 
+    private List<Weapon> weapons = new List<Weapon>(); //List contains ints only
+
     // Start is called before the first frame update
     void Start() 
     {   
+        Instance = this;
         curTwirlCharges = maxTwirlCharges;
 
         //Test the xp system with 10 xpPoints
-        addXP(10);
+        AddXP(10);
+        //weapons.Add(new GlitterBomb());
     }
 
     // Update is called once per frame
@@ -64,6 +69,11 @@ public class Player : MonoBehaviour
         var collisions = Physics2D.CircleCastAll(transform.position, collisionRadius, Vector2.zero);
         foreach (var hit in collisions) {
             OnCollision(hit);
+        }
+
+        foreach(var w in weapons)
+        {
+            w.Update();
         }
     }
 
@@ -107,7 +117,7 @@ public class Player : MonoBehaviour
         //hit xp
         if (hit.collider.CompareTag("xp")) {
             var xpObj = hit.transform.gameObject.GetComponent<XpOrb>();
-            addXP(xpObj.points);
+            AddXP(xpObj.points);
             Destroy(xpObj.gameObject);
         }
     }

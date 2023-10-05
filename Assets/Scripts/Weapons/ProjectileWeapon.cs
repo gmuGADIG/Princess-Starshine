@@ -10,7 +10,7 @@ public abstract class ProjectileWeapon : Weapon
 
     //The angle relative to the player to shoot at.
     [SerializeField]
-    private float fireDirectionAngleDegrees;
+    protected float fireDirectionAngleDegrees;
 
     //The uniform spread between projectiles
     [SerializeField]
@@ -28,7 +28,11 @@ public abstract class ProjectileWeapon : Weapon
     [SerializeField]
     protected float projectilePierce;
 
+    [SerializeField]
+    protected static GameObject projectilePrefab;
+
     public abstract void Fire();
 
+    public abstract bool CanFire();
 
 }
