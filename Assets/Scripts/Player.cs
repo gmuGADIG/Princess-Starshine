@@ -40,7 +40,7 @@ public class Player : MonoBehaviour
         curTwirlCharges = maxTwirlCharges;
 
         //Test the xp system with 10 xpPoints
-        addXP(10);
+        AddXP(10);
     }
 
     // Update is called once per frame
@@ -107,7 +107,7 @@ public class Player : MonoBehaviour
         //hit xp
         if (hit.collider.CompareTag("xp")) {
             var xpObj = hit.transform.gameObject.GetComponent<XpOrb>();
-            addXP(xpObj.points);
+            AddXP(xpObj.points);
             Destroy(xpObj.gameObject);
         }
     }
