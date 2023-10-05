@@ -159,6 +159,11 @@ MonoBehaviour:
   maxSpeed: 10
   deceleration: 30
   xpPoints: 0
+  isTwirling: 0
+  maxTwirlCharges: 3
+  twirlCooldown: 10
+  twirlSpeed: 30
+  twirlDuration: 0.3
   collisionRadius: 1
 --- !u!65 &557120157
 BoxCollider:
