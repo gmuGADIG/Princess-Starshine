@@ -4,6 +4,9 @@
  * Tasks needing to complete this 'task'
  *  - Make enemy lose health when taking damage ( We could just do this with the weapon )
  *  - Add XP to player ( We need the player XP variable )
+ *  
+ *  
+ *  Damage will be checked on the bullet script side.
  */
 
 using System;
@@ -40,7 +43,11 @@ public class EnemyTemplate : MonoBehaviour
     #region Get-Set CurrentHealth
     public short GetCurrentHealth() { return currentHealth; }
     public void SetCurrentHealth(short value) {  currentHealth = value; }
-    public void TakeDamage(short value) { currentHealth -= value;  }
+    public void TakeDamage(short value) { 
+        currentHealth -= value;
+        TakenDamageSoundEffect.Play();
+        CheckDeath();
+    }
     #endregion
     #region Get-Set MovementSpeed
     public short GetMovementSpeed() { return movementSpeed; }
@@ -60,13 +67,15 @@ public class EnemyTemplate : MonoBehaviour
         if (currentHealth <= 0) { isDead = true;  }
     }
 
+    /*
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Bullet")) {
+            
             TakenDamageSoundEffect.Play();
             CheckDeath();
         }
-    }
+    } */
 
     /*
      * Copy object of XP
