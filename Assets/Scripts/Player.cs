@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,6 +21,7 @@ public class Player : MonoBehaviour
     int xpPoints = 0;
     //initially serialized for display purposes only
     int xpLevel = 0;
+    Action<int> onLevelUp;
 
     //For dodge twirl
     
@@ -99,8 +101,12 @@ public class Player : MonoBehaviour
         xpPoints += points;
 
         //placeholder for leveling up
+        var startLevel = xpLevel;
         xpLevel = (int)Mathf.Sqrt(xpPoints);
-        
+
+        if (xpLevel > startLevel) {
+            onLevelUp?.Invoke(xpLevel);
+        }
     }
 
     void OnCollision(RaycastHit2D hit) {
