@@ -45,6 +45,11 @@ public class EnemySpawner : MonoBehaviour
             spawnRando -= enemySpawns[i].probabilityWeight;
             if (spawnRando < 0)
             {
+                if (enemySpawns[i].enemyType == null)
+                {
+                    Debug.LogError("EnemySpawner \"" + name + "\": EnemySpawn " + i + " has no enemyType assigned! Skipping spawn");
+                    return;
+                }
                 Instantiate(enemySpawns[i].enemyType, transform.position, Quaternion.identity);
                 break;
             }
