@@ -11,15 +11,21 @@ public class EnemySpawner : MonoBehaviour
     public float spawnRate = 1.0f; //seconds per spawn
     public float spawnAcceleration = 1.0f; //the amount that the time between spawns increases per spawn
     public float spawnChangeInterval = 5.0f; //after this many seconds have passed, the spawn rate will increase
-    
 
-    public GameObject[] enemiesToSpawn;
-    public float[] probabilityWeight;
-    
-    
+    [System.Serializable]
+    public struct EnemySpawn
+    {
+        public GameObject enemyType;
+        public float probabilityWeight;
+    }
+    public EnemySpawn[] enemySpawns;
+    //public GameObject[] enemiesToSpawn;
+    //public float[] probabilityWeight;
+
+
     private float countdownTimer;
     private float spawnChangeTimer;
-    
+
     
     
 
@@ -27,19 +33,19 @@ public class EnemySpawner : MonoBehaviour
     public void SpawnEnemy()
     {
         float totalWeights = 0.0f;
-        foreach (float i in probabilityWeight)
+        foreach (EnemySpawn i in enemySpawns)
         {
-            totalWeights += i;
+            totalWeights += i.probabilityWeight;
         }
 
         float spawnRando = Random.Range(0, totalWeights);
 
-        for (int i = 0; i < probabilityWeight.Length; i++)
+        for (int i = 0; i < enemySpawns.Length; i++)
         {
-            spawnRando -= probabilityWeight[i];
+            spawnRando -= enemySpawns[i].probabilityWeight;
             if (spawnRando < 0)
             {
-                Instantiate(enemiesToSpawn[i], transform.position, Quaternion.identity);
+                Instantiate(enemySpawns[i].enemyType, transform.position, Quaternion.identity);
                 break;
             }
         }
