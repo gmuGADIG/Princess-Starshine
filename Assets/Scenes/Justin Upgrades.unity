@@ -589,91 +589,11 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 300812745088403336, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
-      propertyPath: icons.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 300812745088403336, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
-      propertyPath: allWeapons.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 300812745088403336, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
       propertyPath: allEquipment.Array.size
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 300812745088403336, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
-      propertyPath: icons.Array.data[0].icon
-      value: 
-      objectReference: {fileID: 2800000, guid: 0cfd59be06ac67c4aa03f4a0900ae7df, type: 3}
-    - target: {fileID: 300812745088403336, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
-      propertyPath: icons.Array.data[0].name
-      value: Fairy Wand
-      objectReference: {fileID: 0}
-    - target: {fileID: 300812745088403336, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
-      propertyPath: icons.Array.data[1].icon
-      value: 
-      objectReference: {fileID: 2800000, guid: 0cfd59be06ac67c4aa03f4a0900ae7df, type: 3}
-    - target: {fileID: 300812745088403336, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
-      propertyPath: icons.Array.data[1].name
-      value: Glitter Bomb
-      objectReference: {fileID: 0}
-    - target: {fileID: 300812745088403336, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
-      propertyPath: icons.Array.data[1].type
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 300812745088403336, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
-      propertyPath: icons.Array.data[2].icon
-      value: 
-      objectReference: {fileID: 2800000, guid: 0cfd59be06ac67c4aa03f4a0900ae7df, type: 3}
-    - target: {fileID: 300812745088403336, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
-      propertyPath: icons.Array.data[2].name
-      value: Tea Time
-      objectReference: {fileID: 0}
-    - target: {fileID: 300812745088403336, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
-      propertyPath: icons.Array.data[2].type
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 300812745088403336, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
-      propertyPath: icons.Array.data[3].icon
-      value: 
-      objectReference: {fileID: 2800000, guid: 0cfd59be06ac67c4aa03f4a0900ae7df, type: 3}
-    - target: {fileID: 300812745088403336, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
-      propertyPath: icons.Array.data[3].name
-      value: Margarita the Pomeranian
-      objectReference: {fileID: 0}
-    - target: {fileID: 300812745088403336, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
-      propertyPath: icons.Array.data[3].type
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 300812745088403336, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
-      propertyPath: icons.Array.data[4].icon
-      value: 
-      objectReference: {fileID: 2800000, guid: 0cfd59be06ac67c4aa03f4a0900ae7df, type: 3}
-    - target: {fileID: 300812745088403336, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
-      propertyPath: icons.Array.data[4].name
-      value: Fairy Friend
-      objectReference: {fileID: 0}
-    - target: {fileID: 300812745088403336, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
-      propertyPath: icons.Array.data[4].type
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 300812745088403336, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
-      propertyPath: icons.Array.data[5].icon
-      value: 
-      objectReference: {fileID: 2800000, guid: 0cfd59be06ac67c4aa03f4a0900ae7df, type: 3}
-    - target: {fileID: 300812745088403336, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
-      propertyPath: icons.Array.data[5].name
-      value: Bunny Burst
-      objectReference: {fileID: 0}
-    - target: {fileID: 300812745088403336, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
-      propertyPath: icons.Array.data[5].type
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 300812745088403336, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
       propertyPath: currentWeapons.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 300812745088403336, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
-      propertyPath: allWeapons.Array.data[1].type
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 300812745088403336, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
@@ -685,52 +605,12 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 300812745088403336, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
-      propertyPath: allWeapons.Array.data[0].damage
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 300812745088403336, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
-      propertyPath: allWeapons.Array.data[1].damage
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 300812745088403336, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
-      propertyPath: icons.Array.data[0].description
-      value: Fires magic projectiles at the closest enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 300812745088403336, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
-      propertyPath: icons.Array.data[1].description
-      value: Lobs bombs of glitter at random enemies, exploding after a short delay
-      objectReference: {fileID: 0}
-    - target: {fileID: 300812745088403336, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
-      propertyPath: icons.Array.data[2].description
-      value: Fires a tea cup that bounces around the screen like a screensaver
-      objectReference: {fileID: 0}
-    - target: {fileID: 300812745088403336, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
-      propertyPath: icons.Array.data[3].description
-      value: Wanders around the screen and barks at enemies, causing AoE damage
-      objectReference: {fileID: 0}
-    - target: {fileID: 300812745088403336, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
-      propertyPath: icons.Array.data[4].description
-      value: Gives passive health regeneration
-      objectReference: {fileID: 0}
-    - target: {fileID: 300812745088403336, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
-      propertyPath: icons.Array.data[5].description
-      value: 'Increases speed of weapon projectiles '
-      objectReference: {fileID: 0}
-    - target: {fileID: 300812745088403336, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
       propertyPath: allEquipment.Array.data[0].damage
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 300812745088403336, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
       propertyPath: allEquipment.Array.data[1].damage
       value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 300812745088403336, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
-      propertyPath: allWeapons.Array.data[0].fireRate
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 300812745088403336, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
-      propertyPath: allWeapons.Array.data[1].fireRate
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 300812745088403336, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
       propertyPath: allEquipment.Array.data[0].fireRate
@@ -749,25 +629,9 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 300812745088403336, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
-      propertyPath: allWeapons.Array.data[0].projectileSpeed
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 300812745088403336, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
-      propertyPath: allWeapons.Array.data[1].projectileSpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 300812745088403336, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
       propertyPath: allProjectileWeapons.Array.data[0].damage
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 300812745088403336, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
-      propertyPath: allWeapons.Array.data[0].projectilePrefab
-      value: 
-      objectReference: {fileID: 3661406676428322862, guid: 933f5034dd3c2654684b316d6319f4af, type: 3}
-    - target: {fileID: 300812745088403336, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
-      propertyPath: allWeapons.Array.data[1].projectilePrefab
-      value: 
-      objectReference: {fileID: 3661406676428322862, guid: 933f5034dd3c2654684b316d6319f4af, type: 3}
     - target: {fileID: 300812745088403336, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
       propertyPath: allEquipment.Array.data[0].projectileSpeed
       value: 20
@@ -775,14 +639,6 @@ PrefabInstance:
     - target: {fileID: 300812745088403336, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
       propertyPath: allEquipment.Array.data[1].projectileSpeed
       value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 300812745088403336, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
-      propertyPath: allWeapons.Array.data[0].targetingStrategy
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 300812745088403336, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
-      propertyPath: allWeapons.Array.data[1].targetingStrategy
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 300812745088403336, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
       propertyPath: allEquipment.Array.data[0].projectilePrefab
@@ -821,14 +677,6 @@ PrefabInstance:
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 300812745088403336, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
-      propertyPath: allWeapons.Array.data[0].levelUpOptions.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 300812745088403336, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
-      propertyPath: allWeapons.Array.data[1].levelUpOptions.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 300812745088403336, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
       propertyPath: allProjectileWeapons.Array.data[0].projectilePrefab
       value: 
       objectReference: {fileID: 3661406676428322862, guid: 933f5034dd3c2654684b316d6319f4af, type: 3}
@@ -851,30 +699,6 @@ PrefabInstance:
     - target: {fileID: 300812745088403336, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
       propertyPath: currentWeapons.Array.data[0].possibleLevelUps.Array.size
       value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 300812745088403336, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
-      propertyPath: allWeapons.Array.data[0].levelUpOptions.Array.data[1].type
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 300812745088403336, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
-      propertyPath: allWeapons.Array.data[0].levelUpOptions.Array.data[2].type
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 300812745088403336, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
-      propertyPath: allWeapons.Array.data[0].levelUpOptions.Array.data[3].type
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 300812745088403336, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
-      propertyPath: allWeapons.Array.data[1].levelUpOptions.Array.data[1].type
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 300812745088403336, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
-      propertyPath: allWeapons.Array.data[1].levelUpOptions.Array.data[2].type
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 300812745088403336, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
-      propertyPath: allWeapons.Array.data[1].levelUpOptions.Array.data[3].type
-      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 300812745088403336, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
       propertyPath: currentWeapons.Array.data[0].possibleLevelUps.Array.data[1]
@@ -915,38 +739,6 @@ PrefabInstance:
     - target: {fileID: 300812745088403336, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
       propertyPath: allProjectileWeapons.Array.data[0].levelUpOptions.Array.size
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 300812745088403336, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
-      propertyPath: allWeapons.Array.data[0].levelUpOptions.Array.data[0].amount
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 300812745088403336, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
-      propertyPath: allWeapons.Array.data[0].levelUpOptions.Array.data[1].amount
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 300812745088403336, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
-      propertyPath: allWeapons.Array.data[0].levelUpOptions.Array.data[2].amount
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 300812745088403336, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
-      propertyPath: allWeapons.Array.data[0].levelUpOptions.Array.data[3].amount
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 300812745088403336, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
-      propertyPath: allWeapons.Array.data[1].levelUpOptions.Array.data[0].amount
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 300812745088403336, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
-      propertyPath: allWeapons.Array.data[1].levelUpOptions.Array.data[1].amount
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 300812745088403336, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
-      propertyPath: allWeapons.Array.data[1].levelUpOptions.Array.data[2].amount
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 300812745088403336, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
-      propertyPath: allWeapons.Array.data[1].levelUpOptions.Array.data[3].amount
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 300812745088403336, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
       propertyPath: allEquipment.Array.data[0].levelUpOptions.Array.data[0].amount
