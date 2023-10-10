@@ -4,10 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
-{   
-
-    // accleeration is by default set to 80, maxSpeed is set to 10, and deceleration is set to 30
-    Vector2 velocity = Vector2.zero;
+{
+    public static Player instance;
+    
+    // acceleration is by default set to 80, maxSpeed is set to 10, and deceleration is set to 30
+    [HideInInspector] public Vector2 velocity = Vector2.zero;
     [SerializeField]
     float acceleration;
     [SerializeField]
@@ -36,16 +37,16 @@ public class Player : MonoBehaviour
     [SerializeField]
     float collisionRadius = 1;
 
-    // Start is called before the first frame update
-    void Start() 
-    {   
+    void Start()
+    {
+        instance = this;
+        
         curTwirlCharges = maxTwirlCharges;
 
         //Test the xp system with 10 xpPoints
         AddXP(10);
     }
 
-    // Update is called once per frame
     void Update()
     {
         Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
