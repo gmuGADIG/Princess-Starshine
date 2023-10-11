@@ -19,9 +19,10 @@ public class GlitterPrimary : MonoBehaviour
             explodePrefab = Resources.Load<GameObject>("Projectiles/GlitterBomb/GlitterExplode");
         }
 
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        Vector2 enemy = enemies[Random.Range(0, enemies.Length)].transform.position;
-        Vector2 dir = new Vector2(enemy.x - Player.Instance.transform.position.x, enemy.y - Player.Instance.transform.position.y);
+        var enemies = GameObject.FindGameObjectsWithTag("Enemy");
+
+        Vector2 enemy = enemies[Random.Range(0,enemies.Length)].transform.position;
+        Vector2 dir = new Vector2(enemy.x - Player.instance.transform.position.x, enemy.y - Player.instance.transform.position.y);
 
         velocity = dir.normalized * projectileSpeed;
     }

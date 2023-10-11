@@ -10,41 +10,41 @@ using Random = UnityEngine.Random;
 public class ProjectileWeapon : Weapon
 {
     /** Times the weapon fires per second. If set to 0, the weapon will fire at the start and never again. */
-    [SerializeField] float fireRate;
-    float timeUntilNextFire = 0.5f; // the 0.5 gives it a bit of time before it's first shot after equipping it
+    [SerializeField] protected float fireRate;
+    protected float timeUntilNextFire = 0.5f; // the 0.5 gives it a bit of time before it's first shot after equipping it
 
     /** Amount of knockback to inflict on enemies hit by the projectiles. */
-    [SerializeField] float knockback;
+    [SerializeField] protected float knockback;
 
     /** Projectile size multiplier. Used for level-ups. */
-    [SerializeField] float projectileSize;
+    [SerializeField] protected float projectileSize;
     
     /** The amount of damage each projectile does. Exact details are left to the projectile script. */
-    [SerializeField] float damage;
+    [SerializeField] protected float damage;
 
     /** Amount of projectiles to fire with each shot. */
-    [SerializeField] int projectileCount;
+    [SerializeField] protected int projectileCount;
     
     /** How fast the projectiles start out when fired. */
-    [SerializeField] float projectileSpeed;
+    [SerializeField] protected float projectileSpeed;
 
     /** The amount of enemies the projectile can pierce through. 0 means destroy on first hit. -1 means infinite pierce. */
-    [SerializeField] int pierceCount;
+    [SerializeField] protected int pierceCount;
 
     /** How the weapon should determine which direction to fire in */
-    [SerializeField] TargetType targetingStrategy;
+    [SerializeField] protected TargetType targetingStrategy;
 
     /** True if the projectile should spawn at its target, as opposed to emitting from the player. */
-    [SerializeField] bool spawnProjectileAtTarget;
+    [SerializeField] protected bool spawnProjectileAtTarget;
 
     /** True if the projectile should be attached to the player and move with them. Otherwise, it operates in world space and moves independently of the player. */
-    [SerializeField] bool projectileLocalSpace;
+    [SerializeField] protected bool projectileLocalSpace;
     
     /**
      * The object that gets initialized on each fire.
      * Object must have the Projectile component attached to it.
      */
-    [SerializeField] GameObject projectilePrefab;
+    [SerializeField] protected GameObject projectilePrefab;
     
     /**
      * Called whenever the weapon should fire, based on its `fireRate`.
@@ -67,7 +67,7 @@ public class ProjectileWeapon : Weapon
      * For targeting strategies that aim at an enemy, this will be that enemy's position.
      * Otherwise, it will be the player's position plus the direction with an arbitrary magnitude.
      */
-    private Vector2 GetTarget()
+    protected Vector2 GetTarget()
     {
         var player = Player.instance;
         var enemies = GameObject.FindGameObjectsWithTag("Enemy"); // TODO: this should probably be a list in some enemy manager class
