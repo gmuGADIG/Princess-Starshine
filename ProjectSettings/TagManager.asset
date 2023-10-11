@@ -6,6 +6,8 @@ TagManager:
   tags:
   - xp
   - Consumable
+  - WallOfFire
+  - PlayerProjectile
   layers:
   - Default
   - TransparentFX
