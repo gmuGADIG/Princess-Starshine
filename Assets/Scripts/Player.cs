@@ -1,12 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
-{   
-
-    // accleeration is by default set to 80, maxSpeed is set to 10, and deceleration is set to 30
-    Vector2 velocity = Vector2.zero;
+{
+    public static Player instance;
+    
+    // acceleration is by default set to 80, maxSpeed is set to 10, and deceleration is set to 30
+    [HideInInspector] public Vector2 velocity = Vector2.zero;
     [SerializeField]
     float acceleration;
     [SerializeField]
@@ -20,13 +22,14 @@ public class Player : MonoBehaviour
     int xpPoints = 0;
     //initially serialized for display purposes only
     int xpLevel = 0;
+    Action<int> onLevelUp;
 
     //For dodge twirl
-    
+    public bool isTwirling = false;
     public int maxTwirlCharges = 3;
     public float twirlCooldown = 10f;
-    public float twirlSpeed = 100;
-    public float twirlDuration = 0.7f;
+    public float twirlSpeed = 30;
+    public float twirlDuration = 0.3f;
 
     private int curTwirlCharges = 0;
     private float twirlRechargeTimeLeft = 0f;
@@ -34,29 +37,30 @@ public class Player : MonoBehaviour
     [SerializeField]
     float collisionRadius = 1;
 
-    // Start is called before the first frame update
-    void Start() 
-    {   
+    void Start()
+    {
+        instance = this;
+        
         curTwirlCharges = maxTwirlCharges;
 
         //Test the xp system with 10 xpPoints
         AddXP(10);
     }
 
-    // Update is called once per frame
     void Update()
     {
         Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
-        if (input!=Vector2.zero) {
-            velocity += input * acceleration * Time.deltaTime;
-            velocity = Vector2.ClampMagnitude(velocity, maxSpeed);
+        if (!isTwirling){
+            if (input!=Vector2.zero) {
+                velocity += input * acceleration * Time.deltaTime;
+                velocity = Vector2.ClampMagnitude(velocity, maxSpeed);
+            }
+            else
+            {
+                velocity = Vector2.MoveTowards(velocity,Vector2.zero,deceleration*Time.deltaTime);
+            }
         }
-        else
-        {
-            velocity = Vector2.MoveTowards(velocity,Vector2.zero,deceleration*Time.deltaTime);
-        }
-        transform.position += (Vector3)(velocity * Time.deltaTime);
-
+        
         // twirl
         UpdateTwirl(input);
 
@@ -65,9 +69,12 @@ public class Player : MonoBehaviour
         foreach (var hit in collisions) {
             OnCollision(hit);
         }
+
+        transform.position += (Vector3)(velocity * Time.deltaTime);
     }
 
     void UpdateTwirl(Vector2 input) {
+
         if (Input.GetKeyDown("left shift") || Input.GetKeyDown("z")){
             if (curTwirlCharges > 0) {
                 curTwirlCharges -= 1;
@@ -88,9 +95,10 @@ public class Player : MonoBehaviour
 
     IEnumerator Twirl(Vector2 direction) {
         print($"twirling (twirls left = {curTwirlCharges})");
+        isTwirling = true;
         velocity = direction * twirlSpeed;
         yield return new WaitForSeconds(twirlDuration);
-        velocity = Vector2.zero;
+        isTwirling = false;
     }
 
     //current placeholder for xp function
@@ -99,8 +107,12 @@ public class Player : MonoBehaviour
         xpPoints += points;
 
         //placeholder for leveling up
+        var startLevel = xpLevel;
         xpLevel = (int)Mathf.Sqrt(xpPoints);
-        
+
+        if (xpLevel > startLevel) {
+            onLevelUp?.Invoke(xpLevel);
+        }
     }
 
     void OnCollision(RaycastHit2D hit) {
