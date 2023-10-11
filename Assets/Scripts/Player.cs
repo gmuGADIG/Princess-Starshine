@@ -25,11 +25,11 @@ public class Player : MonoBehaviour
     Action<int> onLevelUp;
 
     //For dodge twirl
-    
+    public bool isTwirling = false;
     public int maxTwirlCharges = 3;
     public float twirlCooldown = 10f;
-    public float twirlSpeed = 100;
-    public float twirlDuration = 0.7f;
+    public float twirlSpeed = 30;
+    public float twirlDuration = 0.3f;
 
     private int curTwirlCharges = 0;
     private float twirlRechargeTimeLeft = 0f;
@@ -50,16 +50,17 @@ public class Player : MonoBehaviour
     void Update()
     {
         Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
-        if (input!=Vector2.zero) {
-            velocity += input * acceleration * Time.deltaTime;
-            velocity = Vector2.ClampMagnitude(velocity, maxSpeed);
+        if (!isTwirling){
+            if (input!=Vector2.zero) {
+                velocity += input * acceleration * Time.deltaTime;
+                velocity = Vector2.ClampMagnitude(velocity, maxSpeed);
+            }
+            else
+            {
+                velocity = Vector2.MoveTowards(velocity,Vector2.zero,deceleration*Time.deltaTime);
+            }
         }
-        else
-        {
-            velocity = Vector2.MoveTowards(velocity,Vector2.zero,deceleration*Time.deltaTime);
-        }
-        transform.position += (Vector3)(velocity * Time.deltaTime);
-
+        
         // twirl
         UpdateTwirl(input);
 
@@ -68,9 +69,12 @@ public class Player : MonoBehaviour
         foreach (var hit in collisions) {
             OnCollision(hit);
         }
+
+        transform.position += (Vector3)(velocity * Time.deltaTime);
     }
 
     void UpdateTwirl(Vector2 input) {
+
         if (Input.GetKeyDown("left shift") || Input.GetKeyDown("z")){
             if (curTwirlCharges > 0) {
                 curTwirlCharges -= 1;
@@ -91,9 +95,10 @@ public class Player : MonoBehaviour
 
     IEnumerator Twirl(Vector2 direction) {
         print($"twirling (twirls left = {curTwirlCharges})");
+        isTwirling = true;
         velocity = direction * twirlSpeed;
         yield return new WaitForSeconds(twirlDuration);
-        velocity = Vector2.zero;
+        isTwirling = false;
     }
 
     //current placeholder for xp function
