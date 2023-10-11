@@ -1,12 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
-{   
-
-    // accleeration is by default set to 80, maxSpeed is set to 10, and deceleration is set to 30
-    Vector2 velocity = Vector2.zero;
+{
+    public static Player instance;
+    
+    // acceleration is by default set to 80, maxSpeed is set to 10, and deceleration is set to 30
+    [HideInInspector] public Vector2 velocity = Vector2.zero;
     [SerializeField]
     float acceleration;
     [SerializeField]
@@ -20,6 +22,7 @@ public class Player : MonoBehaviour
     int xpPoints = 0;
     //initially serialized for display purposes only
     int xpLevel = 0;
+    Action<int> onLevelUp;
 
     //For dodge twirl
     public bool isTwirling = false;
@@ -34,16 +37,20 @@ public class Player : MonoBehaviour
     [SerializeField]
     float collisionRadius = 1;
 
+    List<Weapon> weapons = new List<Weapon>();
+
     // Start is called before the first frame update
-    void Start() 
-    {   
+    void Start()
+    {
+        instance = this;
+        
         curTwirlCharges = maxTwirlCharges;
 
         //Test the xp system with 10 xpPoints
         AddXP(10);
+        weapons.Add(new GlitterBomb());
     }
 
-    // Update is called once per frame
     void Update()
     {
         Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
@@ -68,6 +75,8 @@ public class Player : MonoBehaviour
         }
 
         transform.position += (Vector3)(velocity * Time.deltaTime);
+
+        UpdateWeapons();
     }
 
     void UpdateTwirl(Vector2 input) {
@@ -104,8 +113,20 @@ public class Player : MonoBehaviour
         xpPoints += points;
 
         //placeholder for leveling up
+        var startLevel = xpLevel;
         xpLevel = (int)Mathf.Sqrt(xpPoints);
-        
+
+        if (xpLevel > startLevel) {
+            onLevelUp?.Invoke(xpLevel);
+        }
+    }
+
+    void UpdateWeapons()
+    {
+        foreach (var w in weapons)
+        {
+            w.Update();
+        }
     }
 
     void OnCollision(RaycastHit2D hit) {
