@@ -37,9 +37,6 @@ public class Player : MonoBehaviour
     [SerializeField]
     float collisionRadius = 1;
 
-    List<Weapon> weapons = new List<Weapon>();
-
-    // Start is called before the first frame update
     void Start()
     {
         instance = this;
@@ -48,7 +45,6 @@ public class Player : MonoBehaviour
 
         //Test the xp system with 10 xpPoints
         AddXP(10);
-        weapons.Add(new GlitterBomb());
     }
 
     void Update()
@@ -75,8 +71,6 @@ public class Player : MonoBehaviour
         }
 
         transform.position += (Vector3)(velocity * Time.deltaTime);
-
-        UpdateWeapons();
     }
 
     void UpdateTwirl(Vector2 input) {
@@ -118,14 +112,6 @@ public class Player : MonoBehaviour
 
         if (xpLevel > startLevel) {
             onLevelUp?.Invoke(xpLevel);
-        }
-    }
-
-    void UpdateWeapons()
-    {
-        foreach (var w in weapons)
-        {
-            w.Update();
         }
     }
 

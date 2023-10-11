@@ -6,6 +6,7 @@ TagManager:
   tags:
   - xp
   - Consumable
+  - WallOfFire
   - Enemy
   layers:
   - Default
