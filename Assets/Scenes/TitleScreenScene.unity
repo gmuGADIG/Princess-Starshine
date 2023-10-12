@@ -1600,6 +1600,10 @@ PrefabInstance:
       propertyPath: OptionsUI
       value: 
       objectReference: {fileID: 1603244917}
+    - target: {fileID: 2725492734513889191, guid: 80d554e2857124c47b70bfe258af8576, type: 3}
+      propertyPath: OptionsUI
+      value: 
+      objectReference: {fileID: 1603244917}
     - target: {fileID: 2857700590129807408, guid: 80d554e2857124c47b70bfe258af8576, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -1607,6 +1611,18 @@ PrefabInstance:
     - target: {fileID: 3033926906612138730, guid: 80d554e2857124c47b70bfe258af8576, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3214977095660212444, guid: 80d554e2857124c47b70bfe258af8576, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1603244918}
+    - target: {fileID: 3214977095660212444, guid: 80d554e2857124c47b70bfe258af8576, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: BackButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 3214977095660212444, guid: 80d554e2857124c47b70bfe258af8576, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: OptionMenu, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3291926949461490898, guid: 80d554e2857124c47b70bfe258af8576, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1678,6 +1694,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7844938225608219057, guid: 80d554e2857124c47b70bfe258af8576, type: 3}
   m_PrefabInstance: {fileID: 1603244916}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1603244918 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2725492734513889191, guid: 80d554e2857124c47b70bfe258af8576, type: 3}
+  m_PrefabInstance: {fileID: 1603244916}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1603244917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94ce77e7919ae114797ba3f54a52bbaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1628937432
 GameObject:
   m_ObjectHideFlags: 0
@@ -1775,13 +1802,45 @@ RectTransform:
   - {fileID: 2023152850}
   - {fileID: 59036655}
   - {fileID: 169959371}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1711680165}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1711680164
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1711680165}
+  m_Layer: 0
+  m_Name: TitleUI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1711680165
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1711680164}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 550.5, y: 257, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1628937436}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1733593783
 GameObject:
   m_ObjectHideFlags: 0
@@ -1944,6 +2003,7 @@ GameObject:
   - component: {fileID: 1806381094}
   - component: {fileID: 1806381093}
   - component: {fileID: 1806381096}
+  - component: {fileID: 1806381097}
   m_Layer: 5
   m_Name: ContinueButton
   m_TagString: Untagged
@@ -2080,6 +2140,19 @@ MonoBehaviour:
   firstLevelSceneName: 
   savedLevelSceneName: 
   OptionsUI: {fileID: 0}
+--- !u!114 &1806381097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806381091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6085ce3791f855547966d13c567c8b9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ContinueButtonUI: {fileID: 1806381093}
 --- !u!1 &2023152849
 GameObject:
   m_ObjectHideFlags: 0
@@ -2309,6 +2382,6 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1459801264}
-  - {fileID: 1628937436}
+  - {fileID: 1711680165}
   - {fileID: 1603244916}
   - {fileID: 1121203480}

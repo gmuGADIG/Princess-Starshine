@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class TitleSceenButtons : MonoBehaviour
@@ -9,9 +10,12 @@ public class TitleSceenButtons : MonoBehaviour
     public string firstLevelSceneName; // update with level scene name once we have one
     public string savedLevelSceneName; // create function that tracks the level the player is on
     public GameObject OptionsUI;       // saves options ui prefab to toggle on/off, this script toggles ON
+
+
+
+
     public void ContinueButton()
     {
-
         // retrieve player data
         SceneManager.LoadScene(savedLevelSceneName); // TEMPORARY, NEED LEVELS AND SAVE SYSTEM
         //Debug.Log("continue");
