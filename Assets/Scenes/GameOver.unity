@@ -915,7 +915,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1331416017}
-        m_TargetAssemblyTypeName: DeathScript, Assembly-CSharp
+        m_TargetAssemblyTypeName: GameOverScript, Assembly-CSharp
         m_MethodName: RestartButton
         m_Mode: 1
         m_Arguments:

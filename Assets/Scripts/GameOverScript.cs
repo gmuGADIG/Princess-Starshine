@@ -4,32 +4,26 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class DeathScript : MonoBehaviour
+public class GameOverScript : MonoBehaviour
 {
     public DifficultyManager difficulty;
 
     //Resarting the game on easy or normal as defined in the Diffuclty Manager will restart the game, and reset upgrades(Upgrade system not implemented yet)
     public void RestartButton() {
 
-        if(difficulty.currentDifficulty == DifficultyManager.DifficultyLevel.Easy || difficulty.currentDifficulty
-            == DifficultyManager.DifficultyLevel.Normal)
-        {
             //Restarts to the currentLevel
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-           
-        }
 
-        //if in hardmode the game will restart, it may be redundant since exit game effectivley does the same thing
-        if (difficulty.currentDifficulty == DifficultyManager.DifficultyLevel.Hard)
-        {
+    }
 
+    //if in hardmode the game will restart, it may be redundant since exit game effectivley does the same thing
+    public void hardModeReset()
+    {
             SceneManager.LoadScene("TitleScreenScene");
 
 
-        }
-
     }
-   
+
     //Exits the game
     public void ExitButton()
     {
