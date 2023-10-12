@@ -15,12 +15,8 @@ public class DeathScript : MonoBehaviour
             == DifficultyManager.DifficultyLevel.Normal)
         {
             //Restarts to the currentLevel
-            SceneManager.LoadScene("UI");
-            /*
-             * upgrade = upgrades before the current level(Not yet implemented)
-             * 
-             */
-
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+           
         }
 
         //if in hardmode the game will restart, it may be redundant since exit game effectivley does the same thing
@@ -33,8 +29,6 @@ public class DeathScript : MonoBehaviour
         }
 
     }
-
-    
    
     //Exits the game
     public void ExitButton()
