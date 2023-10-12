@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
 
     private float projectileFireRate = 0.5f; // Default projectile fire rate
 
+    private Animator animator;
+
     private void Awake()
     {
         Instance = this;
@@ -17,6 +19,30 @@ public class PlayerController : MonoBehaviour
     public void SetProjectileFireRate(float newRate)
     {
         projectileFireRate = newRate;
+    }
+    
+
+    void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
+
+    void Update()
+    {
+        // Check for taunt input (for example, pressing the "T" key)
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            Taunt();
+        }
+    }
+
+    void Taunt()
+    {
+        // Trigger the taunt animation
+        animator.SetTrigger("Taunt");
+
+        // Add any additional taunt behavior here (audio, effects, etc.)
+        Debug.Log("Player taunting!");
     }
 
 }
