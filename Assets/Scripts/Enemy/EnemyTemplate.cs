@@ -18,53 +18,58 @@ public class EnemyTemplate : MonoBehaviour
 {
     #region VariableSettings
     [Header("Health Settings")]
-    [SerializeField] short maxHealth = 100;
+    [SerializeField] 
+    private float maxHealth = 100f;
 
     [Header("Character Settings")]
-    [SerializeField] short movementSpeed = 5;
-    [Tooltip("Where the enemy is moving too")][SerializeField] GameObject moveTowardsObject;
+    [SerializeField] 
+    private float movementSpeed = 5;
+
+    [Tooltip("Where the enemy is moving too")]
+    [SerializeField] 
+    private GameObject moveTowardsObject;
 
     [Header("XP Settings")]
-    [SerializeField] GameObject XPOrb;
-    [SerializeField] short XpDropRadius = 3;
-    [SerializeField] short xpDropAmount = 10;
+    [SerializeField] 
+    private GameObject XPOrb;
+
+    [SerializeField] 
+    private float xpDropRadius = 3;
+
+    [SerializeField] 
+    private int xpDropAmount = 10;
 
     [Header("Sound Effects")]
     [Tooltip("When the enemy has taken damage")][SerializeField] AudioSource TakenDamageSoundEffect;
     #endregion
 
-    private short currentHealth;
+    private float currentHealth;
     private bool isDead;
-
-    #region Get-Set Health
-    public short GetMaxHealth() {  return maxHealth; }
-    public void SetMaxHealth(short value) { maxHealth = value; }
-    #endregion
-    #region Get-Set CurrentHealth
-    public short GetCurrentHealth() { return currentHealth; }
-    public void SetCurrentHealth(short value) {  currentHealth = value; }
-    public void TakeDamage(short value) { 
-        currentHealth -= value;
+    public float MaxHealth { get => maxHealth; set => maxHealth = value; }
+    public float CurrentHealth { get => currentHealth; set => currentHealth = value; }
+    public float MovementSpeed { get => movementSpeed; set => movementSpeed = value; }
+    public float XPDropRadius { get => xpDropRadius; set => xpDropRadius = value; }
+    public int XPDropAmount { get => xpDropAmount; set => xpDropAmount = value; }
+    public bool IsDead {  get => isDead; set => isDead = value; }
+    public void TakeDamage(float value) { 
+        CurrentHealth -= value;
         TakenDamageSoundEffect.Play();
         CheckDeath();
     }
-    #endregion
-    #region Get-Set MovementSpeed
-    public short GetMovementSpeed() { return movementSpeed; }
-    public void SetMovementSpeed(short value) {  movementSpeed = value; }
-    #endregion
-    #region Get-Set XpDrop
-    public short GetXPDropAmount() {  return xpDropAmount; }
-    public void setXPDropAmount(short value) {  xpDropAmount = value; }
-    #endregion
+
+    public virtual void Die()
+    {
+        DistrubuteXP();
+        Destroy(this.gameObject);
+    }
 
     // TODO: Add code for enemy to move towards player
     public void MoveTowardsPlayer() {
         gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, moveTowardsObject.transform.position, movementSpeed * Time.deltaTime);
     }
 
-    private void CheckDeath() {
-        if (currentHealth <= 0) { isDead = true;  }
+    public void CheckDeath() {
+        if (CurrentHealth <= 0) { isDead = true;  }
     }
 
     /*
@@ -83,45 +88,43 @@ public class EnemyTemplate : MonoBehaviour
      * Get a random position around the enemy with a given radius
      * Set XP orb to that random position around the enemy
      */
-    private IEnumerator DistrubuteXP() {
+    private void DistrubuteXP() {
         // Gettings position of enemy
         Vector3 ENEMY_POSITION = gameObject.transform.position;
         for (int i = 0; i <= xpDropAmount; i++)
         {
             /// COPY OBJECT OF XP ///
-            GameObject @object = Instantiate(XPOrb);
+            GameObject orbObject = Instantiate(XPOrb);
 
             /// SET XP OBJECT'S POSITION TO THE SAME POSITION AS ENEMY ///
-            @object.gameObject.transform.position = ENEMY_POSITION;
+            orbObject.gameObject.transform.position = ENEMY_POSITION;
             
             /// GET A RANDOM POSITION AROUND THE ENEMY WITH A GIVEN RADIUS ///
-            Vector3 position = @object.gameObject.transform.position;
+            Vector3 position = orbObject.gameObject.transform.position;
 
-            Vector3 topLeft = new Vector3(position.x - XpDropRadius, position.y + XpDropRadius, position.z);
-            Vector3 bottomRight = new Vector3(position.x + XpDropRadius, position.y - XpDropRadius, position.z);
+            Vector3 topLeft = new Vector3(position.x - XPDropRadius, position.y + XPDropRadius, position.z);
+            Vector3 bottomRight = new Vector3(position.x + XPDropRadius, position.y - XPDropRadius, position.z);
 
             float RandomX = UnityEngine.Random.Range(topLeft.x, bottomRight.x);
             float RandomY = UnityEngine.Random.Range(bottomRight.y, topLeft.y);
             Vector3 newPosition = new Vector3(RandomX, RandomY, 0) + position;
 
             /// SET XP ORB TO A RANDOM POSITION AROUND THE ENEMY ///
-            @object.gameObject.transform.position = newPosition;
+            orbObject.gameObject.transform.position = newPosition;
         }
-        yield return null;
     }
 
-    void Start()
+    protected virtual void Start()
     {
-        currentHealth = maxHealth;
+        CurrentHealth = MaxHealth;
         CheckDeath();
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         MoveTowardsPlayer();
         if (isDead) {
-            StartCoroutine(DistrubuteXP());
-            Destroy(gameObject); // Gets rid of enemy from game.
+            Die();
         }
     }
 
