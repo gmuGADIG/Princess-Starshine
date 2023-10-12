@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class Environment : MonoBehaviour
 {
-    public GameObject PauseMenu;
-    public GameObject OptionsMenu;
+    public GameObject PauseMenuPrefab;
+    public GameObject OptionsMenuPrefab;
+    private static GameObject PauseMenu;
+    private static GameObject OptionsMenu;
     // Start is called before the first frame update
     void Start()
     {
-        PauseMenu = Instantiate(PauseMenu, new Vector3(0, 0, 0), Quaternion.identity);
+        PauseMenu = Instantiate(PauseMenuPrefab, new Vector3(0, 0, 0), Quaternion.identity);
         PauseMenu.SetActive(false);
-        OptionsMenu = Instantiate(OptionsMenu, new Vector3(0, 0, 0), Quaternion.identity);
+        OptionsMenu = Instantiate(OptionsMenuPrefab, new Vector3(0, 0, 0), Quaternion.identity);
         OptionsMenu.SetActive(false);
     }
 
@@ -28,12 +30,12 @@ public class Environment : MonoBehaviour
         }
     }
 
-    public GameObject getPauseMenu()
+    public static GameObject getPauseMenu()
     {
         return PauseMenu;
     }
 
-    public GameObject getOptionsMenu()
+    public static GameObject getOptionsMenu()
     {
         return OptionsMenu;
     }

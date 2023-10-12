@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PauseController : MonoBehaviour
+public class LevelSelect : MonoBehaviour
 {
     public static GameObject PauseMenu;
-    public static GameObject OptionsMenu;
+    public static GameObject LevelSelectMenu;
     // Start is called before the first frame update
     void Start()
     {
         PauseMenu = Environment.getPauseMenu();
-        OptionsMenu = Environment.getOptionsMenu();
+        //LevelSelectMenu = Environment.getLevelSelect();
     }
 
     // Update is called once per frame
@@ -19,15 +19,8 @@ public class PauseController : MonoBehaviour
         
     }
 
-    public void unPause()
+    public void goToPause()
     {
-        Time.timeScale = 1f;
-        PauseMenu.SetActive(false);
-    }
 
-    public void goToOptions()
-    {
-        OptionsMenu.SetActive(true);
-        PauseMenu.SetActive(false);
     }
 }

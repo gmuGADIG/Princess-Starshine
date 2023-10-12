@@ -121,9 +121,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
-        m_TargetAssemblyTypeName: Environment, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 7941414779913417261}
+        m_TargetAssemblyTypeName: PauseController, Assembly-CSharp
+        m_MethodName: unPause
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1062,8 +1062,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bbd3cda90140e74d863faec03515fec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PauseMenu: {fileID: 6738438458652244479}
-  OptionsMenu: {fileID: 7844938225608219057, guid: 80d554e2857124c47b70bfe258af8576, type: 3}
 --- !u!1 &8237722871370181871
 GameObject:
   m_ObjectHideFlags: 0
