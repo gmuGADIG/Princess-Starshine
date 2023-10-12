@@ -43,6 +43,6 @@ public class DifficultyManager : MonoBehaviour
 
         // Apply the adjusted parameters to the game objects
         EnemyScript.Instance.SetSpawnRate(enemySpawnRate);
-        PlayerController.Instance.SetProjectileFireRate(projectileFireRate);
+        
     }
 }
