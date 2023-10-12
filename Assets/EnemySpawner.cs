@@ -11,6 +11,7 @@ public class EnemySpawner : MonoBehaviour
     public float spawnRate = 1.0f; //seconds per spawn
     public float spawnAcceleration = 1.0f; //the amount that the time between spawns increases per spawn
     public float spawnChangeInterval = 5.0f; //after this many seconds have passed, the spawn rate will increase
+    public float minSpawnRate = 0.1f; //the shortest amount of time between spawns
 
     [System.Serializable]
     public struct EnemySpawn
@@ -80,7 +81,15 @@ public class EnemySpawner : MonoBehaviour
         }
         if (spawnChangeTimer <= 0)
         {
-            spawnRate -= spawnAcceleration; //decrease spawnRate by spawnAcceleration
+            if (spawnRate < minSpawnRate)
+            {
+                spawnRate = minSpawnRate; //spawn rate has reached its minimum
+            }
+            else
+            {
+                spawnRate -= spawnAcceleration; //decrease spawnRate by spawnAcceleration
+            }
+            
         }
     }
 }
