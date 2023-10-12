@@ -39,12 +39,16 @@ public class ProjectileWeapon : Weapon
 
     /** True if the projectile should be attached to the player and move with them. Otherwise, it operates in world space and moves independently of the player. */
     [SerializeField] bool projectileLocalSpace;
-    
+
+
+    /** Max projectiles that can be alive at a time. Will not shoot more. */
+    [SerializeField] int maxProjectiles;
     /**
      * The object that gets initialized on each fire.
      * Object must have the Projectile component attached to it.
      */
     [SerializeField] GameObject projectilePrefab;
+
     
     /**
      * Called whenever the weapon should fire, based on its `fireRate`.

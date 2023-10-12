@@ -2,7 +2,7 @@
 public enum EquipmentType
 {
     // weapons
-    FairyWand, GlitterBomb, TeaTime, Pomeranian,
+    FairyWand, GlitterBomb, TeaTime, Pomeranian, LovelyLullaby,
     
     // passives
     FairyFriend, BunnyBurst

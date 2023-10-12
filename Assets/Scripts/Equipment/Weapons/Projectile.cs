@@ -30,4 +30,9 @@ public class Projectile : MonoBehaviour
         this.size = size;
         hasBeenSetUp = true;
     }
+
+    private void OnDestroy()
+    {
+        
+    }
 }
