@@ -39,25 +39,4 @@ public class GlitterBomb : ProjectileWeapon
 
         projectilePrefab = Resources.Load<GameObject>("Projectiles/GlitterBomb/GlitterPrimary");
     }
-
-    public void Fire()//TODO: Integrate the projectile fired from glitterbomb into the new system, projectile needs to support nested projectiles or glitterbomb's projectile needs to be reworked.
-    {
-
-        if (GameObject.FindGameObjectsWithTag("Enemy").Length != 0)
-        {
-            Object.Instantiate(projectilePrefab, Player.instance.transform.position, Quaternion.identity);
-            timeUntilNextFire = fireRate;
-        }
-    }
-
-    public override void Update()
-    {
-        timeUntilNextFire -= Time.deltaTime;
-        if (timeUntilNextFire <= 0)
-        {
-            Fire();
-            timeUntilNextFire += 1f / fireRate; // infinity if fireRate is 0
-        }
-    }
-
 }

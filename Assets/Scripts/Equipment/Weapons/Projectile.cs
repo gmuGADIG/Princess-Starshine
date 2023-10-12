@@ -12,7 +12,7 @@ public class Projectile : MonoBehaviour
     float knockback = 1;
     float size = 1;
 
-    void Update()
+    protected new void Update()
     {
         if (!hasBeenSetUp) throw new Exception("Projectile has not been set up!");
         transform.position += (Vector3) velocity * Time.deltaTime;
