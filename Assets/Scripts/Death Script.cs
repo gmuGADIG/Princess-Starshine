@@ -23,24 +23,24 @@ public class DeathScript : MonoBehaviour
 
         }
 
-    }
+        //if in hardmode the game will restart, it may be redundant since exit game effectivley does the same thing
+        if (difficulty.currentDifficulty == DifficultyManager.DifficultyLevel.Hard)
+        {
 
-    //if in hardmode the game will restart, it may be redundant since exit game effectivley does the same thing
-    public void HardModeRestart() {
-
-        if (difficulty.currentDifficulty == DifficultyManager.DifficultyLevel.Hard) {
-
-            SceneManager.LoadScene("TitleScreen");
+            SceneManager.LoadScene("TitleScreenScene");
 
 
         }
 
     }
+
+    
+   
     //Exits the game
     public void ExitButton()
     {
 
-        SceneManager.LoadScene("TitleScreen");
+        SceneManager.LoadScene("TitleScreenScene");
        
     }
 
