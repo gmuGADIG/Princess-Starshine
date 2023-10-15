@@ -8,6 +8,7 @@ TagManager:
   - Consumable
   - WallOfFire
   - PlayerProjectile
+  - Enemy
   layers:
   - Default
   - TransparentFX
