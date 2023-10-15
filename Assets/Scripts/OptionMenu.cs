@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class OptionMenu : MonoBehaviour
 {
-    //saves options ui prefab to toggle on/off, this script toggles OFF
-    public GameObject OptionsUI; 
-    //public GameObject PauseMenu;
-    public void BackButton()
+    public static GameObject PauseMenu; // saves pause menu ui object to toggle on/off
+    public static GameObject OptionsMenu; // saves options ui object to toggle on/off
+
+    void Start()
     {
-        //Instantiate(PauseMenu, new Vector3(0, 0, 0), Quaternion.identity);
-        //Destroy(this);
-        OptionsUI.SetActive(false);
+        PauseMenu = Environment.getPauseMenu();
+        OptionsMenu = Environment.getOptionsMenu();
+    }
+
+    public void goToPause()
+    {
+        PauseMenu.SetActive(true);
+        OptionsMenu.SetActive(false);
     }
 }
