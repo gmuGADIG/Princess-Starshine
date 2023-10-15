@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -35,17 +34,8 @@ public class TitleSceenButtons : MonoBehaviour
 
     public void QuitButton()
     {
-        if(Application.isPlaying)
-        {
-            // closes playmode 
-            EditorApplication.isPlaying = false;
-        }
-        else
-        {
-            // quits game if not in platymode
-            Application.Quit();
-        }
-        
+        // quits game if not in platymode
+        Application.Quit();
     }
 
 }
