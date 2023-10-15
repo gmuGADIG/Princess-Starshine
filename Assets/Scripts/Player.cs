@@ -37,11 +37,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     float collisionRadius = 1;
 
-<<<<<<< HEAD
 
     // Start is called before the first frame update
-=======
->>>>>>> 91f4e004d47819d4dc025365aa46bdd2fceeac3f
     void Start()
     {
         instance = this;
