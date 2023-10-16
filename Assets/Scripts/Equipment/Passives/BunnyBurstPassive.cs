@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 // TODO: complete bunny burst passive
@@ -16,13 +17,9 @@ public class BunnyBurstPassive : Passive
 
     public override void OnUnEquip() { }
 
-    public override string GetLevelUpDescription()
+    public override (string description, Action onApply) GetLevelUps()
     {
-        return "Greater projectile speed boost";
+        return ("Greater projectile speed boost", () => Debug.Log("Not implemented yet!"));
     }
 
-    public override void ApplyLevelUp()
-    {
-        Debug.LogWarning("Bunny Burst not implemented yet!");
-    }
 }
