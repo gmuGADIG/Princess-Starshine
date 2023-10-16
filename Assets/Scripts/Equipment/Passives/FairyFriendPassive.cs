@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 // TODO: complete fairy friend passive
@@ -16,13 +17,8 @@ public class FairyFriendPassive : Passive
 
     public override void OnUnEquip() { }
 
-    public override string GetLevelUpDescription()
+    public override (string description, Action onApply) GetLevelUps()
     {
-        return "Greater health regen";
-    }
-
-    public override void ApplyLevelUp()
-    {
-        Debug.LogWarning("Fairy Friend not implemented yet!");
+        return ("Greater health regen", () => Debug.Log("Not implemented yet!"));
     }
 }
