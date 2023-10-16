@@ -103,6 +103,7 @@ MonoBehaviour:
   maxSpeed: 10
   deceleration: 30
   xpPoints: 0
+  isTwirling: 0
   maxTwirlCharges: 3
   twirlCooldown: 10
   twirlSpeed: 100
@@ -185,17 +186,17 @@ MonoBehaviour:
     - type: 0
       amount: 10
     - type: 3
-      amount: 2
+      amount: 1
     - type: 7
-      amount: 25
+      amount: 5
     - type: 2
-      amount: 2
+      amount: 1
     fireRate: 1
-    knockback: 0
-    projectileSize: 0
-    damage: 10
-    projectileCount: 0
-    projectileSpeed: 20
+    knockback: 2
+    projectileSize: 1
+    damage: 25
+    projectileCount: 1
+    projectileSpeed: 5
     pierceCount: 0
     targetingStrategy: 1
     spawnProjectileAtTarget: 0
@@ -212,14 +213,14 @@ MonoBehaviour:
       amount: 2
     - type: 5
       amount: 1
-    fireRate: 0.5
+    fireRate: 1
     knockback: 0
-    projectileSize: 0
+    projectileSize: 1
     damage: 30
-    projectileCount: 0
-    projectileSpeed: 5
-    pierceCount: 0
+    projectileCount: 1
+    projectileSpeed: 1
+    pierceCount: -1
     targetingStrategy: 2
     spawnProjectileAtTarget: 0
     projectileLocalSpace: 0
-    projectilePrefab: {fileID: 3661406676428322862, guid: 933f5034dd3c2654684b316d6319f4af, type: 3}
+    projectilePrefab: {fileID: 3699913326636598011, guid: 89af36c2ab441d94ab01814f36e7e5c1, type: 3}
