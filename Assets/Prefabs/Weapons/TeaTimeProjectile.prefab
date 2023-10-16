@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 7137632091619452571}
   - component: {fileID: 4527436391992574030}
   - component: {fileID: 3592210659048978852}
-  - component: {fileID: 7947087594803415651}
   m_Layer: 0
   m_Name: TeaTimeProjectile
   m_TagString: PlayerProjectile
@@ -181,37 +180,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  aliveTime: 10000000
-  leniencyBox: 0.05
+  useTimer: 0
+  leniencyBox: 0.1
   explosionRadius: 0
   deathTime: 2
-  rb: {fileID: 7947087594803415651}
-  dir: {x: 0, y: 0, z: 0}
+  dir: {x: 0, y: 0}
   circle: {fileID: 0}
---- !u!50 &7947087594803415651
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 466492882040963849}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0

@@ -226,3 +226,26 @@ MonoBehaviour:
     spawnProjectileAtTarget: 0
     projectileLocalSpace: 0
     projectilePrefab: {fileID: 7227924247430886604, guid: f438532f88467be4ab0da1afd295f71d, type: 3}
+  - type: 2
+    levelUpsDone: 0
+    levelUpOptions:
+    - type: 0
+      amount: 20
+    - type: 3
+      amount: 2
+    - type: 4
+      amount: 2
+    - type: 5
+      amount: 1
+    fireRate: 1
+    knockback: 0
+    projectileSize: 0.5
+    damage: 30
+    projectileCount: 1
+    projectileSpeed: 10
+    maxProjectiles: 1
+    pierceCount: -1
+    targetingStrategy: 3
+    spawnProjectileAtTarget: 0
+    projectileLocalSpace: 0
+    projectilePrefab: {fileID: 466492882040963849, guid: db69a31f668caf2498a1d2c85c1c2c17, type: 3}

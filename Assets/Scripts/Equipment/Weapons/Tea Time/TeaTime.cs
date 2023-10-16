@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TeaTime : MonoBehaviour
+public class TeaTime : Projectile
 {
 
     //If any of these variable names need changed feel free to change them to better match others
@@ -10,8 +10,6 @@ public class TeaTime : MonoBehaviour
 
     //The speed at which the projectile travels
     public float speed;
-    //The time in seconds that the object stays alive before destroying itself
-    public float aliveTime;
     //Tells the projectile whether it should die or not
     public bool useTimer;
     //The leniencyBox is the margin of error that a projectile can be away from the corner of the screen
@@ -22,14 +20,12 @@ public class TeaTime : MonoBehaviour
     public float explosionRadius;
     //How long the object should stick around after it hits a corner
     public float deathTime;
-    //The rigidbody of the projectile
-    public Rigidbody2D rb;
     //The direction the projectile is going
-    public Vector3 dir;
-    //The explosion hit box
-    public CircleCollider2D circle;
-    //The damage the projectile does
-    public float damage;
+    public Vector2 dir;
+    //The direction of the projectile but locked at positive values.
+    private Vector2 absDirection;
+    //The explosion hitbox
+    private CircleCollider2D circle;
     
     //Internal timer shouldn't be touched
     private float timer;
@@ -48,14 +44,38 @@ public class TeaTime : MonoBehaviour
         }
     }
 
+    //The setup for the projectile to make it usable
+    public override void Setup(ProjectileWeapon weapon, Vector2 target, float damage, int pierceCount, float speed, float knockback, float size)
+    {
+        this.weapon = weapon;
+        dir = target;
+        absDirection = new Vector2(Mathf.Abs(target.x), Mathf.Abs(target.y));
+        this.damage = damage; 
+        this.speed = speed;
+        this.knockback = knockback;
+        transform.localScale = new Vector2(size, size);
+        this.pierceCount = pierceCount;
+        hasBeenSetUp = true;
+    }
+
+    //Change stats once the weapon is leveled up
+    public override void OnWeaponLevelUp(float newDamage, int newPierceCount, float newSpeed, float newKnockback, float newSize) 
+    {
+        damage = newDamage;
+        pierceCount = newPierceCount;
+        speed = newSpeed;
+        knockback = newKnockback;
+        transform.localScale = new Vector2(newSize, newSize);    
+    }
+
     // Update is called once per frame
-    void Update()
+    new void Update()
     {
         //The logic for destroying the object after the specified time
         if (useTimer)
         {
             timer = timer + Time.deltaTime;
-            if (timer > aliveTime)
+            if (timer > maxLifeTime)
             {
                 Destroy(gameObject);
             }
@@ -63,12 +83,7 @@ public class TeaTime : MonoBehaviour
         //If moving then set the velocity to the current direction
         if (isMoving)
         {
-            rb.velocity = dir * speed;
-        }
-        //Else it shouldn't move at all
-        else
-        {
-            rb.velocity = Vector2.zero;
+            transform.position += (Vector3)(dir * speed * Time.deltaTime);
         }
         //Logic for whether the object has hit the corner of the screen
         Rect rect = cameraBoundingBox();
@@ -94,22 +109,22 @@ public class TeaTime : MonoBehaviour
         //If hit the left hand of the screen
         if(transform.position.x - (transform.localScale.x / 2) < rect.xMin)
         {
-            dir.x = 1;
+            dir.x = absDirection.x;
         }
         //If hit the right hand of the screen
         else if(transform.position.x + (transform.localScale.x / 2) > rect.xMax)
         {
-            dir.x = -1;
+            dir.x = (-absDirection.x);
         }
         //If hit the bottom of the screen
         else if (transform.position.y - (transform.localScale.y / 2) < rect.yMin)
         {
-            dir.y = 1;
+            dir.y = absDirection.y;
         }
         //If hit the top of the screen
         else if (transform.position.y + (transform.localScale.y / 2) > rect.yMax)
         {
-            dir.y = -1;
+            dir.y = (-absDirection.y);
         }
     }
 
@@ -120,6 +135,10 @@ public class TeaTime : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(deathTime);
+            //remove this if it is supposed to persist after hitting a corner
+            Destroy(gameObject);
+
+
             circle.enabled = false;
             isMoving = true;
             cooldownC();
