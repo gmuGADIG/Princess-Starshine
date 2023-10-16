@@ -3,18 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GlitterExplode : MonoBehaviour
-{   
-    private float timeAlive = 0;
-
-    [SerializeField]
-    private int damage = 10;
+{
+    [HideInInspector] public float damage = 10;
 
     void Update()
     {
-        timeAlive += Time.deltaTime;
-        if (timeAlive >= 0.25f)
+        StartCoroutine(Coroutine());
+        IEnumerator Coroutine()
         {
-            Destroy(gameObject);
+            yield return new WaitForSeconds(0.25f);
+            Destroy(this.gameObject);
         }
     }
 
