@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 8587922790121529083}
   - component: {fileID: 758981041140889567}
   - component: {fileID: 5777413852418222257}
-  - component: {fileID: 5551925365392248538}
   - component: {fileID: 1329436618432728380}
   - component: {fileID: 5022833992924263885}
+  - component: {fileID: -5853433466719325439}
   m_Layer: 0
   m_Name: GlitterExplode
   m_TagString: Untagged
@@ -151,19 +151,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
---- !u!114 &5551925365392248538
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7227924247430886604}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 454c0c3f937e66e43a1a01ad9a3d36a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 10
 --- !u!198 &1329436618432728380
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -5017,3 +5004,16 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &-5853433466719325439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7227924247430886604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac5a4dbe49b1c934aa64d757e3b2756d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10

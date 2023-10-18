@@ -197,6 +197,7 @@ MonoBehaviour:
     damage: 25
     projectileCount: 1
     projectileSpeed: 5
+    maxProjectiles: 1000
     pierceCount: 0
     targetingStrategy: 1
     spawnProjectileAtTarget: 0
@@ -219,6 +220,7 @@ MonoBehaviour:
     damage: 30
     projectileCount: 1
     projectileSpeed: 1
+    maxProjectiles: 1000
     pierceCount: -1
     targetingStrategy: 2
     spawnProjectileAtTarget: 0
