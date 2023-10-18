@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 3932130429666288465}
   - component: {fileID: 4117132569322660752}
   - component: {fileID: 2620958937377383029}
+  - component: {fileID: -1459567296244939718}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,6 +110,21 @@ MonoBehaviour:
   twirlSpeed: 100
   twirlDuration: 0.7
   collisionRadius: 1
+--- !u!114 &-1459567296244939718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4739150525570968963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c7c3bb40ad325b48beef73d93565ec7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  tempHealth: 0
+  isDead: 0
 --- !u!1 &5716612475371205497
 GameObject:
   m_ObjectHideFlags: 0
