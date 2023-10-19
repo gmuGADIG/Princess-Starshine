@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/TitleScreenScene.unity
     guid: 6307c02001f356b429873ec1d0d141fb
   - enabled: 0
@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Super Demo Scene.unity
     guid: 702583e8e023e504396eeebba8950842
+  - enabled: 1
+    path: Assets/Scenes/LevelPreview.unity
+    guid: 24e79c603d2d9703499d24ae5038c66e
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 99dd33738192b459ba606f5776e549f4
   m_configObjects: {}
