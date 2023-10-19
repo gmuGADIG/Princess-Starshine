@@ -14,6 +14,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(BoxCollider2D))]
 public class EnemyTemplate : MonoBehaviour
 {
     #region VariableSettings
@@ -27,7 +28,7 @@ public class EnemyTemplate : MonoBehaviour
 
     [Tooltip("Where the enemy is moving too")]
     [SerializeField] 
-    private GameObject moveTowardsObject;
+    protected GameObject moveTowardsObject;
 
     [Header("XP Settings")]
     [SerializeField] 
@@ -40,36 +41,57 @@ public class EnemyTemplate : MonoBehaviour
     private int xpDropAmount = 10;
 
     [Header("Sound Effects")]
-    [Tooltip("When the enemy has taken damage")][SerializeField] AudioSource TakenDamageSoundEffect;
+    [Tooltip("When the enemy has taken damage")]
+    [SerializeField] 
+    protected AudioSource TakenDamageSoundEffect;
     #endregion
 
     private float currentHealth;
     private bool isDead;
     public float MaxHealth { get => maxHealth; set => maxHealth = value; }
-    public float CurrentHealth { get => currentHealth; set => currentHealth = value; }
+    public float CurrentHealth { get => currentHealth; protected set => currentHealth = value; }
     public float MovementSpeed { get => movementSpeed; set => movementSpeed = value; }
     public float XPDropRadius { get => xpDropRadius; set => xpDropRadius = value; }
     public int XPDropAmount { get => xpDropAmount; set => xpDropAmount = value; }
     public bool IsDead {  get => isDead; set => isDead = value; }
+
+    private Rigidbody2D rb;
+    public Rigidbody2D RigidBody { get => rb; }
+    
+    /**
+     * Called when the enemy takes damage
+     * Default: Decreases the current health by the given value, plays the taken damage sound effect, and checks if the enemy is dead
+     **/
     public void TakeDamage(float value) { 
+
         CurrentHealth -= value;
         TakenDamageSoundEffect.Play();
         CheckDeath();
     }
-
+    
+    /* 
+     * Called when the enemy should die
+     * Default: Destroys the object and distributes XP
+     */
     public virtual void Die()
     {
+        if (isDead) { return; }
+        isDead = true;
         DistrubuteXP();
         Destroy(this.gameObject);
     }
 
-    // TODO: Add code for enemy to move towards player
-    public void MoveTowardsPlayer() {
-        gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, moveTowardsObject.transform.position, movementSpeed * Time.deltaTime);
+    protected void MoveTowardsObject() {
+        if (moveTowardsObject != null)
+        {
+            gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, moveTowardsObject.transform.position, movementSpeed * Time.deltaTime);
+        }
     }
 
-    public void CheckDeath() {
-        if (CurrentHealth <= 0) { isDead = true;  }
+    protected void CheckDeath() {
+        if (CurrentHealth <= 0) { 
+            Die();
+        }
     }
 
     /*
@@ -114,18 +136,25 @@ public class EnemyTemplate : MonoBehaviour
         }
     }
 
+    /**
+     * Called when the object is created
+     * Default: Sets the current health to the max health, and checks if the enemy is dead
+     */
     protected virtual void Start()
     {
+        if (moveTowardsObject == null) { moveTowardsObject = GameObject.FindGameObjectWithTag("Player"); }
+        if (XPOrb == null) { XPOrb = GameObject.FindGameObjectWithTag("XPOrb"); }
         CurrentHealth = MaxHealth;
         CheckDeath();
     }
 
+    /**
+     * Called Every Frame
+     * Default: Moves towards the object
+     **/
     protected virtual void Update()
     {
-        MoveTowardsPlayer();
-        if (isDead) {
-            Die();
-        }
+        MoveTowardsObject();
     }
 
 }
