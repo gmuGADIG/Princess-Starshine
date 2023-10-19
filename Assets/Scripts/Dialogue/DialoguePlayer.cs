@@ -32,6 +32,19 @@ public class DialoguePlayer : MonoBehaviour
     bool isInProgress;
     bool skipPressed;
 
+    public static void StartPlayer(string playerName)
+    {
+        var allPlayers = FindObjectsOfType<DialoguePlayer>();
+        var player = allPlayers.FirstOrDefault((p) => p.name == playerName);
+        if (player == null)
+            throw new Exception($"Dialogue player `{playerName}` does not exist!\nExisting players are: {string.Join(", ", allPlayers.ToList())}");
+
+        player.dialogueBox.SetActive(true);
+        player.enabled = true;
+        player.ProcessLine();
+    }
+
+
     void Start()
     {
         lines = dialogueSequence.text.Split(new[] {'\n', '\r'}, StringSplitOptions.RemoveEmptyEntries);

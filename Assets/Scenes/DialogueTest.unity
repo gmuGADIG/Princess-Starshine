@@ -134,12 +134,12 @@ GameObject:
   - component: {fileID: 92392218}
   - component: {fileID: 92392219}
   m_Layer: 5
-  m_Name: DialoguePlayer
+  m_Name: DialogueStart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &92392218
 RectTransform:
   m_ObjectHideFlags: 0
