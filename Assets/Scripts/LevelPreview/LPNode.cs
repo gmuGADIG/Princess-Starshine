@@ -19,6 +19,9 @@ public class LPNode : MonoBehaviour
     public LPNodePath PreviousPath; // nullable
     public LPNodePath NextPath; // nullable
 
+    public string LevelName;
+    public string LevelSceneName;
+
     public void Start() {
         /*
         if (Next != null) {
