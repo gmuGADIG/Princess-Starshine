@@ -18,7 +18,7 @@ public class SunnySqueePassive : Passive
 
     public override string GetLevelUpDescription()
     {
-        return "Higher fire rate";
+        return "Greater weapon fire rate";
     }
 
     public override void ApplyLevelUp()
