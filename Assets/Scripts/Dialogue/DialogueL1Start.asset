@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characters:
   - scriptName: Imp
-    displayName: 
+    displayName: Elevator Imp
     picture: {fileID: 2800000, guid: 839ab4f3c278ddf4ba9baf54531f1f67, type: 3}
   - scriptName: Princess
-    displayName: 
+    displayName: Princess Starshine
     picture: {fileID: 2800000, guid: f4fc316fcae2fff4ea04ee2bf4d0ce4b, type: 3}
   - scriptName: Virgil
-    displayName: 
+    displayName: Virgil
     picture: {fileID: 2800000, guid: fcb1919e10fddf043ba98b25a4589456, type: 3}
   - scriptName: VirgilUnknown
     displayName: ???
