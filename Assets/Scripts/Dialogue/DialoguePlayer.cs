@@ -28,20 +28,21 @@ public class DialoguePlayer : MonoBehaviour
     int currentLineIndex = 0;
     Dictionary<string, UnityEvent> commandDict;
     Dictionary<string, DialogueCharacter> characterDict;
-
-    bool isInProgress;
+    
+    bool isTextInProgress;
     bool skipPressed;
 
     public static void StartPlayer(string playerName)
     {
-        var allPlayers = FindObjectsOfType<DialoguePlayer>();
-        var player = allPlayers.FirstOrDefault((p) => p.name == playerName);
-        if (player == null)
-            throw new Exception($"Dialogue player `{playerName}` does not exist!\nExisting players are: {string.Join(", ", allPlayers.ToList())}");
+        var playerHolder = GameObject.Find("DialogueHolder");
+        if (playerHolder == null) throw new Exception( "No dialogue holder found! Make sure all dialogue players in the scene are children of an object named `DialogueHolder`");
 
-        player.dialogueBox.SetActive(true);
-        player.enabled = true;
-        player.ProcessLine();
+        var allPlayers = playerHolder.transform.Cast<Transform>().ToList();
+        
+        var player = allPlayers.FirstOrDefault(t => t.name == playerName);
+        if (player == null) throw new Exception($"Dialogue player `{playerName}` does not exist!\nExisting players are: {string.Join(", ", allPlayers.Select(p => p.name))}");
+
+        player.gameObject.SetActive(true);
     }
 
 
@@ -60,11 +61,16 @@ public class DialoguePlayer : MonoBehaviour
         ProcessLine();
     }
 
+    void EndDialogue()
+    {
+        gameObject.SetActive(false);
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (isInProgress) skipPressed = true;
+            if (isTextInProgress) skipPressed = true;
             else ProcessLine();
         }
     }
@@ -83,6 +89,12 @@ public class DialoguePlayer : MonoBehaviour
     
     public void ProcessLine()
     {
+        if (currentLineIndex >= lines.Length)
+        {
+            EndDialogue();
+            return;
+        }
+        
         var line = lines[currentLineIndex];
         var curlyIndex = line.IndexOf('{');
         var closingCurlyIndex = line.IndexOf('}');
@@ -126,7 +138,7 @@ public class DialoguePlayer : MonoBehaviour
         
         IEnumerator Coroutine()
         {
-            isInProgress = true;
+            isTextInProgress = true;
             textObj.text = "";
             var startTime = Time.time;
             for (int i = 0; i < words.Length; i++)
@@ -159,14 +171,14 @@ public class DialoguePlayer : MonoBehaviour
             }
 
             skipPressed = false;
-            isInProgress = false;
+            isTextInProgress = false;
             if (commandOnFinish != null) RunCommand(commandOnFinish);
         }
     }
 
     void RunCommand(string commandName)
     {
-        print($"Running command `{commandName}`");
+        // print($"Running command `{commandName}`");
         if (!commandDict.ContainsKey(commandName))
         {
             Debug.LogError($"Command `{commandName}` does not exist!");

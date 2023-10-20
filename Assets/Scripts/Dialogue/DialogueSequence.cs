@@ -5,7 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
-[CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/Dialogue")]
+[CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/DialogueSequence")]
 public class DialogueSequence : ScriptableObject
 {
     public DialogueCharacter[] characters;
