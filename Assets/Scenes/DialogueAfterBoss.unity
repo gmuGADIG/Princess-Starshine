@@ -244,7 +244,7 @@ MonoBehaviour:
   dialogueBox: {fileID: 656301823}
   textName: {fileID: 696113247}
   textLabel: {fileID: 2048553222}
-  testDialogue: {fileID: 11400000, guid: 70bb9e3a2b03d4a45bc106fe38fc0971, type: 2}
+  testDialogue: {fileID: 11400000, guid: 22067860ae7614a4484229a7d348d525, type: 2}
 --- !u!114 &656301829
 MonoBehaviour:
   m_ObjectHideFlags: 0
