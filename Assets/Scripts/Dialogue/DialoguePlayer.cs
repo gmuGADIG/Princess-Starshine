@@ -10,6 +10,11 @@ using UnityEngine.Events;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
+/**
+ * An object which plays a single dialogue sequence as soon as it's enabled.
+ * To trigger a sequence at the start of a scene, have enable it in the inspector.
+ * To trigger it on demand, see DialoguePlayer.StartPlayer.
+ */
 public class DialoguePlayer : MonoBehaviour
 {
     const float charsPerSecond = 20;
@@ -22,7 +27,7 @@ public class DialoguePlayer : MonoBehaviour
 
     [Header("Dialogue Elements")]
     public DialogueSequence dialogueSequence;
-    public DialogueEvent[] commands;
+    public DialogueCommand[] commands;
 
     string[] lines;
     int currentLineIndex = 0;
@@ -32,6 +37,10 @@ public class DialoguePlayer : MonoBehaviour
     bool isTextInProgress;
     bool skipPressed;
 
+    /**
+     * Starts a dialogue player based on the name of the game object it's attached to.
+     * For this to work, make sure all dialogue players are under an enabled game object named DialogueHolder. 
+     */
     public static void StartPlayer(string playerName)
     {
         var playerHolder = GameObject.Find("DialogueHolder");
@@ -75,6 +84,9 @@ public class DialoguePlayer : MonoBehaviour
         }
     }
 
+    /**
+     * Helpful function for commands. If you want to play an animation, use this to hide the dialogue box until it finishes.
+     */
     public void HideDialogueBoxThenAdvance(float seconds)
     {
         dialogueBox.SetActive(false);
@@ -87,6 +99,11 @@ public class DialoguePlayer : MonoBehaviour
         }
     }
     
+    /**
+     * Runs a single line of the dialogue sequence, displaying the text and triggering any commands.
+     * Advances the currentLineIndex by one.
+     * If there are no more lines to read, ends the dialogue and hides the box. 
+     */
     public void ProcessLine()
     {
         if (currentLineIndex >= lines.Length)
@@ -118,6 +135,9 @@ public class DialoguePlayer : MonoBehaviour
         currentLineIndex += 1;
     }
 
+    /**
+     * Parses a string in the form `character: text to display` (no commands!) and displays it.
+     */
     void ShowDialogue(string text, [CanBeNull] string commandOnFinish)
     {
         var colonIndex = text.IndexOf(':');
@@ -176,6 +196,9 @@ public class DialoguePlayer : MonoBehaviour
         }
     }
 
+    /**
+     * Runs a command based on its name (commandName must not contain curly braces).
+     */ 
     void RunCommand(string commandName)
     {
         // print($"Running command `{commandName}`");
