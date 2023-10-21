@@ -79,6 +79,7 @@ public class DialoguePlayer : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            if (dialogueBox.activeSelf == false) return;
             if (isTextInProgress) skipPressed = true;
             else ProcessLine();
         }
