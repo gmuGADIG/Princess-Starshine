@@ -25,15 +25,15 @@ class LPStationary : ILPState {
         if (LevelPreviewMenuManager.OptionsMenuVisible) return this;
 
         // check for input
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        if (Input.GetKeyDown(KeyCode.A))
             if (player.CurrentNode.PreviousPath != null)
                 return new LPOnPath(player.CurrentNode.PreviousPath, true);
 
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKeyDown(KeyCode.D))
             if (player.CurrentNode.NextPath != null && player.CurrentNode.NextPath.EndNode.Unlocked)
                 return new LPOnPath(player.CurrentNode.NextPath, false);
         
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.Space))
             if (player.CurrentNode.LevelSceneName != "")
                 LPPlayer.FireSwapToLevel(player.CurrentNode.LevelSceneName);
 
