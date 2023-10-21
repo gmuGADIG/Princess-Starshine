@@ -334,7 +334,6 @@ GameObject:
   - component: {fileID: 89782774}
   - component: {fileID: 89782773}
   - component: {fileID: 89782772}
-  - component: {fileID: 89782775}
   m_Layer: 5
   m_Name: OptionsButton
   m_TagString: Untagged
@@ -406,7 +405,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 89782775}
+      - m_Target: {fileID: 169959373}
         m_TargetAssemblyTypeName: TitleSceenButtons, Assembly-CSharp
         m_MethodName: OptionsButton
         m_Mode: 1
@@ -456,21 +455,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 89782770}
   m_CullTransparentMesh: 1
---- !u!114 &89782775
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 89782770}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a65c55c5ce930d3459da770b3f60809e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  firstLevelSceneName: 
-  savedLevelSceneName: 
-  OptionsUI: {fileID: 1603244917}
 --- !u!1 &169959370
 GameObject:
   m_ObjectHideFlags: 0
@@ -480,6 +464,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 169959371}
+  - component: {fileID: 169959373}
   - component: {fileID: 169959372}
   m_Layer: 5
   m_Name: Buttons
@@ -537,6 +522,21 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &169959373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 169959370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a65c55c5ce930d3459da770b3f60809e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firstLevelSceneName: LevelPreview
+  savedLevelSceneName: 
+  OptionsUI: {fileID: 1603244917}
 --- !u!1 &345868477
 GameObject:
   m_ObjectHideFlags: 0
@@ -1907,7 +1907,6 @@ GameObject:
   - component: {fileID: 1733593787}
   - component: {fileID: 1733593786}
   - component: {fileID: 1733593785}
-  - component: {fileID: 1733593788}
   m_Layer: 5
   m_Name: NewRunButton
   m_TagString: Untagged
@@ -1979,7 +1978,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1733593788}
+      - m_Target: {fileID: 169959373}
         m_TargetAssemblyTypeName: TitleSceenButtons, Assembly-CSharp
         m_MethodName: NewRunButton
         m_Mode: 1
@@ -2029,21 +2028,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1733593783}
   m_CullTransparentMesh: 1
---- !u!114 &1733593788
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1733593783}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a65c55c5ce930d3459da770b3f60809e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  firstLevelSceneName: 
-  savedLevelSceneName: 
-  OptionsUI: {fileID: 0}
 --- !u!1 &1806381091
 GameObject:
   m_ObjectHideFlags: 0
@@ -2056,7 +2040,6 @@ GameObject:
   - component: {fileID: 1806381095}
   - component: {fileID: 1806381094}
   - component: {fileID: 1806381093}
-  - component: {fileID: 1806381096}
   - component: {fileID: 1806381097}
   m_Layer: 5
   m_Name: ContinueButton
@@ -2128,19 +2111,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1806381094}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1806381096}
-        m_TargetAssemblyTypeName: TitleSceenButtons, Assembly-CSharp
-        m_MethodName: ContinueButton
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1806381094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2179,21 +2150,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1806381091}
   m_CullTransparentMesh: 1
---- !u!114 &1806381096
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1806381091}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a65c55c5ce930d3459da770b3f60809e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  firstLevelSceneName: 
-  savedLevelSceneName: 
-  OptionsUI: {fileID: 0}
 --- !u!114 &1806381097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2294,7 +2250,6 @@ GameObject:
   - component: {fileID: 2028189195}
   - component: {fileID: 2028189194}
   - component: {fileID: 2028189193}
-  - component: {fileID: 2028189196}
   m_Layer: 5
   m_Name: QuitButton
   m_TagString: Untagged
@@ -2366,7 +2321,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2028189196}
+      - m_Target: {fileID: 169959373}
         m_TargetAssemblyTypeName: TitleSceenButtons, Assembly-CSharp
         m_MethodName: QuitButton
         m_Mode: 1
@@ -2416,21 +2371,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2028189190}
   m_CullTransparentMesh: 1
---- !u!114 &2028189196
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2028189190}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a65c55c5ce930d3459da770b3f60809e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  firstLevelSceneName: 
-  savedLevelSceneName: 
-  OptionsUI: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
