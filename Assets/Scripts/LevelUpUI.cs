@@ -11,10 +11,19 @@ public class LevelUpUI : MonoBehaviour
     public static LevelUpUI instance;
 
     public GameObject iconPrefab;
+    public GameObject menuParent;
 
-    LevelUpUI()
+    void Awake()
     {
-        instance = this;
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
+        Close();
     }
 
     /**
@@ -22,13 +31,19 @@ public class LevelUpUI : MonoBehaviour
      */
     public void Open()
     {
-        this.gameObject.SetActive(true);
+        menuParent.SetActive(true);
         Time.timeScale = 0;
         
         var options = EquipmentManager.instance.GetUpgradeOptions();
         
         var iconHolder = transform.Find("EquipmentSelect");
-        foreach (Transform icon in iconHolder.transform) Destroy(icon.gameObject); // destroy left-over icons
+        if (iconHolder != null)
+        {
+            foreach (Transform icon in iconHolder.transform)
+            {
+                Destroy(icon.gameObject); // destroy left-over icons
+            }
+        }
         foreach (var option in options)
         {
             var obj = Instantiate(iconPrefab, iconHolder);
@@ -53,6 +68,6 @@ public class LevelUpUI : MonoBehaviour
     private void Close()
     {
         Time.timeScale = 1;
-        this.gameObject.SetActive(false);
+        menuParent.SetActive(false);
     }
 }

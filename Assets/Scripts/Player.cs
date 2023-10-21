@@ -37,6 +37,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     float collisionRadius = 1;
 
+    RaycastHit2D[] collisions = new RaycastHit2D[50];
+
 
     // Start is called before the first frame update
     void Start()
@@ -67,9 +69,10 @@ public class Player : MonoBehaviour
         UpdateTwirl(input);
 
         // check collisions
-        var collisions = Physics2D.CircleCastAll(transform.position, collisionRadius, Vector2.zero);
-        foreach (var hit in collisions) {
-            OnCollision(hit);
+        int hits = Physics2D.CircleCastNonAlloc(transform.position, collisionRadius, Vector2.zero, collisions);
+        for (int i = 0; i < hits; i++)
+        {
+            OnCollision(collisions[i]);
         }
 
         transform.position += (Vector3)(velocity * Time.deltaTime);
