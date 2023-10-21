@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 3932130429666288465}
   - component: {fileID: 4117132569322660752}
   - component: {fileID: 2620958937377383029}
+  - component: {fileID: -1459567296244939718}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,6 +110,21 @@ MonoBehaviour:
   twirlSpeed: 100
   twirlDuration: 0.7
   collisionRadius: 1
+--- !u!114 &-1459567296244939718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4739150525570968963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c7c3bb40ad325b48beef73d93565ec7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  tempHealth: 0
+  isDead: 0
 --- !u!1 &5716612475371205497
 GameObject:
   m_ObjectHideFlags: 0
@@ -225,4 +241,27 @@ MonoBehaviour:
     targetingStrategy: 2
     spawnProjectileAtTarget: 0
     projectileLocalSpace: 0
-    projectilePrefab: {fileID: 3699913326636598011, guid: 89af36c2ab441d94ab01814f36e7e5c1, type: 3}
+    projectilePrefab: {fileID: 7227924247430886604, guid: f438532f88467be4ab0da1afd295f71d, type: 3}
+  - type: 2
+    levelUpsDone: 0
+    levelUpOptions:
+    - type: 0
+      amount: 20
+    - type: 3
+      amount: 2
+    - type: 4
+      amount: 2
+    - type: 5
+      amount: 1
+    fireRate: 1
+    knockback: 0
+    projectileSize: 0.5
+    damage: 30
+    projectileCount: 1
+    projectileSpeed: 10
+    maxProjectiles: 1
+    pierceCount: -1
+    targetingStrategy: 3
+    spawnProjectileAtTarget: 0
+    projectileLocalSpace: 0
+    projectilePrefab: {fileID: 466492882040963849, guid: db69a31f668caf2498a1d2c85c1c2c17, type: 3}

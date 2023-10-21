@@ -7,6 +7,7 @@ TagManager:
   - xp
   - Consumable
   - WallOfFire
+  - PlayerProjectile
   - Enemy
   layers:
   - Default
