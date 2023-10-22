@@ -1590,3 +1590,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ce77e7919ae114797ba3f54a52bbaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnOptionsMenuClose:
+    m_PersistentCalls:
+      m_Calls: []

@@ -6,15 +6,19 @@ using UnityEngine.Events;
 
 public class OptionMenu : MonoBehaviour
 {
-    public static GameObject PauseMenu; // saves pause menu ui object to toggle on/off
-    public static GameObject OptionsMenu; // saves options ui object to toggle on/off
+    public GameObject PauseMenu; // saves pause menu ui object to toggle on/off
+    public GameObject OptionsMenu; // saves options ui object to toggle on/off
 
     public UnityEvent OnOptionsMenuClose;
 
     void Start()
     {
-        PauseMenu = Environment.getPauseMenu();
-        OptionsMenu = Environment.getOptionsMenu();
+        // We only want to get these variables if Options was opened by pausing the game.
+        // For the Main Menu it's linked up, but without the Pause Menu.
+        if (Environment.getPauseMenu() != null) {
+            PauseMenu = Environment.getPauseMenu();
+            OptionsMenu = Environment.getOptionsMenu();
+        }
     }
 
     public void goToPause()
@@ -26,5 +30,10 @@ public class OptionMenu : MonoBehaviour
             PauseMenu.SetActive(true);
             OptionsMenu.SetActive(false);
         }
+    }
+
+    public void BackButton()
+    {
+        OptionsMenu.SetActive(false);
     }
 }
