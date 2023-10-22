@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class TeaTime : Projectile
@@ -33,8 +34,9 @@ public class TeaTime : Projectile
     private bool isMoving = true;
     //Stops the projectile from getting stuck in the corner
     private bool cooldown = false;
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         //Makes the explosion hitbox the specified size
         TryGetComponent<CircleCollider2D>(out circle);
         if(circle != null)
@@ -48,8 +50,8 @@ public class TeaTime : Projectile
     public override void Setup(ProjectileWeapon weapon, Vector2 target, float damage, int pierceCount, float speed, float knockback, float size)
     {
         this.weapon = weapon;
-        dir = target;
-        absDirection = new Vector2(Mathf.Abs(target.x), Mathf.Abs(target.y));
+        dir = (target - (Vector2)this.transform.position).normalized;
+        absDirection = dir.Abs();
         this.damage = damage; 
         this.speed = speed;
         this.knockback = knockback;
@@ -161,15 +163,22 @@ public class TeaTime : Projectile
     {
         float camX = Camera.main.transform.position.x;
         float camY = Camera.main.transform.position.y;
-
-        float verticalExt = Camera.main.orthographicSize;
-        float horizontalExt = verticalExt * ((float)Screen.width / Screen.height);
         
-        float minX = camX - horizontalExt;
-        float maxX = camX + horizontalExt;
-        float minY = camY - verticalExt;
-        float maxY = camY + verticalExt;
-
-        return new Rect(minX, minY, maxX*2, maxY*2);
+        float halfHeight = Camera.main.orthographicSize;
+        float halfWidth = halfHeight * ((float)Screen.width / Screen.height);
+        
+        return new Rect(camX - halfWidth, camY - halfHeight, halfWidth * 2, halfHeight * 2);
+        
+        // var cam = Camera.main;
+        //
+        // var camPos = cam.transform.position;
+        // camPos.z = 0;
+        //
+        // float halfHeight = cam.orthographicSize;
+        // float halfWidth = halfHeight * Screen.width / Screen.height;
+        //
+        // var bottomLeft = camPos - new Vector3(halfWidth, halfHeight);
+        // var topRight = camPos + new Vector3(halfWidth, halfHeight);
+        // return new Rect(bottomLeft.x, bottomLeft.y, topRight.x, topRight.y);
     }
 }

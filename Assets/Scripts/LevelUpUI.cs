@@ -12,6 +12,7 @@ public class LevelUpUI : MonoBehaviour
 
     public GameObject iconPrefab;
     public GameObject menuParent;
+    public Transform iconHolder;
 
     void Awake()
     {
@@ -23,9 +24,16 @@ public class LevelUpUI : MonoBehaviour
         {
             Destroy(this);
         }
-        Close();
     }
 
+    public void Start()
+    {
+        this.gameObject.SetActive(true);
+        Time.timeScale = 0;
+        
+        ShowOptions(EquipmentManager.instance.GetUpgradeOptions(true));
+    }
+    
     /**
      * Opens the level-up menu, pausing the game until the player selects one of the four generated upgrades.
      */
@@ -34,17 +42,14 @@ public class LevelUpUI : MonoBehaviour
         menuParent.SetActive(true);
         Time.timeScale = 0;
         
-        var options = EquipmentManager.instance.GetUpgradeOptions();
-        
-        var iconHolder = transform.Find("EquipmentSelect");
-        if (iconHolder != null)
-        {
-            foreach (Transform icon in iconHolder.transform)
-            {
-                Destroy(icon.gameObject); // destroy left-over icons
-            }
-        }
-        foreach (var option in options)
+        ShowOptions(EquipmentManager.instance.GetUpgradeOptions());
+    }
+
+    private void ShowOptions(List<UpgradeOption> upgradeOptions)
+    {
+        if (iconHolder == null) throw new Exception("LevelUpUI failed to find icon holder!");
+        foreach (Transform icon in iconHolder.transform) Destroy(icon.gameObject); // destroy left-over icons
+        foreach (var option in upgradeOptions)
         {
             var obj = Instantiate(iconPrefab, iconHolder);
             var name = obj.transform.Find("Name").GetComponent<TextMeshProUGUI>();
@@ -59,6 +64,7 @@ public class LevelUpUI : MonoBehaviour
                 () =>
                 {
                     option.onSelect();
+                    InGameUI.UpdateItems();
                     this.Close();
                 }
             );

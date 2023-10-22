@@ -18,7 +18,7 @@ public class CameraLevelScrolling : MonoBehaviour
     //The speed that the camera moves across the screen
     public float cam_speed;
     //The boolean that says whether or not the camera should move
-    public static CameraMoveType cam_move_type = CameraMoveType.playerX;
+    public static CameraMoveType cam_move_type = CameraMoveType.scroll;
 
     public GameObject player;
 
