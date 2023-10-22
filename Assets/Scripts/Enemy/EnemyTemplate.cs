@@ -12,7 +12,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(BoxCollider2D))]
 public class EnemyTemplate : MonoBehaviour
@@ -38,7 +40,7 @@ public class EnemyTemplate : MonoBehaviour
     private float xpDropRadius = 3;
 
     [SerializeField] 
-    private int xpDropAmount = 10;
+    private int xpDropAmount = 3;
 
     [Header("Sound Effects")]
     [Tooltip("When the enemy has taken damage")]
@@ -65,7 +67,7 @@ public class EnemyTemplate : MonoBehaviour
     public void TakeDamage(float value) { 
 
         CurrentHealth -= value;
-        TakenDamageSoundEffect.Play();
+        // TakenDamageSoundEffect.Play();
         CheckDeath();
     }
     
@@ -115,24 +117,24 @@ public class EnemyTemplate : MonoBehaviour
         Vector3 ENEMY_POSITION = gameObject.transform.position;
         for (int i = 0; i <= xpDropAmount; i++)
         {
-            /// COPY OBJECT OF XP ///
-            GameObject orbObject = Instantiate(XPOrb);
+            var orb = Instantiate(XPOrb);
+            orb.transform.position = ENEMY_POSITION + (Vector3)Random.insideUnitCircle * xpDropRadius;
 
-            /// SET XP OBJECT'S POSITION TO THE SAME POSITION AS ENEMY ///
-            orbObject.gameObject.transform.position = ENEMY_POSITION;
+            // /// SET XP OBJECT'S POSITION TO THE SAME POSITION AS ENEMY ///
+            // orbObject.gameObject.transform.position = ENEMY_POSITION;
             
-            /// GET A RANDOM POSITION AROUND THE ENEMY WITH A GIVEN RADIUS ///
-            Vector3 position = orbObject.gameObject.transform.position;
+            // /// GET A RANDOM POSITION AROUND THE ENEMY WITH A GIVEN RADIUS ///
+            // Vector3 position = orbObject.gameObject.transform.position;
 
-            Vector3 topLeft = new Vector3(position.x - XPDropRadius, position.y + XPDropRadius, position.z);
-            Vector3 bottomRight = new Vector3(position.x + XPDropRadius, position.y - XPDropRadius, position.z);
-
-            float RandomX = UnityEngine.Random.Range(topLeft.x, bottomRight.x);
-            float RandomY = UnityEngine.Random.Range(bottomRight.y, topLeft.y);
-            Vector3 newPosition = new Vector3(RandomX, RandomY, 0) + position;
-
-            /// SET XP ORB TO A RANDOM POSITION AROUND THE ENEMY ///
-            orbObject.gameObject.transform.position = newPosition;
+            // Vector3 topLeft = new Vector3(position.x - XPDropRadius, position.y + XPDropRadius, position.z);
+            // Vector3 bottomRight = new Vector3(position.x + XPDropRadius, position.y - XPDropRadius, position.z);
+            //
+            // float RandomX = UnityEngine.Random.Range(topLeft.x, bottomRight.x);
+            // float RandomY = UnityEngine.Random.Range(bottomRight.y, topLeft.y);
+            // Vector3 newPosition = new Vector3(RandomX, RandomY, 0) + position;
+            //
+            // /// SET XP ORB TO A RANDOM POSITION AROUND THE ENEMY ///
+            // orbObject.gameObject.transform.position = newPosition;
         }
     }
 
@@ -150,7 +152,7 @@ public class EnemyTemplate : MonoBehaviour
 
     /**
      * Called Every Frame
-     * Default: Moves towards the object
+     * Default: Moves towards the object and handles collisions
      **/
     protected virtual void Update()
     {

@@ -10,7 +10,8 @@ public class PlayerHealth : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        tempHealth = 50;
+        tempHealth = 100;
+        InGameUI.SetHp(1f);
     }
 
     // Update is called once per frame
@@ -28,11 +29,13 @@ public class PlayerHealth : MonoBehaviour
     public void decreaseHealth(float num)
     {
         tempHealth -= num;
+        InGameUI.SetHp(tempHealth / maxHealth);
     }
 
     public void increaseHealth(float num)
     {
         tempHealth += num;
-        Debug.Log(tempHealth);
+        // Debug.Log(tempHealth);
+        InGameUI.SetHp(tempHealth / maxHealth);
     }
 }

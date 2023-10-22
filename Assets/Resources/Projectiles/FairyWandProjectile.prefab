@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6856194278147125263}
   - component: {fileID: 3977850003122747628}
   - component: {fileID: 2730357812780351297}
+  - component: {fileID: 5304121721706379593}
   - component: {fileID: -6064984315846935380}
   m_Layer: 0
   m_Name: FairyWandProjectile
@@ -95,9 +96,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 6198564449727914785}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce6bfcdb4df4b9147b247bf91b03dba6, type: 3}
+  m_Script: {fileID: 11500000, guid: 3e0fb708da2199145af1815fcafda926, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5304121721706379593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6198564449727914785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 478abfc422869d340891d4c9c9f97369, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
 --- !u!58 &-6064984315846935380
 CircleCollider2D:
   m_ObjectHideFlags: 0

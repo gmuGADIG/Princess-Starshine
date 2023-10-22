@@ -250,7 +250,7 @@ MonoBehaviour:
     targetingStrategy: 1
     spawnProjectileAtTarget: 0
     projectileLocalSpace: 0
-    projectilePrefab: {fileID: 6198564449727914785, guid: fc72be9823d448a4fa8aa2ac3421a321, type: 3}
+    projectilePrefab: {fileID: 6198564449727914785, guid: 9c4da975914a3824cbfd6887823916cd, type: 3}
   - type: 1
     levelUpsDone: 0
     levelUpOptions:
