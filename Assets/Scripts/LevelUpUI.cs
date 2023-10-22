@@ -12,6 +12,7 @@ public class LevelUpUI : MonoBehaviour
 
     public GameObject iconPrefab;
     public GameObject menuParent;
+    public Transform iconHolder;
 
     void Awake()
     {
@@ -46,7 +47,6 @@ public class LevelUpUI : MonoBehaviour
 
     private void ShowOptions(List<UpgradeOption> upgradeOptions)
     {
-        var iconHolder = menuParent.transform.Find("EquipmentSelect");
         if (iconHolder == null) throw new Exception("LevelUpUI failed to find icon holder!");
         foreach (Transform icon in iconHolder.transform) Destroy(icon.gameObject); // destroy left-over icons
         foreach (var option in upgradeOptions)
