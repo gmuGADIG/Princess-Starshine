@@ -18,7 +18,7 @@ public class EquipmentManager : MonoBehaviour
     
     // in inspector
     public EquipmentIcon[] icons;
-    [SerializeField] ProjectileWeapon[] allWeapons;
+    [SerializeField] public ProjectileWeapon[] allWeapons;
 
     // general
     public static EquipmentManager instance;
