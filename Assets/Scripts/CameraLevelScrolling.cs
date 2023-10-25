@@ -8,7 +8,7 @@ using UnityEngine.EventSystems;
 public enum CameraMoveType
 {
     scroll,
-    playerY,
+    playerX,
     player
 }
 
@@ -18,7 +18,7 @@ public class CameraLevelScrolling : MonoBehaviour
     //The speed that the camera moves across the screen
     public float cam_speed;
     //The boolean that says whether or not the camera should move
-    public static CameraMoveType cam_move_type = CameraMoveType.playerY;
+    public static CameraMoveType cam_move_type = CameraMoveType.scroll;
 
     public GameObject player;
 
@@ -31,10 +31,11 @@ public class CameraLevelScrolling : MonoBehaviour
         {
             gameObject.transform.Translate(Vector3.right * cam_speed * Time.deltaTime);
         }
-        else if(cam_move_type == CameraMoveType.playerY)
+        else if(cam_move_type == CameraMoveType.playerX)
         {
-            Vector3 cam_pos = new Vector3(gameObject.transform.position.x +  cam_speed * Time.deltaTime,
-                        Mathf.Lerp(gameObject.transform.position.y, player.transform.position.y, cam_smoothness * Time.deltaTime));
+            // Move the camera *smoothly* towards the player's position.
+            Vector3 cam_pos = new Vector3(Mathf.Lerp(gameObject.transform.position.x, player.transform.position.x, cam_smoothness * Time.deltaTime),
+                                            Mathf.Lerp(gameObject.transform.position.y, player.transform.position.y, cam_smoothness * Time.deltaTime));
             //Vector3 cam_pos = player.transform.position;
             cam_pos.z = -10;
             gameObject.transform.position = cam_pos;

@@ -11,71 +11,69 @@ public class LevelUpUI : MonoBehaviour
     public static LevelUpUI instance;
 
     public GameObject iconPrefab;
+    public GameObject menuParent;
+    public Transform iconHolder;
 
-    LevelUpUI()
+    void Awake()
     {
-        instance = this;
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
     }
 
+    public void Start()
+    {
+        this.gameObject.SetActive(true);
+        Time.timeScale = 0;
+        
+        ShowOptions(EquipmentManager.instance.GetUpgradeOptions(true));
+    }
+    
     /**
      * Opens the level-up menu, pausing the game until the player selects one of the four generated upgrades.
      */
     public void Open()
     {
-        this.gameObject.SetActive(true);
+        menuParent.SetActive(true);
         Time.timeScale = 0;
         
-        var options = EquipmentManager.instance.GetUpgradeOptions();
-        
+        ShowOptions(EquipmentManager.instance.GetUpgradeOptions());
+    }
 
-        var iconHolder = transform.Find("EquipmentSelect");
+    private void ShowOptions(List<UpgradeOption> upgradeOptions)
+    {
+        if (iconHolder == null) throw new Exception("LevelUpUI failed to find icon holder!");
         foreach (Transform icon in iconHolder.transform) Destroy(icon.gameObject); // destroy left-over icons
-        foreach (var option in options)
+        foreach (var option in upgradeOptions)
         {
             var obj = Instantiate(iconPrefab, iconHolder);
             var name = obj.transform.Find("Name").GetComponent<TextMeshProUGUI>();
             var image = obj.transform.Find("Icon").GetComponent<RawImage>();
             var description = obj.transform.Find("Description").GetComponent<TextMeshProUGUI>();
-
-            var icon = EquipmentManager.instance.GetIcon(option.equipment);
-            name.text = icon.name;
-            image.texture = icon.icon;
             
-            if (option.isLevelUp)
-            {
-                description.text = "Item Level Up!";
-                if (option.equipment is Weapon)
-                {
-                    description.text += "\n" + option.levelUps[0] + "\n" + option.levelUps[1];
-                }
-                else if (option.equipment is Passive passive)
-                {
-                    description.text += "\n" + passive.GetLevelUpDescription();
-                }
-            }
-            else
-            {
-                description.text = icon.description;
-            }
+            name.text = option.name;
+            image.texture = option.icon;
+            description.text = option.description;
 
-            obj.GetComponent<Button>().onClick.AddListener(() => SelectOption(option));
+            obj.GetComponent<Button>().onClick.AddListener(
+                () =>
+                {
+                    option.onSelect();
+                    InGameUI.UpdateItems();
+                    this.Close();
+                }
+            );
         }
     }
 
     private void Close()
     {
         Time.timeScale = 1;
-        this.gameObject.SetActive(false);
-    }
-    
-    /**
-     * Applies the option and closes the menu.
-     * Called when an option is clicked by the player.
-     */
-    void SelectOption(UpgradeOption option)
-    {
-        print($"Applying {option.equipment.type}");
-        EquipmentManager.instance.ApplyUpgradeOption(option);
-        this.Close();
+        menuParent.SetActive(false);
     }
 }
