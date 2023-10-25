@@ -9,6 +9,7 @@ TagManager:
   - WallOfFire
   - PlayerProjectile
   - Enemy
+  - XPOrb
   layers:
   - Default
   - TransparentFX

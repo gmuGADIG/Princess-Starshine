@@ -28,7 +28,7 @@ public class EquipmentManager : MonoBehaviour
     // run-time
     private List<Equipment> currentEquipment = new();
 
-    void Start()
+    void Awake()
     {
         instance = this;
         
@@ -82,7 +82,7 @@ public class EquipmentManager : MonoBehaviour
      * These can be either new equipment or an upgrade to old equipment.
      * Called when the LevelUpUI is instantiated.
      */
-    public List<UpgradeOption> GetUpgradeOptions()
+    public List<UpgradeOption> GetUpgradeOptions(bool weaponsOnly = false)
     {
         var options = new List<UpgradeOption>();
         var weaponCount = currentEquipment.Count(e => e is Weapon);
@@ -91,7 +91,11 @@ public class EquipmentManager : MonoBehaviour
         foreach (var equipment in allEquipment)
         {
             if (equipment is Weapon && weaponCount >= MAX_WEAPONS) continue;
-            if (equipment is Passive && passiveCount >= MAX_PASSIVES) continue;
+            if (equipment is Passive)
+            {
+                if (weaponsOnly) continue;
+                if (passiveCount >= MAX_PASSIVES) continue;
+            }
 
             var icon = GetIcon(equipment);
             
@@ -117,7 +121,7 @@ public class EquipmentManager : MonoBehaviour
         return iconDict[equipment.type];
     }
 
-    public void AddNewEquipment(Equipment equipment)
+    private void AddNewEquipment(Equipment equipment)
     {
         this.currentEquipment.Add(equipment);
         equipment.OnEquip();
@@ -128,6 +132,16 @@ public class EquipmentManager : MonoBehaviour
             
             equipment.ProcessOther(prevEquipment);
         }
+    }
+
+    public List<Texture> EquippedWeaponIcons()
+    {
+        return currentEquipment.Where(e => e is Weapon).Select(e => GetIcon(e).icon).ToList();
+    }
+    
+    public List<Texture> EquippedPassiveIcons()
+    {
+        return currentEquipment.Where(e => e is Passive).Select(e => GetIcon(e).icon).ToList();
     }
 }
 

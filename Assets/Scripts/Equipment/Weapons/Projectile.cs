@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using UnityEngine;
 
 /**
@@ -19,6 +20,12 @@ public class Projectile : MonoBehaviour
     protected float knockback = 1;
     protected float size = 1;
     protected float timeAlive;
+
+    protected virtual void Start()
+    {
+        var projCollision = GetComponent<ProjectileCollision>();
+        if (projCollision != null) projCollision.SetDamage(this.damage);
+    }
 
     protected virtual void Update()
     {
