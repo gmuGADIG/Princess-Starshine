@@ -10,6 +10,6 @@ public class SetSoundVolume : MonoBehaviour
 
     public void SetSound(float sliderValue)
     {
-        mixer.SetFloat("SFXSoundVolume", Mathf.Log10(sliderValue) * 20);
+        mixer.SetFloat("SfxVolume", Mathf.Log10(sliderValue) * 20);
     }
 }

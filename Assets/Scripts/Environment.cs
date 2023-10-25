@@ -6,8 +6,10 @@ public class Environment : MonoBehaviour
 {
     public GameObject PauseMenuPrefab;
     public GameObject OptionsMenuPrefab;
+    public GameObject LevelSelectPrefab;
     private static GameObject PauseMenu;
     private static GameObject OptionsMenu;
+    private static GameObject LevelSelect;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +17,8 @@ public class Environment : MonoBehaviour
         PauseMenu.SetActive(false);
         OptionsMenu = Instantiate(OptionsMenuPrefab, new Vector3(0, 0, 0), Quaternion.identity);
         OptionsMenu.SetActive(false);
+        LevelSelect = Instantiate(LevelSelectPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+        LevelSelect.SetActive(false);
     }
 
     // Update is called once per frame
@@ -38,6 +42,11 @@ public class Environment : MonoBehaviour
     public static GameObject getOptionsMenu()
     {
         return OptionsMenu;
+    }
+
+    public static GameObject getLevelSelect()
+    {
+        return LevelSelect;
     }
 
     public void pauseGame()

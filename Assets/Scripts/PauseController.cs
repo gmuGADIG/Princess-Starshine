@@ -6,11 +6,13 @@ public class PauseController : MonoBehaviour
 {
     public static GameObject PauseMenu;
     public static GameObject OptionsMenu;
+    public static GameObject LevelSelect;
     // Start is called before the first frame update
     void Start()
     {
         PauseMenu = Environment.getPauseMenu();
         OptionsMenu = Environment.getOptionsMenu();
+        LevelSelect = Environment.getLevelSelect();
     }
 
     // Update is called once per frame
@@ -28,6 +30,12 @@ public class PauseController : MonoBehaviour
     public void goToOptions()
     {
         OptionsMenu.SetActive(true);
+        PauseMenu.SetActive(false);
+    }
+
+    public void goToLevelSelect()
+    {
+        LevelSelect.SetActive(true);
         PauseMenu.SetActive(false);
     }
 }

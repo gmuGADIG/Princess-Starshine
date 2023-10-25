@@ -243,6 +243,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PauseMenuPrefab: {fileID: 6738438458652244479, guid: 54db74d3d18fbb24f818101b6bc857fd, type: 3}
   OptionsMenuPrefab: {fileID: 7844938225608219057, guid: 80d554e2857124c47b70bfe258af8576, type: 3}
+  LevelSelectPrefab: {fileID: 4611721983173477519, guid: 5b018965db233ec4fa5140f36762abfe, type: 3}
 --- !u!1 &1307973007
 GameObject:
   m_ObjectHideFlags: 0
