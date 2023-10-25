@@ -1,16 +1,39 @@
 using System.Collections;
 using System.Collections.Generic;
+
 using UnityEngine;
+using UnityEngine.Events;
 
 public class OptionMenu : MonoBehaviour
 {
-    public GameObject OptionsUI; // saves options ui prefab to toggle on/off, this script toggles OFF
-    //public GameObject PauseMenu;
+    public GameObject PauseMenu; // saves pause menu ui object to toggle on/off
+    public GameObject OptionsMenu; // saves options ui object to toggle on/off
+
+    public UnityEvent OnOptionsMenuClose;
+
+    void Start()
+    {
+        // We only want to get these variables if Options was opened by pausing the game.
+        // For the Main Menu it's linked up, but without the Pause Menu.
+        if (Environment.getPauseMenu() != null) {
+            PauseMenu = Environment.getPauseMenu();
+            OptionsMenu = Environment.getOptionsMenu();
+        }
+    }
+
+    public void goToPause()
+    {
+        OnOptionsMenuClose.Invoke();
+
+        // if this code causes a null exception in the level preview menu, it wasnt my fault :P
+        if (PauseMenu != null && OptionsMenu != null) {
+            PauseMenu.SetActive(true);
+            OptionsMenu.SetActive(false);
+        }
+    }
+
     public void BackButton()
     {
-        //Instantiate(PauseMenu, new Vector3(0, 0, 0), Quaternion.identity);
-        //Destroy(this);
-
-        OptionsUI.SetActive(false);
+        OptionsMenu.SetActive(false);
     }
 }

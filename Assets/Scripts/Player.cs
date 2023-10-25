@@ -17,12 +17,11 @@ public class Player : MonoBehaviour
     float deceleration;
 
     //for xp mechanic 
-    //Serialization to be tested by user
-    [SerializeField]
-    int xpPoints = 0;
-    //initially serialized for display purposes only
-    int xpLevel = 0;
-    Action<int> onLevelUp;
+    int cumulativeXpPoints = 0;
+    int xpThisLevel = 0;
+    int xpLevel = 1;
+    int XpLevelUpGoal() => (2 * xpLevel) + 20;
+    static Action<int, int> onLevelUp;
 
     //For dodge twirl
     public bool isTwirling = false;
@@ -33,10 +32,18 @@ public class Player : MonoBehaviour
 
     private int curTwirlCharges = 0;
     private float twirlRechargeTimeLeft = 0f;
+    
     //for collision function; radius is currently determined by player
     [SerializeField]
-    float collisionRadius = 1;
+    float collisionRadius = .5f;
 
+    RaycastHit2D[] collisions = new RaycastHit2D[50];
+
+    // Time in seconds the player is immune to attacks. After getting hit, the player is immune for a short amount of time.
+    // (in other words, i-frames)
+    float immuneTime = 0f;
+
+    // Start is called before the first frame update
     void Start()
     {
         instance = this;
@@ -44,7 +51,10 @@ public class Player : MonoBehaviour
         curTwirlCharges = maxTwirlCharges;
 
         //Test the xp system with 10 xpPoints
-        AddXP(10);
+        // AddXP(10);
+        InGameUI.SetXp(0, 0);
+
+        onLevelUp += (newLevel, xpThatLevel) => LevelUpUI.instance.Open();
     }
 
     void Update()
@@ -65,12 +75,15 @@ public class Player : MonoBehaviour
         UpdateTwirl(input);
 
         // check collisions
-        var collisions = Physics2D.CircleCastAll(transform.position, collisionRadius, Vector2.zero);
-        foreach (var hit in collisions) {
-            OnCollision(hit);
+        int hits = Physics2D.CircleCastNonAlloc(transform.position, collisionRadius, Vector2.zero, collisions);
+        for (int i = 0; i < hits; i++)
+        {
+            OnCollision(collisions[i]);
         }
 
         transform.position += (Vector3)(velocity * Time.deltaTime);
+
+        immuneTime = Mathf.MoveTowards(immuneTime, 0, Time.deltaTime);
     }
 
     void UpdateTwirl(Vector2 input) {
@@ -104,15 +117,18 @@ public class Player : MonoBehaviour
     //current placeholder for xp function
     void AddXP(int points) 
     {
-        xpPoints += points;
+        cumulativeXpPoints += points;
+        xpThisLevel += points;
 
-        //placeholder for leveling up
-        var startLevel = xpLevel;
-        xpLevel = (int)Mathf.Sqrt(xpPoints);
-
-        if (xpLevel > startLevel) {
-            onLevelUp?.Invoke(xpLevel);
+        var goal = XpLevelUpGoal();
+        if (xpThisLevel >= goal)
+        {
+            xpThisLevel -= goal;
+            xpLevel += 1;
+            onLevelUp?.Invoke(cumulativeXpPoints, xpLevel);
         }
+
+        InGameUI.SetXp(xpLevel,  (float) xpThisLevel / XpLevelUpGoal());
     }
 
     void OnCollision(RaycastHit2D hit) {
@@ -122,5 +138,18 @@ public class Player : MonoBehaviour
             AddXP(xpObj.points);
             Destroy(xpObj.gameObject);
         }
+        
+        else if (hit.collider.CompareTag("Enemy"))
+        {
+            if (immuneTime > 0 || isTwirling) return;
+            OnAttacked(hit.collider.gameObject);
+        }
+    }
+
+    void OnAttacked(GameObject enemy)
+    {
+        immuneTime = .5f;
+        GetComponent<PlayerHealth>().decreaseHealth(10);
+        print("oww my ass!");
     }
 }

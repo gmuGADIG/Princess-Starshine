@@ -5,10 +5,14 @@ using UnityEngine;
 [Serializable]
 public enum WeaponLevelUpType
 {
-    Damage, KnockBack, Pierce,
+    // multiplicative modifiers (e.g. times 1.5 damage); real number increments 
+    Damage, KnockBack,
     FireRate,
     AoESize,
-    ProjectileCount, ProjectileSize, ProjectileSpeed 
+    ProjectileSize, ProjectileSpeed,
+    
+    // additive modifiers (e.g. +1 pierce); integer increments
+    MaxProjectiles, ProjectileCount, Pierce,
 }
 
 [Serializable]
@@ -19,6 +23,16 @@ public class WeaponLevelUp
 
     public override string ToString()
     {
-        return $"{amount} {type}"; // TODO: nicer output. include if it's additive / multiplicative (need to decide that first!)
+        if (type == WeaponLevelUpType.Pierce)
+        {
+            return $"+{amount} Pierces";
+        }
+        else
+        {
+            // e.g. 1.3 -> +30%
+            var percentString = "+" + (amount - 1).ToString("P0");
+            return $"{percentString} {type}";
+        }
+        // TODO: nicer output
     }
 }
