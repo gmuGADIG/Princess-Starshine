@@ -4,38 +4,34 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public float maxHealth = 100;
-    public float tempHealth;
+    public int maxHealth = 100;
+    public int tempHealth;
     public bool isDead;
     // Start is called before the first frame update
     void Start()
     {
-        tempHealth = 100;
-        InGameUI.SetHp(1f);
+        tempHealth = maxHealth;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (tempHealth > maxHealth)
-            tempHealth = maxHealth;
-        else if (tempHealth <= 0)
+        if (tempHealth > 100)
+            tempHealth = 100;
+        else if (tempHealth < 0)
         {
             tempHealth = 0;
             isDead = true;
         }
     }
 
-    public void decreaseHealth(float num)
+    public void decreaseHealth(int num)
     {
         tempHealth -= num;
-        InGameUI.SetHp(tempHealth / maxHealth);
     }
 
-    public void increaseHealth(float num)
+    public void increaseHealth(int num)
     {
         tempHealth += num;
-        // Debug.Log(tempHealth);
-        InGameUI.SetHp(tempHealth / maxHealth);
     }
 }

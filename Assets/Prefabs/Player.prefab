@@ -9,11 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3932130429666288465}
+  - component: {fileID: 4117132569322660752}
   - component: {fileID: 2620958937377383029}
-  - component: {fileID: -1459567296244939718}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32,86 +32,15 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5681182950247923260}
-  - {fileID: 4748746465891056969}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2620958937377383029
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4739150525570968963}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c720e6bb10efe9b46850f1fcc89a5d74, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  velocity: {x: 0, y: 0}
-  acceleration: 80
-  maxSpeed: 10
-  deceleration: 30
-  xpPoints: 0
-  isTwirling: 0
-  maxTwirlCharges: 3
-  twirlCooldown: 10
-  twirlSpeed: 100
-  twirlDuration: 0.7
-  collisionRadius: 1
---- !u!114 &-1459567296244939718
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4739150525570968963}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c7c3bb40ad325b48beef73d93565ec7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  tempHealth: 0
-  isDead: 0
---- !u!1 &4807934055577374158
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4748746465891056969}
-  - component: {fileID: 4059327565965219088}
-  m_Layer: 0
-  m_Name: Sprite
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4748746465891056969
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4807934055577374158}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3932130429666288465}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &4059327565965219088
+--- !u!212 &4117132569322660752
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4807934055577374158}
+  m_GameObject: {fileID: 4739150525570968963}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -146,17 +75,39 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1236448, guid: 436b91668a9a0c243a3178d6089d4c7d, type: 3}
+  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 20.48, y: 20.519999}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2620958937377383029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4739150525570968963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c720e6bb10efe9b46850f1fcc89a5d74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocity: {x: 0, y: 0}
+  acceleration: 80
+  maxSpeed: 10
+  deceleration: 30
+  xpPoints: 0
+  maxTwirlCharges: 3
+  twirlCooldown: 10
+  twirlSpeed: 100
+  twirlDuration: 0.7
+  collisionRadius: 1
 --- !u!1 &5716612475371205497
 GameObject:
   m_ObjectHideFlags: 0
@@ -234,23 +185,22 @@ MonoBehaviour:
     - type: 0
       amount: 10
     - type: 3
-      amount: 1
+      amount: 2
     - type: 7
-      amount: 5
+      amount: 25
     - type: 2
-      amount: 1
+      amount: 2
     fireRate: 1
-    knockback: 2
-    projectileSize: 1
-    damage: 25
-    projectileCount: 1
-    projectileSpeed: 5
-    maxProjectiles: 1000
+    knockback: 0
+    projectileSize: 0
+    damage: 10
+    projectileCount: 0
+    projectileSpeed: 20
     pierceCount: 0
     targetingStrategy: 1
     spawnProjectileAtTarget: 0
     projectileLocalSpace: 0
-    projectilePrefab: {fileID: 6198564449727914785, guid: 9c4da975914a3824cbfd6887823916cd, type: 3}
+    projectilePrefab: {fileID: 3661406676428322862, guid: 933f5034dd3c2654684b316d6319f4af, type: 3}
   - type: 1
     levelUpsDone: 0
     levelUpOptions:
@@ -262,38 +212,14 @@ MonoBehaviour:
       amount: 2
     - type: 5
       amount: 1
-    fireRate: 1
+    fireRate: 0.5
     knockback: 0
-    projectileSize: 1
+    projectileSize: 0
     damage: 30
-    projectileCount: 1
-    projectileSpeed: 1
-    maxProjectiles: 1000
-    pierceCount: -1
+    projectileCount: 0
+    projectileSpeed: 5
+    pierceCount: 0
     targetingStrategy: 2
     spawnProjectileAtTarget: 0
     projectileLocalSpace: 0
-    projectilePrefab: {fileID: 7227924247430886604, guid: f438532f88467be4ab0da1afd295f71d, type: 3}
-  - type: 2
-    levelUpsDone: 0
-    levelUpOptions:
-    - type: 0
-      amount: 20
-    - type: 3
-      amount: 2
-    - type: 4
-      amount: 2
-    - type: 5
-      amount: 1
-    fireRate: 1
-    knockback: 0
-    projectileSize: 0.5
-    damage: 30
-    projectileCount: 1
-    projectileSpeed: 10
-    maxProjectiles: 1
-    pierceCount: -1
-    targetingStrategy: 3
-    spawnProjectileAtTarget: 0
-    projectileLocalSpace: 0
-    projectilePrefab: {fileID: 466492882040963849, guid: db69a31f668caf2498a1d2c85c1c2c17, type: 3}
+    projectilePrefab: {fileID: 3661406676428322862, guid: 933f5034dd3c2654684b316d6319f4af, type: 3}

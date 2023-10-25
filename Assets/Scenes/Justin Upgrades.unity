@@ -633,10 +633,6 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 300812745088403336, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
-      propertyPath: allWeapons.Array.data[1].projectilePrefab
-      value: 
-      objectReference: {fileID: 7227924247430886604, guid: f438532f88467be4ab0da1afd295f71d, type: 3}
-    - target: {fileID: 300812745088403336, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
       propertyPath: allEquipment.Array.data[0].projectileSpeed
       value: 20
       objectReference: {fileID: 0}

@@ -7,9 +7,7 @@ TagManager:
   - xp
   - Consumable
   - WallOfFire
-  - PlayerProjectile
   - Enemy
-  - XPOrb
   layers:
   - Default
   - TransparentFX

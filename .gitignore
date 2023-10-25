@@ -91,9 +91,3 @@ UserSettings/*
 UserSettings/Layouts/default-2021.dwlt
 UserSettings/Search.settings
 UserSettings/Layouts/default-2021.dwlt
-
-# Unity Visual Scripting
-Assets/Unity.VisualScripting.Generated.meta
-Assets/Unity.VisualScripting.Generated/
-ProjectSettings/VisualScriptingSettings.asset
-
