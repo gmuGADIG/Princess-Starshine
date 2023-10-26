@@ -8,7 +8,8 @@ public class Consumable : MonoBehaviour
     public const float HealthConsumableHealthing = 100f;
     public const float InvincibilityDuration = 5f;
 
-    public Type ConsumableType { get; private set; } 
+    [SerializeField]
+    public Type ConsumableType = Type.None;
 
     public enum Type {
         None, Health, Screenwipe, Invincibility, OverpoweredBuff, LevelUp

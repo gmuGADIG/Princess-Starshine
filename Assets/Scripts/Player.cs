@@ -49,7 +49,9 @@ public class Player : MonoBehaviour
     void Start()
     {
         instance = this;
-        
+
+        heldConsumable = Consumable.Type.LevelUp;
+
         curTwirlCharges = maxTwirlCharges;
 
         //Test the xp system with 10 xpPoints
@@ -76,6 +78,8 @@ public class Player : MonoBehaviour
         // twirl
         UpdateTwirl(input);
 
+        UsedConsumable();
+
         // check collisions
         int hits = Physics2D.CircleCastNonAlloc(transform.position, collisionRadius, Vector2.zero, collisions);
         for (int i = 0; i < hits; i++)
@@ -86,6 +90,19 @@ public class Player : MonoBehaviour
         transform.position += (Vector3)(velocity * Time.deltaTime);
 
         immuneTime = Mathf.MoveTowards(immuneTime, 0, Time.deltaTime);
+    }
+
+    void UsedConsumable()
+    {
+        if (Input.GetKeyDown("space") || Input.GetKeyDown("x"))
+        {
+            if (heldConsumable!=Consumable.Type.None)
+            {
+                Consumable.Apply(heldConsumable);
+                Debug.Log("Player.cs: Consumed Successfully");
+                heldConsumable = Consumable.Type.None;
+            }
+        }
     }
 
     void UpdateTwirl(Vector2 input) {
@@ -140,7 +157,7 @@ public class Player : MonoBehaviour
             AddXP(xpObj.points);
             Destroy(xpObj.gameObject);
         }
-        
+
         else if (hit.collider.CompareTag("Enemy"))
         {
             if (immuneTime > 0 || isTwirling) return;
@@ -149,9 +166,22 @@ public class Player : MonoBehaviour
 
         else if (hit.collider.CompareTag("Consumable"))
         {
-            Debug.Log("It did it right");
             Consumable consumable = hit.collider.gameObject.GetComponent<Consumable>();
-            
+
+            if (heldConsumable != Consumable.Type.None && consumable.ConsumableType != Consumable.Type.Health)
+            {
+                return;
+            }
+
+            if (consumable.ConsumableType == Consumable.Type.Health)
+            {
+                Consumable.Apply(Consumable.Type.Health);
+            }
+            else
+            {
+                heldConsumable = consumable.ConsumableType;
+            }
+
             GameObject.Destroy(hit.collider.gameObject);
         }
     }
