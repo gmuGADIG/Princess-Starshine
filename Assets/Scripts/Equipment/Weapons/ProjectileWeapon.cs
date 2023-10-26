@@ -207,6 +207,11 @@ public sealed class ProjectileWeapon : Weapon
     {
         projectileSpeed += amount;
     }
+
+    public void increaseFireRate(float amount)
+    {
+        fireRate += amount;
+    }
 }
 
 public enum TargetType
