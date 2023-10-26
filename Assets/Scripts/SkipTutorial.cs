@@ -5,7 +5,7 @@ using UnityEngine;
 public class SkipTutorial : MonoBehaviour
 {
     //current script is WIP
-    public static InTutorial = true;
+    public static bool InTutorial = true;
     public void Skip() {
         InTutorial = false;
     }
