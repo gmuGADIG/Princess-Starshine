@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Consumable : MonoBehaviour
 {
-    public static enum Type{
+    public enum Type
     {
         Health, Screenwipe, Invincibility, OverpoweredBuff, LevelUp
     }
