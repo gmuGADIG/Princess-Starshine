@@ -7,6 +7,8 @@ public class PlayerHealth : MonoBehaviour
     public float maxHealth = 100;
     public float tempHealth;
     public bool isDead;
+
+    public bool invincible;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,8 +30,10 @@ public class PlayerHealth : MonoBehaviour
 
     public void decreaseHealth(float num)
     {
-        tempHealth -= num;
-        InGameUI.SetHp(tempHealth / maxHealth);
+        if (!invincible) {
+            tempHealth -= num;
+            InGameUI.SetHp(tempHealth / maxHealth);
+        }
     }
 
     public void increaseHealth(float num)
