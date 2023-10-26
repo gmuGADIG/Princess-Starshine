@@ -25,6 +25,7 @@ public class TitleSceenButtons : MonoBehaviour
     {
         SceneManager.LoadScene(firstLevelSceneName); // TEMPORARY, NEED LEVELS
         //Debug.Log("newrun");
+        PlayerPrefs.SetInt("HasLaunched", 1); //Set to 1 after player has played the game
     }
 
     public void OptionsButton()

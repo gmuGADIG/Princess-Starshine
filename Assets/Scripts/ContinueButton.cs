@@ -24,6 +24,6 @@ public class ContinueButton : MonoBehaviour
             //color button and enable interaction
             ContinueButtonUI.colors = originalColor;
         }
-        PlayerPrefs.SetInt("HasLaunched", 1); //Set to 1 after player has played the game
+        
     }
 }
