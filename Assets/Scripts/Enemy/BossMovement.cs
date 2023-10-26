@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
-public class NewBehaviourScript : EnemyTemplate
+public class BossMovement : EnemyTemplate
 {
     /*
     private GameObject findEnemy()
