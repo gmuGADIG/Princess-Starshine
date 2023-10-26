@@ -146,6 +146,7 @@ public class EnemyTemplate : MonoBehaviour
     {
         if (moveTowardsObject == null) { moveTowardsObject = GameObject.FindGameObjectWithTag("Player"); }
         if (XPOrb == null) { XPOrb = GameObject.FindGameObjectWithTag("XPOrb"); }
+        if (tag.CompareTo("Untagged") == 0) { tag = "Enemy"; }
         CurrentHealth = MaxHealth;
         CheckDeath();
     }
