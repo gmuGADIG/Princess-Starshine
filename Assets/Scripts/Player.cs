@@ -150,6 +150,11 @@ public class Player : MonoBehaviour
         InGameUI.SetXp(xpLevel,  (float) xpThisLevel / XpLevelUpGoal());
     }
 
+    // immediately levels up the player by giving them the required XP (idk what im doing :P)
+    public void LevelUp() {
+        AddXP(XpLevelUpGoal() - xpThisLevel);
+    }
+
     void OnCollision(RaycastHit2D hit) {
         //hit xp
         if (hit.collider.CompareTag("xp")) {
