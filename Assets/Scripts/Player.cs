@@ -33,7 +33,7 @@ public class Player : MonoBehaviour
     private int curTwirlCharges = 0;
     private float twirlRechargeTimeLeft = 0f;
 
-    private List<Consumable.Type> heldConsumables = new List<Consumable.Type>();
+    Consumable.Type heldConsumable = Consumable.Type.None;
     
     //for collision function; radius is currently determined by player
     [SerializeField]
@@ -145,6 +145,14 @@ public class Player : MonoBehaviour
         {
             if (immuneTime > 0 || isTwirling) return;
             OnAttacked(hit.collider.gameObject);
+        }
+
+        else if (hit.collider.CompareTag("Consumable"))
+        {
+            Debug.Log("It did it right");
+            Consumable consumable = hit.collider.gameObject.GetComponent<Consumable>();
+            
+            GameObject.Destroy(hit.collider.gameObject);
         }
     }
 
