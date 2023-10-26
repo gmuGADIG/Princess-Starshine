@@ -87,9 +87,9 @@ public sealed class ProjectileWeapon : Weapon
     Vector2 GetTarget()
     {
         var player = Player.instance;
-        var enemies = EnemyManager.enemies;
+        var enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
-        if (targetingStrategy==TargetType.RandomDirection||enemies.Count==0)
+        if (targetingStrategy == TargetType.RandomDirection || enemies.Length == 0)
         {
             var randomRads = Random.Range(0, 2 * Mathf.PI);
             return (Vector2)player.transform.position + new Vector2(Mathf.Cos(randomRads), Mathf.Sin(randomRads));
@@ -101,7 +101,7 @@ public sealed class ProjectileWeapon : Weapon
                 // TODO: handle stationary player better (remember most recent walking direction?)
                 return (Vector2) player.transform.position + player.velocity;
             case TargetType.RandomEnemy:
-                return enemies[Random.Range(0, enemies.Count)].transform.position;
+                return enemies[Random.Range(0, enemies.Length)].transform.position;
             case TargetType.NearestEnemy:
                 var min = new Vector2(0, 0);
                 var minDist = 1000000f;
@@ -201,6 +201,11 @@ public sealed class ProjectileWeapon : Weapon
             default:
                 throw new Exception($"Invalid weapon level-up type! type = {levelUp.type}");
         }
+    }
+
+    public void increaseProjectileSpeed(float amount)
+    {
+        projectileSpeed += amount;
     }
 }
 

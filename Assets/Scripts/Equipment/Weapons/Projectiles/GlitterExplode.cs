@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class GlitterExplode : MonoBehaviour
 {
-    [HideInInspector] public float damage = 10;
+    float damage;
 
-    void Update()
+    void Start()
     {
         StartCoroutine(Coroutine());
         IEnumerator Coroutine()
@@ -16,11 +16,9 @@ public class GlitterExplode : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void SetDamage(float newDamage)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            collision.gameObject.BroadcastMessage("Damage", 5.0,SendMessageOptions.DontRequireReceiver);
-        }
+        this.damage = newDamage;
+        this.GetComponent<ProjectileCollision>().SetDamage(newDamage);
     }
 }
