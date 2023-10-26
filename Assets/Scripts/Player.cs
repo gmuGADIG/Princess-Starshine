@@ -33,6 +33,9 @@ public class Player : MonoBehaviour
 
     private int curTwirlCharges = 0;
     private float twirlRechargeTimeLeft = 0f;
+
+    private List<Consumable.Type> heldConsumables = new List<>();
+    
     //for collision function; radius is currently determined by player
     [SerializeField]
     float collisionRadius = 1;
