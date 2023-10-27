@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 68cff8a68a791994698281d8d8db14fe, type: 3}
-  m_Name: Princess_Dash
+  m_Name: Glitter_Bomb_Explode
   m_EditorClassIdentifier: 
   audioVariants:
-  - {fileID: 8300000, guid: 91d46c39f0c036e4aab93b3f8972d2db, type: 3}
+  - {fileID: 8300000, guid: c4b22aaea2593b943b79ea4af1c5b674, type: 3}
   volume: 1
-  volumeVariance: 0.1
+  volumeVariance: 0
   pitch: 1
-  pitchVariance: 0.1
+  pitchVariance: 0
   minimumDistance: 10
   loop: 0
   mixerGroup: {fileID: 0}

@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 68cff8a68a791994698281d8d8db14fe, type: 3}
-  m_Name: XP_Pickup
+  m_Name: Princess_Damage
   m_EditorClassIdentifier: 
   audioVariants:
-  - {fileID: 8300000, guid: 93f03c8ef4458654f80207b328d4c9bd, type: 3}
+  - {fileID: 8300000, guid: 894b1b50672e87442a8e24658e684a48, type: 3}
   volume: 1
-  volumeVariance: 0.1
+  volumeVariance: 0
   pitch: 1
-  pitchVariance: 0.1
+  pitchVariance: 0
   minimumDistance: 10
   loop: 0
   mixerGroup: {fileID: 0}

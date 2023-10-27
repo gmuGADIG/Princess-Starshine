@@ -51,6 +51,9 @@ public sealed class ProjectileWeapon : Weapon
      * Object must have the Projectile component attached to it.
      */
     [SerializeField] GameObject projectilePrefab;
+
+    [Tooltip("The name of the sound played when this weapon is fired.")]
+    [SerializeField] string shootSoundName;
     
     /** Set of active projectiles. Updated in Fire and OnProjectileDestroy. Necessary to update projectiles when the weapon levels up. */
     HashSet<Projectile> projectileSet = new();
@@ -69,6 +72,10 @@ public sealed class ProjectileWeapon : Weapon
         if (spawnProjectileAtTarget) proj.transform.position = targetPosition;
         else proj.transform.position = EquipmentManager.instance.transform.position;
         proj.Setup(this, targetPosition, damage, pierceCount, projectileSpeed, knockback, projectileSize);
+        if (shootSoundName != "")
+        {
+            SoundManager.Instance.PlaySoundGlobal(shootSoundName);
+        }
         // TODO: handle projectile count
         // basic cases can be handled by just looping this, but if they have the same target, they'll need to be separated a bit
     }

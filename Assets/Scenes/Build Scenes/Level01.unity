@@ -493,22 +493,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2620958937377383029, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
-      propertyPath: maxSpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2620958937377383029, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
-      propertyPath: twirlSpeed
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 2620958937377383029, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
-      propertyPath: acceleration
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 2620958937377383029, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
-      propertyPath: deceleration
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 3932130429666288465, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
