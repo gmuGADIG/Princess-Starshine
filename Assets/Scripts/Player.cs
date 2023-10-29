@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     
     // acceleration is by default set to 80, maxSpeed is set to 10, and deceleration is set to 30
     [HideInInspector] public Vector2 velocity = Vector2.zero;
+    [HideInInspector] public float moveSpeedMultiplier = 0f;
     [SerializeField]
     float acceleration;
     [SerializeField]
@@ -63,11 +64,12 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+
         Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
         if (!isTwirling){
             if (input!=Vector2.zero) {
-                velocity += input * acceleration * Time.deltaTime;
-                velocity = Vector2.ClampMagnitude(velocity, maxSpeed);
+                velocity += input * acceleration * Time.deltaTime * moveSpeedMultiplier;
+                velocity = Vector2.ClampMagnitude(velocity, maxSpeed * moveSpeedMultiplier);
             }
             else
             {

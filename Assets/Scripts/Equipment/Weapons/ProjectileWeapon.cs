@@ -15,6 +15,7 @@ public sealed class ProjectileWeapon : Weapon
     /** Times the weapon fires per second. If set to 0, the weapon will fire at the start and never again. */
     [SerializeField] float fireRate;
     float timeUntilNextFire = 0.5f; // the 0.5 gives it a bit of time before it's first shot after equipping it
+    public static float fireRateMultiplier = 1f; // see Consumable.OverpoweredBuffPayload
 
     /** Amount of knockback to inflict on enemies hit by the projectiles. */
     [SerializeField] float knockback;
@@ -24,6 +25,7 @@ public sealed class ProjectileWeapon : Weapon
 
     /** The amount of damage each projectile does. Exact details are left to the projectile script. */
     [SerializeField] float damage;
+    public static float damageMultiplier; // see Consumable.OverpoweredBuffPayload
 
     /** Amount of projectiles to fire with each shot. */
     [SerializeField] int projectileCount;
@@ -68,7 +70,7 @@ public sealed class ProjectileWeapon : Weapon
         if (projectileLocalSpace) proj.transform.SetParent(EquipmentManager.instance.transform);
         if (spawnProjectileAtTarget) proj.transform.position = targetPosition;
         else proj.transform.position = EquipmentManager.instance.transform.position;
-        proj.Setup(this, targetPosition, damage, pierceCount, projectileSpeed, knockback, projectileSize);
+        proj.Setup(this, targetPosition, damage * damageMultiplier, pierceCount, projectileSpeed, knockback, projectileSize);
         // TODO: handle projectile count
         // basic cases can be handled by just looping this, but if they have the same target, they'll need to be separated a bit
     }
@@ -128,7 +130,7 @@ public sealed class ProjectileWeapon : Weapon
 
     public override void Update()
     {
-        timeUntilNextFire -= Time.deltaTime;
+        timeUntilNextFire -= Time.deltaTime * fireRateMultiplier;
         if (timeUntilNextFire <= 0)
         {
             Fire();
