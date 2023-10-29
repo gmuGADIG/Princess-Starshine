@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     
     // acceleration is by default set to 80, maxSpeed is set to 10, and deceleration is set to 30
     [HideInInspector] public Vector2 velocity = Vector2.zero;
-    [HideInInspector] public float moveSpeedMultiplier = 0f;
+    [HideInInspector] public float moveSpeedMultiplier = 1f;
     [SerializeField]
     float acceleration;
     [SerializeField]
