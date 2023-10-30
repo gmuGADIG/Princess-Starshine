@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     
     // acceleration is by default set to 80, maxSpeed is set to 10, and deceleration is set to 30
     [HideInInspector] public Vector2 velocity = Vector2.zero;
-    [HideInInspector] public float moveSpeedMultiplier = 1f;
+    [HideInInspector] public float moveSpeedMultiplier { get; set; } = 1f;
     [SerializeField]
     float acceleration;
     [SerializeField]
@@ -34,7 +34,7 @@ public class Player : MonoBehaviour
     private int curTwirlCharges = 0;
     private float twirlRechargeTimeLeft = 0f;
 
-    Consumable.Type heldConsumable = Consumable.Type.None;
+    private Consumable.Type heldConsumable = Consumable.Type.None;
     
     //for collision function; radius is currently determined by player
     [SerializeField]
@@ -51,7 +51,7 @@ public class Player : MonoBehaviour
     {
         instance = this;
 
-        heldConsumable = Consumable.Type.LevelUp;
+        //heldConsumable = Consumable.Type.LevelUp; // damn foot gun
 
         curTwirlCharges = maxTwirlCharges;
 
@@ -68,8 +68,8 @@ public class Player : MonoBehaviour
         Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
         if (!isTwirling){
             if (input!=Vector2.zero) {
-                velocity += input * acceleration * Time.deltaTime * moveSpeedMultiplier;
-                velocity = Vector2.ClampMagnitude(velocity, maxSpeed * moveSpeedMultiplier);
+                velocity += input * acceleration * Time.deltaTime;
+                velocity = Vector2.ClampMagnitude(velocity, maxSpeed);
             }
             else
             {
@@ -89,7 +89,7 @@ public class Player : MonoBehaviour
             OnCollision(collisions[i]);
         }
 
-        transform.position += (Vector3)(velocity * Time.deltaTime);
+        transform.position += (Vector3)(velocity * Time.deltaTime * moveSpeedMultiplier);
 
         immuneTime = Mathf.MoveTowards(immuneTime, 0, Time.deltaTime);
     }
@@ -175,21 +175,30 @@ public class Player : MonoBehaviour
         {
             Consumable consumable = hit.collider.gameObject.GetComponent<Consumable>();
 
+            // if we already have a consumable, stop here
             if (heldConsumable != Consumable.Type.None && consumable.ConsumableType != Consumable.Type.Health)
             {
                 return;
             }
 
+            Debug.Log("Hit consumable " + consumable.ConsumableType);
+
+            // if the consumable is health, use it now
             if (consumable.ConsumableType == Consumable.Type.Health)
             {
                 Consumable.Apply(Consumable.Type.Health);
             }
-            else
+            else // otherwise just hold onto it
             {
                 heldConsumable = consumable.ConsumableType;
             }
 
+            // destroy any consumables we "consume"
             GameObject.Destroy(hit.collider.gameObject);
+        }
+
+        else {
+            Debug.Log("ew, what did i just touch? a " + gameObject.name);
         }
     }
 

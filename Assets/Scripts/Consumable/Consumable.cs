@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Consumable : MonoBehaviour
 {
-    public Type ConsumableType { get; private set; } 
+    public Type ConsumableType = Type.None;
 
     public enum Type {
         None, Health, Screenwipe, Invincibility, OverpoweredBuff, LevelUp
@@ -55,7 +55,10 @@ public class Consumable : MonoBehaviour
         ConsumableManager.Instance.PlayerNotOverpowered.Invoke();
     }
 
+    // should this be an instance method instead of a static method? lol
     public static void Apply(Type consumableType) {
+        Debug.Log("Applying consumable " + consumableType);
+
         if (consumableType == Type.Health) { // heal the player
             Player.instance.GetComponent<PlayerHealth>().increaseHealth(ConsumableManager.Instance.HealthConsumableHealing);
         } else if (consumableType == Type.Screenwipe) { // kill everything

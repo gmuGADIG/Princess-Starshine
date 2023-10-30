@@ -25,7 +25,7 @@ public sealed class ProjectileWeapon : Weapon
 
     /** The amount of damage each projectile does. Exact details are left to the projectile script. */
     [SerializeField] float damage;
-    public static float damageMultiplier; // see Consumable.OverpoweredBuffPayload
+    public static float damageMultiplier = 1f; // see Consumable.OverpoweredBuffPayload
 
     /** Amount of projectiles to fire with each shot. */
     [SerializeField] int projectileCount;
