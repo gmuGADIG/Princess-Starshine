@@ -55,6 +55,14 @@ public class Consumable : MonoBehaviour
         ConsumableManager.Instance.PlayerNotOverpowered.Invoke();
     }
 
+    public static bool CanApply(Type consumableType) {
+        if (consumableType == Type.OverpoweredBuff)
+            return ConsumableManager.Instance.OverpoweredBuffActive;
+        if (consumableType == Type.Invincibility)
+            return ConsumableManager.Instance.InvincibilityActive;
+        return true;
+    }
+
     // should this be an instance method instead of a static method? lol
     public static void Apply(Type consumableType) {
         Debug.Log("Applying consumable " + consumableType);
