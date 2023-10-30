@@ -37,7 +37,7 @@ public class BunnyBurstPassive : Passive
 
                 foreach (ProjectileWeapon weapon in playerEquipment.allWeapons)
                 {
-                    weapon.increaseProjectileSpeed(speedIncrease);
+                    //weapon.increaseProjectileSpeed(speedIncrease);
                 }
             }
             else

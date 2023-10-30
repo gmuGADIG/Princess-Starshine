@@ -104,7 +104,7 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown("space") || Input.GetKeyDown("x"))
         {
-            if (heldConsumable!=Consumable.Type.None)
+            if (heldConsumable != Consumable.Type.None && Consumable.CanApply(heldConsumable))
             {
                 Consumable.Apply(heldConsumable);
                 Debug.Log("Player.cs: Consumed Successfully");

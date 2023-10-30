@@ -16,6 +16,12 @@ public class ConsumableManager : MonoBehaviour
     public float FireRateMutliplier = 5f;
     public float DamageTakenMutliplier = 0.2f;
 
+    // private uint durationConsumableCount = 0;
+    // public bool DurationConsumableActive { get => durationConsumableCount == 0; }
+
+    public bool OverpoweredBuffActive { get; private set; } = false;
+    public bool InvincibilityActive { get; private set; } = false;
+
     public UnityEvent PlayerInvincible = new UnityEvent();
     public UnityEvent PlayerVulnerable = new UnityEvent();
 
@@ -44,5 +50,11 @@ public class ConsumableManager : MonoBehaviour
                 Instantiate(prefab, pos, Quaternion.identity);
             }
         });
+
+        PlayerInvincible.AddListener(() => { InvincibilityActive = true; });
+        PlayerVulnerable.AddListener(() => { InvincibilityActive = false; });
+
+        PlayerOverpowered.AddListener(() => { OverpoweredBuffActive = true; });
+        PlayerNotOverpowered.AddListener(() => { OverpoweredBuffActive = false; });
     }
 }
