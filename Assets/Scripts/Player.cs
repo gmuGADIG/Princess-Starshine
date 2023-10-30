@@ -46,6 +46,12 @@ public class Player : MonoBehaviour
     // (in other words, i-frames)
     float immuneTime = 0f;
 
+    // sound names
+    string xpPickupSound = "XP_Pickup";
+    string takeDamageSound = "Princess_Damage";
+    string levelUpSound = "Level_Up";
+    string twirlDashSound = "Princess_Dash";
+
     // Start is called before the first frame update
     void Start()
     {
@@ -113,6 +119,7 @@ public class Player : MonoBehaviour
             if (curTwirlCharges > 0) {
                 curTwirlCharges -= 1;
                 StartCoroutine(Twirl(input));
+                SoundManager.Instance.PlaySoundGlobal(twirlDashSound);
             }
             else {
                 print("not enough charges!");
@@ -140,6 +147,7 @@ public class Player : MonoBehaviour
     {
         cumulativeXpPoints += points;
         xpThisLevel += points;
+        SoundManager.Instance.PlaySoundGlobal(xpPickupSound);
 
         var goal = XpLevelUpGoal();
         if (xpThisLevel >= goal)
@@ -147,6 +155,7 @@ public class Player : MonoBehaviour
             xpThisLevel -= goal;
             xpLevel += 1;
             onLevelUp?.Invoke(cumulativeXpPoints, xpLevel);
+            SoundManager.Instance.PlaySoundGlobal(levelUpSound);
         }
 
         InGameUI.SetXp(xpLevel,  (float) xpThisLevel / XpLevelUpGoal());
@@ -206,6 +215,7 @@ public class Player : MonoBehaviour
     {
         immuneTime = .5f;
         GetComponent<PlayerHealth>().decreaseHealth(10);
+        SoundManager.Instance.PlaySoundGlobal(takeDamageSound);
         print("oww my ass!");
     }
 }

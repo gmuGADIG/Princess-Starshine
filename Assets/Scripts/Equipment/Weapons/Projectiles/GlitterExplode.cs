@@ -5,6 +5,7 @@ using UnityEngine;
 public class GlitterExplode : MonoBehaviour
 {
     float damage;
+    string explodeSound = "Glitter_Bomb_Explode";
 
     void Start()
     {
@@ -12,7 +13,8 @@ public class GlitterExplode : MonoBehaviour
         IEnumerator Coroutine()
         {
             yield return new WaitForSeconds(0.25f);
-            Destroy(this.gameObject);
+            SoundManager.Instance.PlaySoundGlobal(explodeSound);
+            Destroy(gameObject);
         }
     }
 

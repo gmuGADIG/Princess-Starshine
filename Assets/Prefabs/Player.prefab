@@ -48,14 +48,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: {x: 0, y: 0}
-  acceleration: 80
-  maxSpeed: 10
-  deceleration: 30
-  xpPoints: 0
+  acceleration: 40
+  maxSpeed: 5
+  deceleration: 20
   isTwirling: 0
   maxTwirlCharges: 3
   twirlCooldown: 10
-  twirlSpeed: 100
+  twirlSpeed: 15
   twirlDuration: 0.7
   collisionRadius: 1
 --- !u!114 &-1459567296244939718
@@ -251,6 +250,7 @@ MonoBehaviour:
     spawnProjectileAtTarget: 0
     projectileLocalSpace: 0
     projectilePrefab: {fileID: 6198564449727914785, guid: 9c4da975914a3824cbfd6887823916cd, type: 3}
+    shootSound: Fairy_Wand
   - type: 1
     levelUpsDone: 0
     levelUpOptions:
@@ -274,6 +274,7 @@ MonoBehaviour:
     spawnProjectileAtTarget: 0
     projectileLocalSpace: 0
     projectilePrefab: {fileID: 7227924247430886604, guid: f438532f88467be4ab0da1afd295f71d, type: 3}
+    shootSound: Glitter_Bomb_Throw
   - type: 2
     levelUpsDone: 0
     levelUpOptions:
@@ -297,3 +298,4 @@ MonoBehaviour:
     spawnProjectileAtTarget: 0
     projectileLocalSpace: 0
     projectilePrefab: {fileID: 466492882040963849, guid: db69a31f668caf2498a1d2c85c1c2c17, type: 3}
+    shootSound: 
