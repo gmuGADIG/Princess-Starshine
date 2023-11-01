@@ -15,6 +15,7 @@ public sealed class ProjectileWeapon : Weapon
     /** Times the weapon fires per second. If set to 0, the weapon will fire at the start and never again. */
     [SerializeField] float fireRate;
     float timeUntilNextFire = 0.5f; // the 0.5 gives it a bit of time before it's first shot after equipping it
+    public static float fireRateMultiplier = 1f; // see Consumable.OverpoweredBuffPayload
 
     /** Amount of knockback to inflict on enemies hit by the projectiles. */
     [SerializeField] float knockback;
@@ -24,6 +25,7 @@ public sealed class ProjectileWeapon : Weapon
 
     /** The amount of damage each projectile does. Exact details are left to the projectile script. */
     [SerializeField] float damage;
+    public static float damageMultiplier = 1f; // see Consumable.OverpoweredBuffPayload
 
     /** Amount of projectiles to fire with each shot. */
     [SerializeField] int projectileCount;
@@ -51,6 +53,9 @@ public sealed class ProjectileWeapon : Weapon
      * Object must have the Projectile component attached to it.
      */
     [SerializeField] GameObject projectilePrefab;
+
+    [Tooltip("The name of the sound played when this weapon is fired.")]
+    [SerializeField] string shootSoundName;
     
     /** Set of active projectiles. Updated in Fire and OnProjectileDestroy. Necessary to update projectiles when the weapon levels up. */
     HashSet<Projectile> projectileSet = new();
@@ -68,7 +73,11 @@ public sealed class ProjectileWeapon : Weapon
         if (projectileLocalSpace) proj.transform.SetParent(EquipmentManager.instance.transform);
         if (spawnProjectileAtTarget) proj.transform.position = targetPosition;
         else proj.transform.position = EquipmentManager.instance.transform.position;
-        proj.Setup(this, targetPosition, damage, pierceCount, projectileSpeed, knockback, projectileSize);
+        proj.Setup(this, targetPosition, damage * damageMultiplier, pierceCount, projectileSpeed, knockback, projectileSize);
+        if (shootSoundName != "")
+        {
+            SoundManager.Instance.PlaySoundGlobal(shootSoundName);
+        }
         // TODO: handle projectile count
         // basic cases can be handled by just looping this, but if they have the same target, they'll need to be separated a bit
     }
@@ -87,9 +96,9 @@ public sealed class ProjectileWeapon : Weapon
     Vector2 GetTarget()
     {
         var player = Player.instance;
-        var enemies = EnemyManager.enemies;
+        var enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
-        if (targetingStrategy==TargetType.RandomDirection||enemies.Count==0)
+        if (targetingStrategy == TargetType.RandomDirection || enemies.Length == 0)
         {
             var randomRads = Random.Range(0, 2 * Mathf.PI);
             return (Vector2)player.transform.position + new Vector2(Mathf.Cos(randomRads), Mathf.Sin(randomRads));
@@ -101,7 +110,7 @@ public sealed class ProjectileWeapon : Weapon
                 // TODO: handle stationary player better (remember most recent walking direction?)
                 return (Vector2) player.transform.position + player.velocity;
             case TargetType.RandomEnemy:
-                return enemies[Random.Range(0, enemies.Count)].transform.position;
+                return enemies[Random.Range(0, enemies.Length)].transform.position;
             case TargetType.NearestEnemy:
                 var min = new Vector2(0, 0);
                 var minDist = 1000000f;
@@ -128,7 +137,7 @@ public sealed class ProjectileWeapon : Weapon
 
     public override void Update()
     {
-        timeUntilNextFire -= Time.deltaTime;
+        timeUntilNextFire -= Time.deltaTime * fireRateMultiplier;
         if (timeUntilNextFire <= 0)
         {
             Fire();

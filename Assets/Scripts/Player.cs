@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     
     // acceleration is by default set to 80, maxSpeed is set to 10, and deceleration is set to 30
     [HideInInspector] public Vector2 velocity = Vector2.zero;
+    [HideInInspector] public float moveSpeedMultiplier { get; set; } = 1f;
     [SerializeField]
     float acceleration;
     [SerializeField]
@@ -17,12 +18,11 @@ public class Player : MonoBehaviour
     float deceleration;
 
     //for xp mechanic 
-    //Serialization to be tested by user
-    [SerializeField]
-    int xpPoints = 0;
-    //initially serialized for display purposes only
-    int xpLevel = 0;
-    Action<int> onLevelUp;
+    int cumulativeXpPoints = 0;
+    int xpThisLevel = 0;
+    int xpLevel = 1;
+    int XpLevelUpGoal() => (2 * xpLevel) + 20;
+    static Action<int, int> onLevelUp;
 
     //For dodge twirl
     public bool isTwirling = false;
@@ -33,24 +33,44 @@ public class Player : MonoBehaviour
 
     private int curTwirlCharges = 0;
     private float twirlRechargeTimeLeft = 0f;
+
+    private Consumable.Type heldConsumable = Consumable.Type.None;
+    
     //for collision function; radius is currently determined by player
     [SerializeField]
-    float collisionRadius = 1;
+    float collisionRadius = .5f;
 
+    RaycastHit2D[] collisions = new RaycastHit2D[50];
+
+    // Time in seconds the player is immune to attacks. After getting hit, the player is immune for a short amount of time.
+    // (in other words, i-frames)
+    float immuneTime = 0f;
+
+    // sound names
+    string xpPickupSound = "XP_Pickup";
+    string takeDamageSound = "Princess_Damage";
+    string levelUpSound = "Level_Up";
+    string twirlDashSound = "Princess_Dash";
 
     // Start is called before the first frame update
     void Start()
     {
         instance = this;
-        
+
+        //heldConsumable = Consumable.Type.LevelUp; // damn foot gun
+
         curTwirlCharges = maxTwirlCharges;
 
         //Test the xp system with 10 xpPoints
-        AddXP(10);
+        // AddXP(10);
+        InGameUI.SetXp(0, 0);
+
+        onLevelUp += (newLevel, xpThatLevel) => LevelUpUI.instance.Open();
     }
 
     void Update()
     {
+
         Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
         if (!isTwirling){
             if (input!=Vector2.zero) {
@@ -66,14 +86,31 @@ public class Player : MonoBehaviour
         // twirl
         UpdateTwirl(input);
 
+        UsedConsumable();
+
         // check collisions
-        var collisions = Physics2D.CircleCastAll(transform.position, collisionRadius, Vector2.zero);
-        foreach (var hit in collisions) {
-            OnCollision(hit);
+        int hits = Physics2D.CircleCastNonAlloc(transform.position, collisionRadius, Vector2.zero, collisions);
+        for (int i = 0; i < hits; i++)
+        {
+            OnCollision(collisions[i]);
         }
 
-        transform.position += (Vector3)(velocity * Time.deltaTime);
+        transform.position += (Vector3)(velocity * Time.deltaTime * moveSpeedMultiplier);
 
+        immuneTime = Mathf.MoveTowards(immuneTime, 0, Time.deltaTime);
+    }
+
+    void UsedConsumable()
+    {
+        if (Input.GetKeyDown("space") || Input.GetKeyDown("x"))
+        {
+            if (heldConsumable != Consumable.Type.None && Consumable.CanApply(heldConsumable))
+            {
+                Consumable.Apply(heldConsumable);
+                Debug.Log("Player.cs: Consumed Successfully");
+                heldConsumable = Consumable.Type.None;
+            }
+        }
     }
 
     void UpdateTwirl(Vector2 input) {
@@ -82,6 +119,7 @@ public class Player : MonoBehaviour
             if (curTwirlCharges > 0) {
                 curTwirlCharges -= 1;
                 StartCoroutine(Twirl(input));
+                SoundManager.Instance.PlaySoundGlobal(twirlDashSound);
             }
             else {
                 print("not enough charges!");
@@ -107,15 +145,25 @@ public class Player : MonoBehaviour
     //current placeholder for xp function
     void AddXP(int points) 
     {
-        xpPoints += points;
+        cumulativeXpPoints += points;
+        xpThisLevel += points;
+        SoundManager.Instance.PlaySoundGlobal(xpPickupSound);
 
-        //placeholder for leveling up
-        var startLevel = xpLevel;
-        xpLevel = (int)Mathf.Sqrt(xpPoints);
-
-        if (xpLevel > startLevel) {
-            onLevelUp?.Invoke(xpLevel);
+        var goal = XpLevelUpGoal();
+        if (xpThisLevel >= goal)
+        {
+            xpThisLevel -= goal;
+            xpLevel += 1;
+            onLevelUp?.Invoke(cumulativeXpPoints, xpLevel);
+            SoundManager.Instance.PlaySoundGlobal(levelUpSound);
         }
+
+        InGameUI.SetXp(xpLevel,  (float) xpThisLevel / XpLevelUpGoal());
+    }
+
+    // immediately levels up the player by giving them the required XP (idk what im doing :P)
+    public void LevelUp() {
+        AddXP(XpLevelUpGoal() - xpThisLevel);
     }
 
     void OnCollision(RaycastHit2D hit) {
@@ -125,5 +173,49 @@ public class Player : MonoBehaviour
             AddXP(xpObj.points);
             Destroy(xpObj.gameObject);
         }
+
+        else if (hit.collider.CompareTag("Enemy"))
+        {
+            if (immuneTime > 0 || isTwirling) return;
+            OnAttacked(hit.collider.gameObject);
+        }
+
+        else if (hit.collider.CompareTag("Consumable"))
+        {
+            Consumable consumable = hit.collider.gameObject.GetComponent<Consumable>();
+
+            // if we already have a consumable, stop here
+            if (heldConsumable != Consumable.Type.None && consumable.ConsumableType != Consumable.Type.Health)
+            {
+                return;
+            }
+
+            Debug.Log("Hit consumable " + consumable.ConsumableType);
+
+            // if the consumable is health, use it now
+            if (consumable.ConsumableType == Consumable.Type.Health)
+            {
+                Consumable.Apply(Consumable.Type.Health);
+            }
+            else // otherwise just hold onto it
+            {
+                heldConsumable = consumable.ConsumableType;
+            }
+
+            // destroy any consumables we "consume"
+            GameObject.Destroy(hit.collider.gameObject);
+        }
+
+        else {
+            Debug.Log("ew, what did i just touch? a " + gameObject.name);
+        }
+    }
+
+    void OnAttacked(GameObject enemy)
+    {
+        immuneTime = .5f;
+        GetComponent<PlayerHealth>().decreaseHealth(10);
+        SoundManager.Instance.PlaySoundGlobal(takeDamageSound);
+        print("oww my ass!");
     }
 }
