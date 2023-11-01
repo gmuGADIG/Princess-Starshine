@@ -5,25 +5,18 @@ using UnityEngine;
 public class EnemyProjOnDeath : MonoBehaviour
 {
     public GameObject bullet;
-    public Transform bulletPos;
+    private Transform enemyPos;
 
-    private GameObject player;
-    public EnemyTemplate script;
     // Start is called before the first frame update
     void Start()
     {
-        script = GetComponent<EnemyTemplate>();
-        player = GameObject.FindGameObjectWithTag("Player");
+        enemyPos = gameObject.GetComponent<Transform>();
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnDisable()
     {
-        float distance = Vector2.Distance(transform.position, player.transform.position);
-    }
-    void OnDestroy()
-    {
-        Instantiate(bullet, bulletPos.position, Quaternion.identity);
+        if(!this.gameObject.scene.isLoaded) return; // Prevents instatiating bullet when scene isn't loaded
+        Instantiate(bullet, enemyPos.position, Quaternion.identity);
     }
 
 }
