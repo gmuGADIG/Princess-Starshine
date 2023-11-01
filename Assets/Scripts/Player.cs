@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     
     // acceleration is by default set to 80, maxSpeed is set to 10, and deceleration is set to 30
     [HideInInspector] public Vector2 velocity = Vector2.zero;
+    [HideInInspector] public float moveSpeedMultiplier { get; set; } = 1f;
     [SerializeField]
     float acceleration;
     [SerializeField]
@@ -32,6 +33,8 @@ public class Player : MonoBehaviour
 
     private int curTwirlCharges = 0;
     private float twirlRechargeTimeLeft = 0f;
+
+    private Consumable.Type heldConsumable = Consumable.Type.None;
     
     //for collision function; radius is currently determined by player
     [SerializeField]
@@ -53,7 +56,9 @@ public class Player : MonoBehaviour
     void Start()
     {
         instance = this;
-        
+
+        //heldConsumable = Consumable.Type.LevelUp; // damn foot gun
+
         curTwirlCharges = maxTwirlCharges;
 
         //Test the xp system with 10 xpPoints
@@ -65,6 +70,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+
         Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
         if (!isTwirling){
             if (input!=Vector2.zero) {
@@ -80,6 +86,8 @@ public class Player : MonoBehaviour
         // twirl
         UpdateTwirl(input);
 
+        UsedConsumable();
+
         // check collisions
         int hits = Physics2D.CircleCastNonAlloc(transform.position, collisionRadius, Vector2.zero, collisions);
         for (int i = 0; i < hits; i++)
@@ -87,9 +95,22 @@ public class Player : MonoBehaviour
             OnCollision(collisions[i]);
         }
 
-        transform.position += (Vector3)(velocity * Time.deltaTime);
+        transform.position += (Vector3)(velocity * Time.deltaTime * moveSpeedMultiplier);
 
         immuneTime = Mathf.MoveTowards(immuneTime, 0, Time.deltaTime);
+    }
+
+    void UsedConsumable()
+    {
+        if (Input.GetKeyDown("space") || Input.GetKeyDown("x"))
+        {
+            if (heldConsumable != Consumable.Type.None && Consumable.CanApply(heldConsumable))
+            {
+                Consumable.Apply(heldConsumable);
+                Debug.Log("Player.cs: Consumed Successfully");
+                heldConsumable = Consumable.Type.None;
+            }
+        }
     }
 
     void UpdateTwirl(Vector2 input) {
@@ -140,6 +161,11 @@ public class Player : MonoBehaviour
         InGameUI.SetXp(xpLevel,  (float) xpThisLevel / XpLevelUpGoal());
     }
 
+    // immediately levels up the player by giving them the required XP (idk what im doing :P)
+    public void LevelUp() {
+        AddXP(XpLevelUpGoal() - xpThisLevel);
+    }
+
     void OnCollision(RaycastHit2D hit) {
         //hit xp
         if (hit.collider.CompareTag("xp")) {
@@ -147,11 +173,41 @@ public class Player : MonoBehaviour
             AddXP(xpObj.points);
             Destroy(xpObj.gameObject);
         }
-        
+
         else if (hit.collider.CompareTag("Enemy"))
         {
             if (immuneTime > 0 || isTwirling) return;
             OnAttacked(hit.collider.gameObject);
+        }
+
+        else if (hit.collider.CompareTag("Consumable"))
+        {
+            Consumable consumable = hit.collider.gameObject.GetComponent<Consumable>();
+
+            // if we already have a consumable, stop here
+            if (heldConsumable != Consumable.Type.None && consumable.ConsumableType != Consumable.Type.Health)
+            {
+                return;
+            }
+
+            Debug.Log("Hit consumable " + consumable.ConsumableType);
+
+            // if the consumable is health, use it now
+            if (consumable.ConsumableType == Consumable.Type.Health)
+            {
+                Consumable.Apply(Consumable.Type.Health);
+            }
+            else // otherwise just hold onto it
+            {
+                heldConsumable = consumable.ConsumableType;
+            }
+
+            // destroy any consumables we "consume"
+            GameObject.Destroy(hit.collider.gameObject);
+        }
+
+        else {
+            Debug.Log("ew, what did i just touch? a " + gameObject.name);
         }
     }
 
