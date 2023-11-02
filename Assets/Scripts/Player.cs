@@ -84,15 +84,16 @@ public class Player : MonoBehaviour
 
         if(Input.GetAxisRaw("Horizontal") >= 0)
         {
-            spriteRotator.SetBool("MovingRight", true);
+            spriteRotator.SetFloat("Horizontal", input.x);
+            // spriteRotator.SetBool("MovingRight", true);
 
         }
         else
         {
 
-            spriteRotator.SetBool("MovingRight", false);
+          //  spriteRotator.SetBool("MovingRight", false);
         }
-
+        
         if (!isTwirling){
             if (input!=Vector2.zero) {
                 velocity += input * acceleration * Time.deltaTime;
