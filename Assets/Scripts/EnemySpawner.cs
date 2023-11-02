@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -27,12 +28,11 @@ public class EnemySpawner : MonoBehaviour
     private float countdownTimer;
     private float spawnChangeTimer;
 
-    
-    
-
+    public static UnityEvent SpawningEnemy = new UnityEvent();
 
     public void SpawnEnemy()
     {
+        SpawningEnemy.Invoke();
         float totalWeights = 0.0f;
         foreach (EnemySpawn i in enemySpawns)
         {

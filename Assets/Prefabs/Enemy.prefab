@@ -189,7 +189,7 @@ MonoBehaviour:
   XPOrb: {fileID: 6433517325453158020, guid: 1762732203a121541b8b0dde1f1223bd, type: 3}
   xpDropRadius: 0.5
   xpDropAmount: 3
-  TakenDamageSoundEffect: {fileID: 0}
+  deathSoundName: Demon_Death_Sound
 --- !u!61 &7279789661654451129
 BoxCollider2D:
   m_ObjectHideFlags: 0
