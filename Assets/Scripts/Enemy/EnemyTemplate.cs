@@ -43,9 +43,8 @@ public class EnemyTemplate : MonoBehaviour
     private int xpDropAmount = 3;
 
     [Header("Sound Effects")]
-    [Tooltip("When the enemy has taken damage")]
-    [SerializeField] 
-    protected AudioSource TakenDamageSoundEffect;
+    [Tooltip("Name of sound played on death")]
+    [SerializeField] string deathSoundName;
     #endregion
 
     private float currentHealth;
@@ -80,7 +79,8 @@ public class EnemyTemplate : MonoBehaviour
         if (isDead) { return; }
         isDead = true;
         DistrubuteXP();
-        Destroy(this.gameObject);
+        SoundManager.Instance.PlaySoundAtPosition(deathSoundName, transform.position);
+        Destroy(gameObject);
     }
 
     protected void MoveTowardsObject() {
