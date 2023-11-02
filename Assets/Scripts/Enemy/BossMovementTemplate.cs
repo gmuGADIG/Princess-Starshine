@@ -13,6 +13,10 @@ public class BossMovementTemplate : MonoBehaviour
         //{ BossMovementTypes.Aggressive, new BossAggressiveMovement() },
         //{ BossMovementTypes.Flee, new BossFleeMovement()
     };
+    private void Start()
+    {
+        
+    }
 
     public void Update()
     {
