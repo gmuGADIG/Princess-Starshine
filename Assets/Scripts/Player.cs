@@ -43,6 +43,10 @@ public class Player : MonoBehaviour
     // (in other words, i-frames)
     float immuneTime = 0f;
 
+    //for animations
+    public Animator playerAnimator;
+    public Animator spriteRotator;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,11 +59,40 @@ public class Player : MonoBehaviour
         InGameUI.SetXp(0, 0);
 
         onLevelUp += (newLevel, xpThatLevel) => LevelUpUI.instance.Open();
+
+        //sets player looking right
+        ;
     }
 
     void Update()
     {
         Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
+
+        //check to see if the character is stationary or not
+
+        if(input == Vector2.zero)
+        {
+            playerAnimator.SetBool("Moving", false);
+        }
+        else
+        {
+            playerAnimator.SetBool("Moving", true);
+
+        }
+
+        //check to see if the player is moving right or left
+
+        if(Input.GetAxisRaw("Horizontal") >= 0)
+        {
+            spriteRotator.SetBool("MovingRight", true);
+
+        }
+        else
+        {
+
+            spriteRotator.SetBool("MovingRight", false);
+        }
+
         if (!isTwirling){
             if (input!=Vector2.zero) {
                 velocity += input * acceleration * Time.deltaTime;
@@ -92,6 +125,10 @@ public class Player : MonoBehaviour
             if (curTwirlCharges > 0) {
                 curTwirlCharges -= 1;
                 StartCoroutine(Twirl(input));
+
+                //do twirl animation
+
+                playerAnimator.SetTrigger("Twirling");
             }
             else {
                 print("not enough charges!");
@@ -109,6 +146,7 @@ public class Player : MonoBehaviour
     IEnumerator Twirl(Vector2 direction) {
         print($"twirling (twirls left = {curTwirlCharges})");
         isTwirling = true;
+
         velocity = direction * twirlSpeed;
         yield return new WaitForSeconds(twirlDuration);
         isTwirling = false;
