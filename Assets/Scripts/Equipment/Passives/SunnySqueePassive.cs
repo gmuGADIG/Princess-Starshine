@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class SunnySqueePassive : Passive
@@ -9,15 +8,15 @@ public class SunnySqueePassive : Passive
     public float fireRateIncrease = 1.5f;
     
     //The Player prefab
-    private gameObject playerPrefab;
+    private GameObject playerPrefab;
+
     public SunnySqueePassive() 
     {
         this.type = EquipmentType.SunnySquee;
     }
 
-    public void Update() 
-    {
-
+    public override (string description, Action onApply) GetLevelUps() {
+        return ("Greater weapon fire rate", applyFireRate);
     }
 
     public void applyFireRate()
@@ -36,12 +35,12 @@ public class SunnySqueePassive : Passive
             }
             else 
             {
-                Debug.LogError("Player is missing 'Player' tag")
+                Debug.LogError("Player is missing 'Player' tag");
             }
         }
         else 
         {
-            Debug.LogError("Player is missing 'Player' tag")
+            Debug.LogError("Player is missing 'Player' tag");
         }
     }
 
@@ -49,19 +48,6 @@ public class SunnySqueePassive : Passive
         applyFireRate();
     }
 
-    public override void OnUnEquip() { 
-        
-    }
+    public override void OnUnEquip() {     }
 
-    public override void ProcessOther(Equipment other) { 
-        //pass
-    }
-
-    public override void ProcessOtherRemoval(Equipment other) { 
-        //pass
-    }
-
-    public override (string description, Action onApply) GetLevelUps() {
-        return ("Greater weapon fire rate", applyFireRate)
-    }
 }

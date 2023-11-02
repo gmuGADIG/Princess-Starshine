@@ -212,6 +212,15 @@ public sealed class ProjectileWeapon : Weapon
         }
     }
     
+    public void increaseProjectileSpeed(float amount)
+    {
+        projectileSpeed += amount;
+    }
+
+    public void increaseFireRate(float amount)
+    {
+        fireRate += amount;
+    }
 }
 
 public enum TargetType
