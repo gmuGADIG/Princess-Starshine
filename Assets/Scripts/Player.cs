@@ -205,10 +205,6 @@ public class Player : MonoBehaviour
             // destroy any consumables we "consume"
             GameObject.Destroy(hit.collider.gameObject);
         }
-
-        else {
-            Debug.Log("ew, what did i just touch? a " + gameObject.name);
-        }
     }
 
     void OnAttacked(GameObject enemy)

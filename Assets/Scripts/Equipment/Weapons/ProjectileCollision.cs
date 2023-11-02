@@ -41,9 +41,10 @@ public class ProjectileCollision : MonoBehaviour
                 enemy.TakeDamage(this.damage);
                 print("hit for damage" + this.damage + "!");
             }
-            else
+            else if (col.CompareTag("Boss"))
             {
-                print("not an enemy :/");
+                BossHealth bossHealth = col.GetComponent<BossHealth>();
+                bossHealth.Damage(damage);
             }
         }
     }
