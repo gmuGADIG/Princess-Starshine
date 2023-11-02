@@ -9,7 +9,7 @@ public class BossMovementTemplate : MonoBehaviour
     public BossMovementTypes BossMovementTypes;
     private Dictionary<BossMovementTypes, IBossMovement> movementPair = new Dictionary<BossMovementTypes, IBossMovement>()
     {
-        //{ BossMovementTypes.Wander, new BossWanderMovement() },
+        { BossMovementTypes.Wander, new BossWanderMovement() },
         //{ BossMovementTypes.Aggressive, new BossAggressiveMovement() },
         //{ BossMovementTypes.Flee, new BossFleeMovement()
     };
