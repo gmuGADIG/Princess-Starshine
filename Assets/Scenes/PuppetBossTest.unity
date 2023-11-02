@@ -1578,24 +1578,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1762732203a121541b8b0dde1f1223bd, type: 3}
---- !u!1 &1883669891 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6031957489174021204, guid: 1a2814e1de8e2014990f532d4391740f, type: 3}
-  m_PrefabInstance: {fileID: 5355056212142838953}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1883669895
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1883669891}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 597d5a4ddd8837e419c1dfb104017bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 10000
 --- !u!1001 &3026589364017222576
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1661,6 +1643,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1602268065112875932, guid: 1a2814e1de8e2014990f532d4391740f, type: 3}
+      propertyPath: standPoints.Array.data[0].y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1602268065112875932, guid: 1a2814e1de8e2014990f532d4391740f, type: 3}
+      propertyPath: standPoints.Array.data[1].y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1602268065112875932, guid: 1a2814e1de8e2014990f532d4391740f, type: 3}
+      propertyPath: standPoints.Array.data[2].y
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1602268065112875932, guid: 1a2814e1de8e2014990f532d4391740f, type: 3}
+      propertyPath: standPoints.Array.data[3].y
+      value: -5
+      objectReference: {fileID: 0}
     - target: {fileID: 1758008991832315322, guid: 1a2814e1de8e2014990f532d4391740f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.96
@@ -1708,10 +1706,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6031957489174021204, guid: 1a2814e1de8e2014990f532d4391740f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1883669895}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a2814e1de8e2014990f532d4391740f, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

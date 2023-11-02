@@ -95,6 +95,8 @@ GameObject:
   - component: {fileID: 1758008991832315322}
   - component: {fileID: 5364189277866380597}
   - component: {fileID: 2488860841361603763}
+  - component: {fileID: 8606242482311009314}
+  - component: {fileID: 1602268065112875932}
   m_Layer: 0
   m_Name: Nepotism
   m_TagString: Boss
@@ -179,3 +181,35 @@ MonoBehaviour:
   attackLength: 2
   attackInterval: 3
   projectilesPerMinute: 100
+--- !u!114 &8606242482311009314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6031957489174021204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 597d5a4ddd8837e419c1dfb104017bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 10000
+--- !u!114 &1602268065112875932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6031957489174021204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 719e0ab305b6ac54886fdeed24dd25bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 30
+  fleeRadius: 5
+  standPoints:
+  - {x: 10, y: 10, z: 0}
+  - {x: -10, y: 10, z: 0}
+  - {x: 10, y: -10, z: 0}
+  - {x: -10, y: -10, z: 0}
