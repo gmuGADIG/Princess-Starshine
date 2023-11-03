@@ -166,8 +166,8 @@ public class Player : MonoBehaviour
         AddXP(XpLevelUpGoal() - xpThisLevel);
     }
 
-    void OnCollision(RaycastHit2D hit) {
-        //hit xp
+    void OnCollision(RaycastHit2D hit)
+    {
         if (hit.collider.CompareTag("xp")) {
             var xpObj = hit.transform.gameObject.GetComponent<XpOrb>();
             AddXP(xpObj.points);
@@ -205,10 +205,6 @@ public class Player : MonoBehaviour
             // destroy any consumables we "consume"
             GameObject.Destroy(hit.collider.gameObject);
         }
-
-        else {
-            Debug.Log("ew, what did i just touch? a " + gameObject.name);
-        }
     }
 
     void OnAttacked(GameObject enemy)
@@ -216,6 +212,6 @@ public class Player : MonoBehaviour
         immuneTime = .5f;
         GetComponent<PlayerHealth>().decreaseHealth(10);
         SoundManager.Instance.PlaySoundGlobal(takeDamageSound);
-        print("oww my ass!");
+        print("oww!");
     }
 }
