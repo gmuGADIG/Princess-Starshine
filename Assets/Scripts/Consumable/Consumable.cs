@@ -57,9 +57,9 @@ public class Consumable : MonoBehaviour
 
     public static bool CanApply(Type consumableType) {
         if (consumableType == Type.OverpoweredBuff)
-            return ConsumableManager.Instance.OverpoweredBuffActive;
+            return !ConsumableManager.Instance.OverpoweredBuffActive;
         if (consumableType == Type.Invincibility)
-            return ConsumableManager.Instance.InvincibilityActive;
+            return !ConsumableManager.Instance.InvincibilityActive;
         return true;
     }
 
