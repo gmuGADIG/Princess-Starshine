@@ -60,6 +60,7 @@ public class EquipmentManager : MonoBehaviour
         allEquipment.Add(new FairyFriendPassive());
         allEquipment.Add(new BunnyBurstPassive());
         allEquipment.Add(new ButterflyWings());
+        allEquipment.Add(new LuckyLipstick());
     }
 
 

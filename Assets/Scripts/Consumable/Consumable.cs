@@ -33,7 +33,6 @@ public class Consumable : MonoBehaviour
         ProjectileWeapon.staticStatModifiers.damage += damageMult;
         ProjectileWeapon.staticStatModifiers.fireRate += fireRateMult;
 
-
         // increase walk speed
         BuffableStat.Receipt moveSpeedReceipt = Player.instance.moveSpeedMultiplier.MultiplierBuff(walkSpeedMult);
 

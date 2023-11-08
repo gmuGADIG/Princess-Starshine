@@ -2,6 +2,7 @@
 // Basic usage:
 
 using UnityEngine;
+using UnityEngine.Events;
 /*
 public class MyComponent : MonoBehaviour {
     public float initialFunny = 3f;
@@ -41,6 +42,8 @@ public class MyComponent : MonoBehaviour {
 /// Stat that can be buffed and unbuffed easily.
 /// </summary>
 public class BuffableStat {
+    public UnityEvent<float> ValueUpdated = new UnityEvent<float>();
+
     public enum Order { 
         AddThenMultiply, // bigger numbers, default
         MultiplyThenAdd // smaller numbers
@@ -60,16 +63,23 @@ public class BuffableStat {
     /// A log of the buff you applied to a <c>BuffableStat</c>. Can be unapplied with <c>BuffableStat.Receipt.Unbuff()</c>.
     /// </summary>
     public class Receipt {
+        private static bool quitting = false;
+        [RuntimeInitializeOnLoadMethod]
+        static void RunOnStart()
+        {
+            Application.quitting += () => { quitting = true; };
+        }
+
         public enum Type { Add, Multiply }
-        public float value { get; private set; }
+        public float Value { get; private set; }
         private Type type;
-        BuffableStat bs;
+        public BuffableStat Stat { get; private set; }
 
         private bool unapplied = false;
 
         public Receipt(BuffableStat bs, Type type, float value) {
-            this.bs = bs;
-            this.value = value;
+            this.Stat = bs;
+            this.Value = value;
             this.type = type;
         }
 
@@ -83,9 +93,9 @@ public class BuffableStat {
         public Receipt Rebuff(float amount) {
             Unbuff();
             if (type == Type.Add)
-                return bs.AddBuff(amount);
+                return Stat.AddBuff(amount);
             else 
-                return bs.MultiplierBuff(amount);
+                return Stat.MultiplierBuff(amount);
         }
 
         /// <summary>
@@ -94,16 +104,17 @@ public class BuffableStat {
         public void Unbuff() {
             if (!unapplied) {
                 if (type == Type.Add)
-                    bs.adds -= value;
+                    Stat.adds -= Value;
                 else if (type == Type.Multiply)
-                    bs.multiplier /= value;
+                    Stat.multiplier /= Value;
 
                 unapplied = true;
+                Stat.ValueUpdated.Invoke(Stat.Value);
             } 
         }
 
         ~Receipt() { // destructor :P
-            if (!unapplied) {
+            if (!unapplied && !quitting) {
                 Debug.LogError("Someone forgot to unapply a buff!");
             }
         }
@@ -119,6 +130,7 @@ public class BuffableStat {
     /// </summary>
     public Receipt AddBuff(float amount) {
         adds += amount;
+        ValueUpdated.Invoke(Value);
         return new Receipt(this, Receipt.Type.Add, amount);
     }
 
@@ -128,6 +140,7 @@ public class BuffableStat {
     public Receipt MultiplierBuff(float amount) {
         if (amount != 0) {
             multiplier *= amount;
+            ValueUpdated.Invoke(Value);
             return new Receipt(this, Receipt.Type.Multiply, amount);
         } else {
             Debug.LogError("BuffableStat does not support 0x multipliers.");

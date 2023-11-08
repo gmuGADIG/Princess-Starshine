@@ -78,6 +78,10 @@ MonoBehaviour:
     name: Butterfly Wings
     description: Increases the your move speed
     icon: {fileID: 2800000, guid: 0cfd59be06ac67c4aa03f4a0900ae7df, type: 3}
+  - type: 8
+    name: Lucky Lipstick
+    description: Increases consumable spawn chance and pickup radius
+    icon: {fileID: 2800000, guid: 0cfd59be06ac67c4aa03f4a0900ae7df, type: 3}
   allWeapons:
   - type: 0
     levelUpsDone: 0

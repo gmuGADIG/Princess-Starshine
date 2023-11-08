@@ -18,7 +18,7 @@ public class ButterflyWings : Passive {
         return (
             description: "Increases your move speed",
             onApply: () => {
-                receipt = receipt.Rebuff(receipt.value * scaleMultiplier);
+                receipt = receipt.Rebuff(receipt.Value * scaleMultiplier);
             }
         );
     }
