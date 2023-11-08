@@ -590,10 +590,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2350949820540051793, guid: 668d6ed4de30419b0b1496a1418b2f7e, type: 3}
-      propertyPath: ConsumableSpawnChance
-      value: 0.01
-      objectReference: {fileID: 0}
     - target: {fileID: 5786701419804346739, guid: 668d6ed4de30419b0b1496a1418b2f7e, type: 3}
       propertyPath: m_Name
       value: ConsumableManager
