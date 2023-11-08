@@ -70,6 +70,10 @@ MonoBehaviour:
     name: Bunny Burst
     description: 'Increases speed of weapon projectiles '
     icon: {fileID: 2800000, guid: 0cfd59be06ac67c4aa03f4a0900ae7df, type: 3}
+  - type: 6
+    name: Sunny Squee
+    description: Increases fire rate of weapons
+    icon: {fileID: 2800000, guid: 0cfd59be06ac67c4aa03f4a0900ae7df, type: 3}
   allWeapons:
   - type: 0
     levelUpsDone: 0
