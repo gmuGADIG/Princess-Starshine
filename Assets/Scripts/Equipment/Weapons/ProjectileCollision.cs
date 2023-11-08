@@ -13,6 +13,9 @@ public class ProjectileCollision : MonoBehaviour
     Collider2D collider;
     ContactFilter2D filter;
     Collider2D[] collisions = new Collider2D[16];
+    Collider2D[] previousCollisions = new Collider2D[16];
+
+    public event Action onHit;
 
     void Start()
     {
@@ -30,17 +33,20 @@ public class ProjectileCollision : MonoBehaviour
         }
         
         int hitCount = collider.OverlapCollider(filter, collisions);
-        // print("hitCount = " + hitCount);
         foreach (var col in collisions.Take(hitCount))
         {
+            if (previousCollisions.Take(hitCount).Contains(col)) continue;
+            
             if (col.CompareTag("Enemy"))
             {
                 var enemy = col.GetComponent<EnemyTemplate>();
                 if (enemy == null) throw new Exception("Object with tag `Enemy` did not have an `EnemyTemplate` script!");
                 
                 enemy.TakeDamage(this.damage);
+                onHit?.Invoke();
             }
         }
+        previousCollisions = (Collider2D[]) collisions.Clone(); // shallow-copy collisions into previous collisions
     }
 
     public void SetDamage(float newDamage)

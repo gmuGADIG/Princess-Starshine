@@ -118,6 +118,7 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown("left shift") || Input.GetKeyDown("z")){
             if (curTwirlCharges > 0) {
                 curTwirlCharges -= 1;
+                InGameUI.UpdateTwirls(curTwirlCharges);
                 StartCoroutine(Twirl(input));
                 SoundManager.Instance.PlaySoundGlobal(twirlDashSound);
             }
@@ -130,7 +131,11 @@ public class Player : MonoBehaviour
         if (twirlRechargeTimeLeft <= 0) {
             twirlRechargeTimeLeft = twirlCooldown;
             print("recharging twirl");
-            curTwirlCharges = Mathf.Min(curTwirlCharges + 1, maxTwirlCharges);
+            if (curTwirlCharges < maxTwirlCharges)
+            {
+                curTwirlCharges += 1;
+                InGameUI.UpdateTwirls(curTwirlCharges);                
+            }
         }
     }
 
