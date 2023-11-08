@@ -32,11 +32,11 @@ public class TempConstantScript : MonoBehaviour {
             Destroy(gameObject);
         }
     }
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D collider)
     {
-        if(collision.gameObject.CompareTag("Player"))
+        if(collider.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<PlayerHealth>().decreaseHealth(20);
+            collider.gameObject.GetComponent<PlayerHealth>().decreaseHealth(20);
             Destroy(gameObject);
         }
     }
