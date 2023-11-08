@@ -37,7 +37,9 @@ public class MyComponent : MonoBehaviour {
 }
 */
 
-// should this be a struct? idk, ask the profiler
+/// <summary>
+/// Stat that can be buffed and unbuffed easily.
+/// </summary>
 public class BuffableStat {
     public enum Order { 
         AddThenMultiply, // bigger numbers, default
@@ -54,6 +56,9 @@ public class BuffableStat {
             return (initial * multiplier) + adds;
     } }
 
+    /// <summary>
+    /// A log of the buff you applied to a <c>BuffableStat</c>. Can be unapplied with <c>BuffableStat.Receipt.Unbuff()</c>.
+    /// </summary>
     public class Receipt {
         public enum Type { Add, Multiply }
         private float value;
@@ -68,6 +73,9 @@ public class BuffableStat {
             this.type = type;
         }
 
+        /// <summary>
+        /// Unapply the buff this receipt represents.
+        /// </summary>
         public void Unbuff() {
             if (!unapplied) {
                 if (type == Type.Add)
@@ -89,11 +97,17 @@ public class BuffableStat {
         this.order = order;
     }
 
+    /// <summary>
+    /// Add <paramref name="amount"/> to this <c>BuffableStat</c>'s value.
+    /// </summary>
     public Receipt AddBuff(float amount) {
         adds += amount;
         return new Receipt(this, Receipt.Type.Add, amount);
     }
 
+    /// <summary>
+    /// Multiply this <c>BuffableStat</c>'s value by <paramref name="amount"/>.
+    /// </summary>
     public Receipt MultiplierBuff(float amount) {
         if (amount != 0) {
             multiplier *= amount;
