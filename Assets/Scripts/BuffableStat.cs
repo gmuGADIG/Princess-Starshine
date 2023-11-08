@@ -61,7 +61,7 @@ public class BuffableStat {
     /// </summary>
     public class Receipt {
         public enum Type { Add, Multiply }
-        private float value;
+        public float value { get; private set; }
         private Type type;
         BuffableStat bs;
 
@@ -74,7 +74,22 @@ public class BuffableStat {
         }
 
         /// <summary>
-        /// Unapply the buff this receipt represents.
+        /// Swap out this receipt for a new receipt that has new buff value.
+        /// Equivalent to <c>Receipt.Unbuff(); BuffableStat.{AddBuff,MultiplierBuff}(amount)</c>.
+        /// Will reuse Multiply/Add type.
+        /// </summary>
+        /// <param name="amount">Value of new buff</param>
+        /// <returns>Receipt representing the new buff.</returns>
+        public Receipt Rebuff(float amount) {
+            Unbuff();
+            if (type == Type.Add)
+                return bs.AddBuff(amount);
+            else 
+                return bs.MultiplierBuff(amount);
+        }
+
+        /// <summary>
+        /// Unapply the buff this receipt represents. This is an idempotent operation.
         /// </summary>
         public void Unbuff() {
             if (!unapplied) {
@@ -82,7 +97,9 @@ public class BuffableStat {
                     bs.adds -= value;
                 else if (type == Type.Multiply)
                     bs.multiplier /= value;
-            } unapplied = true;
+
+                unapplied = true;
+            } 
         }
 
         ~Receipt() { // destructor :P
