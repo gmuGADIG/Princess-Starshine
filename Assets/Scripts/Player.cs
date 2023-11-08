@@ -119,6 +119,7 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown("left shift") || Input.GetKeyDown("z")){
             if (curTwirlCharges > 0) {
                 curTwirlCharges -= 1;
+                InGameUI.UpdateTwirls(curTwirlCharges);
                 StartCoroutine(Twirl(input));
                 SoundManager.Instance.PlaySoundGlobal(twirlDashSound);
             }
@@ -131,7 +132,11 @@ public class Player : MonoBehaviour
         if (twirlRechargeTimeLeft <= 0) {
             twirlRechargeTimeLeft = twirlCooldown;
             print("recharging twirl");
-            curTwirlCharges = Mathf.Min(curTwirlCharges + 1, maxTwirlCharges);
+            if (curTwirlCharges < maxTwirlCharges)
+            {
+                curTwirlCharges += 1;
+                InGameUI.UpdateTwirls(curTwirlCharges);                
+            }
         }
     }
 
@@ -167,8 +172,8 @@ public class Player : MonoBehaviour
         AddXP(XpLevelUpGoal() - xpThisLevel);
     }
 
-    void OnCollision(RaycastHit2D hit) {
-        //hit xp
+    void OnCollision(RaycastHit2D hit)
+    {
         if (hit.collider.CompareTag("xp")) {
             var xpObj = hit.transform.gameObject.GetComponent<XpOrb>();
             AddXP(xpObj.points);
@@ -206,10 +211,6 @@ public class Player : MonoBehaviour
             // destroy any consumables we "consume"
             GameObject.Destroy(hit.collider.gameObject);
         }
-
-        else {
-            Debug.Log("ew, what did i just touch? a " + gameObject.name);
-        }
     }
 
     void OnAttacked(GameObject enemy)
@@ -217,6 +218,6 @@ public class Player : MonoBehaviour
         immuneTime = .5f;
         GetComponent<PlayerHealth>().decreaseHealth(10);
         SoundManager.Instance.PlaySoundGlobal(takeDamageSound);
-        print("oww my ass!");
+        print("oww!");
     }
 }

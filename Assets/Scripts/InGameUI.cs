@@ -15,6 +15,11 @@ public class InGameUI : MonoBehaviour
     [SerializeField] Transform weapons;
     [SerializeField] Transform passives;
     
+    [Header("Twirls")]
+    [SerializeField] Transform twirlParent;
+    [SerializeField] Sprite twirlFilledImage;
+    [SerializeField] Sprite twirlEmptyImage;
+    
     void Awake()
     {
         instance = this;
@@ -34,6 +39,20 @@ public class InGameUI : MonoBehaviour
     {
         SetItemList(instance.passives, EquipmentManager.instance.EquippedWeaponIcons());
         SetItemList(instance.weapons, EquipmentManager.instance.EquippedPassiveIcons());
+    }
+
+    public static void UpdateTwirls(int count)
+    {
+        var twirlsDrawn = 0;
+        foreach (Transform child in instance.twirlParent)
+        {
+            var image = child.GetComponent<Image>();
+            image.sprite =
+                twirlsDrawn < count
+                ? instance.twirlFilledImage
+                : instance.twirlEmptyImage;
+            twirlsDrawn += 1;
+        }
     }
     
     /**
