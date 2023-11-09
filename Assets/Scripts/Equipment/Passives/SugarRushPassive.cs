@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class SugarRushPassive : MonoBehaviour
+public class SugarRushPassive : Passive
 {
     //Amount of damage dealt by weapon
     public float damageIncrease = 1.5f;
