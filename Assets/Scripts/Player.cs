@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -44,7 +45,6 @@ public class Player : MonoBehaviour
 
     // Time in seconds the player is immune to attacks. After getting hit, the player is immune for a short amount of time.
     // (in other words, i-frames)
-    float immuneTime = 0f;
 
     // sound names
     string xpPickupSound = "XP_Pickup";
@@ -96,8 +96,6 @@ public class Player : MonoBehaviour
         }
 
         transform.position += (Vector3)(velocity * Time.deltaTime * moveSpeedMultiplier);
-
-        immuneTime = Mathf.MoveTowards(immuneTime, 0, Time.deltaTime);
     }
 
     void UsedConsumable()
@@ -181,7 +179,7 @@ public class Player : MonoBehaviour
 
         else if (hit.collider.CompareTag("Enemy"))
         {
-            if (immuneTime > 0 || isTwirling) return;
+            if (isTwirling) return;
             OnAttacked(hit.collider.gameObject);
         }
 
@@ -214,9 +212,8 @@ public class Player : MonoBehaviour
 
     void OnAttacked(GameObject enemy)
     {
-        immuneTime = .5f;
-        GetComponent<PlayerHealth>().decreaseHealth(10);
+        GetComponent<PlayerHealth>().decreaseHealth(10 * Time.deltaTime);
         SoundManager.Instance.PlaySoundGlobal(takeDamageSound);
-        print("oww!");
+        //print("oww!");
     }
 }
