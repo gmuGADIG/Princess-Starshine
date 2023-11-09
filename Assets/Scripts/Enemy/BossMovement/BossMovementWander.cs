@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class BossMovementWander : MonoBehaviour
+public class BossMovementWander : MonoBehaviour, IBossMovement
 {
     public float speed = 1f;
     public float waitTime = 3f;
