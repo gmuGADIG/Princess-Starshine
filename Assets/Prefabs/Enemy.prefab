@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 330298543585824688}
   - component: {fileID: 1886410856656000501}
   - component: {fileID: 7279789661654451129}
+  - component: {fileID: 8529077627130218443}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -185,8 +186,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 5484213388468280392, guid: 624ff9c1693ff01469d7b5f6c797b15c, type: 3}
-  bulletPos: {fileID: 0}
-  script: {fileID: 0}
 --- !u!114 &1886410856656000501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,3 +250,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.73, y: 1.15}
   m_EdgeRadius: 0
+--- !u!114 &8529077627130218443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3498557936519908969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccf1194074bf9f026900709e92d1621b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10

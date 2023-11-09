@@ -179,10 +179,9 @@ public class Player : MonoBehaviour
             Destroy(xpObj.gameObject);
         }
 
-        else if (hit.collider.CompareTag("Enemy"))
-        {
-            if (immuneTime > 0 || isTwirling) return;
-            OnAttacked(hit.collider.gameObject);
+        else if (hit.collider.GetComponent<Damage>()) {
+            Damage damage = hit.collider.GetComponent<Damage>();
+            OnAttacked(damage.damage);
         }
 
         else if (hit.collider.CompareTag("Consumable"))
@@ -212,10 +211,13 @@ public class Player : MonoBehaviour
         }
     }
 
-    void OnAttacked(GameObject enemy)
+    //void OnAttacked(GameObject enemy)
+    void OnAttacked(float damage)
     {
+        if (immuneTime > 0 || isTwirling) return;
+
         immuneTime = .5f;
-        GetComponent<PlayerHealth>().decreaseHealth(10);
+        GetComponent<PlayerHealth>().decreaseHealth(damage);
         SoundManager.Instance.PlaySoundGlobal(takeDamageSound);
         print("oww!");
     }
