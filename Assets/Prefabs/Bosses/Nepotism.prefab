@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 2488860841361603763}
   - component: {fileID: 8606242482311009314}
   - component: {fileID: 1602268065112875932}
+  - component: {fileID: 2291295065632239823}
   m_Layer: 0
   m_Name: Nepotism
   m_TagString: Boss
@@ -213,3 +214,19 @@ MonoBehaviour:
   - {x: -10, y: 5, z: 0}
   - {x: 10, y: -5, z: 0}
   - {x: -10, y: -5, z: 0}
+--- !u!114 &2291295065632239823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6031957489174021204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98c152a3995580b4d8842b8ff538c676, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 3498557936519908969, guid: 5c7654e7b4b04cf4fb639b265a6c2a79, type: 3}
+  timesToRun: 5
+  groupSize: 5
+  spawnDelay: 10
