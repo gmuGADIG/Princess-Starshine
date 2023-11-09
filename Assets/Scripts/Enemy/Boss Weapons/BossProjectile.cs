@@ -10,17 +10,33 @@ public class BossProjectile : MonoBehaviour
     [HideInInspector]
     public Vector3 direction;
 
+    CircleCollider2D circleCollider;
+    Collider2D[] hits = new Collider2D[10];
+
+    private void Awake()
+    {
+        circleCollider = GetComponentInChildren<CircleCollider2D>();
+    }
+
     private void Update()
     {
         transform.Translate(direction * moveSpeed * Time.deltaTime);
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        PlayerHealth playerHealth = GetComponentInParent<PlayerHealth>();
-        if (playerHealth != null)
+        int hitNum = Physics2D.OverlapCircleNonAlloc(transform.position, circleCollider.radius, hits);
+        if (hitNum > 0)
         {
-            playerHealth.decreaseHealth(damage);
+            for (int i = 0; i < hitNum; i++)
+            {
+                if (hits[i].gameObject.CompareTag("Player"))
+                {
+                    PlayerHealth playerHealth = hits[i].GetComponent<PlayerHealth>();
+                    if (playerHealth != null)
+                    {
+                        playerHealth.decreaseHealth(damage);
+                        Destroy(gameObject);
+                    }
+                }
+            }
         }
+
     }
 }

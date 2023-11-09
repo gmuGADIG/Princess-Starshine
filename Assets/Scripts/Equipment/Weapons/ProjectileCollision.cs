@@ -39,7 +39,6 @@ public class ProjectileCollision : MonoBehaviour
                 if (enemy == null) throw new Exception("Object with tag `Enemy` did not have an `EnemyTemplate` script!");
                 
                 enemy.TakeDamage(this.damage);
-                print("hit for damage" + this.damage + "!");
             }
             else if (col.CompareTag("Boss"))
             {

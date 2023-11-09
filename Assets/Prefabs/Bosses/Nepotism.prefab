@@ -180,7 +180,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 3563564821948889416, guid: 88875b9d7a528254788224c68ad33361, type: 3}
   attackLength: 2
   attackInterval: 3
-  projectilesPerMinute: 100
+  projectilesPerMinute: 300
 --- !u!114 &8606242482311009314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,7 +209,7 @@ MonoBehaviour:
   moveSpeed: 30
   fleeRadius: 5
   standPoints:
-  - {x: 10, y: 10, z: 0}
-  - {x: -10, y: 10, z: 0}
-  - {x: 10, y: -10, z: 0}
-  - {x: -10, y: -10, z: 0}
+  - {x: 10, y: 5, z: 0}
+  - {x: -10, y: 5, z: 0}
+  - {x: 10, y: -5, z: 0}
+  - {x: -10, y: -5, z: 0}

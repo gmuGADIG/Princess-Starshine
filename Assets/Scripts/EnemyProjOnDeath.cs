@@ -15,7 +15,7 @@ public class EnemyProjOnDeath : MonoBehaviour
 
     void OnDisable()
     {
-        if(!this.gameObject.scene.isLoaded) return; // Prevents instatiating bullet when scene isn't loaded
+        if(!gameObject.scene.isLoaded) return; // Prevents instatiating bullet when scene isn't loaded
         Instantiate(bullet, enemyPos.position, Quaternion.identity);
     }
 
