@@ -147,7 +147,6 @@ public class TeaTime : Projectile
             //remove this if it is supposed to persist after hitting a corner
             Destroy(gameObject);
 
-
             circle.enabled = false;
             isMoving = true;
             cooldownC();

@@ -10,6 +10,7 @@ TagManager:
   - PlayerProjectile
   - Enemy
   - XPOrb
+  - Boss
   layers:
   - Default
   - TransparentFX
