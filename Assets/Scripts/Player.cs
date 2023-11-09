@@ -115,7 +115,7 @@ public class Player : MonoBehaviour
 
     void UpdateTwirl(Vector2 input) {
 
-        if (Input.GetKeyDown("left shift") || Input.GetKeyDown("z")){
+        if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.Z)){
             if (curTwirlCharges > 0) {
                 curTwirlCharges -= 1;
                 InGameUI.UpdateTwirls(curTwirlCharges);
