@@ -47,6 +47,15 @@ public class Player : MonoBehaviour
     public Animator playerAnimator;
     public Animator spriteRotator;
 
+    //boolean to see where player is looking
+
+    public enum Direction {Left,Right};
+    Direction myDirection = Direction.Left;
+
+    //find the player sprite renderer
+
+    public SpriteRenderer mySpriteRenderer;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -61,7 +70,9 @@ public class Player : MonoBehaviour
         onLevelUp += (newLevel, xpThatLevel) => LevelUpUI.instance.Open();
 
         //sets player looking right
-        ;
+        Direction myDirection = Direction.Left;
+
+        
     }
 
     void Update()
@@ -81,19 +92,26 @@ public class Player : MonoBehaviour
         }
 
         //check to see if the player is moving right or left
-
-        if(Input.GetAxisRaw("Horizontal") >= 0)
-        {
-            spriteRotator.SetFloat("Horizontal", input.x);
-            // spriteRotator.SetBool("MovingRight", true);
-
-        }
-        else
+        //chnages where the player is looking
+        if (Input.GetAxisRaw("Horizontal") < 0)
         {
 
-          //  spriteRotator.SetBool("MovingRight", false);
+            myDirection = Direction.Left;
+             mySpriteRenderer.flipX = true;
+
         }
+        else if(Input.GetAxisRaw("Horizontal") > 0)
+        {
+            myDirection = Direction.Right;
+            mySpriteRenderer.flipX = false;
+        }
+
         
+
+
+
+
+
         if (!isTwirling){
             if (input!=Vector2.zero) {
                 velocity += input * acceleration * Time.deltaTime;

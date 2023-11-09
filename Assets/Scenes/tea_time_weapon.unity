@@ -473,6 +473,10 @@ PrefabInstance:
       propertyPath: allWeapons.Array.data[2].projectileSize
       value: 0.75
       objectReference: {fileID: 0}
+    - target: {fileID: 993297589389799857, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2620958937377383029, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
       propertyPath: playerAnimator
       value: 
