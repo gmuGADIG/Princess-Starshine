@@ -23,31 +23,33 @@ public class Consumable : MonoBehaviour
     }
 
     static IEnumerator OverpoweredBuffPayload() { // make the player strong
-        // increase damage dealt
-        // WARN: this does not work for weapons which aren't projectile weapons!
-        ProjectileWeapon.damageMultiplier = ConsumableManager.Instance.DamageDealtMutliplier;
+        var damageMult = ConsumableManager.Instance.DamageDealtMutliplier;
+        var fireRateMult = ConsumableManager.Instance.DamageDealtMutliplier;
+        var walkSpeedMult = ConsumableManager.Instance.DamageDealtMutliplier;
+        var damageTakenMult = ConsumableManager.Instance.DamageDealtMutliplier;
+        var buffDuration = ConsumableManager.Instance.OverpoweredBuffDuration;
+        
+        // increase damage and fire rate
+        ProjectileWeapon.staticStatModifiers.damage += damageMult;
+        ProjectileWeapon.staticStatModifiers.fireRate += fireRateMult;
 
-        // increase fire rate
-        // WARN: this does not work for weapons which aren't projectile weapons!
-        ProjectileWeapon.fireRateMultiplier = ConsumableManager.Instance.FireRateMutliplier;
 
         // increase walk speed
-        Player.instance.moveSpeedMultiplier = ConsumableManager.Instance.WalkSpeedMutliplier;
+        Player.instance.moveSpeedMultiplier = walkSpeedMult;
 
         // decrease damage taken
         PlayerHealth ph = Player.instance.GetComponent<PlayerHealth>();
-        ph.damageTakenMultiplier = ConsumableManager.Instance.DamageTakenMutliplier;
+        ph.damageTakenMultiplier = damageTakenMult;
 
         ConsumableManager.Instance.PlayerOverpowered.Invoke();
 
-        yield return new WaitForSeconds(ConsumableManager.Instance.OverpoweredBuffDuration);
+        yield return new WaitForSeconds(buffDuration);
         
-        ProjectileWeapon.fireRateMultiplier = 1f;
-
-        ProjectileWeapon.damageMultiplier = 1f;
+        ProjectileWeapon.staticStatModifiers.damage -= damageMult;
+        ProjectileWeapon.staticStatModifiers.fireRate -= fireRateMult;
 
         // reset walk speed
-        Player.instance.moveSpeedMultiplier = ConsumableManager.Instance.WalkSpeedMutliplier;
+        Player.instance.moveSpeedMultiplier = 1;
 
         // reset damage taken multiplier
         ph.damageTakenMultiplier = ph.defaultDamageTakenMultiplier;
@@ -57,9 +59,9 @@ public class Consumable : MonoBehaviour
 
     public static bool CanApply(Type consumableType) {
         if (consumableType == Type.OverpoweredBuff)
-            return ConsumableManager.Instance.OverpoweredBuffActive;
+            return !ConsumableManager.Instance.OverpoweredBuffActive;
         if (consumableType == Type.Invincibility)
-            return ConsumableManager.Instance.InvincibilityActive;
+            return !ConsumableManager.Instance.InvincibilityActive;
         return true;
     }
 
