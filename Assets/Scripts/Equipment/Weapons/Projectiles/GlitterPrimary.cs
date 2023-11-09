@@ -17,6 +17,6 @@ public class GlitterPrimary : Projectile
         base.OnDestroy();
         
         var explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity).GetComponent<GlitterExplode>();
-        explosion.SetDamage(damage);
+        explosion.Create(damage,this.transform.localScale);
     }
 }
