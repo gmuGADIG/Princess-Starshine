@@ -21,7 +21,17 @@ public class Player : MonoBehaviour
     int cumulativeXpPoints = 0;
     int xpThisLevel = 0;
     int xpLevel = 1;
-    int XpLevelUpGoal() => (2 * xpLevel) + 20;
+
+    //Initial amount of xp required to level up
+    [SerializeField]
+    int initialXpToLevelUp = 20;
+
+    //Increase amount in xp
+    [SerializeField]
+    int increaseXP = 2;
+
+    [SerializeField]
+    int XpLevelUpGoal() => (increaseXP * xpLevel) + initialXpToLevelUp;
     static Action<int, int> onLevelUp;
 
     //For dodge twirl
@@ -148,7 +158,7 @@ public class Player : MonoBehaviour
     }
 
     //current placeholder for xp function
-    void AddXP(int points) 
+    public void AddXP(int points) 
     {
         cumulativeXpPoints += points;
         xpThisLevel += points;
