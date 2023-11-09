@@ -24,7 +24,17 @@ public class Projectile : MonoBehaviour
     protected virtual void Start()
     {
         var projCollision = GetComponent<ProjectileCollision>();
-        if (projCollision != null) projCollision.SetDamage(this.damage);
+        if (projCollision != null)
+        {
+            projCollision.SetDamage(this.damage);
+            projCollision.onHit += OnProjectileHit;
+        }
+    }
+
+    void OnProjectileHit()
+    {
+        if (pierceCount == 0) Destroy(this.gameObject); // < 0 is fine, because -1 pierce means infinite
+        this.pierceCount -= 1;
     }
 
     protected virtual void Update()
