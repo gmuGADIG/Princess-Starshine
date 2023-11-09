@@ -9,7 +9,7 @@ public class SugarRushPassive : Passive
     //The Player prefab
     private GameObject playerPrefab;
 
-    public SugraRushPassive()
+    public SugarRushPassive()
     {
         this.type = EquipmentType.SugarRush;
     }
