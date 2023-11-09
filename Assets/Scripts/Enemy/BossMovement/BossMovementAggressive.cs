@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossMovementAggressive : MonoBehaviour
+public class BossMovementAggressive : MonoBehaviour, IBossMovement
 {
     public Transform moveTowards;
     public float speed = 5f;
