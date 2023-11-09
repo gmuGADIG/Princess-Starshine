@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OfficeEnemySpawn : MonoBehaviour
+public class BossSpawnEnemy : MonoBehaviour
 {
     public GameObject enemy;
     public Transform enemyPos;

@@ -27,7 +27,6 @@ public class Projectile : MonoBehaviour
         if (projCollision != null)
         {
             projCollision.SetDamage(this.damage);
-            projCollision.onHit += OnProjectileHit;
         }
     }
 
