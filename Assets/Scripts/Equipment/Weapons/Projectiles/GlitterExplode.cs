@@ -9,11 +9,11 @@ public class GlitterExplode : MonoBehaviour
 
     void Start()
     {
+        SoundManager.Instance.PlaySoundGlobal(explodeSound);
         StartCoroutine(Coroutine());
         IEnumerator Coroutine()
         {
             yield return new WaitForSeconds(0.25f);
-            SoundManager.Instance.PlaySoundGlobal(explodeSound);
             Destroy(gameObject);
         }
     }
