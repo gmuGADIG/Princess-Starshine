@@ -61,7 +61,11 @@ public class EquipmentManager : MonoBehaviour
 
         foreach (var equipment in allEquipment)
         {
+            // enforce first show rules and max weapon and max passive count
             if (equipment is Weapon && weaponCount >= MAX_WEAPONS) continue;
+            if (equipment is Weapon)
+                if (!(equipment as Weapon).availableAtStart && firstShow)
+                    continue;
             if (equipment is Passive)
             {
                 if (firstShow) continue;
