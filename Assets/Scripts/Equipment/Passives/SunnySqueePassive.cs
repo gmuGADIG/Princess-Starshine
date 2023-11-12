@@ -16,27 +16,7 @@ public class SunnySqueePassive : Passive
 
     public void applyFireRate()
     {
-        if (GameObject.FindGameObjectWithTag("Player") != null) 
-        {
-            playerPrefab = GameObject.FindGameObjectWithTag("Player");
-            if (playerPrefab.GetComponentInChildren<EquipmentManager>() != null)
-            {
-                EquipmentManager playerEquipment = playerPrefab.GetComponentInChildren<EquipmentManager>();
-
-                // foreach (ProjectileWeapon weapon in playerEquipment.allWeapons)
-                // {
-                //     weapon.increaseFireRate(fireRateIncrease);
-                // }
-            }
-            else 
-            {
-                Debug.LogError("Player is missing 'Player' tag");
-            }
-        }
-        else 
-        {
-            Debug.LogError("Player is missing 'Player' tag");
-        }
+        ProjectileWeapon.staticStatModifiers.fireRate += fireRateIncrease;
     }
 
     public override void OnEquip() {
