@@ -10,7 +10,8 @@ public class Player : MonoBehaviour
     
     // acceleration is by default set to 80, maxSpeed is set to 10, and deceleration is set to 30
     [HideInInspector] public Vector2 velocity = Vector2.zero;
-    [HideInInspector] public float moveSpeedMultiplier { get; set; } = 1f;
+    public BuffableStat moveSpeedMultiplier { get; private set; } = new BuffableStat(1f);
+    //[HideInInspector] public float moveSpeedMultiplier { get; set; } = 1f;
     [SerializeField]
     float acceleration;
     [SerializeField]
@@ -95,7 +96,7 @@ public class Player : MonoBehaviour
             OnCollision(collisions[i]);
         }
 
-        transform.position += (Vector3)(velocity * Time.deltaTime * moveSpeedMultiplier);
+        transform.position += (Vector3)(velocity * Time.deltaTime * moveSpeedMultiplier.Value);
     }
 
     void UsedConsumable()

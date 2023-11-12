@@ -80,7 +80,7 @@ public class EnemyTemplate : MonoBehaviour
         isDead = true;
         DistrubuteXP();
         SoundManager.Instance.PlaySoundAtPosition(deathSoundName, transform.position);
-        Destroy(gameObject);
+        StartCoroutine(DelayedDestroy());
     }
 
     protected void MoveTowardsObject() {
@@ -160,4 +160,10 @@ public class EnemyTemplate : MonoBehaviour
         MoveTowardsObject();
     }
 
+
+    IEnumerator DelayedDestroy()
+    {
+        yield return new WaitForSeconds(.05f);
+        Destroy(gameObject);
+    }
 }

@@ -27,7 +27,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.13, y: 0, z: 0}
-  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
+  m_LocalScale: {x: 6.3685355, y: 6.3685355, z: 6.3685355}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1758008991832315322}
@@ -93,12 +93,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1758008991832315322}
-  - component: {fileID: 7194634307275397827}
-  - component: {fileID: 2896845878319337219}
   - component: {fileID: 5364189277866380597}
+  - component: {fileID: 2488860841361603763}
+  - component: {fileID: 8606242482311009314}
+  - component: {fileID: 1602268065112875932}
+  - component: {fileID: 2291295065632239823}
   m_Layer: 0
   m_Name: Nepotism
-  m_TagString: Enemy
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -119,38 +121,6 @@ Transform:
   - {fileID: 2005381725287824551}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7194634307275397827
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6031957489174021204}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c527a775096a1dc479cfe80db31fa799, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bullet: {fileID: 5484213388468280392, guid: 624ff9c1693ff01469d7b5f6c797b15c, type: 3}
---- !u!114 &2896845878319337219
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6031957489174021204}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: befdc6b2505845645a436ffa305168fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  movementSpeed: 2
-  moveTowardsObject: {fileID: 0}
-  XPOrb: {fileID: 6433517325453158020, guid: 1762732203a121541b8b0dde1f1223bd, type: 3}
-  xpDropRadius: 0.5
-  xpDropAmount: 3
-  deathSoundName: Demon_Death_Sound
 --- !u!61 &5364189277866380597
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -194,5 +164,69 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8, y: 0.8}
+  m_Size: {x: 7, y: 7}
   m_EdgeRadius: 0
+--- !u!114 &2488860841361603763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6031957489174021204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddf51739d8a3f8c4a8c6d97d4f616958, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 3563564821948889416, guid: 88875b9d7a528254788224c68ad33361, type: 3}
+  attackLength: 2
+  attackInterval: 3
+  projectilesPerMinute: 300
+--- !u!114 &8606242482311009314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6031957489174021204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 597d5a4ddd8837e419c1dfb104017bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 10000
+--- !u!114 &1602268065112875932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6031957489174021204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 719e0ab305b6ac54886fdeed24dd25bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 30
+  fleeRadius: 5
+  standPoints:
+  - {x: 10, y: 5, z: 0}
+  - {x: -10, y: 5, z: 0}
+  - {x: 10, y: -5, z: 0}
+  - {x: -10, y: -5, z: 0}
+--- !u!114 &2291295065632239823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6031957489174021204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98c152a3995580b4d8842b8ff538c676, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 3498557936519908969, guid: 5c7654e7b4b04cf4fb639b265a6c2a79, type: 3}
+  timesToRun: 5
+  groupSize: 5
+  spawnDelay: 10
