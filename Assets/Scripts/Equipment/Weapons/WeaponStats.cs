@@ -25,6 +25,6 @@ public struct WeaponStats
     [Tooltip("Amount of projectiles to fire with each shot.")]
     public int projectilesPerShot;
     
-    [Tooltip("he amount of enemies the projectile can pierce through. 0 means destroy on first hit. -1 means infinite pierce.")]
+    [Tooltip("The amount of enemies the projectile can pierce through. 0 means destroy on first hit. -1 means infinite pierce.")]
     public int pierceCount;
 }
