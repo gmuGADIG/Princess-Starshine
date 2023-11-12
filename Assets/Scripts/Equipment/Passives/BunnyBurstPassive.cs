@@ -9,11 +9,6 @@ public class BunnyBurstPassive : Passive
 
     private GameObject playerPrefab;
 
-    public BunnyBurstPassive()
-    {
-        this.type = EquipmentType.BunnyBurst;
-    }
-
     public override void OnEquip()
     {
         applySpeed();

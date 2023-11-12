@@ -65,9 +65,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86ff6d5921cc4666a3c90a26d174dfad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 4
   icon:
-    type: 4
     name: Fairy Friend
     description: Gives passive health regeneration
     icon: {fileID: 2800000, guid: 0cfd59be06ac67c4aa03f4a0900ae7df, type: 3}
@@ -88,9 +86,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f17c8209a9b84fd5bdb0890aa34c8c5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 5
   icon:
-    type: 5
     name: Bunny Burst
     description: Increases speed of weapon projectiles
     icon: {fileID: 2800000, guid: 0cfd59be06ac67c4aa03f4a0900ae7df, type: 3}
@@ -108,9 +104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f6c9e41865603e49a271707a5582a17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 6
   icon:
-    type: 6
     name: Sunny Squee
     description: Increases the fire rate of weapons
     icon: {fileID: 2800000, guid: 0cfd59be06ac67c4aa03f4a0900ae7df, type: 3}
@@ -128,9 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49a0c17caa817987eb8610fb3e841c3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 7
   icon:
-    type: 7
     name: Butterfly Wings
     description: Increases your move speed
     icon: {fileID: 2800000, guid: 0cfd59be06ac67c4aa03f4a0900ae7df, type: 3}
@@ -149,9 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea72f78e632fc47d8926405fedc098b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 8
   icon:
-    type: 8
     name: Lucky Lipstick
     description: Increases consumable spawn chance and pickup radius
     icon: {fileID: 2800000, guid: 0cfd59be06ac67c4aa03f4a0900ae7df, type: 3}
@@ -172,9 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b81fad6e262188466b16ce10e4f257ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
   icon:
-    type: 0
     name: Fairy Wand
     description: Fires magic projectiles at the closest enemy
     icon: {fileID: 2800000, guid: 0cfd59be06ac67c4aa03f4a0900ae7df, type: 3}
@@ -188,6 +176,7 @@ MonoBehaviour:
     amount: 1
   - type: 2
     amount: 1
+  availableAtStart: 1
   weaponStats:
     damage: 25
     knockback: 2
@@ -214,9 +203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f01a6c64eb60776cf91c19c7237cb39e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 1
   icon:
-    type: 1
     name: Glitter Bomb
     description: Lobs bombs of glitter at random enemies, exploding after a short
       delay
@@ -231,6 +218,7 @@ MonoBehaviour:
     amount: 1
   - type: 6
     amount: 1
+  availableAtStart: 1
   weaponStats:
     damage: 30
     knockback: 0
@@ -257,9 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 764ae46e896d8aa04938341faff21171, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 2
   icon:
-    type: 2
     name: Tea Time
     description: Fires a tey cup that bounces around the screen like a screensaver
     icon: {fileID: 2800000, guid: 0cfd59be06ac67c4aa03f4a0900ae7df, type: 3}
@@ -273,6 +259,7 @@ MonoBehaviour:
     amount: 1
   - type: 5
     amount: 1
+  availableAtStart: 0
   weaponStats:
     damage: 0
     knockback: 0

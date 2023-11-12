@@ -9,11 +9,6 @@ public class SugarRushPassive : Passive
     //The Player prefab
     private GameObject playerPrefab;
 
-    public SugarRushPassive()
-    {
-        this.type = EquipmentType.SugarRush;
-    }
-    
     public override (string description, Action onApply) GetLevelUps() 
     {
         return ("Greater weapon damage", applyDamage);

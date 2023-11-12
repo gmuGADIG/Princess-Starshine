@@ -21,11 +21,6 @@ public class FairyFriendPassive : Passive
     //The Player prefab
     private GameObject playerPrefab;
 
-    public FairyFriendPassive()
-    {
-        this.type = EquipmentType.FairyFriend;
-    }
-    
     public void Start()
     {
         cooldown = cooldownRate;

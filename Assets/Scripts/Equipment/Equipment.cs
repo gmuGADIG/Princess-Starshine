@@ -9,8 +9,6 @@ using UnityEngine;
 [Serializable]
 public abstract class Equipment : MonoBehaviour
 {
-    [SerializeField] public EquipmentType type;
-    
     [SerializeField] public EquipmentIcon icon;
     
     /** The amount of times this equipment has been leveled up. Necessary to avoid going past the limit */

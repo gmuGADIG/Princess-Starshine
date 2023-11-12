@@ -10,11 +10,6 @@ public class SunnySqueePassive : Passive
     //The Player prefab
     private GameObject playerPrefab;
 
-    public SunnySqueePassive() 
-    {
-        this.type = EquipmentType.SunnySquee;
-    }
-
     public override (string description, Action onApply) GetLevelUps() {
         return ("Greater weapon fire rate", applyFireRate);
     }
