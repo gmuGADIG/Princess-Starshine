@@ -33,9 +33,8 @@ public class Consumable : MonoBehaviour
         ProjectileWeapon.staticStatModifiers.damage += damageMult;
         ProjectileWeapon.staticStatModifiers.fireRate += fireRateMult;
 
-
         // increase walk speed
-        Player.instance.moveSpeedMultiplier = walkSpeedMult;
+        BuffableStat.Receipt moveSpeedReceipt = Player.instance.moveSpeedMultiplier.MultiplierBuff(walkSpeedMult);
 
         // decrease damage taken
         PlayerHealth ph = Player.instance.GetComponent<PlayerHealth>();
@@ -49,7 +48,7 @@ public class Consumable : MonoBehaviour
         ProjectileWeapon.staticStatModifiers.fireRate -= fireRateMult;
 
         // reset walk speed
-        Player.instance.moveSpeedMultiplier = 1;
+        moveSpeedReceipt.Unbuff();
 
         // reset damage taken multiplier
         ph.damageTakenMultiplier = ph.defaultDamageTakenMultiplier;
