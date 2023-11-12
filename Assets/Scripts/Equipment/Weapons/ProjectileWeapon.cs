@@ -207,17 +207,17 @@ public sealed class ProjectileWeapon : Weapon
     
     public void increaseProjectileSpeed(float amount)
     {
-        projectileSpeed += amount;
+        weaponStats.projectileSpeed += amount;
     }
 
     public void increaseFireRate(float amount)
     {
-        fireRate += amount;
+        weaponStats.fireRate += amount;
     }
 
     public void increaseDamage(float amount) 
     {
-        damage += amount;
+        weaponStats.damage += amount;
     }
 }
 
