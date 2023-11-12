@@ -28,10 +28,10 @@ public class SunnySqueePassive : Passive
             {
                 EquipmentManager playerEquipment = playerPrefab.GetComponentInChildren<EquipmentManager>();
 
-                foreach (ProjectileWeapon weapon in playerEquipment.allWeapons)
-                {
-                    weapon.increaseFireRate(fireRateIncrease);
-                }
+                // foreach (ProjectileWeapon weapon in playerEquipment.allWeapons)
+                // {
+                //     weapon.increaseFireRate(fireRateIncrease);
+                // }
             }
             else 
             {

@@ -4,13 +4,15 @@ using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
+// NOTE: You probably don't want to override anything in ProjectileWeapon
+
 /**
  * Specialized Weapon sub-class for weapons which shoot projectiles at a constant interval.
  * Properties of the weapon are visible in the inspector.
  * To add a specific weapon, open the EquipmentManager (in the Player prefab) in the inspector and add new weapons there.
  */
 [Serializable]
-public sealed class ProjectileWeapon : Weapon
+abstract public class ProjectileWeapon : Weapon
 {
     [Tooltip("Base stats of the weapon.")]
     [SerializeField] WeaponStats weaponStats;

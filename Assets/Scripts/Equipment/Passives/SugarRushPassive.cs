@@ -28,10 +28,10 @@ public class SugarRushPassive : Passive
             {
                 EquipmentManager playerEquipment = playerPrefab.GetComponentInChildren<EquipmentManager>();
 
-                foreach (ProjectileWeapon weapon in playerEquipment.allWeapons)
-                {
-                    weapon.increaseDamage(damageIncrease);
-                }
+                // foreach (ProjectileWeapon weapon in playerEquipment.allWeapons)
+                // {
+                //     weapon.increaseDamage(damageIncrease);
+                // }
             }
             else 
             {

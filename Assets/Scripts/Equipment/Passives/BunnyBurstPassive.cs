@@ -35,10 +35,10 @@ public class BunnyBurstPassive : Passive
             {
                 EquipmentManager playerEquipment = playerPrefab.GetComponentInChildren<EquipmentManager>();
 
-                foreach (ProjectileWeapon weapon in playerEquipment.allWeapons)
-                {
+                //foreach (ProjectileWeapon weapon in playerEquipment.allWeapons)
+                //{
                     //weapon.increaseProjectileSpeed(speedIncrease);
-                }
+                //}
             }
             else
             {
