@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3827849758925615645}
   - component: {fileID: 440309738049549269}
   m_Layer: 0
-  m_Name: Balrog
+  m_Name: OfficeTemp
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
