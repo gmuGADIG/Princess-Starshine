@@ -12,31 +12,30 @@ using Random = UnityEngine.Random;
 [Serializable]
 public sealed class ProjectileWeapon : Weapon
 {
-    /** Times the weapon fires per second. If set to 0, the weapon will fire at the start and never again. */
-    [SerializeField] float fireRate;
+    [Tooltip("Base stats of the weapon.")]
+    [SerializeField] WeaponStats weaponStats;
+    
+    [Tooltip("Modifiers to the weapon's stats. For floats, 1 = +100% increase. For ints, 1 = +1 increase.")]
+    WeaponStats statModifiers;
+    
+    [Tooltip("Modifiers which apply to all weapons.")]
+    public static WeaponStats staticStatModifiers;
+    
+    
+    #region Stat Properties
+    float Damage => weaponStats.damage * (1 + statModifiers.damage) * (1 + staticStatModifiers.damage);
+    float Knockback => weaponStats.knockback * (1 + statModifiers.knockback) * (1 + staticStatModifiers.knockback);
+    float FireRate => weaponStats.fireRate * (1 + statModifiers.fireRate) * (1 + staticStatModifiers.fireRate);
+    float ProjectileSize => weaponStats.size * (1 + statModifiers.size) * (1 + staticStatModifiers.size);
+    float ProjectileSpeed => weaponStats.projectileSpeed * (1 + statModifiers.projectileSpeed) * (1 + staticStatModifiers.projectileSpeed);
+    int MaxProjectiles => weaponStats.maxProjectiles + statModifiers.maxProjectiles + staticStatModifiers.maxProjectiles;
+    int ProjectilesPerShot => weaponStats.projectilesPerShot + statModifiers.projectilesPerShot + staticStatModifiers.projectilesPerShot;
+    int PierceCount => weaponStats.pierceCount + statModifiers.pierceCount + staticStatModifiers.pierceCount;
+    #endregion
+    
+    
     float timeUntilNextFire = 0.5f; // the 0.5 gives it a bit of time before it's first shot after equipping it
-
-    /** Amount of knockback to inflict on enemies hit by the projectiles. */
-    [SerializeField] float knockback;
-
-    /** Projectile size multiplier. Used for level-ups. */
-    [SerializeField] float projectileSize;
-
-    /** The amount of damage each projectile does. Exact details are left to the projectile script. */
-    [SerializeField] float damage;
-
-    /** Amount of projectiles to fire with each shot. */
-    [SerializeField] int projectileCount;
-
-    /** How fast the projectiles start out when fired. */
-    [SerializeField] float projectileSpeed;
-
-    /** Weapon will stop emitting once this amount of projectiles exist. */
-    [SerializeField] int maxProjectiles = 1000;
-
-    /** The amount of enemies the projectile can pierce through. 0 means destroy on first hit. -1 means infinite pierce. */
-    [SerializeField] int pierceCount = -1;
-
+    
     /** How the weapon should determine which direction to fire in */
     [SerializeField] TargetType targetingStrategy;
 
@@ -51,6 +50,9 @@ public sealed class ProjectileWeapon : Weapon
      * Object must have the Projectile component attached to it.
      */
     [SerializeField] GameObject projectilePrefab;
+
+    [Tooltip("The name of the sound played when this weapon is fired.")]
+    [SerializeField] string shootSoundName;
     
     /** Set of active projectiles. Updated in Fire and OnProjectileDestroy. Necessary to update projectiles when the weapon levels up. */
     HashSet<Projectile> projectileSet = new();
@@ -60,7 +62,7 @@ public sealed class ProjectileWeapon : Weapon
      */
     private void Fire()
     {
-        if (projectileSet.Count >= maxProjectiles) return;
+        if (projectileSet.Count >= MaxProjectiles) return;
         
         var proj = GameObject.Instantiate(projectilePrefab).GetComponent<Projectile>();
         projectileSet.Add(proj);
@@ -68,7 +70,11 @@ public sealed class ProjectileWeapon : Weapon
         if (projectileLocalSpace) proj.transform.SetParent(EquipmentManager.instance.transform);
         if (spawnProjectileAtTarget) proj.transform.position = targetPosition;
         else proj.transform.position = EquipmentManager.instance.transform.position;
-        proj.Setup(this, targetPosition, damage, pierceCount, projectileSpeed, knockback, projectileSize);
+        proj.Setup(this, targetPosition, Damage, PierceCount, ProjectileSpeed, Knockback, ProjectileSize);
+        if (shootSoundName != "")
+        {
+            SoundManager.Instance.PlaySoundGlobal(shootSoundName);
+        }
         // TODO: handle projectile count
         // basic cases can be handled by just looping this, but if they have the same target, they'll need to be separated a bit
     }
@@ -132,7 +138,7 @@ public sealed class ProjectileWeapon : Weapon
         if (timeUntilNextFire <= 0)
         {
             Fire();
-            timeUntilNextFire += 1f / fireRate; // infinity if fireRate is 0
+            timeUntilNextFire += 1f / FireRate    ; // infinity if fireRate is 0
         }
     }
 
@@ -158,10 +164,9 @@ public sealed class ProjectileWeapon : Weapon
         {
             foreach (var levelUp in levelUps)
                 ApplyLevelUp(levelUp);
-            this.levelUpsDone += 1;
             
             foreach (var proj in projectileSet)
-                proj.OnWeaponLevelUp(damage, pierceCount, projectileSpeed, knockback, projectileSize);
+                proj.OnWeaponLevelUp(Damage, PierceCount, ProjectileSpeed, Knockback, ProjectileSize);
         };
 
         return (description, onApply);
@@ -172,40 +177,47 @@ public sealed class ProjectileWeapon : Weapon
         switch (levelUp.type)
         {
             case WeaponLevelUpType.Damage:
-                damage *= levelUp.amount;
+                statModifiers.damage += levelUp.amount;
                 break;
-            case WeaponLevelUpType.KnockBack:
-                knockback *= levelUp.amount;
+            case WeaponLevelUpType.Knockback:
+                statModifiers.knockback += levelUp.amount;
                 break;
             case WeaponLevelUpType.Pierce:
-                pierceCount += (int)levelUp.amount;
+                statModifiers.pierceCount += (int) levelUp.amount;
                 break;
             case WeaponLevelUpType.FireRate:
-                fireRate *= levelUp.amount;
+                statModifiers.fireRate += levelUp.amount;
                 break;
-            case WeaponLevelUpType.AoESize:
-                projectileSize *= levelUp.amount;
-                break;
-            case WeaponLevelUpType.ProjectileCount:
-                projectileCount += (int)levelUp.amount;
+            case WeaponLevelUpType.ProjectilesPerShot:
+                statModifiers.projectilesPerShot += (int) levelUp.amount;
                 break;
             case WeaponLevelUpType.ProjectileSize:
-                projectileSize *= levelUp.amount;
+                statModifiers.size += levelUp.amount;
                 break;
             case WeaponLevelUpType.ProjectileSpeed:
-                projectileSpeed *= levelUp.amount;
+                statModifiers.projectileSpeed += levelUp.amount;
                 break;
             case WeaponLevelUpType.MaxProjectiles:
-                maxProjectiles += (int)levelUp.amount;
+                statModifiers.maxProjectiles += (int) levelUp.amount;
                 break;
             default:
                 throw new Exception($"Invalid weapon level-up type! type = {levelUp.type}");
         }
     }
-
+    
     public void increaseProjectileSpeed(float amount)
     {
-        projectileSpeed += amount;
+        weaponStats.projectileSpeed += amount;
+    }
+
+    public void increaseFireRate(float amount)
+    {
+        weaponStats.fireRate += amount;
+    }
+
+    public void increaseDamage(float amount) 
+    {
+        weaponStats.damage += amount;
     }
 }
 

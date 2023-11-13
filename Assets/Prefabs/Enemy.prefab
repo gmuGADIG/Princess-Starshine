@@ -94,8 +94,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5867967396876368260}
   - component: {fileID: 3335983148553997977}
+  - component: {fileID: 330298543585824688}
   - component: {fileID: 1886410856656000501}
   - component: {fileID: 7279789661654451129}
+  - component: {fileID: 8529077627130218443}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -171,6 +173,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &330298543585824688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3498557936519908969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c527a775096a1dc479cfe80db31fa799, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 5484213388468280392, guid: 624ff9c1693ff01469d7b5f6c797b15c, type: 3}
 --- !u!114 &1886410856656000501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,7 +204,7 @@ MonoBehaviour:
   XPOrb: {fileID: 6433517325453158020, guid: 1762732203a121541b8b0dde1f1223bd, type: 3}
   xpDropRadius: 0.5
   xpDropAmount: 3
-  TakenDamageSoundEffect: {fileID: 0}
+  deathSoundName: Demon_Death_Sound
 --- !u!61 &7279789661654451129
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -235,3 +250,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.73, y: 1.15}
   m_EdgeRadius: 0
+--- !u!114 &8529077627130218443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3498557936519908969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccf1194074bf9f026900709e92d1621b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10

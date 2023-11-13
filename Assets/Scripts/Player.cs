@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
     
     // acceleration is by default set to 80, maxSpeed is set to 10, and deceleration is set to 30
     [HideInInspector] public Vector2 velocity = Vector2.zero;
+    public BuffableStat moveSpeedMultiplier { get; private set; } = new BuffableStat(1f);
+    //[HideInInspector] public float moveSpeedMultiplier { get; set; } = 1f;
     [SerializeField]
     float acceleration;
     [SerializeField]
@@ -32,6 +34,8 @@ public class Player : MonoBehaviour
 
     private int curTwirlCharges = 0;
     private float twirlRechargeTimeLeft = 0f;
+
+    private Consumable.Type heldConsumable = Consumable.Type.None;
     
     //for collision function; radius is currently determined by player
     [SerializeField]
@@ -56,11 +60,20 @@ public class Player : MonoBehaviour
 
     public SpriteRenderer mySpriteRenderer;
 
+    // sound names
+    string xpPickupSound = "XP_Pickup";
+    string takeDamageSound = "Princess_Damage";
+    string levelUpSound = "Level_Up";
+    string twirlDashSound = "Princess_Dash";
+
+
     // Start is called before the first frame update
     void Start()
     {
         instance = this;
-        
+
+        //heldConsumable = Consumable.Type.LevelUp; // damn foot gun
+
         curTwirlCharges = maxTwirlCharges;
 
         //Test the xp system with 10 xpPoints
@@ -77,6 +90,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+
         Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
 
         //check to see if the character is stationary or not
@@ -126,6 +140,8 @@ public class Player : MonoBehaviour
         // twirl
         UpdateTwirl(input);
 
+        UsedConsumable();
+
         // check collisions
         int hits = Physics2D.CircleCastNonAlloc(transform.position, collisionRadius, Vector2.zero, collisions);
         for (int i = 0; i < hits; i++)
@@ -133,21 +149,35 @@ public class Player : MonoBehaviour
             OnCollision(collisions[i]);
         }
 
-        transform.position += (Vector3)(velocity * Time.deltaTime);
+        transform.position += (Vector3)(velocity * Time.deltaTime * moveSpeedMultiplier.Value);
 
         immuneTime = Mathf.MoveTowards(immuneTime, 0, Time.deltaTime);
     }
 
+    void UsedConsumable()
+    {
+        if (Input.GetKeyDown("space") || Input.GetKeyDown("x"))
+        {
+            if (heldConsumable != Consumable.Type.None && Consumable.CanApply(heldConsumable))
+            {
+                Consumable.Apply(heldConsumable);
+                Debug.Log("Player.cs: Consumed Successfully");
+                heldConsumable = Consumable.Type.None;
+            }
+        }
+    }
+
     void UpdateTwirl(Vector2 input) {
 
-        if (Input.GetKeyDown("left shift") || Input.GetKeyDown("z")){
+        if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.Z)){
             if (curTwirlCharges > 0) {
                 curTwirlCharges -= 1;
+                InGameUI.UpdateTwirls(curTwirlCharges);
                 StartCoroutine(Twirl(input));
 
                 //do twirl animation
-
                 playerAnimator.SetTrigger("Twirling");
+                SoundManager.Instance.PlaySoundGlobal(twirlDashSound);
             }
             else {
                 print("not enough charges!");
@@ -158,7 +188,11 @@ public class Player : MonoBehaviour
         if (twirlRechargeTimeLeft <= 0) {
             twirlRechargeTimeLeft = twirlCooldown;
             print("recharging twirl");
-            curTwirlCharges = Mathf.Min(curTwirlCharges + 1, maxTwirlCharges);
+            if (curTwirlCharges < maxTwirlCharges)
+            {
+                curTwirlCharges += 1;
+                InGameUI.UpdateTwirls(curTwirlCharges);                
+            }
         }
     }
 
@@ -176,6 +210,7 @@ public class Player : MonoBehaviour
     {
         cumulativeXpPoints += points;
         xpThisLevel += points;
+        SoundManager.Instance.PlaySoundGlobal(xpPickupSound);
 
         var goal = XpLevelUpGoal();
         if (xpThisLevel >= goal)
@@ -183,30 +218,65 @@ public class Player : MonoBehaviour
             xpThisLevel -= goal;
             xpLevel += 1;
             onLevelUp?.Invoke(cumulativeXpPoints, xpLevel);
+            SoundManager.Instance.PlaySoundGlobal(levelUpSound);
         }
 
         InGameUI.SetXp(xpLevel,  (float) xpThisLevel / XpLevelUpGoal());
     }
 
-    void OnCollision(RaycastHit2D hit) {
-        //hit xp
+    // immediately levels up the player by giving them the required XP (idk what im doing :P)
+    public void LevelUp() {
+        AddXP(XpLevelUpGoal() - xpThisLevel);
+    }
+
+    void OnCollision(RaycastHit2D hit)
+    {
         if (hit.collider.CompareTag("xp")) {
             var xpObj = hit.transform.gameObject.GetComponent<XpOrb>();
             AddXP(xpObj.points);
             Destroy(xpObj.gameObject);
         }
-        
-        else if (hit.collider.CompareTag("Enemy"))
+
+        else if (hit.collider.GetComponent<Damage>()) {
+            Damage damage = hit.collider.GetComponent<Damage>();
+            OnAttacked(damage.damage);
+        }
+
+        else if (hit.collider.CompareTag("Consumable"))
         {
-            if (immuneTime > 0 || isTwirling) return;
-            OnAttacked(hit.collider.gameObject);
+            Consumable consumable = hit.collider.gameObject.GetComponent<Consumable>();
+
+            // if we already have a consumable, stop here
+            if (heldConsumable != Consumable.Type.None && consumable.ConsumableType != Consumable.Type.Health)
+            {
+                return;
+            }
+
+            Debug.Log("Hit consumable " + consumable.ConsumableType);
+
+            // if the consumable is health, use it now
+            if (consumable.ConsumableType == Consumable.Type.Health)
+            {
+                Consumable.Apply(Consumable.Type.Health);
+            }
+            else // otherwise just hold onto it
+            {
+                heldConsumable = consumable.ConsumableType;
+            }
+
+            // destroy any consumables we "consume"
+            GameObject.Destroy(hit.collider.gameObject);
         }
     }
 
-    void OnAttacked(GameObject enemy)
+    //void OnAttacked(GameObject enemy)
+    void OnAttacked(float damage)
     {
+        if (immuneTime > 0 || isTwirling) return;
+
         immuneTime = .5f;
-        GetComponent<PlayerHealth>().decreaseHealth(10);
-        print("oww my ass!");
+        GetComponent<PlayerHealth>().decreaseHealth(damage);
+        SoundManager.Instance.PlaySoundGlobal(takeDamageSound);
+        print("oww!");
     }
 }

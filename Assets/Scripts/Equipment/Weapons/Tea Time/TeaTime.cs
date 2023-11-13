@@ -34,6 +34,9 @@ public class TeaTime : Projectile
     private bool isMoving = true;
     //Stops the projectile from getting stuck in the corner
     private bool cooldown = false;
+
+    string bounceSound = "Teapot_Bounce";
+
     protected override void Start()
     {
         base.Start();
@@ -112,21 +115,25 @@ public class TeaTime : Projectile
         if(transform.position.x - (transform.localScale.x / 2) < rect.xMin)
         {
             dir.x = absDirection.x;
+            SoundManager.Instance.PlaySoundGlobal(bounceSound);
         }
         //If hit the right hand of the screen
         else if(transform.position.x + (transform.localScale.x / 2) > rect.xMax)
         {
             dir.x = (-absDirection.x);
+            SoundManager.Instance.PlaySoundGlobal(bounceSound);
         }
         //If hit the bottom of the screen
         else if (transform.position.y - (transform.localScale.y / 2) < rect.yMin)
         {
             dir.y = absDirection.y;
+            SoundManager.Instance.PlaySoundGlobal(bounceSound);
         }
         //If hit the top of the screen
         else if (transform.position.y + (transform.localScale.y / 2) > rect.yMax)
         {
             dir.y = (-absDirection.y);
+            SoundManager.Instance.PlaySoundGlobal(bounceSound);
         }
     }
 
@@ -139,7 +146,6 @@ public class TeaTime : Projectile
             yield return new WaitForSeconds(deathTime);
             //remove this if it is supposed to persist after hitting a corner
             Destroy(gameObject);
-
 
             circle.enabled = false;
             isMoving = true;

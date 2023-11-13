@@ -43,9 +43,8 @@ public class EnemyTemplate : MonoBehaviour
     private int xpDropAmount = 3;
 
     [Header("Sound Effects")]
-    [Tooltip("When the enemy has taken damage")]
-    [SerializeField] 
-    protected AudioSource TakenDamageSoundEffect;
+    [Tooltip("Name of sound played on death")]
+    [SerializeField] string deathSoundName;
     #endregion
 
     private float currentHealth;
@@ -80,7 +79,8 @@ public class EnemyTemplate : MonoBehaviour
         if (isDead) { return; }
         isDead = true;
         DistrubuteXP();
-        Destroy(this.gameObject);
+        SoundManager.Instance.PlaySoundAtPosition(deathSoundName, transform.position);
+        StartCoroutine(DelayedDestroy());
     }
 
     protected void MoveTowardsObject() {
@@ -146,6 +146,7 @@ public class EnemyTemplate : MonoBehaviour
     {
         if (moveTowardsObject == null) { moveTowardsObject = GameObject.FindGameObjectWithTag("Player"); }
         if (XPOrb == null) { XPOrb = GameObject.FindGameObjectWithTag("XPOrb"); }
+        if (tag.CompareTo("") == 0) { tag = "Enemy"; }
         CurrentHealth = MaxHealth;
         CheckDeath();
     }
@@ -159,4 +160,10 @@ public class EnemyTemplate : MonoBehaviour
         MoveTowardsObject();
     }
 
+
+    IEnumerator DelayedDestroy()
+    {
+        yield return new WaitForSeconds(.05f);
+        Destroy(gameObject);
+    }
 }
