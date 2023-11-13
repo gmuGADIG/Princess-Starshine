@@ -16,6 +16,7 @@ public abstract class Equipment : MonoBehaviour
 
     /**
      * Called when this item is equipped. Should set the buffs of the item.
+     * Guarenteed to be called before Update().
      */
     public abstract void OnEquip();
 

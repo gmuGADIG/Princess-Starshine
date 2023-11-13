@@ -28,17 +28,20 @@ public class EquipmentManager : MonoBehaviour
     {
         instance = this;
         
-        foreach (Equipment e in GetComponents<Equipment>()) {
-            allEquipment.Add(e);
+        foreach (Equipment equipment in GetComponents<Equipment>()) {
+            equipment.enabled = false;
+            allEquipment.Add(equipment);
         }
     }
 
     void Update()
     {
+        /*
         foreach (var item in currentEquipment)
         {
             item.Update();
         }
+        */
         
         // TEMP
         if (Input.GetKeyDown(KeyCode.P) && Application.isEditor)
@@ -101,6 +104,7 @@ public class EquipmentManager : MonoBehaviour
     {
         this.currentEquipment.Add(equipment);
         equipment.OnEquip();
+        equipment.enabled = true;
         
         foreach (var prevEquipment in currentEquipment)
         {

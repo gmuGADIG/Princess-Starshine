@@ -261,14 +261,14 @@ MonoBehaviour:
     amount: 1
   availableAtStart: 0
   weaponStats:
-    damage: 0
+    damage: 30
     knockback: 0
-    fireRate: 0
-    size: 0
-    projectileSpeed: 0
-    maxProjectiles: 0
-    projectilesPerShot: 0
-    pierceCount: 0
+    fireRate: 1
+    size: 0.5
+    projectileSpeed: 10
+    maxProjectiles: 1
+    projectilesPerShot: 1
+    pierceCount: -1
   targetingStrategy: 3
   spawnProjectileAtTarget: 0
   projectileLocalSpace: 0
