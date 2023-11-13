@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2620958937377383029}
   - component: {fileID: -1459567296244939718}
   - component: {fileID: 1201584929703181706}
+  - component: {fileID: 6598705012430054145}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -76,6 +77,8 @@ MonoBehaviour:
   maxHealth: 100
   tempHealth: 0
   isDead: 0
+  damageTakenMultiplier: 1
+  invincible: 0
 --- !u!95 &1201584929703181706
 Animator:
   serializedVersion: 5
@@ -97,6 +100,77 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!60 &6598705012430054145
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4739150525570968963}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.46384892, y: 0.7253526}
+      - {x: -0.29800606, y: 0.443289}
+      - {x: -0.34341654, y: 0.26891518}
+      - {x: -0.235555, y: 0.1975002}
+      - {x: -0.35949197, y: 0.15255824}
+      - {x: -0.39667645, y: 0.012308851}
+      - {x: -0.64333963, y: -0.2862249}
+      - {x: -0.81187314, y: -0.518345}
+      - {x: -0.7222471, y: -0.48956057}
+      - {x: -0.6292596, y: -0.5918715}
+      - {x: -0.6451845, y: -0.49045494}
+      - {x: -0.4674255, y: -0.54972565}
+      - {x: -0.59388846, y: -0.9005662}
+      - {x: -0.24332114, y: -0.9839845}
+      - {x: 0.07466781, y: -0.99795914}
+      - {x: 0.459763, y: -0.9352354}
+      - {x: 0.36106348, y: -0.58458036}
+      - {x: 0.5118123, y: -0.58714193}
+      - {x: 0.5265571, y: -0.50738716}
+      - {x: 0.70996, y: -0.5209323}
+      - {x: 0.6060574, y: -0.35643762}
+      - {x: 0.24216384, y: -0.0038596094}
+      - {x: 0.19765025, y: 0.1914909}
+      - {x: 0.2792228, y: 0.5219912}
+      - {x: 0.19717571, y: 0.5886328}
+      - {x: 0.1149078, y: 0.86441517}
+  m_UseDelaunayMesh: 0
 --- !u!1 &4807934055577374158
 GameObject:
   m_ObjectHideFlags: 0
@@ -285,18 +359,20 @@ MonoBehaviour:
       amount: 5
     - type: 2
       amount: 1
-    fireRate: 1
-    knockback: 2
-    projectileSize: 1
-    damage: 25
-    projectileCount: 1
-    projectileSpeed: 5
-    maxProjectiles: 1000
-    pierceCount: 0
+    weaponStats:
+      damage: 0
+      knockback: 0
+      fireRate: 0
+      size: 0
+      projectileSpeed: 0
+      maxProjectiles: 0
+      projectilesPerShot: 0
+      pierceCount: 0
     targetingStrategy: 1
     spawnProjectileAtTarget: 0
     projectileLocalSpace: 0
     projectilePrefab: {fileID: 6198564449727914785, guid: 9c4da975914a3824cbfd6887823916cd, type: 3}
+    shootSoundName: 
   - type: 1
     levelUpsDone: 0
     levelUpOptions:
@@ -308,18 +384,20 @@ MonoBehaviour:
       amount: 2
     - type: 5
       amount: 1
-    fireRate: 1
-    knockback: 0
-    projectileSize: 1
-    damage: 30
-    projectileCount: 1
-    projectileSpeed: 1
-    maxProjectiles: 1000
-    pierceCount: -1
+    weaponStats:
+      damage: 0
+      knockback: 0
+      fireRate: 0
+      size: 0
+      projectileSpeed: 0
+      maxProjectiles: 0
+      projectilesPerShot: 0
+      pierceCount: 0
     targetingStrategy: 2
     spawnProjectileAtTarget: 0
     projectileLocalSpace: 0
     projectilePrefab: {fileID: 7227924247430886604, guid: f438532f88467be4ab0da1afd295f71d, type: 3}
+    shootSoundName: 
   - type: 2
     levelUpsDone: 0
     levelUpOptions:
@@ -331,15 +409,17 @@ MonoBehaviour:
       amount: 2
     - type: 5
       amount: 1
-    fireRate: 1
-    knockback: 0
-    projectileSize: 0.5
-    damage: 30
-    projectileCount: 1
-    projectileSpeed: 10
-    maxProjectiles: 1
-    pierceCount: -1
+    weaponStats:
+      damage: 0
+      knockback: 0
+      fireRate: 0
+      size: 0
+      projectileSpeed: 0
+      maxProjectiles: 0
+      projectilesPerShot: 0
+      pierceCount: 0
     targetingStrategy: 3
     spawnProjectileAtTarget: 0
     projectileLocalSpace: 0
     projectilePrefab: {fileID: 466492882040963849, guid: db69a31f668caf2498a1d2c85c1c2c17, type: 3}
+    shootSoundName: 
