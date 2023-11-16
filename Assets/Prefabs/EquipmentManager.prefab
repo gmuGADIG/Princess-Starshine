@@ -128,7 +128,7 @@ MonoBehaviour:
       maxProjectiles: 1000
       projectilesPerShot: 1
       pierceCount: -1
-    targetingStrategy: 2
+    targetingStrategy: 3
     spawnProjectileAtTarget: 0
     projectileLocalSpace: 0
     projectilePrefab: {fileID: 7227924247430886604, guid: f438532f88467be4ab0da1afd295f71d, type: 3}
