@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 973996648}
   - component: {fileID: 973996650}
   - component: {fileID: 973996652}
+  - component: {fileID: 973996653}
   m_Layer: 0
   m_Name: GenericBoss #5
   m_TagString: Untagged
@@ -222,7 +223,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBetweenAttacks: 0.5
-  machineGunEnabled: 0
+  machineGunEnabled: 1
   machineGunFrequency: 5
   machinegun:
     machineGunDamage: 0
@@ -245,7 +246,7 @@ MonoBehaviour:
     puddleSizeChangeAfterDelay: 1
     damageDelay: 1
     puddleObject: {fileID: 186196131213695018, guid: 8bce446037dbe9f4291085309177dc2f, type: 3}
-  orbitEnabled: 1
+  orbitEnabled: 0
   orbitFrequency: 5
   orbit:
     orbitDamage: 0
@@ -267,7 +268,7 @@ MonoBehaviour:
     hitboxTime: 0.5
     speed: 3
     numberRepeat: 2
-    movementType: 0
+    movementType: 2
   enemySpawnEnabled: 0
   enemySpawnFrequency: 5
   enemySpawn:
@@ -310,6 +311,23 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &973996653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 973996646}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d0dddbfe87d5ca4a9464ee7d24f7a64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fleeFrom: {fileID: 0}
+  speed: 5
+  strafeRatio: 0.5
+  strafeSpeed: 1
+  strafeTimer: 3
 --- !u!1 &992370771
 GameObject:
   m_ObjectHideFlags: 0

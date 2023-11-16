@@ -14,6 +14,14 @@ enum BossWeaponType
     None
 }
 
+public enum BossMovementType
+{
+    Wander,
+    Flee,
+    Agressive
+}
+
+
 public enum BossEnemySpawnLocation
 {
     OffScreen,
@@ -52,30 +60,44 @@ public struct Puddle
     public float puddleAliveTime;
     [Tooltip("The damage a puddle does")]
     public float puddleDamage;
-    [Tooltip("Enable if the puddles should spawn ")]
+    [Tooltip("Enable if the puddles should spawn on the player")]
     public bool spawnOnPlayer;
+    [Tooltip("The amount of puddles to spawn")]
     public int spawnQuantity;
+    [Tooltip("How much the size of the puddle changes over time")]
     public float puddleSizeChange;
+    [Tooltip("Enable if the puddle should change in size after the damage delay")]
     public bool puddleSizeChangeAfterDelay;
+    [Tooltip("The time until the hitbox is enabled")]
     public float damageDelay;
+    [Tooltip("The puddle object")]
     public GameObject puddleObject;
 }
 
 [Serializable]
 public struct Orbit
 {
+    [Tooltip("The damage the projectile")]
     public float orbitDamage;
-    [Tooltip("The amount of time the projectile takes to go around the circle")]
+    [Tooltip("The amount of time the projectile takes to go around the circle: SMALL TIMES LOOK BROKEN")]
     public float projectileTime;
+    [Tooltip("The amount of projectiles that should orbit the boss")]
     public int projectileQuantity;
+    [Tooltip("The distance from the boss")]
     public float distanceFromBoss;
+    [Tooltip("The distance change from the boss over time")]
     public float distanceChangeTime;
     [Tooltip("The change in time for a revolution of the orbit, this is the final time that the projectiles will go to")]
     public float finalRevolution;
+    [Tooltip("The amount the period should change over time to get to final revolution")]
     public float revolutionChangeTime;
+    [Tooltip("Enable if the changes over time should happen")]
     public bool doStatChanges;
+    [Tooltip("The time till the stat changes start occuring")]
     public float timeTilChanges;
+    [Tooltip("The amount of time the projectiles will stay around")]
     public float duration;
+    [Tooltip("The orbit projectile")]
     public GameObject orbitObject;
 }
 
@@ -88,7 +110,7 @@ public struct Melee
     public float speed;
     public int numberRepeat;
     //Will be changed to enum
-    public int movementType;
+    public BossMovementType movementType;
 }
 
 [Serializable]
@@ -133,6 +155,7 @@ public class BossWeapon : MonoBehaviour
     private float hitboxTimer;
     private int repeatCount;
     private CircleCollider2D meleeCollider;
+    private IBossMovement meleeMovement;
 
 
     [Header("Enemy Spawn")]
@@ -147,6 +170,7 @@ public class BossWeapon : MonoBehaviour
     private BossWeaponType currentWeapon = BossWeaponType.None;
     private bool isAttacking = false;
     private GameObject target;
+    private IBossMovement startMovement;
    
 
 
@@ -181,9 +205,31 @@ public class BossWeapon : MonoBehaviour
         {
             Debug.LogError("Nothing is Enabled or has a frequency");
         }
-        TryGetComponent<CircleCollider2D>(out meleeCollider);
+        if(!TryGetComponent<CircleCollider2D>(out meleeCollider))
+        {
+            Debug.LogError("THE CIRCLE COLLIDER HAS BEEN DELETED");
+        }
         meleeCollider.enabled = false;
         meleeCollider.radius = melee.radius;
+        if(!TryGetComponent<IBossMovement>(out startMovement))
+        {
+            Debug.LogError("BOSS HAS NO MOVEMENT");
+        }
+        switch (melee.movementType)
+        {
+            case BossMovementType.Agressive:
+                meleeMovement = gameObject.AddComponent<BossMovementAggressive>();
+                break;
+            case BossMovementType.Wander:
+                meleeMovement = gameObject.AddComponent<BossMovementWander>();
+                break;
+            case BossMovementType.Flee:
+                meleeMovement = gameObject.AddComponent<BossMovementFlee>();
+                break;
+            default:
+                break;
+        }
+        meleeMovement.enabled = false;
     }
 
     void Update()
@@ -233,7 +279,8 @@ public class BossWeapon : MonoBehaviour
             {
                 currentWeapon = BossWeaponType.Melee;
                 repeatCount = 0;
-                spawnedEnemies = false;
+                startMovement.enabled = false;
+                meleeMovement.enabled = true;
                 //melee
             }
             else if (randomNumber <= enemySpawnFrequency && enemySpawnEnabled)
@@ -384,8 +431,8 @@ public class BossWeapon : MonoBehaviour
             float angleBetweenProj = ((2 * Mathf.PI) / orbit.projectileQuantity);
             for (int i = 0; i < orbit.projectileQuantity; i++)
             {
-                GameObject temp = Instantiate(orbit.orbitObject, gameObject.transform.position, new Quaternion());
-                temp.transform.position += new Vector3(orbit.distanceFromBoss * Mathf.Cos(i * angleBetweenProj), orbit.distanceFromBoss * Mathf.Sin(i * angleBetweenProj));
+                GameObject temp = Instantiate(orbit.orbitObject, gameObject.transform);
+                temp.transform.position = new Vector3(orbit.distanceFromBoss * Mathf.Cos(i * angleBetweenProj), orbit.distanceFromBoss * Mathf.Sin(i * angleBetweenProj))+gameObject.transform.position;
                 OrbitProjectile orbitProj = null;
                 temp.TryGetComponent<OrbitProjectile>(out orbitProj);
                 if (orbitProj == null)
@@ -393,6 +440,7 @@ public class BossWeapon : MonoBehaviour
                     Debug.LogError("Orbit Prefab missing OribitProjectile script");
                     return;
                 }
+                Debug.Log(temp.transform.position);
                 orbitProj.Setup(orbit.orbitDamage, orbit.projectileTime, orbit.duration, i * angleBetweenProj, orbit.distanceFromBoss, orbit.revolutionChangeTime, orbit.finalRevolution, orbit.distanceChangeTime, orbit.timeTilChanges, orbit.doStatChanges);
             }
             orbitSpawned = true;
@@ -412,6 +460,7 @@ public class BossWeapon : MonoBehaviour
         {
             if(repeatCount < melee.numberRepeat)
             {
+                meleeMovement.enabled = false;
                 meleeCollider.enabled = true;
                 hitboxTimer = 0;
                 speedTimer = 0;
@@ -419,12 +468,17 @@ public class BossWeapon : MonoBehaviour
             }
             else
             {
+                meleeMovement.enabled = false;
+                startMovement.enabled = true;
+                Debug.Log("Finished Melee");
                 isAttacking = false;
                 attackTimer = 0;
+                return;
             }
         }
         if(hitboxTimer >= melee.hitboxTime)
         {
+            meleeMovement.enabled = true;
             meleeCollider.enabled = false;
         }
         hitboxTimer += Time.deltaTime;
