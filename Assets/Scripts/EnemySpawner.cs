@@ -23,6 +23,9 @@ public class EnemySpawner : MonoBehaviour
         public GameObject enemyType;
         public float probabilityWeight;
         public int spawnCount;
+
+        public float startingDamage;
+        public float endingDamage;
     }
     public EnemySpawn[] enemySpawns;
     //public GameObject[] enemiesToSpawn;
@@ -31,6 +34,7 @@ public class EnemySpawner : MonoBehaviour
 
     float startTime;
     float timeTillNextSpawn = 0;
+    float t => (Time.time - startTime) / levelSeconds;
 
     public static UnityEvent SpawningEnemy = new UnityEvent();
 
@@ -57,8 +61,10 @@ public class EnemySpawner : MonoBehaviour
 
     private void Spawn(EnemySpawn spawn)
     {
-        for (int i = 0; i < spawn.spawnCount; i++)
-            Instantiate(spawn.enemyType, GetSpawnPosition(), Quaternion.identity);
+        for (int i = 0; i < spawn.spawnCount; i++) {
+            GameObject enemy = Instantiate(spawn.enemyType, GetSpawnPosition(), Quaternion.identity);
+            enemy.GetComponent<Damage>().damage = Mathf.Lerp(spawn.startingDamage, spawn.endingDamage, t);
+        }
     }
 
     private Vector2 GetSpawnPosition()
@@ -98,7 +104,6 @@ public class EnemySpawner : MonoBehaviour
         if (timeTillNextSpawn <= 0)
         {
             RandomSpawn();
-            var t = (Time.time - startTime) / levelSeconds;
             var rate = Mathf.Lerp(startSpawnRate, endSpawnRate, t);
             timeTillNextSpawn += 1 / rate;
             

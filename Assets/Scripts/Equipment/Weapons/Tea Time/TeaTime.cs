@@ -9,8 +9,6 @@ public class TeaTime : Projectile
     //If any of these variable names need changed feel free to change them to better match others
     //Or if needed feel free to remove some logic that doesn't fit, this applies to variables as well
 
-    //The speed at which the projectile travels
-    public float speed;
     //Tells the projectile whether it should die or not
     public bool useTimer;
     //The leniencyBox is the margin of error that a projectile can be away from the corner of the screen
@@ -50,17 +48,12 @@ public class TeaTime : Projectile
     }
 
     //The setup for the projectile to make it usable
-    public override void Setup(ProjectileWeapon weapon, Vector2 target, float damage, int pierceCount, float speed, float knockback, float size)
-    {
-        this.weapon = weapon;
-        dir = (target - (Vector2)this.transform.position).normalized;
+    public override void Setup(ProjectileWeapon weapon, Vector2 target, float damage, int pierceCount, float speed, float knockback, float size) {
+        base.Setup(weapon, target, damage, pierceCount, speed, knockback, size);
+
+        var angle = Mathf.Deg2Rad*(Random.Range(0, 4) * 90 + 45);
+        dir = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
         absDirection = dir.Abs();
-        this.damage = damage; 
-        this.speed = speed;
-        this.knockback = knockback;
-        transform.localScale = new Vector2(size, size);
-        this.pierceCount = pierceCount;
-        hasBeenSetUp = true;
     }
 
     //Change stats once the weapon is leveled up
@@ -146,7 +139,6 @@ public class TeaTime : Projectile
             yield return new WaitForSeconds(deathTime);
             //remove this if it is supposed to persist after hitting a corner
             Destroy(gameObject);
-
 
             circle.enabled = false;
             isMoving = true;

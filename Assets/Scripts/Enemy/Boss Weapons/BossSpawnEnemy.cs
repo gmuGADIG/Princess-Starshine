@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OfficeEnemySpawn : MonoBehaviour
+public class BossSpawnEnemy : MonoBehaviour
 {
     public GameObject enemy;
-    public Transform enemyPos;
     private Vector3 tempPos;
     private float timer;
     private float timesRan;
@@ -39,7 +38,7 @@ public class OfficeEnemySpawn : MonoBehaviour
     }
     void spawn()
     {
-        tempPos = new Vector3(Random.Range(enemyPos.position.x - 1, enemyPos.position.x + 1), Random.Range(enemyPos.position.y - 1, enemyPos.position.y + 1));
+        tempPos = new Vector3(Random.Range(transform.position.x - 1, transform.position.x + 1), Random.Range(transform.position.y - 1, transform.position.y + 1));
         Instantiate(enemy, tempPos, Quaternion.identity);
     }
 }

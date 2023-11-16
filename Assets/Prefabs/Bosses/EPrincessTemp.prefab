@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 7384148377432724362}
   - component: {fileID: 3827849758925615645}
   - component: {fileID: 440309738049549269}
+  - component: {fileID: 3237508001801641825}
   m_Layer: 0
-  m_Name: Balrog
+  m_Name: EPrincessTemp
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -138,7 +139,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3834822481319723375}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4c557b0e30a381042a4d8503151001da, type: 3}
   m_Name: 
@@ -149,5 +150,17 @@ MonoBehaviour:
   XPOrb: {fileID: 0}
   xpDropRadius: 3
   xpDropAmount: 3
-  TakenDamageSoundEffect: {fileID: 0}
+  deathSoundName: 
   TimeBetweenMoves: 5
+--- !u!114 &3237508001801641825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3834822481319723375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc54eb787e6bcf4d83450cdafb3930c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
