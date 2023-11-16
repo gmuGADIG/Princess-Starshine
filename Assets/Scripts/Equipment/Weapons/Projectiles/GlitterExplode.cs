@@ -18,8 +18,9 @@ public class GlitterExplode : MonoBehaviour
         }
     }
 
-    public void SetDamage(float newDamage)
+    public void Create(float newDamage, Vector3 scale)
     {
+        this.transform.localScale = 2.5f*scale;
         this.damage = newDamage;
         this.GetComponent<ProjectileCollision>().SetDamage(newDamage);
     }
