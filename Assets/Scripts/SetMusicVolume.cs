@@ -30,7 +30,7 @@ public class SetMusicVolume : MonoBehaviour
         {
             num = Mathf.Pow(10, (num / 20));
             MusicVolume.value = num;
-            MusicText.GetComponent<TextMeshPro>().text = ("Music Volume: " + (num * 100) + "%");
+            MusicText.GetComponent<TMP_Text>().text = ("Music Volume: " + ((int) (num * 100)) + "%");
         }
     } 
 }

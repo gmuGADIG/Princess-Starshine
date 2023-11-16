@@ -24,12 +24,12 @@ public class SetSoundVolume : MonoBehaviour
     public void Update()
     {
         float num;
-        bool volExists = mixer.GetFloat("SfxVolumeVolume", out num);
+        bool volExists = mixer.GetFloat("SfxVolume", out num);
         if (volExists)
         {
             num = Mathf.Pow(10, (num / 20));
             SFX.value = num;
-            SFXText.GetComponent<TextMeshPro>().text = ("SFX Volume: " + (num * 100) + "%");
+            SFXText.GetComponent<TMP_Text>().text = ("SFX Volume: " + ((int)(num * 100)) + "%");
         }
     }
 }
