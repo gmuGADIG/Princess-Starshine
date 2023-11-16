@@ -46,6 +46,7 @@ public class InGameUI : MonoBehaviour
         var twirlsDrawn = 0;
         foreach (Transform child in instance.twirlParent)
         {
+            print("hii");
             var image = child.GetComponent<Image>();
             image.sprite =
                 twirlsDrawn < count

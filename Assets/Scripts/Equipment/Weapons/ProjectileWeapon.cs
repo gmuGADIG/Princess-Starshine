@@ -204,6 +204,21 @@ public sealed class ProjectileWeapon : Weapon
                 throw new Exception($"Invalid weapon level-up type! type = {levelUp.type}");
         }
     }
+    
+    public void increaseProjectileSpeed(float amount)
+    {
+        weaponStats.projectileSpeed += amount;
+    }
+
+    public void increaseFireRate(float amount)
+    {
+        weaponStats.fireRate += amount;
+    }
+
+    public void increaseDamage(float amount) 
+    {
+        weaponStats.damage += amount;
+    }
 }
 
 public enum TargetType

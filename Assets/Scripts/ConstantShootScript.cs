@@ -36,6 +36,7 @@ public class TempConstantScript : MonoBehaviour {
     {
         if(collider.gameObject.CompareTag("Player"))
         {
+            Debug.Log("enemy bullet on trigger enter");
             collider.gameObject.GetComponent<PlayerHealth>().decreaseHealth(20);
             Destroy(gameObject);
         }
