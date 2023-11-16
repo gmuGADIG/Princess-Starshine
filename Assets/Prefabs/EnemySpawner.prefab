@@ -51,3 +51,5 @@ MonoBehaviour:
   - enemyType: {fileID: 3498557936519908969, guid: 5c7654e7b4b04cf4fb639b265a6c2a79, type: 3}
     probabilityWeight: 1
     spawnCount: 1
+    startingDamage: 10
+    endingDamage: 10

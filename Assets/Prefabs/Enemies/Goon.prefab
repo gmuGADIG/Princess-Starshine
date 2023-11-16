@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3822914511318863336}
   - component: {fileID: 4480412780149895677}
   - component: {fileID: -6482407525433040292}
+  - component: {fileID: -7732810098210406357}
   m_Layer: 0
   m_Name: Goon
   m_TagString: Enemy
@@ -149,4 +150,17 @@ MonoBehaviour:
   XPOrb: {fileID: 0}
   xpDropRadius: 3
   xpDropAmount: 10
-  TakenDamageSoundEffect: {fileID: 0}
+  deathSoundName: 
+--- !u!114 &-7732810098210406357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4785212365360498297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c527a775096a1dc479cfe80db31fa799, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 0}

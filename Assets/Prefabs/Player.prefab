@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 3932130429666288465}
   - component: {fileID: 2620958937377383029}
   - component: {fileID: -1459567296244939718}
-  - component: {fileID: 4759366073264077319}
+  - component: {fileID: 1201584929703181706}
+  - component: {fileID: 6598705012430054145}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -49,15 +50,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: {x: 0, y: 0}
-  acceleration: 40
-  maxSpeed: 5
-  deceleration: 20
+  acceleration: 80
+  maxSpeed: 10
+  deceleration: 30
   isTwirling: 0
   maxTwirlCharges: 3
   twirlCooldown: 10
-  twirlSpeed: 15
+  twirlSpeed: 100
   twirlDuration: 0.7
   collisionRadius: 1
+  playerAnimator: {fileID: 1201584929703181706}
+  spriteRotator: {fileID: 993297589389799857}
+  mySpriteRenderer: {fileID: 4059327565965219088}
 --- !u!114 &-1459567296244939718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75,7 +79,28 @@ MonoBehaviour:
   isDead: 0
   damageTakenMultiplier: 1
   invincible: 0
---- !u!60 &4759366073264077319
+--- !u!95 &1201584929703181706
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4739150525570968963}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9a4666f0b6b00404fb75b7859c92ab16, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!60 &6598705012430054145
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -156,6 +181,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4748746465891056969}
   - component: {fileID: 4059327565965219088}
+  - component: {fileID: 993297589389799857}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -230,67 +256,64 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1001 &5373736390552999101
-PrefabInstance:
+--- !u!95 &993297589389799857
+Animator:
+  serializedVersion: 5
   m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 3932130429666288465}
-    m_Modifications:
-    - target: {fileID: 307587336978836097, guid: a26d146851436054ea68a288a76774ea, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 307587336978836097, guid: a26d146851436054ea68a288a76774ea, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 307587336978836097, guid: a26d146851436054ea68a288a76774ea, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 307587336978836097, guid: a26d146851436054ea68a288a76774ea, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 307587336978836097, guid: a26d146851436054ea68a288a76774ea, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 307587336978836097, guid: a26d146851436054ea68a288a76774ea, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 307587336978836097, guid: a26d146851436054ea68a288a76774ea, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 307587336978836097, guid: a26d146851436054ea68a288a76774ea, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 307587336978836097, guid: a26d146851436054ea68a288a76774ea, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 307587336978836097, guid: a26d146851436054ea68a288a76774ea, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 416059617501603780, guid: a26d146851436054ea68a288a76774ea, type: 3}
-      propertyPath: m_Name
-      value: EquipmentManager
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: a26d146851436054ea68a288a76774ea, type: 3}
---- !u!4 &5681182950247923260 stripped
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4807934055577374158}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ea21f7cc54cb7494a8a380e42eeb5d1b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &5716612475371205497
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5681182950247923260}
+  - component: {fileID: 300812745088403336}
+  m_Layer: 0
+  m_Name: EquipmentManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5681182950247923260
 Transform:
-  m_CorrespondingSourceObject: {fileID: 307587336978836097, guid: a26d146851436054ea68a288a76774ea, type: 3}
-  m_PrefabInstance: {fileID: 5373736390552999101}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5716612475371205497}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3932130429666288465}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &300812745088403336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5716612475371205497}
   m_Enabled: 1
@@ -336,14 +359,15 @@ Transform:
       amount: 5
     - type: 2
       amount: 1
-    fireRate: 1
-    knockback: 2
-    projectileSize: 1
-    damage: 25
-    projectileCount: 1
-    projectileSpeed: 5
-    maxProjectiles: 1000
-    pierceCount: 0
+    weaponStats:
+      damage: 0
+      knockback: 0
+      fireRate: 0
+      size: 0
+      projectileSpeed: 0
+      maxProjectiles: 0
+      projectilesPerShot: 0
+      pierceCount: 0
     targetingStrategy: 1
     spawnProjectileAtTarget: 0
     projectileLocalSpace: 0
@@ -360,14 +384,15 @@ Transform:
       amount: 2
     - type: 5
       amount: 1
-    fireRate: 1
-    knockback: 0
-    projectileSize: 1
-    damage: 30
-    projectileCount: 1
-    projectileSpeed: 1
-    maxProjectiles: 1000
-    pierceCount: -1
+    weaponStats:
+      damage: 0
+      knockback: 0
+      fireRate: 0
+      size: 0
+      projectileSpeed: 0
+      maxProjectiles: 0
+      projectilesPerShot: 0
+      pierceCount: 0
     targetingStrategy: 2
     spawnProjectileAtTarget: 0
     projectileLocalSpace: 0
@@ -384,14 +409,15 @@ Transform:
       amount: 2
     - type: 5
       amount: 1
-    fireRate: 1
-    knockback: 0
-    projectileSize: 0.5
-    damage: 30
-    projectileCount: 1
-    projectileSpeed: 10
-    maxProjectiles: 1
-    pierceCount: -1
+    weaponStats:
+      damage: 0
+      knockback: 0
+      fireRate: 0
+      size: 0
+      projectileSpeed: 0
+      maxProjectiles: 0
+      projectilesPerShot: 0
+      pierceCount: 0
     targetingStrategy: 3
     spawnProjectileAtTarget: 0
     projectileLocalSpace: 0
