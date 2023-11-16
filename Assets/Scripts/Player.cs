@@ -95,7 +95,7 @@ public class Player : MonoBehaviour
         //sets player looking right
         Direction myDirection = Direction.Left;
 
-        
+        InGameUI.UpdateTwirls(curTwirlCharges);                
     }
 
     void Update()
