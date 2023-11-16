@@ -63,7 +63,10 @@ public class EnemySpawner : MonoBehaviour
     {
         for (int i = 0; i < spawn.spawnCount; i++) {
             GameObject enemy = Instantiate(spawn.enemyType, GetSpawnPosition(), Quaternion.identity);
-            enemy.GetComponent<Damage>().damage = Mathf.Lerp(spawn.startingDamage, spawn.endingDamage, t);
+            if (enemy.TryGetComponent(out Damage damage))
+            {
+                damage.damage = Mathf.Lerp(spawn.startingDamage, spawn.endingDamage, t);
+            }
         }
     }
 
