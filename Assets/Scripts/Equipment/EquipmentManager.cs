@@ -16,6 +16,7 @@ public class EquipmentManager : MonoBehaviour
     const int MAX_PASSIVES = 7;
     const int MAX_EQUIPMENT_LEVELS = 7;
     
+    
     // in inspector
     public EquipmentIcon[] icons;
     [SerializeField] public ProjectileWeapon[] allWeapons;

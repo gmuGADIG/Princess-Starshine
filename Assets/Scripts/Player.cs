@@ -39,8 +39,8 @@ public class Player : MonoBehaviour
     public bool isTwirling = false;
     public int maxTwirlCharges = 3;
     public float twirlCooldown = 10f;
-    public float twirlSpeed = 30;
-    public float twirlDuration = 0.3f;
+    public float twirlSpeed = 10;
+    public float twirlDuration = 0.2f;
 
     private int curTwirlCharges = 0;
     private float twirlRechargeTimeLeft = 0f;

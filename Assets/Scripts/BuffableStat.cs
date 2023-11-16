@@ -115,7 +115,7 @@ public class BuffableStat {
 
         ~Receipt() { // destructor :P
             if (!unapplied && !quitting) {
-                Debug.LogError("Someone forgot to unapply a buff!");
+                Debug.LogWarning("Someone forgot to unapply a buff!");
             }
         }
     }

@@ -103,7 +103,10 @@ public class EnemySpawner : MonoBehaviour
         timeTillNextSpawn -= Time.deltaTime;
         if (timeTillNextSpawn <= 0)
         {
-            RandomSpawn();
+            if (EnemyManager.enemies.Count<=EnemyManager.maxEnemies) {
+                RandomSpawn();
+            }
+
             var rate = Mathf.Lerp(startSpawnRate, endSpawnRate, t);
             timeTillNextSpawn += 1 / rate;
             
