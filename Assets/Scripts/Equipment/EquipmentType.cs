@@ -5,6 +5,6 @@ public enum EquipmentType
     FairyWand, GlitterBomb, TeaTime, Pomeranian,
     
     // passives
-    FairyFriend, BunnyBurst, SunnySquee, ButterflyWings, LuckyLipstick, SugarRush
+    FairyFriend, BunnyBurst, SunnySquee, ButterflyWings, LuckyLipstick, SugarRush, MagicMirror, ChubbyCookie
 
 }
