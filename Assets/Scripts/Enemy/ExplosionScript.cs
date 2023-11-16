@@ -10,6 +10,7 @@ public class ExplosionScript : MonoBehaviour
     private Rigidbody2D rb;
     public float force;
     private float timer;
+    private bool hasCollided = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,11 +36,12 @@ public class ExplosionScript : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.gameObject.CompareTag("Player"))
+        if (collider.gameObject.CompareTag("Player") && hasCollided == false)
         {
+            hasCollided = true;
             collider.gameObject.GetComponent<PlayerHealth>().decreaseHealth(20);
             Debug.Log("oh");
-            Destroy(gameObject);
+
         }
     }
 }
