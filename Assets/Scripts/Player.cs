@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -55,7 +56,6 @@ public class Player : MonoBehaviour
 
     // Time in seconds the player is immune to attacks. After getting hit, the player is immune for a short amount of time.
     // (in other words, i-frames)
-    float immuneTime = 0f;
 
     //for animations
     public Animator playerAnimator;
@@ -160,8 +160,6 @@ public class Player : MonoBehaviour
         }
 
         transform.position += (Vector3)(velocity * Time.deltaTime * moveSpeedMultiplier.Value);
-
-        immuneTime = Mathf.MoveTowards(immuneTime, 0, Time.deltaTime);
     }
 
     void UsedConsumable()
@@ -247,9 +245,10 @@ public class Player : MonoBehaviour
             Destroy(xpObj.gameObject);
         }
 
-        else if (hit.collider.GetComponent<Damage>()) {
-            Damage damage = hit.collider.GetComponent<Damage>();
-            OnAttacked(damage.damage);
+        else if (hit.collider.CompareTag("Enemy"))
+        {
+            if (isTwirling) return;
+            OnAttacked(hit.collider.gameObject.GetComponent<Damage>().damage);
         }
 
         else if (hit.collider.CompareTag("Consumable"))
@@ -282,11 +281,8 @@ public class Player : MonoBehaviour
     //void OnAttacked(GameObject enemy)
     void OnAttacked(float damage)
     {
-        if (immuneTime > 0 || isTwirling) return;
-
-        immuneTime = .5f;
-        GetComponent<PlayerHealth>().decreaseHealth(damage);
+        GetComponent<PlayerHealth>().decreaseHealth(damage * Time.deltaTime);
         SoundManager.Instance.PlaySoundGlobal(takeDamageSound);
-        print("oww!");
+        //print("oww!");
     }
 }

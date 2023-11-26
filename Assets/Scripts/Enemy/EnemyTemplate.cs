@@ -16,7 +16,7 @@ using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-[RequireComponent(typeof(BoxCollider2D))]
+[RequireComponent(typeof(Collider2D))]
 public class EnemyTemplate : MonoBehaviour
 {
     #region VariableSettings
