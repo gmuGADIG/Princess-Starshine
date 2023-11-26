@@ -248,7 +248,7 @@ public class Player : MonoBehaviour
         else if (hit.collider.CompareTag("Enemy"))
         {
             if (isTwirling) return;
-            OnAttacked();
+            OnAttacked(hit.collider.gameObject.GetComponent<Damage>().damage);
         }
 
         else if (hit.collider.CompareTag("Consumable"))
@@ -279,9 +279,9 @@ public class Player : MonoBehaviour
     }
 
     //void OnAttacked(GameObject enemy)
-    void OnAttacked()
+    void OnAttacked(float damage)
     {
-        GetComponent<PlayerHealth>().decreaseHealth(10 * Time.deltaTime);
+        GetComponent<PlayerHealth>().decreaseHealth(damage * Time.deltaTime);
         SoundManager.Instance.PlaySoundGlobal(takeDamageSound);
         //print("oww!");
     }
