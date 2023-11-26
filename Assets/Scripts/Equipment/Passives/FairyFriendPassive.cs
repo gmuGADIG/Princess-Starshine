@@ -14,11 +14,6 @@ public class FairyFriendPassive : Passive
     private GameObject playerPrefab;
     private PlayerHealth health;
 
-    public FairyFriendPassive()
-    {
-        this.type = EquipmentType.FairyFriend;
-    }
-    
     public void Start()
     {
         //playerPrefab = GameObject.FindGameObjectWithTag("Player");

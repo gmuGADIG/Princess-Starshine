@@ -47,7 +47,7 @@ public class ConsumableManager : MonoBehaviour
 
         // chance to spawn a consumable every time an enemy spawns
         EnemySpawner.SpawningEnemy.AddListener(() => { 
-            Debug.Log($"ConsumableSpawnChance.Value: {ConsumableSpawnChance.Value}");
+            //Debug.Log($"ConsumableSpawnChance.Value: {ConsumableSpawnChance.Value}");
             if (UnityEngine.Random.value < ConsumableSpawnChance.Value) {
                 // pick a random point in the camera bounds
                 Rect cameraBounds = TeaTime.cameraBoundingBox();

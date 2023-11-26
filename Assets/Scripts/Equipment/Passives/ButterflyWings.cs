@@ -3,11 +3,6 @@ using UnityEngine;
 
 public class ButterflyWings : Passive {
     // how much does this passive make the player move faster?
-    
-    public ButterflyWings() {
-        type = EquipmentType.ButterflyWings;
-    }
-
     public float walkSpeedMultiplier = 1.5f;
     private BuffableStat.Receipt receipt;
     

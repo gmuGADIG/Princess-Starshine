@@ -11,7 +11,6 @@ using UnityEngine.UI;
 [Serializable]
 public class EquipmentIcon
 {
-    public EquipmentType type;
     public string name;
     public string description;
     public Texture icon;
