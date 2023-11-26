@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -108,7 +108,112 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: FairyWandSpriteSheet_0
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 65
+        width: 213
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71c4d3715925ef449ae6dc8baa49d13c
+      internalID: 1861217385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FairyWandSpriteSheet_1
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 237
+        width: 61
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd52e567be1514c4a80c56ee407dc0cf
+      internalID: 649631534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FairyWandSpriteSheet_2
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 232
+        width: 57
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b826f0f60091a3943ab20099df70616a
+      internalID: -770839267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FairyWandSpriteSheet_3
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 136
+        width: 61
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d429ae480aeb6549881c9e10d586832
+      internalID: -1215867083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FairyWandSpriteSheet_4
+      rect:
+        serializedVersion: 2
+        x: 377
+        y: 129
+        width: 57
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 871be5164435252428ddc59dc605e814
+      internalID: -28480966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +224,12 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      FairyWandSpriteSheet_0: 1861217385
+      FairyWandSpriteSheet_1: 649631534
+      FairyWandSpriteSheet_2: -770839267
+      FairyWandSpriteSheet_3: -1215867083
+      FairyWandSpriteSheet_4: -28480966
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

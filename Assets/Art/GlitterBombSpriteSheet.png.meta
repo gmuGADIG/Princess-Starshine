@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -108,7 +108,637 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: GlitterBombSpriteSheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6108
+        width: 365
+        height: 552
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f048657eb47f80f4e90d88da742fbc9e
+      internalID: -335456455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GlitterBombSpriteSheet_1
+      rect:
+        serializedVersion: 2
+        x: 1584
+        y: 6449
+        width: 364
+        height: 552
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3946020f68e96e44ba21e8ff38b77eb2
+      internalID: -1821049571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GlitterBombSpriteSheet_2
+      rect:
+        serializedVersion: 2
+        x: 2782
+        y: 6449
+        width: 366
+        height: 552
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43fa144df144242498eb94bec1a75dc4
+      internalID: -1154262302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GlitterBombSpriteSheet_3
+      rect:
+        serializedVersion: 2
+        x: 3984
+        y: 6449
+        width: 362
+        height: 552
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fdd1af114ce4004ab39c0d5452249c6
+      internalID: 1137130626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GlitterBombSpriteSheet_4
+      rect:
+        serializedVersion: 2
+        x: 5183
+        y: 6449
+        width: 365
+        height: 552
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 077dc39ab8708a245914a43350c41b35
+      internalID: 906691047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GlitterBombSpriteSheet_5
+      rect:
+        serializedVersion: 2
+        x: 382
+        y: 5251
+        width: 365
+        height: 551
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18d615f0157cf8845829f8576affb3e7
+      internalID: 1944295987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GlitterBombSpriteSheet_6
+      rect:
+        serializedVersion: 2
+        x: 1584
+        y: 5251
+        width: 364
+        height: 551
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afebe619bb13b2b4f91f83b0d8e99890
+      internalID: 507795183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GlitterBombSpriteSheet_7
+      rect:
+        serializedVersion: 2
+        x: 2782
+        y: 5251
+        width: 366
+        height: 551
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74ca5824c5a784840a46cead2d5baea0
+      internalID: -1455438291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GlitterBombSpriteSheet_8
+      rect:
+        serializedVersion: 2
+        x: 3984
+        y: 5251
+        width: 362
+        height: 551
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc0632519964e104092091f05a405f68
+      internalID: -972664109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GlitterBombSpriteSheet_9
+      rect:
+        serializedVersion: 2
+        x: 5183
+        y: 5251
+        width: 365
+        height: 551
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad6997f13d8c4664b9f4b06c51b8f3f7
+      internalID: 1162587339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GlitterBombSpriteSheet_10
+      rect:
+        serializedVersion: 2
+        x: 382
+        y: 4048
+        width: 365
+        height: 552
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6987b4a8f6a7b1d4ca10d652c23f2ba8
+      internalID: 894270321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GlitterBombSpriteSheet_11
+      rect:
+        serializedVersion: 2
+        x: 1584
+        y: 4048
+        width: 364
+        height: 552
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c403dff613e30c24c821e898d19a5373
+      internalID: -1704928548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GlitterBombSpriteSheet_12
+      rect:
+        serializedVersion: 2
+        x: 2782
+        y: 4048
+        width: 366
+        height: 552
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68cbb99af7b8d7a4493885851b8a6394
+      internalID: 726089444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GlitterBombSpriteSheet_13
+      rect:
+        serializedVersion: 2
+        x: 3984
+        y: 4048
+        width: 362
+        height: 552
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65c3bf3f6e635254a9487059a58c29e7
+      internalID: -778317696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GlitterBombSpriteSheet_14
+      rect:
+        serializedVersion: 2
+        x: 5183
+        y: 4048
+        width: 365
+        height: 552
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ca3ba1364ea5a4479be46a8309084ea
+      internalID: 689757115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GlitterBombSpriteSheet_15
+      rect:
+        serializedVersion: 2
+        x: 382
+        y: 2849
+        width: 365
+        height: 552
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3a156aa46887484dae79352987cfbbf
+      internalID: 1967441901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GlitterBombSpriteSheet_16
+      rect:
+        serializedVersion: 2
+        x: 1556
+        y: 2832
+        width: 418
+        height: 534
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a26a105a4debd54abb0f3c001f55c2d
+      internalID: 404020764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GlitterBombSpriteSheet_17
+      rect:
+        serializedVersion: 2
+        x: 2652
+        y: 2762
+        width: 622
+        height: 548
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af6b9416323ab844893ca33f414dce61
+      internalID: 1119675413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GlitterBombSpriteSheet_18
+      rect:
+        serializedVersion: 2
+        x: 3784
+        y: 2667
+        width: 678
+        height: 703
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 031a0d860ece7694dba08127a33eecae
+      internalID: 73298099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GlitterBombSpriteSheet_19
+      rect:
+        serializedVersion: 2
+        x: 4919
+        y: 2603
+        width: 840
+        height: 833
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f59d2c76c8389904ba452c0236685c4a
+      internalID: -367644549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GlitterBombSpriteSheet_20
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 1394
+        width: 921
+        height: 882
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8ff2e5a106e6044d88721e447529b11
+      internalID: 1485861206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GlitterBombSpriteSheet_21
+      rect:
+        serializedVersion: 2
+        x: 1285
+        y: 1327
+        width: 987
+        height: 1020
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a2e2a19d9ab9fc4b9eb3a60088ec729
+      internalID: 794745948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GlitterBombSpriteSheet_22
+      rect:
+        serializedVersion: 2
+        x: 2518
+        y: 1387
+        width: 897
+        height: 896
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f477173e335e039478fbd9c7af7dd499
+      internalID: -2046727055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GlitterBombSpriteSheet_23
+      rect:
+        serializedVersion: 2
+        x: 3749
+        y: 1482
+        width: 755
+        height: 805
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96d6472faadea534ea1dab8ed0e25a4c
+      internalID: 174102836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GlitterBombSpriteSheet_24
+      rect:
+        serializedVersion: 2
+        x: 4997
+        y: 1433
+        width: 678
+        height: 822
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58984d38396889d4daeaf47ed8165afe
+      internalID: 796144470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GlitterBombSpriteSheet_31
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 364
+        width: 573
+        height: 622
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00a6fa182b04584459e88d6a09cddc9b
+      internalID: -708646397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GlitterBombSpriteSheet_32
+      rect:
+        serializedVersion: 2
+        x: 1506
+        y: 469
+        width: 478
+        height: 440
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd7badd0a6156f4498b3462d18434f94
+      internalID: -1833824359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GlitterBombSpriteSheet_34
+      rect:
+        serializedVersion: 2
+        x: 2817
+        y: 540
+        width: 267
+        height: 337
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4503572b5b68ca438fa16c161a1074f
+      internalID: 752578328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GlitterBombSpriteSheet_35
+      rect:
+        serializedVersion: 2
+        x: 4097
+        y: 606
+        width: 119
+        height: 211
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c3c72dbda43b8d40a9a31b464a808fb
+      internalID: 70683818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GlitterBombSpriteSheet_36
+      rect:
+        serializedVersion: 2
+        x: 5330
+        y: 684
+        width: 53
+        height: 94
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68307f3f0a09d8447975d83f66d90a08
+      internalID: -915482133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +749,46 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      GlitterBombSpriteSheet_0: -335456455
+      GlitterBombSpriteSheet_1: -1821049571
+      GlitterBombSpriteSheet_10: 894270321
+      GlitterBombSpriteSheet_11: -1704928548
+      GlitterBombSpriteSheet_12: 726089444
+      GlitterBombSpriteSheet_13: -778317696
+      GlitterBombSpriteSheet_14: 689757115
+      GlitterBombSpriteSheet_15: 1967441901
+      GlitterBombSpriteSheet_16: 404020764
+      GlitterBombSpriteSheet_17: 1119675413
+      GlitterBombSpriteSheet_18: 73298099
+      GlitterBombSpriteSheet_19: -367644549
+      GlitterBombSpriteSheet_2: -1154262302
+      GlitterBombSpriteSheet_20: 1485861206
+      GlitterBombSpriteSheet_21: 794745948
+      GlitterBombSpriteSheet_22: -2046727055
+      GlitterBombSpriteSheet_23: 174102836
+      GlitterBombSpriteSheet_24: 796144470
+      GlitterBombSpriteSheet_25: 1848473653
+      GlitterBombSpriteSheet_26: -1315957471
+      GlitterBombSpriteSheet_27: -371078884
+      GlitterBombSpriteSheet_28: 1786517567
+      GlitterBombSpriteSheet_29: 911649042
+      GlitterBombSpriteSheet_3: 1137130626
+      GlitterBombSpriteSheet_30: -1619790510
+      GlitterBombSpriteSheet_31: -708646397
+      GlitterBombSpriteSheet_32: -1833824359
+      GlitterBombSpriteSheet_33: -1434866588
+      GlitterBombSpriteSheet_34: 752578328
+      GlitterBombSpriteSheet_35: 70683818
+      GlitterBombSpriteSheet_36: -915482133
+      GlitterBombSpriteSheet_37: -778629239
+      GlitterBombSpriteSheet_38: 1396008690
+      GlitterBombSpriteSheet_4: 906691047
+      GlitterBombSpriteSheet_5: 1944295987
+      GlitterBombSpriteSheet_6: 507795183
+      GlitterBombSpriteSheet_7: -1455438291
+      GlitterBombSpriteSheet_8: -972664109
+      GlitterBombSpriteSheet_9: 1162587339
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
