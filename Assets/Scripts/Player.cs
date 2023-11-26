@@ -23,7 +23,17 @@ public class Player : MonoBehaviour
     int cumulativeXpPoints = 0;
     int xpThisLevel = 0;
     int xpLevel = 1;
-    int XpLevelUpGoal() => (2 * xpLevel) + 20;
+
+    //Initial amount of xp required to level up
+    [SerializeField]
+    int initialXpToLevelUp = 20;
+
+    //Increase amount in xp
+    [SerializeField]
+    int increaseXP = 2;
+
+    [SerializeField]
+    int XpLevelUpGoal() => (increaseXP * xpLevel) + initialXpToLevelUp;
     static Action<int, int> onLevelUp;
 
     //For dodge twirl
@@ -47,11 +57,25 @@ public class Player : MonoBehaviour
     // Time in seconds the player is immune to attacks. After getting hit, the player is immune for a short amount of time.
     // (in other words, i-frames)
 
+    //for animations
+    public Animator playerAnimator;
+    public Animator spriteRotator;
+
+    //boolean to see where player is looking
+
+    public enum Direction {Left,Right};
+    Direction myDirection = Direction.Left;
+
+    //find the player sprite renderer
+
+    public SpriteRenderer mySpriteRenderer;
+
     // sound names
     string xpPickupSound = "XP_Pickup";
     string takeDamageSound = "Princess_Damage";
     string levelUpSound = "Level_Up";
     string twirlDashSound = "Princess_Dash";
+
 
     // Start is called before the first frame update
     void Start()
@@ -67,12 +91,51 @@ public class Player : MonoBehaviour
         InGameUI.SetXp(0, 0);
 
         onLevelUp += (newLevel, xpThatLevel) => LevelUpUI.instance.Open();
+
+        //sets player looking right
+        Direction myDirection = Direction.Left;
+
+        
     }
 
     void Update()
     {
 
         Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
+
+        //check to see if the character is stationary or not
+
+        if(input == Vector2.zero)
+        {
+            playerAnimator.SetBool("Moving", false);
+        }
+        else
+        {
+            playerAnimator.SetBool("Moving", true);
+
+        }
+
+        //check to see if the player is moving right or left
+        //chnages where the player is looking
+        if (Input.GetAxisRaw("Horizontal") < 0)
+        {
+
+            myDirection = Direction.Left;
+             mySpriteRenderer.flipX = true;
+
+        }
+        else if(Input.GetAxisRaw("Horizontal") > 0)
+        {
+            myDirection = Direction.Right;
+            mySpriteRenderer.flipX = false;
+        }
+
+        
+
+
+
+
+
         if (!isTwirling){
             if (input!=Vector2.zero) {
                 velocity += input * acceleration * Time.deltaTime;
@@ -114,11 +177,14 @@ public class Player : MonoBehaviour
 
     void UpdateTwirl(Vector2 input) {
 
-        if (Input.GetKeyDown("left shift") || Input.GetKeyDown("z")){
+        if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.Z)){
             if (curTwirlCharges > 0) {
                 curTwirlCharges -= 1;
                 InGameUI.UpdateTwirls(curTwirlCharges);
                 StartCoroutine(Twirl(input));
+
+                //do twirl animation
+                playerAnimator.SetTrigger("Twirling");
                 SoundManager.Instance.PlaySoundGlobal(twirlDashSound);
             }
             else {
@@ -141,13 +207,14 @@ public class Player : MonoBehaviour
     IEnumerator Twirl(Vector2 direction) {
         print($"twirling (twirls left = {curTwirlCharges})");
         isTwirling = true;
+
         velocity = direction * twirlSpeed;
         yield return new WaitForSeconds(twirlDuration);
         isTwirling = false;
     }
 
     //current placeholder for xp function
-    void AddXP(int points) 
+    public void AddXP(int points) 
     {
         cumulativeXpPoints += points;
         xpThisLevel += points;
@@ -211,7 +278,8 @@ public class Player : MonoBehaviour
         }
     }
 
-    void OnAttacked(GameObject enemy)
+    //void OnAttacked(GameObject enemy)
+    void OnAttacked(float damage)
     {
         GetComponent<PlayerHealth>().decreaseHealth(10 * Time.deltaTime);
         SoundManager.Instance.PlaySoundGlobal(takeDamageSound);
