@@ -12,10 +12,13 @@ public class Player : MonoBehaviour
     [HideInInspector] public Vector2 velocity = Vector2.zero;
     public BuffableStat moveSpeedMultiplier { get; private set; } = new BuffableStat(1f);
     //[HideInInspector] public float moveSpeedMultiplier { get; set; } = 1f;
+    [Tooltip("The player's acceleration.")]
     [SerializeField]
     float acceleration;
+    [Tooltip("The maximum speed the player will reach.")]
     [SerializeField]
     float maxSpeed;
+    [Tooltip("The rate at which the player will decelerate.")]
     [SerializeField]
     float deceleration;
 
@@ -23,12 +26,12 @@ public class Player : MonoBehaviour
     int cumulativeXpPoints = 0;
     int xpThisLevel = 0;
     int xpLevel = 1;
-
-    //Initial amount of xp required to level up
+    
+    [Tooltip("The initial amount of XP required for the player to level up.")]
     [SerializeField]
     int initialXpToLevelUp = 20;
 
-    //Increase amount in xp
+    [Tooltip("The amount that the XP goal increases by per level.")]
     [SerializeField]
     int increaseXP = 2;
 
@@ -38,9 +41,13 @@ public class Player : MonoBehaviour
 
     //For dodge twirl
     public bool isTwirling = false;
+    [Tooltip("The maximum number of twirl charges the player can have saved up.")]
     public int maxTwirlCharges = 3;
+    [Tooltip("The cooldown of each twirl, in seconds.")]
     public float twirlCooldown = 10f;
+    [Tooltip("How fast the player moves while twirling.")]
     public float twirlSpeed = 30;
+    [Tooltip("How long the twirl lasts in seconds.")]
     public float twirlDuration = 0.3f;
 
     private int curTwirlCharges = 0;
