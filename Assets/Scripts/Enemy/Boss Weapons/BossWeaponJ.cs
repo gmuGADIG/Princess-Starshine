@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class BossWeapon : MonoBehaviour
+public abstract class BossWeaponJ : MonoBehaviour
 {
     
 }

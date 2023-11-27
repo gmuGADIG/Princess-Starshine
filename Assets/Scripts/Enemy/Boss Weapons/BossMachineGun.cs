@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossMachineGun : BossWeapon
+public class BossMachineGun : BossWeaponJ
 {
     [SerializeField] GameObject projectilePrefab;
     [SerializeField] float attackLength = 2f;
@@ -25,7 +25,8 @@ public class BossMachineGun : BossWeapon
         float timer = 0f;
         while (timer < attackLength)
         {
-            BossProjectile proj = Instantiate(projectilePrefab, transform.position, Quaternion.identity).GetComponent<BossProjectile>();
+
+            BossProjectileJ proj = Instantiate(projectilePrefab, transform.position, Quaternion.identity).GetComponent<BossProjectileJ>();
             if (proj != null)
             {
                 proj.direction = -(transform.position - playerTransform.position).normalized;
