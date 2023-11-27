@@ -1,8 +1,12 @@
 // Use this for stats that other code may change
 // Basic usage:
 
+
+
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.Events;
+
 /*
 public class MyComponent : MonoBehaviour {
     public float initialFunny = 3f;
@@ -73,14 +77,25 @@ public class BuffableStat {
         public enum Type { Add, Multiply }
         public float Value { get; private set; }
         private Type type;
+        private string callerFilePath;
+        private int callerLineNumber;
+
         public BuffableStat Stat { get; private set; }
 
         private bool unapplied = false;
 
-        public Receipt(BuffableStat bs, Type type, float value) {
+        public Receipt(
+                BuffableStat bs, 
+                Type type, 
+                float value,
+                string callerFilePath,
+                int callerLineNumber
+        ) {
             this.Stat = bs;
             this.Value = value;
             this.type = type;
+            this.callerFilePath = callerFilePath;
+            this.callerLineNumber = callerLineNumber;
         }
 
         /// <summary>
@@ -115,7 +130,12 @@ public class BuffableStat {
 
         ~Receipt() { // destructor :P
             if (!unapplied && !quitting) {
-                Debug.LogWarning("Someone forgot to unapply a buff!");
+                string errorMessage = "Someone forgot to unapply a buff!";
+
+                errorMessage += "\ncallerLineNumber: " + callerLineNumber;
+                errorMessage += " | callerFilePath: " + callerFilePath;
+
+                Debug.LogWarning(errorMessage);
             }
         }
     }
@@ -128,23 +148,31 @@ public class BuffableStat {
     /// <summary>
     /// Add <paramref name="amount"/> to this <c>BuffableStat</c>'s value.
     /// </summary>
-    public Receipt AddBuff(float amount) {
+    public Receipt AddBuff(
+            float amount,
+            [CallerFilePath] string callerFilePath = "",
+            [CallerLineNumber] int callerLineNumber = 0
+    ) {
         adds += amount;
         ValueUpdated.Invoke(Value);
-        return new Receipt(this, Receipt.Type.Add, amount);
+        return new Receipt(this, Receipt.Type.Add, amount, callerFilePath, callerLineNumber);
     }
 
     /// <summary>
     /// Multiply this <c>BuffableStat</c>'s value by <paramref name="amount"/>.
     /// </summary>
-    public Receipt MultiplierBuff(float amount) {
+    public Receipt MultiplierBuff(
+            float amount,
+            [CallerFilePath] string callerFilePath = "",
+            [CallerLineNumber] int callerLineNumber = 0
+    ) {
         if (amount != 0) {
             multiplier *= amount;
             ValueUpdated.Invoke(Value);
-            return new Receipt(this, Receipt.Type.Multiply, amount);
+            return new Receipt(this, Receipt.Type.Multiply, amount, callerFilePath, callerLineNumber);
         } else {
             Debug.LogError("BuffableStat does not support 0x multipliers.");
-            return new Receipt(this, Receipt.Type.Multiply, 1);
+            return new Receipt(this, Receipt.Type.Multiply, 1, callerFilePath, callerLineNumber);
         }
     }
 }
