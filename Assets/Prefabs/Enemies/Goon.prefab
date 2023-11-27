@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4480412780149895677}
   - component: {fileID: -6482407525433040292}
   - component: {fileID: -7732810098210406357}
+  - component: {fileID: 3738242979292131499}
   m_Layer: 0
   m_Name: Goon
   m_TagString: Enemy
@@ -164,3 +165,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 0}
+--- !u!114 &3738242979292131499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4785212365360498297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccf1194074bf9f026900709e92d1621b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
