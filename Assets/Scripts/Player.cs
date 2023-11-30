@@ -129,12 +129,13 @@ public class Player : MonoBehaviour
 
             myDirection = Direction.Left;
              mySpriteRenderer.flipX = true;
-
+           // playerAnimator.SetFloat("Horizontal", -1.0f);
         }
         else if(Input.GetAxisRaw("Horizontal") > 0)
         {
             myDirection = Direction.Right;
             mySpriteRenderer.flipX = false;
+           // playerAnimator.SetFloat("Horizontal", 1.0f);
         }
 
         
