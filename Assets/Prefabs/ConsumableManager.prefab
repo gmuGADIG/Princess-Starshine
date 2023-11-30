@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5786701419804346739
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 913811735318614646}
+  - component: {fileID: 2350949820540051793}
+  m_Layer: 0
+  m_Name: ConsumableManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &913811735318614646
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5786701419804346739}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.8349148, y: -0.5318615, z: 0.13401604}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2350949820540051793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5786701419804346739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b72ef671473b73192aa403322761c91b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ConsumableSpawnChance: 0.01
+  HealthConsumableHealing: 100
+  InvincibilityDuration: 5
+  OverpoweredBuffDuration: 5
+  DamageDealtMutliplier: 5
+  WalkSpeedMutliplier: 5
+  FireRateMutliplier: 5
+  DamageTakenMutliplier: 0.2
+  PlayerInvincible:
+    m_PersistentCalls:
+      m_Calls: []
+  PlayerVulnerable:
+    m_PersistentCalls:
+      m_Calls: []
+  PlayerOverpowered:
+    m_PersistentCalls:
+      m_Calls: []
+  PlayerNotOverpowered:
+    m_PersistentCalls:
+      m_Calls: []

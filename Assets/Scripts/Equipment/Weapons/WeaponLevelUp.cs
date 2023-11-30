@@ -1,18 +1,18 @@
 
 using System;
+using System.Text.RegularExpressions;
 using UnityEngine;
 
 [Serializable]
 public enum WeaponLevelUpType
 {
-    // multiplicative modifiers (e.g. times 1.5 damage); real number increments 
-    Damage, KnockBack,
+    // float modifiers (1 = +100%)
+    Damage, Knockback,
     FireRate,
-    AoESize,
     ProjectileSize, ProjectileSpeed,
     
-    // additive modifiers (e.g. +1 pierce); integer increments
-    MaxProjectiles, ProjectileCount, Pierce,
+    // int modifiers (1 = +1)
+    MaxProjectiles, ProjectilesPerShot, Pierce,
 }
 
 [Serializable]
@@ -23,16 +23,15 @@ public class WeaponLevelUp
 
     public override string ToString()
     {
-        if (type == WeaponLevelUpType.Pierce)
+        var propertyName = Regex.Replace(type.ToString(), "(\\B[A-Z])", " $1"); // add spaces, e.g. "FireRate" -> "Fire Rate"
+        if (type is WeaponLevelUpType.Pierce or WeaponLevelUpType.ProjectilesPerShot or WeaponLevelUpType.MaxProjectiles) // int modifiers
         {
-            return $"+{amount} Pierces";
+            return $"+{amount} {propertyName}";
         }
-        else
+        else // float modifiers (show as percent)
         {
-            // e.g. 1.3 -> +30%
-            var percentString = "+" + (amount - 1).ToString("P0");
-            return $"{percentString} {type}";
+            // e.g. 1.3 -> +130%
+            return $"+{amount:P0} {propertyName}";
         }
-        // TODO: nicer output
     }
 }

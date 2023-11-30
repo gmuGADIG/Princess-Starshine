@@ -7,15 +7,16 @@ using UnityEngine;
  * Is instantiated after the player equips it.
  */
 [Serializable]
-public abstract class Equipment
+public abstract class Equipment : MonoBehaviour
 {
-    [SerializeField] public EquipmentType type;
+    [SerializeField] public EquipmentIcon icon;
     
     /** The amount of times this equipment has been leveled up. Necessary to avoid going past the limit */
     [HideInInspector] public int levelUpsDone = 0;
 
     /**
      * Called when this item is equipped. Should set the buffs of the item.
+     * Guarenteed to be called before Update().
      */
     public abstract void OnEquip();
 

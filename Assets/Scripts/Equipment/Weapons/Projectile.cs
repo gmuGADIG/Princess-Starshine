@@ -12,7 +12,8 @@ public class Projectile : MonoBehaviour
     
     /** The weapon which fired this projectile. */
     protected ProjectileWeapon weapon;
-    
+
+    protected float speed;
     protected Vector2 velocity;
     protected float damage = 0;
     protected int pierceCount = 0;
@@ -24,7 +25,16 @@ public class Projectile : MonoBehaviour
     protected virtual void Start()
     {
         var projCollision = GetComponent<ProjectileCollision>();
-        if (projCollision != null) projCollision.SetDamage(this.damage);
+        if (projCollision != null)
+        {
+            projCollision.SetDamage(this.damage);
+        }
+    }
+
+    void OnProjectileHit()
+    {
+        if (pierceCount == 0) Destroy(this.gameObject); // < 0 is fine, because -1 pierce means infinite
+        this.pierceCount -= 1;
     }
 
     protected virtual void Update()
@@ -57,11 +67,13 @@ public class Projectile : MonoBehaviour
         timeAlive = 0;
 
         this.weapon = weapon;
+        this.speed = speed;
         velocity = (target - (Vector2)this.transform.position).normalized * speed;
         this.pierceCount = pierceCount;
         this.damage = damage;
         this.knockback = knockback;
         this.size = size;
+        this.transform.localScale = new Vector3(size, size);
         hasBeenSetUp = true;
     }
 
