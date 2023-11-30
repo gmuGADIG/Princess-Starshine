@@ -11,10 +11,6 @@ public class LuckyLipstick : Passive {
     private BuffableStat.Receipt collisionRadiusReceipt;
     private BuffableStat.Receipt spawnChanceReceipt;
 
-    public LuckyLipstick() {
-        type = EquipmentType.LuckyLipstick;
-    }
-
     public override (string description, Action onApply) GetLevelUps() {
         return (
             description: "Increase consumable spawn chance and consumable pickup radius",

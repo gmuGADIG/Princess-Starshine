@@ -43,6 +43,8 @@ public class InGameUI : MonoBehaviour
 
     public static void UpdateTwirls(int count)
     {
+        // TODO: make this method cope with the count being higher than the number of children
+
         var twirlsDrawn = 0;
         foreach (Transform child in instance.twirlParent)
         {

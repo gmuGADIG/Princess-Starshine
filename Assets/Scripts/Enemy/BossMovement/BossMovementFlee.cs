@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossMovementFlee : MonoBehaviour, IBossMovement
+public class BossMovementFlee : IBossMovement
 {
     public Transform fleeFrom;
     public float speed = 5f;

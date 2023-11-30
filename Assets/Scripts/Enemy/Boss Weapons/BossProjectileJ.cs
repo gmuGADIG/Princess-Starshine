@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossProjectile : MonoBehaviour
+public class BossProjectileJ : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 10f;
     [SerializeField] float damage = 20f;

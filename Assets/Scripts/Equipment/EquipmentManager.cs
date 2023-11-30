@@ -16,14 +16,15 @@ public class EquipmentManager : MonoBehaviour
     const int MAX_PASSIVES = 7;
     const int MAX_EQUIPMENT_LEVELS = 7;
     
+    
     // in inspector
     public EquipmentIcon[] icons;
     [SerializeField] public ProjectileWeapon[] allWeapons;
 
     // general
     public static EquipmentManager instance;
+    [HideInInspector]
     public List<Equipment> allEquipment = new();
-    readonly Dictionary<EquipmentType, EquipmentIcon> iconDict = new();
 
     // run-time
     private List<Equipment> currentEquipment = new();
@@ -32,48 +33,23 @@ public class EquipmentManager : MonoBehaviour
     {
         instance = this;
         
-        // set up iconDict
-        foreach (var icon in icons)
-        {
-            if (iconDict.ContainsKey(icon.type))
-                Debug.LogException(new Exception($"EquipmentManager has duplicate icons for {icon.type}!"));
-            
-            iconDict[icon.type] = icon;
+        foreach (Equipment equipment in GetComponents<Equipment>()) {
+            equipment.enabled = false;
+            allEquipment.Add(equipment);
         }
-
-        // ensure every EquipmentType has an icon
-        foreach (EquipmentType type in Enum.GetValues(typeof(EquipmentType)))
-        {
-            if (!iconDict.ContainsKey(type))
-                Debug.LogException(new Exception($"EquipmentManager has no icon for {type}!"));
-        }
-        
-        FinalizeEquipmentList();
     }
-
-    /**
-     * Called in Start. Brings allWeapons into allEquipment and adds all equipment not able to be changed from the inspector, such as passives.
-     */
-    void FinalizeEquipmentList()
-    {
-        allEquipment.AddRange(allWeapons);
-        allEquipment.Add(new FairyFriendPassive());
-        allEquipment.Add(new BunnyBurstPassive());
-        allEquipment.Add(new SunnySqueePassive());
-        allEquipment.Add(new ButterflyWings());
-        allEquipment.Add(new LuckyLipstick());
-    }
-
 
     void Update()
     {
+        /*
         foreach (var item in currentEquipment)
         {
             item.Update();
         }
+        */
         
         // TEMP
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.P) && Application.isEditor)
         {
             if (LevelUpUI.instance == null) Debug.LogError("Can't open level-up ui; none exists in this scene!");
             else LevelUpUI.instance.Open();
@@ -85,7 +61,7 @@ public class EquipmentManager : MonoBehaviour
      * These can be either new equipment or an upgrade to old equipment.
      * Called when the LevelUpUI is instantiated.
      */
-    public List<UpgradeOption> GetUpgradeOptions(bool weaponsOnly = false)
+    public List<UpgradeOption> GetUpgradeOptions(bool firstShow = false)
     {
         var options = new List<UpgradeOption>();
         var weaponCount = currentEquipment.Count(e => e is Weapon);
@@ -93,14 +69,18 @@ public class EquipmentManager : MonoBehaviour
 
         foreach (var equipment in allEquipment)
         {
+            // enforce first show rules and max weapon and max passive count
             if (equipment is Weapon && weaponCount >= MAX_WEAPONS) continue;
+            if (equipment is Weapon)
+                if (!(equipment as Weapon).availableAtStart && firstShow)
+                    continue;
             if (equipment is Passive)
             {
-                if (weaponsOnly) continue;
+                if (firstShow) continue;
                 if (passiveCount >= MAX_PASSIVES) continue;
             }
 
-            var icon = GetIcon(equipment);
+            var icon = equipment.icon;
             
             var duplicate = currentEquipment.FirstOrDefault(e => e == equipment);
             if (duplicate != null) // equipment is already in use. present level-up instead
@@ -125,15 +105,11 @@ public class EquipmentManager : MonoBehaviour
         return options.OrderBy(_ => Random.Range(0f, 1f)).Take(4).ToList();
     }
 
-    public EquipmentIcon GetIcon(Equipment equipment)
-    {
-        return iconDict[equipment.type];
-    }
-
     private void AddNewEquipment(Equipment equipment)
     {
         this.currentEquipment.Add(equipment);
         equipment.OnEquip();
+        equipment.enabled = true;
         
         foreach (var prevEquipment in currentEquipment)
         {
@@ -145,12 +121,12 @@ public class EquipmentManager : MonoBehaviour
 
     public List<Texture> EquippedWeaponIcons()
     {
-        return currentEquipment.Where(e => e is Weapon).Select(e => GetIcon(e).icon).ToList();
+        return currentEquipment.Where(e => e is Weapon).Select(e => e.icon.icon).ToList();
     }
     
     public List<Texture> EquippedPassiveIcons()
     {
-        return currentEquipment.Where(e => e is Passive).Select(e => GetIcon(e).icon).ToList();
+        return currentEquipment.Where(e => e is Passive).Select(e => e.icon.icon).ToList();
     }
 }
 

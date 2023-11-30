@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -11,10 +12,13 @@ public class Player : MonoBehaviour
     [HideInInspector] public Vector2 velocity = Vector2.zero;
     public BuffableStat moveSpeedMultiplier { get; private set; } = new BuffableStat(1f);
     //[HideInInspector] public float moveSpeedMultiplier { get; set; } = 1f;
+    [Tooltip("The player's acceleration.")]
     [SerializeField]
     float acceleration;
+    [Tooltip("The maximum speed the player will reach.")]
     [SerializeField]
     float maxSpeed;
+    [Tooltip("The rate at which the player will decelerate.")]
     [SerializeField]
     float deceleration;
 
@@ -22,12 +26,12 @@ public class Player : MonoBehaviour
     int cumulativeXpPoints = 0;
     int xpThisLevel = 0;
     int xpLevel = 1;
-
-    //Initial amount of xp required to level up
+    
+    [Tooltip("The initial amount of XP required for the player to level up.")]
     [SerializeField]
     int initialXpToLevelUp = 20;
 
-    //Increase amount in xp
+    [Tooltip("The amount that the XP goal increases by per level.")]
     [SerializeField]
     int increaseXP = 2;
 
@@ -37,9 +41,13 @@ public class Player : MonoBehaviour
 
     //For dodge twirl
     public bool isTwirling = false;
+    [Tooltip("The maximum number of twirl charges the player can have saved up.")]
     public int maxTwirlCharges = 3;
+    [Tooltip("The cooldown of each twirl, in seconds.")]
     public float twirlCooldown = 10f;
+    [Tooltip("How fast the player moves while twirling.")]
     public float twirlSpeed = 30;
+    [Tooltip("How long the twirl lasts in seconds.")]
     public float twirlDuration = 0.3f;
 
     private int curTwirlCharges = 0;
@@ -55,7 +63,6 @@ public class Player : MonoBehaviour
 
     // Time in seconds the player is immune to attacks. After getting hit, the player is immune for a short amount of time.
     // (in other words, i-frames)
-    float immuneTime = 0f;
 
     //for animations
     public Animator playerAnimator;
@@ -95,7 +102,7 @@ public class Player : MonoBehaviour
         //sets player looking right
         Direction myDirection = Direction.Left;
 
-        
+        InGameUI.UpdateTwirls(curTwirlCharges);                
     }
 
     void Update()
@@ -160,8 +167,6 @@ public class Player : MonoBehaviour
         }
 
         transform.position += (Vector3)(velocity * Time.deltaTime * moveSpeedMultiplier.Value);
-
-        immuneTime = Mathf.MoveTowards(immuneTime, 0, Time.deltaTime);
     }
 
     void UsedConsumable()
@@ -247,9 +252,10 @@ public class Player : MonoBehaviour
             Destroy(xpObj.gameObject);
         }
 
-        else if (hit.collider.GetComponent<Damage>()) {
-            Damage damage = hit.collider.GetComponent<Damage>();
-            OnAttacked(damage.damage);
+        else if (hit.collider.CompareTag("Enemy"))
+        {
+            if (isTwirling) return;
+            OnAttacked(hit.collider.gameObject.GetComponent<Damage>().damage);
         }
 
         else if (hit.collider.CompareTag("Consumable"))
@@ -282,11 +288,8 @@ public class Player : MonoBehaviour
     //void OnAttacked(GameObject enemy)
     void OnAttacked(float damage)
     {
-        if (immuneTime > 0 || isTwirling) return;
-
-        immuneTime = .5f;
-        GetComponent<PlayerHealth>().decreaseHealth(damage);
+        GetComponent<PlayerHealth>().decreaseHealth(damage * Time.deltaTime);
         SoundManager.Instance.PlaySoundGlobal(takeDamageSound);
-        print("oww!");
+        //print("oww!");
     }
 }

@@ -4,13 +4,15 @@ using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
+// NOTE: You probably don't want to override anything in ProjectileWeapon
+
 /**
  * Specialized Weapon sub-class for weapons which shoot projectiles at a constant interval.
  * Properties of the weapon are visible in the inspector.
  * To add a specific weapon, open the EquipmentManager (in the Player prefab) in the inspector and add new weapons there.
  */
 [Serializable]
-public sealed class ProjectileWeapon : Weapon
+abstract public class ProjectileWeapon : Weapon
 {
     [Tooltip("Base stats of the weapon.")]
     [SerializeField] WeaponStats weaponStats;
@@ -35,20 +37,17 @@ public sealed class ProjectileWeapon : Weapon
     
     
     float timeUntilNextFire = 0.5f; // the 0.5 gives it a bit of time before it's first shot after equipping it
-    
-    /** How the weapon should determine which direction to fire in */
+
+    [Tooltip("The strategy the weapon should use to determine its firing direction.")]
     [SerializeField] TargetType targetingStrategy;
-
-    /** True if the projectile should spawn at its target, as opposed to emitting from the player. */
+    
+    [Tooltip("If checked, the projectile will spawn at its target; otherwise, it emits from the player.")]
     [SerializeField] bool spawnProjectileAtTarget;
-
-    /** True if the projectile should be attached to the player and move with them. Otherwise, it operates in world space and moves independently of the player. */
+    
+    [Tooltip("If checked, the projectile will be attached to the player and move with them.")]
     [SerializeField] bool projectileLocalSpace;
 
-    /**
-     * The object that gets initialized on each fire.
-     * Object must have the Projectile component attached to it.
-     */
+    [Tooltip("The object that gets initialized on each fire. Must have the <b>Projectile</b> component attached to it.")]
     [SerializeField] GameObject projectilePrefab;
 
     [Tooltip("The name of the sound played when this weapon is fired.")]
@@ -203,21 +202,6 @@ public sealed class ProjectileWeapon : Weapon
             default:
                 throw new Exception($"Invalid weapon level-up type! type = {levelUp.type}");
         }
-    }
-    
-    public void increaseProjectileSpeed(float amount)
-    {
-        weaponStats.projectileSpeed += amount;
-    }
-
-    public void increaseFireRate(float amount)
-    {
-        weaponStats.fireRate += amount;
-    }
-
-    public void increaseDamage(float amount) 
-    {
-        weaponStats.damage += amount;
     }
 }
 
