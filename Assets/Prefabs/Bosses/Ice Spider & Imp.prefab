@@ -93,10 +93,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8491363988752904066}
-  - component: {fileID: 8054303174892967857}
-  - component: {fileID: 3046125210401664328}
   - component: {fileID: 4131653610605554645}
   - component: {fileID: 4419052581618362151}
+  - component: {fileID: 5498695415664551577}
+  - component: {fileID: 6472719709612196679}
   m_Layer: 0
   m_Name: Ice Spider & Imp
   m_TagString: Enemy
@@ -120,38 +120,6 @@ Transform:
   - {fileID: 2603338525091998154}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8054303174892967857
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3307996292842739383}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c527a775096a1dc479cfe80db31fa799, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bullet: {fileID: 5484213388468280392, guid: 624ff9c1693ff01469d7b5f6c797b15c, type: 3}
---- !u!114 &3046125210401664328
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3307996292842739383}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: befdc6b2505845645a436ffa305168fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  movementSpeed: 2
-  moveTowardsObject: {fileID: 0}
-  XPOrb: {fileID: 6433517325453158020, guid: 1762732203a121541b8b0dde1f1223bd, type: 3}
-  xpDropRadius: 0.5
-  xpDropAmount: 3
-  deathSoundName: Demon_Death_Sound
 --- !u!61 &4131653610605554645
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -218,3 +186,83 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5498695415664551577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3307996292842739383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3ef91eceb79ad64582df0ef9c53283e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveTowards: {fileID: 0}
+  speed: 5
+--- !u!114 &6472719709612196679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3307996292842739383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a5cb1fa493c0a44dbc2d98340cd74d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBetweenAttacks: 0
+  machineGunEnabled: 0
+  machineGunFrequency: 0
+  machinegun:
+    machineGunDamage: 0
+    fireRate: 0
+    bulletQuantity: 0
+    bulletSpeed: 0
+    bulletSpread: 0
+    aimAtPlayer: 0
+    shootFromCorner: 0
+    machineGunProjectile: {fileID: 0}
+  puddleEnabled: 1
+  puddleFrequency: 5
+  puddle:
+    puddleSpawnTime: 0
+    puddleAliveTime: 3
+    puddleDamage: 0
+    spawnOnPlayer: 0
+    spawnQuantity: 10
+    puddleSizeChange: 0
+    puddleSizeChangeAfterDelay: 0
+    damageDelay: 1
+    puddleObject: {fileID: 186196131213695018, guid: ec22f3bc3e50cd9449d8b3adc0ddaf2b, type: 3}
+  orbitEnabled: 1
+  orbitFrequency: 5
+  orbit:
+    orbitDamage: 0
+    projectileTime: 3
+    projectileQuantity: 2
+    distanceFromBoss: 3
+    distanceChangeTime: 0
+    finalRevolution: 0
+    revolutionChangeTime: 0
+    doStatChanges: 0
+    timeTilChanges: 0
+    duration: 5
+    orbitObject: {fileID: 7063636898218858236, guid: cb563fe205101fc4d8949687050cb5d0, type: 3}
+  meleeEnabled: 1
+  meleeFrequency: 5
+  melee:
+    meleeDamage: 0
+    radius: 3
+    hitboxTime: 0.25
+    speed: 0.5
+    numberRepeat: 3
+    movementType: 3
+  enemySpawnEnabled: 0
+  enemySpawnFrequency: 0
+  enemySpawn:
+    enemySpawnLocation: 0
+    enemy: {fileID: 0}
+    enemyQuantity: 0
+    additionalDelay: 0

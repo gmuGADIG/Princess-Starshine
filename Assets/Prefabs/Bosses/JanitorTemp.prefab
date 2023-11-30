@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3834822481319723375
+--- !u!1 &2266018917075444731
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,40 +8,39 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5016926345024838351}
-  - component: {fileID: 7384148377432724362}
-  - component: {fileID: 3827849758925615645}
-  - component: {fileID: 2710153066114202310}
-  - component: {fileID: 5671032256934773680}
+  - component: {fileID: 1910689527327930077}
+  - component: {fileID: 8298162642901945424}
+  - component: {fileID: 8158819521071834500}
+  - component: {fileID: 4101087830487716390}
   m_Layer: 0
-  m_Name: EPrincessTemp
-  m_TagString: Enemy
+  m_Name: JanitorTemp
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5016926345024838351
+--- !u!4 &1910689527327930077
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3834822481319723375}
+  m_GameObject: {fileID: 2266018917075444731}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.6193917, y: 0.14268205, z: 0}
+  m_LocalPosition: {x: 1.7549434, y: 1.2035174, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &7384148377432724362
+--- !u!212 &8298162642901945424
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3834822481319723375}
+  m_GameObject: {fileID: 2266018917075444731}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -77,7 +76,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 2747690628134850419, guid: b670ab75dde984907b8570040daa08c5, type: 3}
-  m_Color: {r: 0.9339623, g: 0.7804277, b: 0.27666426, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -87,58 +86,13 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &3827849758925615645
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3834822481319723375}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 0.8828125}
-    newSize: {x: 1, y: 0.8828125}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 0.8828125}
-  m_EdgeRadius: 0
---- !u!114 &2710153066114202310
+--- !u!114 &8158819521071834500
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3834822481319723375}
+  m_GameObject: {fileID: 2266018917075444731}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a3ef91eceb79ad64582df0ef9c53283e, type: 3}
@@ -146,13 +100,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveTowards: {fileID: 0}
   speed: 5
---- !u!114 &5671032256934773680
+--- !u!114 &4101087830487716390
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3834822481319723375}
+  m_GameObject: {fileID: 2266018917075444731}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a5cb1fa493c0a44dbc2d98340cd74d9, type: 3}
@@ -163,52 +117,53 @@ MonoBehaviour:
   machineGunFrequency: 5
   machinegun:
     machineGunDamage: 0
-    fireRate: 1
-    bulletQuantity: 3
-    bulletSpeed: 5
+    fireRate: 0.01
+    bulletQuantity: 250
+    bulletSpeed: 2
     bulletSpread: 0
     aimAtPlayer: 1
-    shootFromCorner: 1
-    machineGunProjectile: {fileID: 3558424262942054710, guid: 3e668b3e101521b40bb4d74002da46dc, type: 3}
+    shootFromCorner: 0
+    machineGunProjectile: {fileID: 186196131213695018, guid: e911953d7289fd842953ab22d6d43ff1, type: 3}
   puddleEnabled: 1
   puddleFrequency: 5
   puddle:
-    puddleSpawnTime: 0.5
-    puddleAliveTime: 1
+    puddleSpawnTime: 0
+    puddleAliveTime: 10
     puddleDamage: 0
     spawnOnPlayer: 0
-    spawnQuantity: 50
-    puddleSizeChange: 0
+    spawnOnBoss: 1
+    spawnQuantity: 1
+    puddleSizeChange: 0.1
     puddleSizeChangeAfterDelay: 0
     damageDelay: 0
-    puddleObject: {fileID: 186196131213695018, guid: baddfd80b5ff1044698ecc9d1bef7292, type: 3}
+    puddleObject: {fileID: 186196131213695018, guid: 782ab50dce96dcd46b1df4dd506e088b, type: 3}
   orbitEnabled: 1
   orbitFrequency: 5
   orbit:
     orbitDamage: 0
-    projectileTime: 1
-    projectileQuantity: 12
+    projectileTime: 5
+    projectileQuantity: 8
     distanceFromBoss: 2
     distanceChangeTime: 0.1
-    finalRevolution: 0
-    revolutionChangeTime: 0
+    finalRevolution: 3
+    revolutionChangeTime: -0.1
     doStatChanges: 1
     timeTilChanges: 2
     duration: 10
-    orbitObject: {fileID: 7063636898218858236, guid: d99cb099775b85842bdca5f587713cb6, type: 3}
-  meleeEnabled: 0
-  meleeFrequency: 0
+    orbitObject: {fileID: 7063636898218858236, guid: 3cd3f3bb756ff8148824631e81e3454a, type: 3}
+  meleeEnabled: 1
+  meleeFrequency: 5
   melee:
     meleeDamage: 0
-    radius: 4
+    radius: 3
     hitboxTime: 1
-    speed: 2
-    numberRepeat: 3
-    movementType: 2
-  enemySpawnEnabled: 1
-  enemySpawnFrequency: 5
+    speed: 1
+    numberRepeat: 0
+    movementType: 3
+  enemySpawnEnabled: 0
+  enemySpawnFrequency: 0
   enemySpawn:
-    enemySpawnLocation: 3
-    enemy: {fileID: 4785212365360498297, guid: 21577118a513dde449a7fbde4a03c2a8, type: 3}
-    enemyQuantity: 50
-    additionalDelay: 6
+    enemySpawnLocation: 0
+    enemy: {fileID: 0}
+    enemyQuantity: 0
+    additionalDelay: 0

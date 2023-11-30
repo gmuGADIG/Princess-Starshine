@@ -94,10 +94,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1758008991832315322}
   - component: {fileID: 5364189277866380597}
-  - component: {fileID: 2488860841361603763}
   - component: {fileID: 8606242482311009314}
-  - component: {fileID: 1602268065112875932}
-  - component: {fileID: 2291295065632239823}
+  - component: {fileID: 3699130459720114343}
+  - component: {fileID: 2256334573299170917}
   m_Layer: 0
   m_Name: Nepotism
   m_TagString: Boss
@@ -166,22 +165,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 7, y: 7}
   m_EdgeRadius: 0
---- !u!114 &2488860841361603763
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6031957489174021204}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddf51739d8a3f8c4a8c6d97d4f616958, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 3563564821948889416, guid: 88875b9d7a528254788224c68ad33361, type: 3}
-  attackLength: 2
-  attackInterval: 3
-  projectilesPerMinute: 300
 --- !u!114 &8606242482311009314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,7 +178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 10000
---- !u!114 &1602268065112875932
+--- !u!114 &3699130459720114343
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -204,17 +187,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 6031957489174021204}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 719e0ab305b6ac54886fdeed24dd25bc, type: 3}
+  m_Script: {fileID: 11500000, guid: 1d0dddbfe87d5ca4a9464ee7d24f7a64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 30
-  fleeRadius: 5
-  standPoints:
-  - {x: 10, y: 5, z: 0}
-  - {x: -10, y: 5, z: 0}
-  - {x: 10, y: -5, z: 0}
-  - {x: -10, y: -5, z: 0}
---- !u!114 &2291295065632239823
+  fleeFrom: {fileID: 0}
+  speed: 5
+  strafeRatio: 0.5
+  strafeSpeed: 1
+  strafeTimer: 3
+--- !u!114 &2256334573299170917
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -223,10 +204,60 @@ MonoBehaviour:
   m_GameObject: {fileID: 6031957489174021204}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98c152a3995580b4d8842b8ff538c676, type: 3}
+  m_Script: {fileID: 11500000, guid: 0a5cb1fa493c0a44dbc2d98340cd74d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 3498557936519908969, guid: 5c7654e7b4b04cf4fb639b265a6c2a79, type: 3}
-  timesToRun: 5
-  groupSize: 5
-  spawnDelay: 10
+  timeBetweenAttacks: 2
+  machineGunEnabled: 1
+  machineGunFrequency: 5
+  machinegun:
+    machineGunDamage: 0
+    fireRate: 2
+    bulletQuantity: 5
+    bulletSpeed: 2
+    bulletSpread: 20
+    aimAtPlayer: 1
+    shootFromCorner: 0
+    machineGunProjectile: {fileID: 3558424262942054710, guid: c46dba607e1beef44b9a9691fa6cd8d7, type: 3}
+  puddleEnabled: 0
+  puddleFrequency: 0
+  puddle:
+    puddleSpawnTime: 0
+    puddleAliveTime: 0
+    puddleDamage: 0
+    spawnOnPlayer: 0
+    spawnQuantity: 0
+    puddleSizeChange: 0
+    puddleSizeChangeAfterDelay: 0
+    damageDelay: 0
+    puddleObject: {fileID: 0}
+  orbitEnabled: 0
+  orbitFrequency: 0
+  orbit:
+    orbitDamage: 0
+    projectileTime: 0
+    projectileQuantity: 0
+    distanceFromBoss: 0
+    distanceChangeTime: 0
+    finalRevolution: 0
+    revolutionChangeTime: 0
+    doStatChanges: 0
+    timeTilChanges: 0
+    duration: 0
+    orbitObject: {fileID: 0}
+  meleeEnabled: 0
+  meleeFrequency: 0
+  melee:
+    meleeDamage: 0
+    radius: 0
+    hitboxTime: 0
+    speed: 0
+    numberRepeat: 0
+    movementType: 0
+  enemySpawnEnabled: 1
+  enemySpawnFrequency: 5
+  enemySpawn:
+    enemySpawnLocation: 0
+    enemy: {fileID: 3498557936519908969, guid: 5c7654e7b4b04cf4fb639b265a6c2a79, type: 3}
+    enemyQuantity: 100
+    additionalDelay: 10

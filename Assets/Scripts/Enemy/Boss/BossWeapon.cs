@@ -18,7 +18,8 @@ public enum BossMovementType
 {
     Wander,
     Flee,
-    Agressive
+    Agressive,
+    None
 }
 
 
@@ -27,6 +28,7 @@ public enum BossEnemySpawnLocation
     OffScreen,
     OnScreen,
     OnBoss,
+    InCorner,
     None
 }
 
@@ -46,7 +48,7 @@ public struct MachineGun
     [Tooltip("If this is enabled the machine gun will target the player otherwise it will shoot towards the middle of the screen")]
     public bool aimAtPlayer;
     [Tooltip("The offset from the boss to spawn the projectile")]
-    public Vector2 projectileOffset;
+    public bool shootFromCorner;
     [Tooltip("The GameObject the machine gun fires")]
     public GameObject machineGunProjectile;
 }
@@ -62,6 +64,8 @@ public struct Puddle
     public float puddleDamage;
     [Tooltip("Enable if the puddles should spawn on the player")]
     public bool spawnOnPlayer;
+    [Tooltip("Enable if the puddles should spawn on the boss")]
+    public bool spawnOnBoss;
     [Tooltip("The amount of puddles to spawn")]
     public int spawnQuantity;
     [Tooltip("How much the size of the puddle changes over time")]
@@ -176,6 +180,14 @@ public class BossWeapon : MonoBehaviour
 
     void Start()
     {
+        if(puddle.spawnOnBoss && puddle.spawnOnPlayer)
+        {
+            Debug.LogError("PUDDLE WEAPON: Spawning isn't set correctly only select one of the spawn on boxes");
+        }
+        if(melee.numberRepeat == 0)
+        {
+            melee.numberRepeat = 1;
+        }
         if(!machineGunEnabled)
         {
             machineGunFrequency = 0;
@@ -226,10 +238,17 @@ public class BossWeapon : MonoBehaviour
             case BossMovementType.Flee:
                 meleeMovement = gameObject.AddComponent<BossMovementFlee>();
                 break;
+            case BossMovementType.None:
+                meleeMovement = null;
+                break;
             default:
                 break;
         }
-        meleeMovement.enabled = false;
+        if (meleeMovement == null) { }
+        else
+        {
+            meleeMovement.enabled = false;
+        }
     }
 
     void Update()
@@ -280,7 +299,11 @@ public class BossWeapon : MonoBehaviour
                 currentWeapon = BossWeaponType.Melee;
                 repeatCount = 0;
                 startMovement.enabled = false;
-                meleeMovement.enabled = true;
+                if (meleeMovement == null) { }
+                else
+                {
+                    meleeMovement.enabled = true;
+                }
                 //melee
             }
             else if (randomNumber <= enemySpawnFrequency && enemySpawnEnabled)
@@ -306,6 +329,8 @@ public class BossWeapon : MonoBehaviour
                 case BossWeaponType.Puddle:
                     if (puddle.spawnOnPlayer)
                         PuddleOnPlayer();
+                    else if (puddle.spawnOnBoss) 
+                        PuddleOnBoss();
                     else
                         RandomPuddle();
                     break;
@@ -341,22 +366,65 @@ public class BossWeapon : MonoBehaviour
             }
             else
             {
-                Vector3 currentPos = transform.position;
-                Vector3 targetPos = target.transform.position;
-                Vector2 triangle = currentPos - targetPos;
-                float angle = Mathf.Atan2(-triangle.y, -triangle.x);
-                float fireAngle = UnityEngine.Random.Range(angle - (Mathf.Deg2Rad * machinegun.bulletSpread), angle + (Mathf.Deg2Rad * machinegun.bulletSpread));
-                Vector2 velocity = new Vector2(Mathf.Cos(fireAngle), Mathf.Sin(fireAngle));
-
-                GameObject proj = Instantiate(machinegun.machineGunProjectile);
-                proj.transform.position = currentPos;
-                BossProjectile bossProjectile;
-                proj.TryGetComponent<BossProjectile>(out bossProjectile);
-                if (bossProjectile)
+                if (!machinegun.shootFromCorner)
                 {
-                    bossProjectile.Setup(velocity, machinegun.machineGunDamage, machinegun.bulletSpeed, 5);
+                    Vector3 currentPos = transform.position;
+                    Vector3 targetPos = target.transform.position;
+                    Vector2 triangle = currentPos - targetPos;
+                    float angle = Mathf.Atan2(-triangle.y, -triangle.x);
+                    float fireAngle = UnityEngine.Random.Range(angle - (Mathf.Deg2Rad * machinegun.bulletSpread), angle + (Mathf.Deg2Rad * machinegun.bulletSpread));
+                    Vector2 velocity = new Vector2(Mathf.Cos(fireAngle), Mathf.Sin(fireAngle));
+
+                    GameObject proj = Instantiate(machinegun.machineGunProjectile);
+                    proj.transform.position = currentPos;
+                    BossProjectile bossProjectile;
+                    proj.TryGetComponent<BossProjectile>(out bossProjectile);
+                    if (bossProjectile)
+                    {
+                        bossProjectile.Setup(velocity, machinegun.machineGunDamage, machinegun.bulletSpeed, 5);
+                    }
+                    bulletCount++;
                 }
-                bulletCount++;
+                else
+                {
+                    for (int i = 0; i < 4; i++)
+                    {
+                        Rect camBox = TeaTime.cameraBoundingBox();
+                        Vector3 currentPos;
+                        switch (i) {
+                            case 0:
+                                currentPos = new Vector3(camBox.xMin, camBox.yMin);
+                                break;
+                            case 1:
+                                currentPos = new Vector3(camBox.xMin, camBox.yMax);
+                                break;
+                            case 2:
+                                currentPos = new Vector3(camBox.xMax, camBox.yMax);
+                                break;
+                            case 3:
+                                currentPos = new Vector3(camBox.xMax, camBox.yMin);
+                                break;
+                            default:
+                                currentPos = new Vector3(camBox.xMin, camBox.yMin);
+                                break;
+                        }
+                        Vector3 targetPos = target.transform.position;
+                        Vector2 triangle = currentPos - targetPos;
+                        float angle = Mathf.Atan2(-triangle.y, -triangle.x);
+                        float fireAngle = UnityEngine.Random.Range(angle - (Mathf.Deg2Rad * machinegun.bulletSpread), angle + (Mathf.Deg2Rad * machinegun.bulletSpread));
+                        Vector2 velocity = new Vector2(Mathf.Cos(fireAngle), Mathf.Sin(fireAngle));
+
+                        GameObject proj = Instantiate(machinegun.machineGunProjectile);
+                        proj.transform.position = currentPos;
+                        BossProjectile bossProjectile;
+                        proj.TryGetComponent<BossProjectile>(out bossProjectile);
+                        if (bossProjectile)
+                        {
+                            bossProjectile.Setup(velocity, machinegun.machineGunDamage, machinegun.bulletSpeed, 5);
+                        }
+                    }
+                    bulletCount++;
+                }
             }
             shotTimer = 0;
         }
@@ -424,6 +492,37 @@ public class BossWeapon : MonoBehaviour
         }
     }
 
+    private void PuddleOnBoss()
+    {
+        if (puddleSpawnTimer > puddle.puddleSpawnTime)
+        {
+            if (puddleCount < puddle.spawnQuantity)
+            {
+                Vector3 targetPos = gameObject.transform.position;
+                GameObject temp = Instantiate(puddle.puddleObject, targetPos, new Quaternion());
+                PuddleProjectile puddleProj = null;
+                temp.TryGetComponent<PuddleProjectile>(out puddleProj);
+                if (puddleProj == null)
+                {
+                    Debug.LogError("Puddle Projectile doesn't have the PuddleProjectile script");
+                }
+                puddleProj.Setup(puddle.puddleDamage, puddle.puddleAliveTime, puddle.puddleSizeChange, puddle.damageDelay, puddle.puddleSizeChangeAfterDelay);
+                puddleCount++;
+                puddleSpawnTimer = 0;
+            }
+            else
+            {
+                attackTimer = 0;
+                isAttacking = false;
+                return;
+            }
+        }
+        else
+        {
+            puddleSpawnTimer += Time.deltaTime;
+        }
+    }
+
     private void Orbit()
     {
         if (!orbitSpawned)
@@ -460,7 +559,11 @@ public class BossWeapon : MonoBehaviour
         {
             if(repeatCount < melee.numberRepeat)
             {
-                meleeMovement.enabled = false;
+                if (meleeMovement == null) { }
+                else
+                {
+                    meleeMovement.enabled = false;
+                }
                 meleeCollider.enabled = true;
                 hitboxTimer = 0;
                 speedTimer = 0;
@@ -468,7 +571,11 @@ public class BossWeapon : MonoBehaviour
             }
             else
             {
-                meleeMovement.enabled = false;
+                if (meleeMovement == null) { }
+                else
+                {
+                    meleeMovement.enabled = false;
+                }
                 startMovement.enabled = true;
                 Debug.Log("Finished Melee");
                 isAttacking = false;
@@ -478,7 +585,11 @@ public class BossWeapon : MonoBehaviour
         }
         if(hitboxTimer >= melee.hitboxTime)
         {
-            meleeMovement.enabled = true;
+            if (meleeMovement == null){}
+            else
+            {
+                meleeMovement.enabled = true;
+            }
             meleeCollider.enabled = false;
         }
         hitboxTimer += Time.deltaTime;
@@ -530,6 +641,32 @@ public class BossWeapon : MonoBehaviour
                     for (int i = 0; i < enemySpawn.enemyQuantity; i++)
                     {
                         temp = Instantiate(enemySpawn.enemy, new Vector3(transform.position.x + UnityEngine.Random.Range(-0.3f, 0.3f), transform.position.y + UnityEngine.Random.Range(-0.3f, 0.3f)), new Quaternion());
+                    }
+                    break;
+                case BossEnemySpawnLocation.InCorner:
+                    for (int i = 0; i < enemySpawn.enemyQuantity; i++)
+                    {
+                        float randomNum = UnityEngine.Random.Range(0, 4);
+                        if (randomNum <= 1)
+                        {
+                            Vector3 offScreenLoc = new Vector3(camBox.xMin - 3, camBox.yMin - 3);
+                            temp = Instantiate(enemySpawn.enemy, offScreenLoc, new Quaternion());
+                        }
+                        else if (randomNum <= 2)
+                        {
+                            Vector3 offScreenLoc = new Vector3(camBox.xMin - 3, camBox.yMax + 3);
+                            temp = Instantiate(enemySpawn.enemy, offScreenLoc, new Quaternion());
+                        }
+                        else if (randomNum <= 3)
+                        {
+                            Vector3 offScreenLoc = new Vector3(camBox.xMax + 3, camBox.yMax + 3);
+                            temp = Instantiate(enemySpawn.enemy, offScreenLoc, new Quaternion());
+                        }
+                        else
+                        {
+                            Vector3 offScreenLoc = new Vector3(camBox.xMax + 3, camBox.yMin - 3);
+                            temp = Instantiate(enemySpawn.enemy, offScreenLoc, new Quaternion());
+                        }
                     }
                     break;
                 case BossEnemySpawnLocation.None: break;

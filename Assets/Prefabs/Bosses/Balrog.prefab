@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5016926345024838351}
   - component: {fileID: 3827849758925615645}
-  - component: {fileID: 440309738049549269}
+  - component: {fileID: 5055002487998193704}
+  - component: {fileID: 4957345443493847432}
   m_Layer: 0
   m_Name: Balrog
   m_TagString: Enemy
@@ -79,7 +80,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.8828125}
   m_EdgeRadius: 0
---- !u!114 &440309738049549269
+--- !u!114 &5055002487998193704
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -88,17 +89,79 @@ MonoBehaviour:
   m_GameObject: {fileID: 3834822481319723375}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c557b0e30a381042a4d8503151001da, type: 3}
+  m_Script: {fileID: 11500000, guid: 0a5cb1fa493c0a44dbc2d98340cd74d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  movementSpeed: 5
-  moveTowardsObject: {fileID: 0}
-  XPOrb: {fileID: 0}
-  xpDropRadius: 3
-  xpDropAmount: 3
-  deathSoundName: 
-  TimeBetweenMoves: 5
+  timeBetweenAttacks: 1
+  machineGunEnabled: 1
+  machineGunFrequency: 5
+  machinegun:
+    machineGunDamage: 0
+    fireRate: 0.5
+    bulletQuantity: 20
+    bulletSpeed: 3
+    bulletSpread: 20
+    aimAtPlayer: 1
+    shootFromCorner: 0
+    machineGunProjectile: {fileID: 3558424262942054710, guid: 1528ff5a78765624ea0660c8bfeb4902, type: 3}
+  puddleEnabled: 0
+  puddleFrequency: 0
+  puddle:
+    puddleSpawnTime: 0
+    puddleAliveTime: 0
+    puddleDamage: 0
+    spawnOnPlayer: 0
+    spawnQuantity: 0
+    puddleSizeChange: 0
+    puddleSizeChangeAfterDelay: 0
+    damageDelay: 0
+    puddleObject: {fileID: 0}
+  orbitEnabled: 0
+  orbitFrequency: 0
+  orbit:
+    orbitDamage: 0
+    projectileTime: 0
+    projectileQuantity: 0
+    distanceFromBoss: 0
+    distanceChangeTime: 0
+    finalRevolution: 0
+    revolutionChangeTime: 0
+    doStatChanges: 0
+    timeTilChanges: 0
+    duration: 0
+    orbitObject: {fileID: 0}
+  meleeEnabled: 1
+  meleeFrequency: 5
+  melee:
+    meleeDamage: 0
+    radius: 2
+    hitboxTime: 1
+    speed: 2
+    numberRepeat: 3
+    movementType: 2
+  enemySpawnEnabled: 0
+  enemySpawnFrequency: 0
+  enemySpawn:
+    enemySpawnLocation: 3
+    enemy: {fileID: 0}
+    enemyQuantity: 0
+    additionalDelay: 0
+--- !u!114 &4957345443493847432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3834822481319723375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59b4c6e61c446ae43bd0026de7547dae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+  waitTime: 3
+  detectionRadius: 5
+  moveTo: {fileID: 0}
 --- !u!1 &6010484244140792609
 GameObject:
   m_ObjectHideFlags: 0
