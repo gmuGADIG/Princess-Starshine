@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4747391785811745018}
   - component: {fileID: 7973059674862641498}
   - component: {fileID: 3198565249547560475}
+  - component: {fileID: -2117074399203255387}
   m_Layer: 0
   m_Name: WallOfFire
   m_TagString: WallOfFire
@@ -28,8 +29,8 @@ Transform:
   m_GameObject: {fileID: 6268893146663867527}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.19, y: 0, z: 10}
-  m_LocalScale: {x: 1.25, y: 13, z: 1}
+  m_LocalPosition: {x: -17.25, y: 0, z: 10}
+  m_LocalScale: {x: 1, y: 20.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -147,3 +148,16 @@ MonoBehaviour:
   sizeY: 5
   sizeX: 2
   sparkRate: 0.1
+--- !u!114 &-2117074399203255387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6268893146663867527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccf1194074bf9f026900709e92d1621b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 50
