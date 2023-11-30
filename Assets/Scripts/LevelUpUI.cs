@@ -11,25 +11,45 @@ public class LevelUpUI : MonoBehaviour
     public static LevelUpUI instance;
 
     public GameObject iconPrefab;
+    public GameObject menuParent;
+    public Transform iconHolder;
 
-    LevelUpUI()
+    void Awake()
     {
-        instance = this;
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
     }
 
+    public void Start()
+    {
+        this.gameObject.SetActive(true);
+        Time.timeScale = 0;
+        
+        ShowOptions(EquipmentManager.instance.GetUpgradeOptions(true));
+    }
+    
     /**
      * Opens the level-up menu, pausing the game until the player selects one of the four generated upgrades.
      */
     public void Open()
     {
-        this.gameObject.SetActive(true);
+        menuParent.SetActive(true);
         Time.timeScale = 0;
         
-        var options = EquipmentManager.instance.GetUpgradeOptions();
-        
-        var iconHolder = transform.Find("EquipmentSelect");
+        ShowOptions(EquipmentManager.instance.GetUpgradeOptions());
+    }
+
+    private void ShowOptions(List<UpgradeOption> upgradeOptions)
+    {
+        if (iconHolder == null) throw new Exception("LevelUpUI failed to find icon holder!");
         foreach (Transform icon in iconHolder.transform) Destroy(icon.gameObject); // destroy left-over icons
-        foreach (var option in options)
+        foreach (var option in upgradeOptions)
         {
             var obj = Instantiate(iconPrefab, iconHolder);
             var name = obj.transform.Find("Name").GetComponent<TextMeshProUGUI>();
@@ -44,6 +64,7 @@ public class LevelUpUI : MonoBehaviour
                 () =>
                 {
                     option.onSelect();
+                    InGameUI.UpdateItems();
                     this.Close();
                 }
             );
@@ -53,6 +74,6 @@ public class LevelUpUI : MonoBehaviour
     private void Close()
     {
         Time.timeScale = 1;
-        this.gameObject.SetActive(false);
+        menuParent.SetActive(false);
     }
 }

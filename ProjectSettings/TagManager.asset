@@ -9,6 +9,8 @@ TagManager:
   - WallOfFire
   - PlayerProjectile
   - Enemy
+  - XPOrb
+  - Boss
   layers:
   - Default
   - TransparentFX

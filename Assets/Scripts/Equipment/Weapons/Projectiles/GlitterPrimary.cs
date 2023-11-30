@@ -4,8 +4,9 @@ public class GlitterPrimary : Projectile
 {
     static GameObject explosionPrefab;
     
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         maxLifeTime = 1.5f;
         if (explosionPrefab == null) explosionPrefab = Resources.Load<GameObject>("Projectiles/GlitterBomb/GlitterExplode");
     }
@@ -16,6 +17,6 @@ public class GlitterPrimary : Projectile
         base.OnDestroy();
         
         var explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity).GetComponent<GlitterExplode>();
-        explosion.damage = this.damage;
+        explosion.Create(damage,this.transform.localScale);
     }
 }

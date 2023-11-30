@@ -1,0 +1,274 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &416059617501603780
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 307587336978836097}
+  - component: {fileID: 5674512851673797429}
+  - component: {fileID: 6263036761839964436}
+  - component: {fileID: 4829297850847493770}
+  - component: {fileID: 2724561924137807355}
+  - component: {fileID: 1297070300227585684}
+  - component: {fileID: 2309382276257578686}
+  - component: {fileID: 5517776088446958833}
+  - component: {fileID: 6091703581706924927}
+  - component: {fileID: 3817496222761909004}
+  m_Layer: 0
+  m_Name: EquipmentManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &307587336978836097
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 416059617501603780}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5674512851673797429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 416059617501603780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab0d3216a827e0e41a5474ea81c716cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allEquipment: []
+--- !u!114 &6263036761839964436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 416059617501603780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86ff6d5921cc4666a3c90a26d174dfad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon:
+    name: Fairy Friend
+    description: Gives passive health regeneration
+    icon: {fileID: 2800000, guid: 0cfd59be06ac67c4aa03f4a0900ae7df, type: 3}
+  levelUpsDone: 0
+  healAmount: 2
+  healAmountUpgrade: 1
+--- !u!114 &4829297850847493770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 416059617501603780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f17c8209a9b84fd5bdb0890aa34c8c5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon:
+    name: Bunny Burst
+    description: Increases speed of weapon projectiles
+    icon: {fileID: 2800000, guid: 0cfd59be06ac67c4aa03f4a0900ae7df, type: 3}
+  levelUpsDone: 0
+  speedIncrease: 2
+--- !u!114 &2724561924137807355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 416059617501603780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f6c9e41865603e49a271707a5582a17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon:
+    name: Sunny Squee
+    description: Increases the fire rate of weapons
+    icon: {fileID: 2800000, guid: 0cfd59be06ac67c4aa03f4a0900ae7df, type: 3}
+  levelUpsDone: 0
+  fireRateIncrease: 1.5
+--- !u!114 &1297070300227585684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 416059617501603780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49a0c17caa817987eb8610fb3e841c3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon:
+    name: Butterfly Wings
+    description: Increases your move speed
+    icon: {fileID: 2800000, guid: 0cfd59be06ac67c4aa03f4a0900ae7df, type: 3}
+  levelUpsDone: 0
+  walkSpeedMultiplier: 1.5
+  scaleMultiplier: 1.5
+--- !u!114 &2309382276257578686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 416059617501603780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea72f78e632fc47d8926405fedc098b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon:
+    name: Lucky Lipstick
+    description: Increases consumable spawn chance and pickup radius
+    icon: {fileID: 2800000, guid: 0cfd59be06ac67c4aa03f4a0900ae7df, type: 3}
+  levelUpsDone: 0
+  InitialCollisionRadiusMultiplier: 3
+  InitialSpawnChanceMultiplier: 3
+  CollisionRadiusScalar: 2
+  SpawnChangeScalar: 1.25
+--- !u!114 &5517776088446958833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 416059617501603780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b81fad6e262188466b16ce10e4f257ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon:
+    name: Fairy Wand
+    description: Fires magic projectiles at the closest enemy
+    icon: {fileID: 2800000, guid: 0cfd59be06ac67c4aa03f4a0900ae7df, type: 3}
+  levelUpsDone: 0
+  levelUpOptions:
+  - type: 0
+    amount: 1
+  - type: 3
+    amount: 1
+  - type: 7
+    amount: 1
+  - type: 2
+    amount: 1
+  availableAtStart: 1
+  weaponStats:
+    damage: 25
+    knockback: 2
+    fireRate: 1
+    size: 1
+    projectileSpeed: 5
+    maxProjectiles: 100
+    projectilesPerShot: 1
+    pierceCount: 0
+  targetingStrategy: 1
+  spawnProjectileAtTarget: 0
+  projectileLocalSpace: 0
+  projectilePrefab: {fileID: 6198564449727914785, guid: 9c4da975914a3824cbfd6887823916cd, type: 3}
+  shootSoundName: Fairy_Wand
+--- !u!114 &6091703581706924927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 416059617501603780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f01a6c64eb60776cf91c19c7237cb39e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon:
+    name: Glitter Bomb
+    description: Lobs bombs of glitter at random enemies, exploding after a short
+      delay
+    icon: {fileID: 2800000, guid: 0cfd59be06ac67c4aa03f4a0900ae7df, type: 3}
+  levelUpsDone: 0
+  levelUpOptions:
+  - type: 0
+    amount: 1
+  - type: 3
+    amount: 1
+  - type: 4
+    amount: 1
+  - type: 6
+    amount: 1
+  availableAtStart: 1
+  weaponStats:
+    damage: 30
+    knockback: 0
+    fireRate: 1
+    size: 1
+    projectileSpeed: 1
+    maxProjectiles: 100
+    projectilesPerShot: 1
+    pierceCount: -1
+  targetingStrategy: 2
+  spawnProjectileAtTarget: 0
+  projectileLocalSpace: 0
+  projectilePrefab: {fileID: 7227924247430886604, guid: f438532f88467be4ab0da1afd295f71d, type: 3}
+  shootSoundName: Glitter_Bomb_Throw
+--- !u!114 &3817496222761909004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 416059617501603780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 764ae46e896d8aa04938341faff21171, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon:
+    name: Tea Time
+    description: Fires a tey cup that bounces around the screen like a screensaver
+    icon: {fileID: 2800000, guid: 0cfd59be06ac67c4aa03f4a0900ae7df, type: 3}
+  levelUpsDone: 0
+  levelUpOptions:
+  - type: 0
+    amount: 1
+  - type: 3
+    amount: 1
+  - type: 4
+    amount: 1
+  - type: 5
+    amount: 1
+  availableAtStart: 0
+  weaponStats:
+    damage: 30
+    knockback: 0
+    fireRate: 1
+    size: 0.5
+    projectileSpeed: 10
+    maxProjectiles: 1
+    projectilesPerShot: 1
+    pierceCount: -1
+  targetingStrategy: 3
+  spawnProjectileAtTarget: 0
+  projectileLocalSpace: 0
+  projectilePrefab: {fileID: 466492882040963849, guid: db69a31f668caf2498a1d2c85c1c2c17, type: 3}
+  shootSoundName: 
