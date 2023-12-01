@@ -10,6 +10,11 @@ public class GameOverScript : MonoBehaviour
     public bool IsGameOver { get; private set;}
     public GameObject gameOverScreen;
 
+    private void Start()
+    {
+        gameOverScreen.SetActive(false);
+    }
+
     public void DoGameOver()
     {
         LoadObjects();
