@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 5291351139187196787}
   - component: {fileID: 4985297483436491394}
   - component: {fileID: 7137632091619452571}
-  - component: {fileID: 4527436391992574030}
   - component: {fileID: 3592210659048978852}
+  - component: {fileID: 4970470464192357868}
+  - component: {fileID: 591947425634982439}
   m_Layer: 0
   m_Name: TeaTimeProjectile
   m_TagString: PlayerProjectile
@@ -132,7 +133,37 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!58 &4527436391992574030
+--- !u!114 &3592210659048978852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 466492882040963849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a8a115882b328f429965f55ca49a1d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  useTimer: 0
+  leniencyBox: 0.1
+  explosionRadius: 0
+  deathTime: 2
+  dir: {x: 0, y: 0}
+--- !u!114 &4970470464192357868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 466492882040963849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 478abfc422869d340891d4c9c9f97369, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &591947425634982439
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -166,23 +197,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 5
---- !u!114 &3592210659048978852
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 466492882040963849}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a8a115882b328f429965f55ca49a1d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
-  useTimer: 0
-  leniencyBox: 0.1
-  explosionRadius: 0
-  deathTime: 2
-  dir: {x: 0, y: 0}
-  circle: {fileID: 0}
+  m_Radius: 0.5

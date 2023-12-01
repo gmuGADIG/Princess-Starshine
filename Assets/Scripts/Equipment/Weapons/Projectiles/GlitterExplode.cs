@@ -4,23 +4,24 @@ using UnityEngine;
 
 public class GlitterExplode : MonoBehaviour
 {
-    [HideInInspector] public float damage = 10;
+    float damage;
+    string explodeSound = "Glitter_Bomb_Explode";
 
-    void Update()
+    void Start()
     {
+        SoundManager.Instance.PlaySoundGlobal(explodeSound);
         StartCoroutine(Coroutine());
         IEnumerator Coroutine()
         {
             yield return new WaitForSeconds(0.25f);
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void Create(float newDamage, Vector3 scale)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            collision.gameObject.BroadcastMessage("Damage", 5.0,SendMessageOptions.DontRequireReceiver);
-        }
+        this.transform.localScale = 2.5f*scale;
+        this.damage = newDamage;
+        this.GetComponent<ProjectileCollision>().SetDamage(newDamage);
     }
 }

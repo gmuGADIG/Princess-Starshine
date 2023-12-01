@@ -5,21 +5,23 @@ using UnityEngine;
 
 public class BunnyBurstPassive : Passive
 {
-    public BunnyBurstPassive()
-    {
-        this.type = EquipmentType.BunnyBurst;
-    }
-    
+    public float speedIncrease = 2f;
+
     public override void OnEquip()
     {
-        Debug.LogWarning("Bunny Burst not implemented yet!");
+        applySpeed();
     }
 
     public override void OnUnEquip() { }
 
     public override (string description, Action onApply) GetLevelUps()
     {
-        return ("Greater projectile speed boost", () => Debug.Log("Not implemented yet!"));
+        return ("Greater projectile speed boost", applySpeed);
+    }
+
+    void applySpeed()
+    {
+        ProjectileWeapon.staticStatModifiers.projectileSpeed += speedIncrease;
     }
 
 }
