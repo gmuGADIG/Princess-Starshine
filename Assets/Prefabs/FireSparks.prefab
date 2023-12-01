@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 7472381420355200656}
   - component: {fileID: 5630579946503703878}
   - component: {fileID: 7520349004955298478}
+  - component: {fileID: 4593181196853673723}
   m_Layer: 0
   m_Name: FireSparks
-  m_TagString: Untagged
+  m_TagString: WallOfFire
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 9048075597329195968}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.5675392, y: -0.2783303, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -98,3 +99,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gravity: 2
+--- !u!114 &4593181196853673723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9048075597329195968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccf1194074bf9f026900709e92d1621b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10

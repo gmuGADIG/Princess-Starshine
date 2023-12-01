@@ -252,7 +252,7 @@ public class Player : MonoBehaviour
             Destroy(xpObj.gameObject);
         }
 
-        else if (hit.collider.CompareTag("Enemy"))
+        else if (hit.collider.CompareTag("Enemy")|| hit.collider.CompareTag("WallOfFire"))
         {
             if (isTwirling) return;
             OnAttacked(hit.collider.gameObject.GetComponent<Damage>().damage);
