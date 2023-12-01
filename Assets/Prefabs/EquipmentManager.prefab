@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 5517776088446958833}
   - component: {fileID: 6091703581706924927}
   - component: {fileID: 3817496222761909004}
+  - component: {fileID: 7051461549712998661}
   m_Layer: 0
   m_Name: EquipmentManager
   m_TagString: Untagged
@@ -52,6 +53,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab0d3216a827e0e41a5474ea81c716cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  icons: []
+  allWeapons: []
   allEquipment: []
 --- !u!114 &6263036761839964436
 MonoBehaviour:
@@ -272,3 +275,21 @@ MonoBehaviour:
   projectileLocalSpace: 0
   projectilePrefab: {fileID: 466492882040963849, guid: db69a31f668caf2498a1d2c85c1c2c17, type: 3}
   shootSoundName: 
+--- !u!114 &7051461549712998661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 416059617501603780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ff1f3f39f1d5a146868e964acf72d38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon:
+    name: Chubby Cookie
+    description: Increases projectile size.
+    icon: {fileID: 2800000, guid: 0cfd59be06ac67c4aa03f4a0900ae7df, type: 3}
+  levelUpsDone: 0
+  projectileSizeIncrease: 1.5

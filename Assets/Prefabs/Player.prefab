@@ -187,7 +187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: -1459567296244939718}
-  lives: 3
+  gameOver: {fileID: 0}
 --- !u!1 &4807934055577374158
 GameObject:
   m_ObjectHideFlags: 0
