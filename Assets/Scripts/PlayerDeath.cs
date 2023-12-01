@@ -52,7 +52,8 @@ public class PlayerDeath : MonoBehaviour
             if(gameOver == null)
             {
                 Debug.LogError("PlayerDeath requires a GameOverScript in the scene.");
-            } else
+            }
+            else
             {
                 this.gameOver = gameOver;
             }
