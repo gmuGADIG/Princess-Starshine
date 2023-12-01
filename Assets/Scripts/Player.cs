@@ -22,6 +22,15 @@ public class Player : MonoBehaviour
     [SerializeField]
     float deceleration;
 
+    //For preventing player from leaving the camera
+    private float constraintHeight;
+    private float constraintWidth;
+    //private float worldHeight;
+    //private float worldWidth;
+    private Camera camera;
+    //private float playerHeight;
+    //private float playerWidth;
+
     //for xp mechanic 
     int cumulativeXpPoints = 0;
     int xpThisLevel = 0;
@@ -89,6 +98,15 @@ public class Player : MonoBehaviour
     {
         instance = this;
 
+        camera = Camera.main;
+        float aspectRatio = (float)Screen.width / Screen.height;
+        float worldHeight = camera.orthographicSize * 2;
+        float worldWidth = worldHeight * aspectRatio;
+        float playerHeight = gameObject.transform.localScale.y;
+        float playerWidth = gameObject.transform.localScale.x;
+        constraintHeight = worldHeight / 2 - playerHeight / 2;
+        constraintWidth = worldWidth / 2 - playerWidth / 2;
+
         //heldConsumable = Consumable.Type.LevelUp; // damn foot gun
 
         curTwirlCharges = maxTwirlCharges;
@@ -147,6 +165,17 @@ public class Player : MonoBehaviour
             if (input!=Vector2.zero) {
                 velocity += input * acceleration * Time.deltaTime;
                 velocity = Vector2.ClampMagnitude(velocity, maxSpeed);
+
+                //Check for camera bounds
+                if (gameObject.transform.position.y>camera.transform.position.y+constraintHeight&& velocity.y>0)
+                    velocity.y = 0;
+                else if (gameObject.transform.position.y < camera.transform.position.y - constraintHeight && velocity.y < 0)
+                    velocity.y = 0;
+
+                if (gameObject.transform.position.x > camera.transform.position.x + constraintWidth && velocity.x > 0)
+                    velocity.x = 0;
+                else if (gameObject.transform.position.x < camera.transform.position.x - constraintWidth && velocity.x < 0)
+                    gameObject.transform.position = new Vector2(camera.transform.position.x - constraintWidth, gameObject.transform.position.y);
             }
             else
             {
@@ -252,7 +281,7 @@ public class Player : MonoBehaviour
             Destroy(xpObj.gameObject);
         }
 
-        else if (hit.collider.CompareTag("Enemy"))
+        else if (hit.collider.CompareTag("Enemy")|| hit.collider.CompareTag("WallOfFire"))
         {
             if (isTwirling) return;
             OnAttacked(hit.collider.gameObject.GetComponent<Damage>().damage);
