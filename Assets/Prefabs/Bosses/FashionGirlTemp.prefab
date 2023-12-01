@@ -10,11 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 688201901014027949}
   - component: {fileID: 8172896122779811800}
+  - component: {fileID: -2755091547578805869}
   - component: {fileID: 8608746096506491626}
   - component: {fileID: 808841898361783896}
+  - component: {fileID: 7589417649108688267}
   m_Layer: 0
   m_Name: FashionGirlTemp
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -86,6 +88,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-2755091547578805869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2628070505168376622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 597d5a4ddd8837e419c1dfb104017bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 10000
 --- !u!114 &8608746096506491626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,6 +149,7 @@ MonoBehaviour:
     puddleAliveTime: 15
     puddleDamage: 0
     spawnOnPlayer: 0
+    spawnOnBoss: 0
     spawnQuantity: 10
     puddleSizeChange: 0.1
     puddleSizeChangeAfterDelay: 0
@@ -169,3 +185,38 @@ MonoBehaviour:
     enemy: {fileID: 0}
     enemyQuantity: 0
     additionalDelay: 0
+--- !u!58 &7589417649108688267
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2628070505168376622}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5

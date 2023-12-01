@@ -155,12 +155,6 @@ public class Player : MonoBehaviour
             mySpriteRenderer.flipX = false;
         }
 
-        
-
-
-
-
-
         if (!isTwirling){
             if (input!=Vector2.zero) {
                 velocity += input * acceleration * Time.deltaTime;

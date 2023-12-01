@@ -148,7 +148,7 @@ MonoBehaviour:
   maxHealth: 100
   movementSpeed: 5
   moveTowardsObject: {fileID: 0}
-  XPOrb: {fileID: 0}
+  XPOrb: {fileID: 6433517325453158020, guid: 1762732203a121541b8b0dde1f1223bd, type: 3}
   xpDropRadius: 3
   xpDropAmount: 10
   deathSoundName: 
@@ -164,7 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c527a775096a1dc479cfe80db31fa799, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 0}
+  bullet: {fileID: 5484213388468280392, guid: 624ff9c1693ff01469d7b5f6c797b15c, type: 3}
 --- !u!114 &3738242979292131499
 MonoBehaviour:
   m_ObjectHideFlags: 0
