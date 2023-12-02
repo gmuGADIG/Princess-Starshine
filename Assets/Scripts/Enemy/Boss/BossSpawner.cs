@@ -19,5 +19,6 @@ public class BossSpawner : MonoBehaviour
     {
         yield return new WaitForSeconds(spawnTime);
         Instantiate(bossPrefab, playerTransform.position + Vector3.right * 5, Quaternion.identity);
+        FindObjectOfType<LevelMusicManager>().PlayBossSong();
     }
 }
