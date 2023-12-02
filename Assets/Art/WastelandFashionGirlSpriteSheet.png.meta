@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -121,7 +121,112 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: WastelandFashionGirlSpriteSheet_0
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 98
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46d8c815034a53d4cad7a9e62bceacf5
+      internalID: 671379626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WastelandFashionGirlSpriteSheet_1
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 0
+        width: 98
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ceb37e5c2f3f4149b3bbd2a2bfe8911
+      internalID: 980250395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WastelandFashionGirlSpriteSheet_2
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 0
+        width: 98
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9adf48771c54ae242a30f0d395fe7fab
+      internalID: -189068169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WastelandFashionGirlSpriteSheet_3
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 0
+        width: 98
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43870773517cb694680cbd948b895857
+      internalID: 422424199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WastelandFashionGirlSpriteSheet_4
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 0
+        width: 98
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 634487472c1b9d0489e6a321a13be198
+      internalID: 1405774814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -132,7 +237,12 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      WastelandFashionGirlSpriteSheet_0: 671379626
+      WastelandFashionGirlSpriteSheet_1: 980250395
+      WastelandFashionGirlSpriteSheet_2: -189068169
+      WastelandFashionGirlSpriteSheet_3: 422424199
+      WastelandFashionGirlSpriteSheet_4: 1405774814
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

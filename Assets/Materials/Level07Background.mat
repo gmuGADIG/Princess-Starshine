@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Level01Background
+  m_Name: Level07Background
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -42,8 +42,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: f40733d2d1cf2fb47bda8f09a1da464d, type: 3}
-        m_Scale: {x: 1000, y: 1000}
+        m_Texture: {fileID: 2800000, guid: 5fec604fee012e44b8d77ca341c737fd, type: 3}
+        m_Scale: {x: 2000, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
         m_Texture: {fileID: 0}
@@ -66,8 +66,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: f40733d2d1cf2fb47bda8f09a1da464d, type: 3}
-        m_Scale: {x: 1000, y: 1000}
+        m_Texture: {fileID: 2800000, guid: 5fec604fee012e44b8d77ca341c737fd, type: 3}
+        m_Scale: {x: 2000, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MaskTex:
         m_Texture: {fileID: 0}

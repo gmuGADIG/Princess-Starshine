@@ -770,7 +770,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnTime: 5
-  bossPrefab: {fileID: 3834822481319723375, guid: 00136b26ffbc55243bc97e8343bdba8b, type: 3}
+  bossPrefab: {fileID: 3307996292842739383, guid: 8c135b34697166d4ba2295d2c618dc0a, type: 3}
 --- !u!4 &1101494327
 Transform:
   m_ObjectHideFlags: 0
