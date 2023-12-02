@@ -13,7 +13,8 @@ public class PuddleProjectile : BossProjectile
 
     private void Start()
     {
-        TryGetComponent<CircleCollider2D>(out circleCollider);
+        //TryGetComponent<CircleCollider2D>(out circleCollider);
+        circleCollider = GetComponentInChildren<CircleCollider2D>();
         circleCollider.enabled = false;
     }
 

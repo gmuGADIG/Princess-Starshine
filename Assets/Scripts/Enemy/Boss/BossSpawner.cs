@@ -18,6 +18,6 @@ public class BossSpawner : MonoBehaviour
     IEnumerator SpawnBossCoroutine()
     {
         yield return new WaitForSeconds(spawnTime);
-        Instantiate(bossPrefab, playerTransform.position, Quaternion.identity);
+        Instantiate(bossPrefab, playerTransform.position + Vector3.right * 5, Quaternion.identity);
     }
 }
