@@ -940,7 +940,7 @@ MonoBehaviour:
     Stops: []
     EndNode: {fileID: 981499018}
   LevelName: 'Level 1: Flaming Inferno'
-  LevelSceneName: Level01
+  LevelSceneName: Level01Dialogue
 --- !u!1 &370658345
 GameObject:
   m_ObjectHideFlags: 0
