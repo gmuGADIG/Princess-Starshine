@@ -220,11 +220,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d0dddbfe87d5ca4a9464ee7d24f7a64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fleeFrom: {fileID: 0}
-  speed: 5
-  strafeRatio: 0.5
-  strafeSpeed: 1
-  strafeTimer: 3
+  moveSpeed: 30
+  fleeRadius: 10
+  fleePoints:
+  - {x: 15, y: 5, z: 0}
+  - {x: -15, y: 5, z: 0}
+  - {x: 15, y: -5, z: 0}
+  - {x: -15, y: -5, z: 0}
 --- !u!114 &808841898361783896
 MonoBehaviour:
   m_ObjectHideFlags: 0
