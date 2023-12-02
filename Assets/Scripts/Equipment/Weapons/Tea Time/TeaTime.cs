@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class TeaTime : Projectile
@@ -53,7 +52,7 @@ public class TeaTime : Projectile
 
         var angle = Mathf.Deg2Rad*(Random.Range(0, 4) * 90 + 45);
         dir = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
-        absDirection = dir.Abs();
+        absDirection = new Vector2(Mathf.Abs(dir.x), Mathf.Abs(dir.y));
     }
 
     //Change stats once the weapon is leveled up
