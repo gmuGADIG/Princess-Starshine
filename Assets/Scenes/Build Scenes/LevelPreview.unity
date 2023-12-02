@@ -339,7 +339,7 @@ MonoBehaviour:
   Unlocked: 1
   NextPath:
     Stops: []
-    EndNode: {fileID: 0}
+    EndNode: {fileID: 1637137179}
   LevelName: 'Level 3: Frozen Icy Hellscape'
   LevelSceneName: Level03
 --- !u!1 &71079458
@@ -2135,7 +2135,7 @@ MonoBehaviour:
   Unlocked: 1
   NextPath:
     Stops: []
-    EndNode: {fileID: 0}
+    EndNode: {fileID: 738882616}
   LevelName: 'Level 6: Flesh Land'
   LevelSceneName: Level06
 --- !u!1 &898736671
@@ -2276,10 +2276,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 91862975}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &923670496
 MonoBehaviour:
@@ -3356,7 +3356,7 @@ MonoBehaviour:
   Unlocked: 1
   NextPath:
     Stops: []
-    EndNode: {fileID: 0}
+    EndNode: {fileID: 1882905973}
   LevelName: 'Level 4: Industrial Hellscape'
   LevelSceneName: Level04
 --- !u!1 &1648575169
@@ -3910,7 +3910,7 @@ MonoBehaviour:
   Unlocked: 1
   NextPath:
     Stops: []
-    EndNode: {fileID: 0}
+    EndNode: {fileID: 896058338}
   LevelName: 'Level 5: Casino'
   LevelSceneName: Level05
 --- !u!1 &2050615906
