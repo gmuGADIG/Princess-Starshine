@@ -14,7 +14,6 @@ public class PuddleProjectile : BossProjectile
     private void Start()
     {
         //TryGetComponent<CircleCollider2D>(out circleCollider);
-        circleCollider = GetComponentInChildren<CircleCollider2D>();
         circleCollider.enabled = false;
     }
 
@@ -45,7 +44,9 @@ public class PuddleProjectile : BossProjectile
         this.maxAliveTime = maxAliveTime;
         this.damageDelay = damageDelay;
         this.sizeChange = sizeChange;
-        if(damageDelay == 0)
+        circleCollider = GetComponentInChildren<CircleCollider2D>();
+
+        if (damageDelay == 0)
         {
             circleCollider.enabled = true;
         }
