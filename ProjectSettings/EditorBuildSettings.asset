@@ -35,4 +35,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Build Scenes/DialogueTestPreview.unity
     guid: f1672cf0ab3b62242b427170a0cd7a02
+  - enabled: 1
+    path: Assets/Scenes/Build Scenes/Level01Dialogue.unity
+    guid: c601afb0ef681ef458597a6390b419fe
+  - enabled: 1
+    path: Assets/Scenes/Build Scenes/Level02Dialogue.unity
+    guid: c5fe72aac5c25ee4c9adc3923a46223e
   m_configObjects: {}

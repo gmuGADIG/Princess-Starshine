@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 9155236357828611150}
   - component: {fileID: 3855842121747218877}
   - component: {fileID: 2163155196164173453}
+  - component: {fileID: 511073030233338581}
   m_Layer: 0
   m_Name: GargoyleEnemy
   m_TagString: Enemy
@@ -199,7 +200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: befdc6b2505845645a436ffa305168fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 40
   movementSpeed: 2
   moveTowardsObject: {fileID: 0}
   XPOrb: {fileID: 6433517325453158020, guid: 1762732203a121541b8b0dde1f1223bd, type: 3}
@@ -327,3 +328,16 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &511073030233338581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3498557936519908969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60248b5cd3a484c42bce421d12e99013, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 8858910374489197595}

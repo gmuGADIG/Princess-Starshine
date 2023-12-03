@@ -336,10 +336,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 337377fcbaa5fc293a83dfeb11bf3f40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Unlocked: 0
+  Unlocked: 1
   NextPath:
     Stops: []
-    EndNode: {fileID: 0}
+    EndNode: {fileID: 1637137179}
   LevelName: 'Level 3: Frozen Icy Hellscape'
   LevelSceneName: Level03
 --- !u!1 &71079458
@@ -940,7 +940,7 @@ MonoBehaviour:
     Stops: []
     EndNode: {fileID: 981499018}
   LevelName: 'Level 1: Flaming Inferno'
-  LevelSceneName: Level01
+  LevelSceneName: Level01Dialogue
 --- !u!1 &370658345
 GameObject:
   m_ObjectHideFlags: 0
@@ -1084,8 +1084,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Level Select
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: f035653345f1cb54286384740d641027, type: 2}
-  m_sharedMaterial: {fileID: -6848375748860064462, guid: f035653345f1cb54286384740d641027, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1711,7 +1711,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 337377fcbaa5fc293a83dfeb11bf3f40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Unlocked: 0
+  Unlocked: 1
   NextPath:
     Stops: []
     EndNode: {fileID: 0}
@@ -1776,8 +1776,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Space to choose level.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: f035653345f1cb54286384740d641027, type: 2}
-  m_sharedMaterial: {fileID: -6848375748860064462, guid: f035653345f1cb54286384740d641027, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2132,10 +2132,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 337377fcbaa5fc293a83dfeb11bf3f40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Unlocked: 0
+  Unlocked: 1
   NextPath:
     Stops: []
-    EndNode: {fileID: 0}
+    EndNode: {fileID: 738882616}
   LevelName: 'Level 6: Flesh Land'
   LevelSceneName: Level06
 --- !u!1 &898736671
@@ -2305,8 +2305,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: f035653345f1cb54286384740d641027, type: 2}
-  m_sharedMaterial: {fileID: -6848375748860064462, guid: f035653345f1cb54286384740d641027, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2427,10 +2427,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Unlocked: 1
   NextPath:
-    Stops:
-    - {fileID: 808342381}
-    - {fileID: 1136015648}
-    - {fileID: 2144629724}
+    Stops: []
     EndNode: {fileID: 48812805}
   LevelName: 'Level 2: Corporate Office Hell'
   LevelSceneName: Level02
@@ -2776,22 +2773,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 438216841972731802, guid: 80d554e2857124c47b70bfe258af8576, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: f035653345f1cb54286384740d641027, type: 2}
-    - target: {fileID: 438216841972731802, guid: 80d554e2857124c47b70bfe258af8576, type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 869169624526589940, guid: 80d554e2857124c47b70bfe258af8576, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: f035653345f1cb54286384740d641027, type: 2}
-    - target: {fileID: 869169624526589940, guid: 80d554e2857124c47b70bfe258af8576, type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2041980500903128374, guid: 80d554e2857124c47b70bfe258af8576, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2875,14 +2856,6 @@ PrefabInstance:
     - target: {fileID: 4897026364568892928, guid: 80d554e2857124c47b70bfe258af8576, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6083332387957135781, guid: 80d554e2857124c47b70bfe258af8576, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: f035653345f1cb54286384740d641027, type: 2}
-    - target: {fileID: 6083332387957135781, guid: 80d554e2857124c47b70bfe258af8576, type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7844938225608219057, guid: 80d554e2857124c47b70bfe258af8576, type: 3}
       propertyPath: m_Name
@@ -3182,8 +3155,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Options
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: f035653345f1cb54286384740d641027, type: 2}
-  m_sharedMaterial: {fileID: -6848375748860064462, guid: f035653345f1cb54286384740d641027, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3377,10 +3350,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 337377fcbaa5fc293a83dfeb11bf3f40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Unlocked: 0
+  Unlocked: 1
   NextPath:
     Stops: []
-    EndNode: {fileID: 0}
+    EndNode: {fileID: 1882905973}
   LevelName: 'Level 4: Industrial Hellscape'
   LevelSceneName: Level04
 --- !u!1 &1648575169
@@ -3811,8 +3784,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Back to Main Menu
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: f035653345f1cb54286384740d641027, type: 2}
-  m_sharedMaterial: {fileID: -6848375748860064462, guid: f035653345f1cb54286384740d641027, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3931,10 +3904,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 337377fcbaa5fc293a83dfeb11bf3f40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Unlocked: 0
+  Unlocked: 1
   NextPath:
     Stops: []
-    EndNode: {fileID: 0}
+    EndNode: {fileID: 896058338}
   LevelName: 'Level 5: Casino'
   LevelSceneName: Level05
 --- !u!1 &2050615906
@@ -4263,8 +4236,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: A/D to change level.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: f035653345f1cb54286384740d641027, type: 2}
-  m_sharedMaterial: {fileID: -6848375748860064462, guid: f035653345f1cb54286384740d641027, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

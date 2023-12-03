@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8158819521071834500}
   - component: {fileID: 4101087830487716390}
   - component: {fileID: 4414830741808293254}
+  - component: {fileID: 3194975080705201832}
   m_Layer: 0
   m_Name: JanitorTemp
   m_TagString: Boss
@@ -100,7 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 597d5a4ddd8837e419c1dfb104017bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10000
+  maxHealth: 600
 --- !u!114 &8158819521071834500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,6 +176,7 @@ MonoBehaviour:
     speed: 1
     numberRepeat: 0
     movementType: 3
+  meleeCollider: {fileID: 0}
   enemySpawnEnabled: 0
   enemySpawnFrequency: 0
   enemySpawn:
@@ -217,3 +219,16 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &3194975080705201832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2266018917075444731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60248b5cd3a484c42bce421d12e99013, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 8298162642901945424}
