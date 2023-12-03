@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 245354871023082417}
   - component: {fileID: 2227782045428984177}
+  - component: {fileID: 5382493049591421846}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -84,6 +85,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &5382493049591421846
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1045794167254477433}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5eaad2b3faf3801498f9e7618de60cf5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2628070505168376622
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,11 +220,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d0dddbfe87d5ca4a9464ee7d24f7a64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fleeFrom: {fileID: 0}
-  speed: 5
-  strafeRatio: 0.5
-  strafeSpeed: 1
-  strafeTimer: 3
+  moveSpeed: 30
+  fleeRadius: 10
+  fleePoints:
+  - {x: 15, y: 5, z: 0}
+  - {x: -15, y: 5, z: 0}
+  - {x: 15, y: -5, z: 0}
+  - {x: -15, y: -5, z: 0}
 --- !u!114 &808841898361783896
 MonoBehaviour:
   m_ObjectHideFlags: 0

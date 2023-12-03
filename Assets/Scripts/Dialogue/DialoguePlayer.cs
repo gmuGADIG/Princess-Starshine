@@ -9,6 +9,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 /**
  * An object which plays a single dialogue sequence as soon as it's enabled.
@@ -28,6 +29,9 @@ public class DialoguePlayer : MonoBehaviour
     [Header("Dialogue Elements")]
     public DialogueSequence dialogueSequence;
     public DialogueCommand[] commands;
+
+    [Header("End Transition")]
+    [SerializeField] string nextScene;
 
     string[] lines;
     int currentLineIndex = 0;
@@ -72,6 +76,10 @@ public class DialoguePlayer : MonoBehaviour
 
     void EndDialogue()
     {
+        if (nextScene != "")
+        {
+            SceneManager.LoadScene(nextScene);
+        }
         gameObject.SetActive(false);
     }
 

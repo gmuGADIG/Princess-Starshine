@@ -24,5 +24,6 @@ public class BossSpawner : MonoBehaviour
         foreach (EnemyTemplate enemy in FindObjectsOfType<EnemyTemplate>()) {
             enemy.Die();
         }
+        FindObjectOfType<LevelMusicManager>().PlayBossSong();
     }
 }

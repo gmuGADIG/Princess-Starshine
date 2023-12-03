@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -121,7 +121,133 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: AmalgamationEnemySpriteSheet_0
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 138
+        width: 54
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dff3a871cd5d4b64bafb19024008db82
+      internalID: -669251098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AmalgamationEnemySpriteSheet_1
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 136
+        width: 53
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e57670e719d99a4a81977168fc4fdce
+      internalID: -350702219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AmalgamationEnemySpriteSheet_2
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 70
+        width: 55
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b27f8c02f673374387e584c822cc530
+      internalID: 726970129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AmalgamationEnemySpriteSheet_3
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 64
+        width: 55
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1bda9ba52e4a474e87babd98d825459
+      internalID: -1046937374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AmalgamationEnemySpriteSheet_4
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 7
+        width: 55
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b08ac80de95c2048a01cde466b98289
+      internalID: -1218294190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AmalgamationEnemySpriteSheet_5
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 2
+        width: 53
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ac136a1ee7fe6d4ab654844f2e9a0ee
+      internalID: -718035127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -132,7 +258,13 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      AmalgamationEnemySpriteSheet_0: -669251098
+      AmalgamationEnemySpriteSheet_1: -350702219
+      AmalgamationEnemySpriteSheet_2: 726970129
+      AmalgamationEnemySpriteSheet_3: -1046937374
+      AmalgamationEnemySpriteSheet_4: -1218294190
+      AmalgamationEnemySpriteSheet_5: -718035127
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

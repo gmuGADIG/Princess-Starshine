@@ -336,10 +336,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 337377fcbaa5fc293a83dfeb11bf3f40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Unlocked: 0
+  Unlocked: 1
   NextPath:
     Stops: []
-    EndNode: {fileID: 0}
+    EndNode: {fileID: 1637137179}
   LevelName: 'Level 3: Frozen Icy Hellscape'
   LevelSceneName: Level03
 --- !u!1 &71079458
@@ -940,7 +940,7 @@ MonoBehaviour:
     Stops: []
     EndNode: {fileID: 981499018}
   LevelName: 'Level 1: Flaming Inferno'
-  LevelSceneName: Level01
+  LevelSceneName: Level01Dialogue
 --- !u!1 &370658345
 GameObject:
   m_ObjectHideFlags: 0
@@ -1711,7 +1711,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 337377fcbaa5fc293a83dfeb11bf3f40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Unlocked: 0
+  Unlocked: 1
   NextPath:
     Stops: []
     EndNode: {fileID: 0}
@@ -2132,10 +2132,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 337377fcbaa5fc293a83dfeb11bf3f40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Unlocked: 0
+  Unlocked: 1
   NextPath:
     Stops: []
-    EndNode: {fileID: 0}
+    EndNode: {fileID: 738882616}
   LevelName: 'Level 6: Flesh Land'
   LevelSceneName: Level06
 --- !u!1 &898736671
@@ -2276,10 +2276,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 91862975}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &923670496
 MonoBehaviour:
@@ -2427,10 +2427,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Unlocked: 1
   NextPath:
-    Stops:
-    - {fileID: 808342381}
-    - {fileID: 1136015648}
-    - {fileID: 2144629724}
+    Stops: []
     EndNode: {fileID: 48812805}
   LevelName: 'Level 2: Corporate Office Hell'
   LevelSceneName: Level02
@@ -3353,10 +3350,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 337377fcbaa5fc293a83dfeb11bf3f40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Unlocked: 0
+  Unlocked: 1
   NextPath:
     Stops: []
-    EndNode: {fileID: 0}
+    EndNode: {fileID: 1882905973}
   LevelName: 'Level 4: Industrial Hellscape'
   LevelSceneName: Level04
 --- !u!1 &1648575169
@@ -3907,10 +3904,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 337377fcbaa5fc293a83dfeb11bf3f40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Unlocked: 0
+  Unlocked: 1
   NextPath:
     Stops: []
-    EndNode: {fileID: 0}
+    EndNode: {fileID: 896058338}
   LevelName: 'Level 5: Casino'
   LevelSceneName: Level05
 --- !u!1 &2050615906

@@ -4,43 +4,50 @@ using UnityEngine;
 
 public class BossMovementFlee : IBossMovement
 {
-    public Transform fleeFrom;
-    public float speed = 5f;
-    public float strafeRatio = 0.5f;
-    public float strafeSpeed = 1f;
-    public float strafeTimer = 3f;
-    private float strafeTime;
-    private bool strafeDir = false;
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] float moveSpeed = 30f;
+    [SerializeField] float fleeRadius = 5f;
+    [SerializeField] Vector3[] fleePoints;
+
+    Vector3 targetPosition;
+    int currentStandPointIndex = 0;
+    Transform playerTransform;
+    float destinationTolerance = .1f;
+
+    private void Start()
     {
-        if (fleeFrom == null)
-        {
-            fleeFrom = GameObject.FindGameObjectWithTag("Player").transform;
-        }
-        strafeTime = strafeTimer;
+        playerTransform = FindObjectOfType<Player>().transform;
+        SetTargetPosition(fleePoints[currentStandPointIndex]);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if (fleeFrom != null)
+        if (Vector3.Distance(transform.position, targetPosition) > destinationTolerance)
         {
-            Vector2 move = new Vector2(0, 0);
-
-            move += (Vector2)transform.position - (Vector2)fleeFrom.position;
-            if(strafeTime <= 0)
-            {
-                strafeDir = !strafeDir;
-                strafeTime = strafeTimer;
-            }
-            else
-            {
-                strafeTime -= Time.deltaTime;
-            }
-            move += (Vector2)Vector3.Cross((Vector2)transform.position - (Vector2)fleeFrom.position, Vector3.forward) * (strafeDir ? 1 : -1) * strafeRatio;
-            move.Normalize();
-            transform.position = (Vector2)transform.position + speed * Time.deltaTime * move;
+            Vector3 relativeTargetPosition = targetPosition + Camera.main.transform.position;
+            relativeTargetPosition.z = 0;
+            transform.position = Vector3.Lerp(transform.position, relativeTargetPosition, moveSpeed * Time.deltaTime);
         }
+        if (Vector3.Distance(transform.position, playerTransform.position) <= fleeRadius)
+        {
+            if (fleePoints.Length == 0)
+            {
+                Debug.LogError("No points to flee to.");
+                return;
+            }
+            int randIndex;
+            do
+            {
+                randIndex = Random.Range(0, fleePoints.Length);
+            }
+            while (randIndex == currentStandPointIndex);
+            currentStandPointIndex = randIndex;
+            SetTargetPosition(fleePoints[currentStandPointIndex]);
+        }
+    }
+
+    public void SetTargetPosition(Vector3 position)
+    {
+        targetPosition = position;
+        targetPosition.z = 0;
     }
 }
