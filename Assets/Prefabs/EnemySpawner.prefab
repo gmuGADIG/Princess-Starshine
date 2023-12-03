@@ -47,7 +47,7 @@ MonoBehaviour:
   startSpawnRate: 0.5
   endSpawnRate: 1
   midBossSpawnRate: 0.4
-  levelSeconds: 60
+  levelSeconds: 120
   enemySpawns:
   - enemyType: {fileID: 3498557936519908969, guid: 5c7654e7b4b04cf4fb639b265a6c2a79, type: 3}
     probabilityWeight: 1
