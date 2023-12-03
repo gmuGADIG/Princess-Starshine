@@ -2427,10 +2427,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Unlocked: 1
   NextPath:
-    Stops:
-    - {fileID: 808342381}
-    - {fileID: 1136015648}
-    - {fileID: 2144629724}
+    Stops: []
     EndNode: {fileID: 48812805}
   LevelName: 'Level 2: Corporate Office Hell'
   LevelSceneName: Level02
