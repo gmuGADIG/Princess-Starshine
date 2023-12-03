@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Damage))]
 public class BossProjectile : MonoBehaviour
 {
     //The base Projectile is for machine gun
@@ -11,15 +12,6 @@ public class BossProjectile : MonoBehaviour
     protected float maxAliveTime = 10;
     protected float aliveTimer;
     
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     public virtual void Update()
     {
         transform.position = transform.position + (velocity * Time.deltaTime * speed);
@@ -36,5 +28,7 @@ public class BossProjectile : MonoBehaviour
         this.speed = speed;
         this.damage = damage;
         this.maxAliveTime = maxAliveTime;
+        
+        GetComponent<Damage>().damage = damage;
     }
 }

@@ -44,6 +44,7 @@ public class PlayerHealth : MonoBehaviour
         if (!invincible) {
             tempHealth -= num * damageTakenMultiplier;
             InGameUI.SetHp(tempHealth / maxHealth);
+            GetComponent<DamageFlash>().Damage();
         }
     }
 

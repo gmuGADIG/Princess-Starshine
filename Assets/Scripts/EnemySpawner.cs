@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -12,11 +13,14 @@ public class EnemySpawner : MonoBehaviour
 
     [Tooltip("How fast enemies spawn at the start of the level, in spawns per second.")]
     public float startSpawnRate = 1.0f;
-    [Tooltip("How fast enemies spawn at the end of the level, in spawns per second. Spawn rate will linearly approach this value as the level plays.")]
+    [Tooltip("How fast enemies spawn towards the end of the level, in spawns per second. Spawn rate will linearly approach this value as the level plays.")]
     public float endSpawnRate = 5.0f;
-    [Tooltip("How long the level is, which determines the time at which endSpawnRate should be used.")]
-    public float levelSeconds = 50;
+    [Tooltip("How fast enemies spawn while the boss has been spawned.")]
+    public float midBossSpawnRate = 0.5f;
     
+    [Tooltip("How long the level is, which determines when the boss spawns and how quickly the spawn rate approaches endSpawnRate")]
+    public float levelSeconds = 50;
+
     [System.Serializable]
     public struct EnemySpawn
     {
@@ -28,14 +32,13 @@ public class EnemySpawner : MonoBehaviour
         public float endingDamage;
     }
     public EnemySpawn[] enemySpawns;
-    //public GameObject[] enemiesToSpawn;
-    //public float[] probabilityWeight;
-
-
+    
+    public bool isSpawningPaused = false;
+    
     float startTime;
     float timeTillNextSpawn = 0;
     float t => (Time.time - startTime) / levelSeconds;
-
+    
     public static UnityEvent SpawningEnemy = new UnityEvent();
 
     public void RandomSpawn()
@@ -103,37 +106,50 @@ public class EnemySpawner : MonoBehaviour
 
     void Update()
     {
-        timeTillNextSpawn -= Time.deltaTime;
-        if (timeTillNextSpawn <= 0)
+        var secondsSinceStart = Time.time - startTime;
+        var bossSpawned = secondsSinceStart > levelSeconds;
+        
+        if (!isSpawningPaused)
         {
-            if (EnemyManager.enemyManager.enemies.Count<=EnemyManager.enemyManager.maxEnemies) {
-                RandomSpawn();
+            timeTillNextSpawn -= Time.deltaTime;
+            if (timeTillNextSpawn <= 0)
+            {
+                if (EnemyManager.enemyManager.enemies.Count <= EnemyManager.enemyManager.maxEnemies)
+                {
+                    RandomSpawn();
+                }
+
+                float rate;
+                if (bossSpawned) rate = midBossSpawnRate;
+                else rate = Mathf.Lerp(startSpawnRate, endSpawnRate, t);
+                
+                timeTillNextSpawn += 1 / rate;
             }
-
-            var rate = Mathf.Lerp(startSpawnRate, endSpawnRate, t);
-            timeTillNextSpawn += 1 / rate;
-            
-            // print($"Spawning Enemies! (t = {t}, rate = {rate})");
         }
-
-        // countdownTimer -= Time.deltaTime;
-        // spawnChangeTimer -= Time.deltaTime;
-        // if (countdownTimer <= 0)
-        // {
-        //     SpawnEnemy();
-        //     countdownTimer = spawnRate;
-        // }
-        // if (spawnChangeTimer <= 0)
-        // {
-        //     if (spawnRate < minSpawnRate)
-        //     {
-        //         spawnRate = minSpawnRate; //spawn rate has reached its minimum
-        //     }
-        //     else
-        //     {
-        //         spawnRate -= spawnAcceleration; //decrease spawnRate by spawnAcceleration
-        //     }
-        //     
-        // }
     }
+
+    // void StartBoss()
+    // {
+    //     if (string.IsNullOrEmpty(bossSceneName)) return;
+    //
+    //     SceneManager.LoadScene(bossSceneName);
+    // }
+
+    // public void ScreenWipe()
+    // {
+    //     foreach (EnemyTemplate enemy in FindObjectsOfType<EnemyTemplate>()) {
+    //         enemy.Die();
+    //     }
+    // }
+    
+    // public void PauseSpawning()
+    // {
+    //     if (isSpawningPaused == true) Debug.LogWarning("PauseSpawning called when spawning was already paused. This may be unintentional.");
+    //     isSpawningPaused = true;
+    // }
+    // public void ResumeSpawning()
+    // {
+    //     if (isSpawningPaused == false) Debug.LogWarning("ResumeSpawning called when spawning was already playing. This may be unintentional.");
+    //     isSpawningPaused = false;
+    // }
 }

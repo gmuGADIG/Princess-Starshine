@@ -114,11 +114,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 6108
-        width: 365
-        height: 552
+        y: 6000
+        width: 1200
+        height: 1200
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -134,12 +134,12 @@ TextureImporter:
       name: GlitterBombSpriteSheet_1
       rect:
         serializedVersion: 2
-        x: 1584
-        y: 6449
-        width: 364
-        height: 552
+        x: 1200
+        y: 6000
+        width: 1200
+        height: 1200
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -155,12 +155,12 @@ TextureImporter:
       name: GlitterBombSpriteSheet_2
       rect:
         serializedVersion: 2
-        x: 2782
-        y: 6449
-        width: 366
-        height: 552
+        x: 2400
+        y: 6000
+        width: 1200
+        height: 1200
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -176,12 +176,12 @@ TextureImporter:
       name: GlitterBombSpriteSheet_3
       rect:
         serializedVersion: 2
-        x: 3984
-        y: 6449
-        width: 362
-        height: 552
+        x: 3600
+        y: 6000
+        width: 1200
+        height: 1200
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -197,12 +197,12 @@ TextureImporter:
       name: GlitterBombSpriteSheet_4
       rect:
         serializedVersion: 2
-        x: 5183
-        y: 6449
-        width: 365
-        height: 552
+        x: 4800
+        y: 6000
+        width: 1200
+        height: 1200
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -218,12 +218,12 @@ TextureImporter:
       name: GlitterBombSpriteSheet_5
       rect:
         serializedVersion: 2
-        x: 382
-        y: 5251
-        width: 365
-        height: 551
+        x: 0
+        y: 4800
+        width: 1200
+        height: 1200
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -239,12 +239,12 @@ TextureImporter:
       name: GlitterBombSpriteSheet_6
       rect:
         serializedVersion: 2
-        x: 1584
-        y: 5251
-        width: 364
-        height: 551
+        x: 1200
+        y: 4800
+        width: 1200
+        height: 1200
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -260,12 +260,12 @@ TextureImporter:
       name: GlitterBombSpriteSheet_7
       rect:
         serializedVersion: 2
-        x: 2782
-        y: 5251
-        width: 366
-        height: 551
+        x: 2400
+        y: 4800
+        width: 1200
+        height: 1200
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -281,12 +281,12 @@ TextureImporter:
       name: GlitterBombSpriteSheet_8
       rect:
         serializedVersion: 2
-        x: 3984
-        y: 5251
-        width: 362
-        height: 551
+        x: 3600
+        y: 4800
+        width: 1200
+        height: 1200
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -302,12 +302,12 @@ TextureImporter:
       name: GlitterBombSpriteSheet_9
       rect:
         serializedVersion: 2
-        x: 5183
-        y: 5251
-        width: 365
-        height: 551
+        x: 4800
+        y: 4800
+        width: 1200
+        height: 1200
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -323,12 +323,12 @@ TextureImporter:
       name: GlitterBombSpriteSheet_10
       rect:
         serializedVersion: 2
-        x: 382
-        y: 4048
-        width: 365
-        height: 552
+        x: 0
+        y: 3600
+        width: 1200
+        height: 1200
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -344,12 +344,12 @@ TextureImporter:
       name: GlitterBombSpriteSheet_11
       rect:
         serializedVersion: 2
-        x: 1584
-        y: 4048
-        width: 364
-        height: 552
+        x: 1200
+        y: 3600
+        width: 1200
+        height: 1200
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -365,12 +365,12 @@ TextureImporter:
       name: GlitterBombSpriteSheet_12
       rect:
         serializedVersion: 2
-        x: 2782
-        y: 4048
-        width: 366
-        height: 552
+        x: 2400
+        y: 3600
+        width: 1200
+        height: 1200
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -386,12 +386,12 @@ TextureImporter:
       name: GlitterBombSpriteSheet_13
       rect:
         serializedVersion: 2
-        x: 3984
-        y: 4048
-        width: 362
-        height: 552
+        x: 3600
+        y: 3600
+        width: 1200
+        height: 1200
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -407,12 +407,12 @@ TextureImporter:
       name: GlitterBombSpriteSheet_14
       rect:
         serializedVersion: 2
-        x: 5183
-        y: 4048
-        width: 365
-        height: 552
+        x: 4800
+        y: 3600
+        width: 1200
+        height: 1200
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -428,12 +428,12 @@ TextureImporter:
       name: GlitterBombSpriteSheet_15
       rect:
         serializedVersion: 2
-        x: 382
-        y: 2849
-        width: 365
-        height: 552
+        x: 0
+        y: 2400
+        width: 1200
+        height: 1200
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -449,12 +449,12 @@ TextureImporter:
       name: GlitterBombSpriteSheet_16
       rect:
         serializedVersion: 2
-        x: 1556
-        y: 2832
-        width: 418
-        height: 534
+        x: 1200
+        y: 2400
+        width: 1200
+        height: 1200
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -470,12 +470,12 @@ TextureImporter:
       name: GlitterBombSpriteSheet_17
       rect:
         serializedVersion: 2
-        x: 2652
-        y: 2762
-        width: 622
-        height: 548
+        x: 2400
+        y: 2400
+        width: 1200
+        height: 1200
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -491,12 +491,12 @@ TextureImporter:
       name: GlitterBombSpriteSheet_18
       rect:
         serializedVersion: 2
-        x: 3784
-        y: 2667
-        width: 678
-        height: 703
+        x: 3600
+        y: 2400
+        width: 1200
+        height: 1200
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -512,12 +512,12 @@ TextureImporter:
       name: GlitterBombSpriteSheet_19
       rect:
         serializedVersion: 2
-        x: 4919
-        y: 2603
-        width: 840
-        height: 833
+        x: 4800
+        y: 2400
+        width: 1200
+        height: 1200
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -533,12 +533,12 @@ TextureImporter:
       name: GlitterBombSpriteSheet_20
       rect:
         serializedVersion: 2
-        x: 100
-        y: 1394
-        width: 921
-        height: 882
+        x: 0
+        y: 1200
+        width: 1200
+        height: 1200
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -554,12 +554,12 @@ TextureImporter:
       name: GlitterBombSpriteSheet_21
       rect:
         serializedVersion: 2
-        x: 1285
-        y: 1327
-        width: 987
-        height: 1020
+        x: 1200
+        y: 1200
+        width: 1200
+        height: 1200
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -575,12 +575,12 @@ TextureImporter:
       name: GlitterBombSpriteSheet_22
       rect:
         serializedVersion: 2
-        x: 2518
-        y: 1387
-        width: 897
-        height: 896
+        x: 2400
+        y: 1200
+        width: 1200
+        height: 1200
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -596,12 +596,12 @@ TextureImporter:
       name: GlitterBombSpriteSheet_23
       rect:
         serializedVersion: 2
-        x: 3749
-        y: 1482
-        width: 755
-        height: 805
+        x: 3600
+        y: 1200
+        width: 1200
+        height: 1200
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -617,12 +617,12 @@ TextureImporter:
       name: GlitterBombSpriteSheet_24
       rect:
         serializedVersion: 2
-        x: 4997
-        y: 1433
-        width: 678
-        height: 822
+        x: 4800
+        y: 1200
+        width: 1200
+        height: 1200
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -635,106 +635,106 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GlitterBombSpriteSheet_31
+      name: GlitterBombSpriteSheet_25
       rect:
         serializedVersion: 2
-        x: 262
-        y: 364
-        width: 573
-        height: 622
+        x: 0
+        y: 0
+        width: 1200
+        height: 1200
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 00a6fa182b04584459e88d6a09cddc9b
-      internalID: -708646397
+      spriteID: 154205fbf0af452408d8f96e36907866
+      internalID: 1848473653
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GlitterBombSpriteSheet_32
+      name: GlitterBombSpriteSheet_26
       rect:
         serializedVersion: 2
-        x: 1506
-        y: 469
-        width: 478
-        height: 440
+        x: 1200
+        y: 0
+        width: 1200
+        height: 1200
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bd7badd0a6156f4498b3462d18434f94
-      internalID: -1833824359
+      spriteID: dbe52b6a63570eb42bae86b803c1ca17
+      internalID: -1315957471
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GlitterBombSpriteSheet_34
+      name: GlitterBombSpriteSheet_27
       rect:
         serializedVersion: 2
-        x: 2817
-        y: 540
-        width: 267
-        height: 337
+        x: 2400
+        y: 0
+        width: 1200
+        height: 1200
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a4503572b5b68ca438fa16c161a1074f
-      internalID: 752578328
+      spriteID: be739ecb14d536846a4b6868ea3094b0
+      internalID: -371078884
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GlitterBombSpriteSheet_35
+      name: GlitterBombSpriteSheet_28
       rect:
         serializedVersion: 2
-        x: 4097
-        y: 606
-        width: 119
-        height: 211
+        x: 3600
+        y: 0
+        width: 1200
+        height: 1200
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5c3c72dbda43b8d40a9a31b464a808fb
-      internalID: 70683818
+      spriteID: f9879d395744253488c9e4a7ea9e7c5f
+      internalID: 1786517567
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GlitterBombSpriteSheet_36
+      name: GlitterBombSpriteSheet_29
       rect:
         serializedVersion: 2
-        x: 5330
-        y: 684
-        width: 53
-        height: 94
+        x: 4800
+        y: 0
+        width: 1200
+        height: 1200
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 68307f3f0a09d8447975d83f66d90a08
-      internalID: -915482133
+      spriteID: 8be8807447c27814dbab5cbee194cbc7
+      internalID: 911649042
       vertices: []
       indices: 
       edges: []
@@ -774,15 +774,6 @@ TextureImporter:
       GlitterBombSpriteSheet_28: 1786517567
       GlitterBombSpriteSheet_29: 911649042
       GlitterBombSpriteSheet_3: 1137130626
-      GlitterBombSpriteSheet_30: -1619790510
-      GlitterBombSpriteSheet_31: -708646397
-      GlitterBombSpriteSheet_32: -1833824359
-      GlitterBombSpriteSheet_33: -1434866588
-      GlitterBombSpriteSheet_34: 752578328
-      GlitterBombSpriteSheet_35: 70683818
-      GlitterBombSpriteSheet_36: -915482133
-      GlitterBombSpriteSheet_37: -778629239
-      GlitterBombSpriteSheet_38: 1396008690
       GlitterBombSpriteSheet_4: 906691047
       GlitterBombSpriteSheet_5: 1944295987
       GlitterBombSpriteSheet_6: 507795183

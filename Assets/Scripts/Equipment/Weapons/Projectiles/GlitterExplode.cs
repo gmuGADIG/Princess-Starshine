@@ -13,7 +13,7 @@ public class GlitterExplode : MonoBehaviour
         StartCoroutine(Coroutine());
         IEnumerator Coroutine()
         {
-            yield return new WaitForSeconds(0.25f);
+            yield return new WaitForSeconds(1f);
             Destroy(gameObject);
         }
     }
@@ -22,6 +22,6 @@ public class GlitterExplode : MonoBehaviour
     {
         this.transform.localScale = 2.5f*scale;
         this.damage = newDamage;
-        this.GetComponent<ProjectileCollision>().SetDamage(newDamage);
+        this.GetComponent<ProjectileCollision>().Setup(newDamage, .1f);
     }
 }

@@ -36,8 +36,7 @@ public class EnemyTemplate : MonoBehaviour
     [SerializeField] 
     private GameObject XPOrb;
 
-    [SerializeField] 
-    private float xpDropRadius = 3;
+    private const float xpDropRadius = 1.5f;
 
     [SerializeField] 
     private int xpDropAmount = 3;
@@ -52,7 +51,6 @@ public class EnemyTemplate : MonoBehaviour
     public float MaxHealth { get => maxHealth; set => maxHealth = value; }
     public float CurrentHealth { get => currentHealth; protected set => currentHealth = value; }
     public float MovementSpeed { get => movementSpeed; set => movementSpeed = value; }
-    public float XPDropRadius { get => xpDropRadius; set => xpDropRadius = value; }
     public int XPDropAmount { get => xpDropAmount; set => xpDropAmount = value; }
     public bool IsDead {  get => isDead; set => isDead = value; }
 
@@ -67,8 +65,9 @@ public class EnemyTemplate : MonoBehaviour
     public void TakeDamage(float value) { 
 
         CurrentHealth -= value;
-        // TakenDamageSoundEffect.Play();
         CheckDeath();
+
+        GetComponent<DamageFlash>().Damage();
     }
     
     /* 

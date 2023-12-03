@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 /**
@@ -21,13 +22,15 @@ public class Projectile : MonoBehaviour
     protected float knockback = 1;
     protected float size = 1;
     protected float timeAlive;
+    protected float dotRate;
 
     protected virtual void Start()
     {
         var projCollision = GetComponent<ProjectileCollision>();
         if (projCollision != null)
         {
-            projCollision.SetDamage(this.damage);
+            projCollision.Setup(this.damage, this.dotRate);
+            projCollision.onHit += OnProjectileHit;
         }
     }
 
@@ -62,7 +65,7 @@ public class Projectile : MonoBehaviour
     /**
      * Called by the weapon after creating the projectile (and after setting its position and place in the scene tree).
      */
-    public virtual void Setup(ProjectileWeapon weapon, Vector2 target, float damage, int pierceCount, float speed, float knockback, float size)
+    public virtual void Setup(ProjectileWeapon weapon, Vector2 target, float damage, int pierceCount, float speed, float knockback, float size, float dotRate)
     {
         timeAlive = 0;
 

@@ -47,8 +47,8 @@ public class TeaTime : Projectile
     }
 
     //The setup for the projectile to make it usable
-    public override void Setup(ProjectileWeapon weapon, Vector2 target, float damage, int pierceCount, float speed, float knockback, float size) {
-        base.Setup(weapon, target, damage, pierceCount, speed, knockback, size);
+    public override void Setup(ProjectileWeapon weapon, Vector2 target, float damage, int pierceCount, float speed, float knockback, float size, float dotRate) {
+        base.Setup(weapon, target, damage, pierceCount, speed, knockback, size, dotRate);
 
         var angle = Mathf.Deg2Rad*(Random.Range(0, 4) * 90 + 45);
         dir = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
