@@ -769,7 +769,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc2ea009f075e704e992bafb9fb2f114, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnTime: 1
+  spawnTime: 120
   bossPrefab: {fileID: 6031957489174021204, guid: 1a2814e1de8e2014990f532d4391740f, type: 3}
 --- !u!4 &1101494327
 Transform:

@@ -31,7 +31,7 @@ public class DialoguePlayer : MonoBehaviour
     public DialogueCommand[] commands;
 
     [Header("End Transition")]
-    [SerializeField] string nextScene;
+    public string nextScene;
 
     string[] lines;
     int currentLineIndex = 0;
