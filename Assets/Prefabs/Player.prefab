@@ -52,14 +52,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocity: {x: 0, y: 0}
   acceleration: 80
-  maxSpeed: 10
-  deceleration: 30
-  initialXpToLevelUp: 20
+  maxSpeed: 4
+  deceleration: 80
+  initialXpToLevelUp: 80
   increaseXP: 2
   isTwirling: 0
   maxTwirlCharges: 3
-  twirlCooldown: 10
-  twirlSpeed: 30
+  twirlCooldown: 2
+  twirlSpeed: 15
   twirlDuration: 0.3
   collisionRadius: 1
   playerAnimator: {fileID: 1201584929703181706}
@@ -345,6 +345,70 @@ PrefabInstance:
     - target: {fileID: 416059617501603780, guid: a26d146851436054ea68a288a76774ea, type: 3}
       propertyPath: m_Name
       value: EquipmentManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 1297070300227585684, guid: a26d146851436054ea68a288a76774ea, type: 3}
+      propertyPath: scaleMultiplier
+      value: 1.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1297070300227585684, guid: a26d146851436054ea68a288a76774ea, type: 3}
+      propertyPath: walkSpeedMultiplier
+      value: 1.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 2309382276257578686, guid: a26d146851436054ea68a288a76774ea, type: 3}
+      propertyPath: SpawnChangeScalar
+      value: 1.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 2724561924137807355, guid: a26d146851436054ea68a288a76774ea, type: 3}
+      propertyPath: fireRateIncrease
+      value: 1.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 4829297850847493770, guid: a26d146851436054ea68a288a76774ea, type: 3}
+      propertyPath: speedIncrease
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6091703581706924927, guid: a26d146851436054ea68a288a76774ea, type: 3}
+      propertyPath: weaponStats.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6091703581706924927, guid: a26d146851436054ea68a288a76774ea, type: 3}
+      propertyPath: targetingStrategy
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6091703581706924927, guid: a26d146851436054ea68a288a76774ea, type: 3}
+      propertyPath: weaponStats.damage
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 6091703581706924927, guid: a26d146851436054ea68a288a76774ea, type: 3}
+      propertyPath: weaponStats.fireRate
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6091703581706924927, guid: a26d146851436054ea68a288a76774ea, type: 3}
+      propertyPath: weaponStats.knockback
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6091703581706924927, guid: a26d146851436054ea68a288a76774ea, type: 3}
+      propertyPath: weaponStats.projectileSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6091703581706924927, guid: a26d146851436054ea68a288a76774ea, type: 3}
+      propertyPath: weaponStats.projectilesPerShot
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6091703581706924927, guid: a26d146851436054ea68a288a76774ea, type: 3}
+      propertyPath: levelUpOptions.Array.data[1].amount
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6091703581706924927, guid: a26d146851436054ea68a288a76774ea, type: 3}
+      propertyPath: levelUpOptions.Array.data[2].amount
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6263036761839964436, guid: a26d146851436054ea68a288a76774ea, type: 3}
+      propertyPath: healAmount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7051461549712998661, guid: a26d146851436054ea68a288a76774ea, type: 3}
+      propertyPath: projectileSizeIncrease
+      value: 1.09
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
