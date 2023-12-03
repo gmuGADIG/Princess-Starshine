@@ -680,6 +680,38 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1984540736173820656, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
+      propertyPath: levelUpOptions.Array.data[2].type
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1984540736173820656, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
+      propertyPath: levelUpOptions.Array.data[0].amount
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1984540736173820656, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
+      propertyPath: levelUpOptions.Array.data[1].amount
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1984540736173820656, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
+      propertyPath: levelUpOptions.Array.data[2].amount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1984540736173820656, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
+      propertyPath: levelUpOptions.Array.data[3].amount
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2620958937377383029, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
+      propertyPath: increaseXP
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2620958937377383029, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
+      propertyPath: twirlSpeed
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2620958937377383029, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
+      propertyPath: initialXpToLevelUp
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3932130429666288465, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -723,6 +755,30 @@ PrefabInstance:
     - target: {fileID: 4739150525570968963, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4979164546060972181, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
+      propertyPath: scaleMultiplier
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4979164546060972181, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
+      propertyPath: walkSpeedMultiplier
+      value: 1.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 8580773079150676159, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
+      propertyPath: SpawnChangeScalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8580773079150676159, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
+      propertyPath: CollisionRadiusScalar
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8580773079150676159, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
+      propertyPath: InitialSpawnChanceMultiplier
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 8580773079150676159, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
+      propertyPath: InitialCollisionRadiusMultiplier
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -815,7 +871,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc2ea009f075e704e992bafb9fb2f114, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnTime: 10
+  spawnTime: 120
   bossPrefab: {fileID: 3834822481319723375, guid: 00136b26ffbc55243bc97e8343bdba8b, type: 3}
 --- !u!4 &1101494327
 Transform:
@@ -1960,6 +2016,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 778557985375707962, guid: ca3c110bb5627774daecec4995583a3b, type: 3}
+      propertyPath: maxEnemies
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 3114316861561853171, guid: ca3c110bb5627774daecec4995583a3b, type: 3}
       propertyPath: m_Name
       value: EnemyManager
