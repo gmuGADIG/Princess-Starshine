@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 30
-  fleeRadius: 10
+  fleeRadius: 5
   fleePoints:
   - {x: 15, y: 5, z: 0}
   - {x: -15, y: 5, z: 0}
