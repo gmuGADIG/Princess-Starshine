@@ -12,6 +12,9 @@ public struct WeaponStats
     
     [Tooltip("Times the weapon fires per second. If set to 0, the weapon will fire at the start and never again.")]
     public float fireRate;
+
+    [Tooltip("Damage-Over-Time rate; Times the weapon's area of effect hurts enemies per second.")]
+    public float dotRate;
     
     [Tooltip("Projectile scale multiplier. 1 is default size.")]
     public float size;

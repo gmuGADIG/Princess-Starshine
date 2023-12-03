@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -28,6 +29,7 @@ abstract public class ProjectileWeapon : Weapon
     float Damage => weaponStats.damage * (1 + statModifiers.damage) * (1 + staticStatModifiers.damage);
     float Knockback => weaponStats.knockback * (1 + statModifiers.knockback) * (1 + staticStatModifiers.knockback);
     float FireRate => weaponStats.fireRate * (1 + statModifiers.fireRate) * (1 + staticStatModifiers.fireRate);
+    float DotRate => weaponStats.dotRate * (1 + statModifiers.dotRate) * (1 + staticStatModifiers.dotRate);
     float ProjectileSize => weaponStats.size * (1 + statModifiers.size) * (1 + staticStatModifiers.size);
     float ProjectileSpeed => weaponStats.projectileSpeed * (1 + statModifiers.projectileSpeed) * (1 + staticStatModifiers.projectileSpeed);
     int MaxProjectiles => weaponStats.maxProjectiles + statModifiers.maxProjectiles + staticStatModifiers.maxProjectiles;
@@ -69,7 +71,7 @@ abstract public class ProjectileWeapon : Weapon
         if (projectileLocalSpace) proj.transform.SetParent(EquipmentManager.instance.transform);
         if (spawnProjectileAtTarget) proj.transform.position = targetPosition;
         else proj.transform.position = EquipmentManager.instance.transform.position;
-        proj.Setup(this, targetPosition, Damage, PierceCount, ProjectileSpeed, Knockback, ProjectileSize);
+        proj.Setup(this, targetPosition, Damage, PierceCount, ProjectileSpeed, Knockback, ProjectileSize, DotRate);
         if (shootSoundName != "")
         {
             SoundManager.Instance.PlaySoundGlobal(shootSoundName);
@@ -92,9 +94,10 @@ abstract public class ProjectileWeapon : Weapon
     Vector2 GetTarget()
     {
         var player = Player.instance;
-        var enemies = GameObject.FindGameObjectsWithTag("Enemy");
-
-        if (targetingStrategy == TargetType.RandomDirection || enemies.Length == 0)
+        var enemies = GameObject.FindGameObjectsWithTag("Enemy").ToList();
+        enemies.AddRange(GameObject.FindGameObjectsWithTag("Boss"));
+        
+        if (targetingStrategy == TargetType.RandomDirection || enemies.Count == 0)
         {
             var randomRads = Random.Range(0, 2 * Mathf.PI);
             return (Vector2)player.transform.position + new Vector2(Mathf.Cos(randomRads), Mathf.Sin(randomRads));
@@ -103,10 +106,9 @@ abstract public class ProjectileWeapon : Weapon
         switch (targetingStrategy)
         {
             case TargetType.WalkingDirection:
-                // TODO: handle stationary player better (remember most recent walking direction?)
-                return (Vector2) player.transform.position + player.velocity;
+                return (Vector2) player.transform.position + player.facingDirection;
             case TargetType.RandomEnemy:
-                return enemies[Random.Range(0, enemies.Length)].transform.position;
+                return enemies[Random.Range(0, enemies.Count)].transform.position;
             case TargetType.NearestEnemy:
                 var min = new Vector2(0, 0);
                 var minDist = 1000000f;

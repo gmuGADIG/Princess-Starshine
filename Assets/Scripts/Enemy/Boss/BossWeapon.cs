@@ -155,10 +155,10 @@ public class BossWeapon : MonoBehaviour
     public bool meleeEnabled;
     public float meleeFrequency;
     public Melee melee;
+    public CircleCollider2D meleeCollider;
     private float speedTimer;
     private float hitboxTimer;
     private int repeatCount;
-    private CircleCollider2D meleeCollider;
     private IBossMovement meleeMovement;
 
 
@@ -217,12 +217,11 @@ public class BossWeapon : MonoBehaviour
         {
             Debug.LogError("Nothing is Enabled or has a frequency");
         }
-        if(!TryGetComponent<CircleCollider2D>(out meleeCollider))
+        if (meleeEnabled)
         {
-            Debug.LogError("THE CIRCLE COLLIDER HAS BEEN DELETED");
+            meleeCollider.enabled = false;
+            meleeCollider.radius = melee.radius;
         }
-        meleeCollider.enabled = false;
-        meleeCollider.radius = melee.radius;
         if(!TryGetComponent<IBossMovement>(out startMovement))
         {
             Debug.LogError("BOSS HAS NO MOVEMENT");

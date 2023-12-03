@@ -86,7 +86,6 @@ public class EquipmentManager : MonoBehaviour
             if (duplicate != null) // equipment is already in use. present level-up instead
             {
                 if (duplicate.levelUpsDone >= MAX_EQUIPMENT_LEVELS) continue; // already max level
-                else print($"levelUpsDone = {duplicate.levelUpsDone}");
                 var (description, applyLevelUp) = equipment.GetLevelUps();
                 Action onApply = () =>
                 {

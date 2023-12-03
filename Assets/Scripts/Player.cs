@@ -72,19 +72,17 @@ public class Player : MonoBehaviour
 
     // Time in seconds the player is immune to attacks. After getting hit, the player is immune for a short amount of time.
     // (in other words, i-frames)
+    float immuneTime = 0f;
+    const float ImmunityTimeBetweenHits = 0.5f;
 
     //for animations
     public Animator playerAnimator;
-    public Animator spriteRotator;
-
-    //boolean to see where player is looking
-
-    public enum Direction {Left,Right};
-    Direction myDirection = Direction.Left;
+    
+    // normalized direction the player is walking, or if they're still, the last walking direction.
+    public Vector2 facingDirection = Vector2.right;
 
     //find the player sprite renderer
-
-    public SpriteRenderer mySpriteRenderer;
+    public SpriteRenderer playerSprite;
 
     // sound names
     string xpPickupSound = "XP_Pickup";
@@ -117,9 +115,6 @@ public class Player : MonoBehaviour
 
         onLevelUp += (newLevel, xpThatLevel) => LevelUpUI.instance.Open();
 
-        //sets player looking right
-        Direction myDirection = Direction.Left;
-
         InGameUI.UpdateTwirls(curTwirlCharges);                
     }
 
@@ -141,20 +136,12 @@ public class Player : MonoBehaviour
         }
 
         //check to see if the player is moving right or left
-        //chnages where the player is looking
-        if (Input.GetAxisRaw("Horizontal") < 0)
-        {
-
-            myDirection = Direction.Left;
-             mySpriteRenderer.flipX = true;
-           // playerAnimator.SetFloat("Horizontal", -1.0f);
-        }
-        else if(Input.GetAxisRaw("Horizontal") > 0)
-        {
-            myDirection = Direction.Right;
-            mySpriteRenderer.flipX = false;
-           // playerAnimator.SetFloat("Horizontal", 1.0f);
-        }
+        //changes where the player is looking
+        if (velocity != Vector2.zero) facingDirection = velocity.normalized;
+        if (facingDirection.x < 0)
+            playerSprite.flipX = true;
+        else if(facingDirection.x > 0)
+            playerSprite.flipX = false;
 
         if (!isTwirling){
             if (input!=Vector2.zero) {
@@ -191,6 +178,9 @@ public class Player : MonoBehaviour
         }
 
         transform.position += (Vector3)(velocity * Time.deltaTime * moveSpeedMultiplier.Value);
+
+        immuneTime -= Time.deltaTime;
+        if (immuneTime < 0) immuneTime = 0;
     }
 
     void UsedConsumable()
@@ -276,9 +266,11 @@ public class Player : MonoBehaviour
             Destroy(xpObj.gameObject);
         }
 
-        else if (hit.collider.CompareTag("Enemy")|| hit.collider.CompareTag("WallOfFire"))
+        else if (hit.collider.CompareTag("Enemy")|| hit.collider.CompareTag("WallOfFire") || hit.collider.CompareTag("EnemyProjectile"))
         {
             if (isTwirling) return;
+            if (immuneTime > 0) return;
+            
             OnAttacked(hit.collider.gameObject.GetComponent<Damage>().damage);
         }
 
@@ -312,7 +304,8 @@ public class Player : MonoBehaviour
     //void OnAttacked(GameObject enemy)
     void OnAttacked(float damage)
     {
-        GetComponent<PlayerHealth>().decreaseHealth(damage * Time.deltaTime);
+        immuneTime = ImmunityTimeBetweenHits;
+        GetComponent<PlayerHealth>().decreaseHealth(damage);
         SoundManager.Instance.PlaySoundGlobal(takeDamageSound);
         //print("oww!");
     }

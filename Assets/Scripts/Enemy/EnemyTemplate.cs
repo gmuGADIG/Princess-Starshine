@@ -67,8 +67,9 @@ public class EnemyTemplate : MonoBehaviour
     public void TakeDamage(float value) { 
 
         CurrentHealth -= value;
-        // TakenDamageSoundEffect.Play();
         CheckDeath();
+
+        GetComponent<DamageFlash>().Damage();
     }
     
     /* 

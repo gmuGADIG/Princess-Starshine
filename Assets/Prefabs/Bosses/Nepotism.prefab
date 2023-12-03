@@ -210,12 +210,13 @@ MonoBehaviour:
     speed: 0
     numberRepeat: 0
     movementType: 0
+  meleeCollider: {fileID: 0}
   enemySpawnEnabled: 1
   enemySpawnFrequency: 5
   enemySpawn:
     enemySpawnLocation: 0
     enemy: {fileID: 3498557936519908969, guid: 5c7654e7b4b04cf4fb639b265a6c2a79, type: 3}
-    enemyQuantity: 100
+    enemyQuantity: 10
     additionalDelay: 10
 --- !u!58 &4635017132028190888
 CircleCollider2D:

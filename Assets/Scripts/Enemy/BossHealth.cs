@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BossHealth : MonoBehaviour
 {
@@ -16,21 +17,21 @@ public class BossHealth : MonoBehaviour
 
     public void Damage(float damage)
     {
-        if (isDead)
-        {
-            return;
-        }
+        if (isDead) return;
         currentHealth -= damage;
         if (currentHealth <= 0)
         {
             currentHealth = 0;
             Die();
         }
+        
+        GetComponent<DamageFlash>().Damage();
     }
 
     public void Die()
     {
         isDead = true;
-        print("BOSS DEAD, LEVEL CLEAR, WHERE DO I GO FROM HERE?");
+        print("BOSS DEFEATED!!");
+        SceneManager.LoadScene("Scenes/Build Scenes/LevelPreview");
     }
 }

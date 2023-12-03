@@ -19,5 +19,10 @@ public class BossSpawner : MonoBehaviour
     {
         yield return new WaitForSeconds(spawnTime);
         Instantiate(bossPrefab, playerTransform.position + Vector3.right * 5, Quaternion.identity);
+        
+        // wipe screen of enemies
+        foreach (EnemyTemplate enemy in FindObjectsOfType<EnemyTemplate>()) {
+            enemy.Die();
+        }
     }
 }
