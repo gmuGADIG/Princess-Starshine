@@ -41,4 +41,12 @@ public abstract class Equipment
      * After removing an item, this is called for each other equipment the player has.
      */
     public abstract void ProcessOtherRemoval(Equipment other);
+
+    /**
+     * Called when the player has the option to level-up the weapon.
+     * Do not change the weapon when called. Only do that in the onApply function, which is called if the level-up is selected.
+     * If something else is selected, nothing should happen.
+     * This function can be non-deterministic, as is the case with weapon upgrades.
+     */
+    public abstract (string description, Action onApply) GetLevelUps();
 }

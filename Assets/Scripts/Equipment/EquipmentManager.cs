@@ -18,17 +18,17 @@ public class EquipmentManager : MonoBehaviour
     
     // in inspector
     public EquipmentIcon[] icons;
-    
+    [SerializeField] public ProjectileWeapon[] allWeapons;
+
     // general
     public static EquipmentManager instance;
-    [SerializeField] ProjectileWeapon[] allWeapons;
     public List<Equipment> allEquipment = new();
     readonly Dictionary<EquipmentType, EquipmentIcon> iconDict = new();
 
     // run-time
     private List<Equipment> currentEquipment = new();
 
-    void Start()
+    void Awake()
     {
         instance = this;
         
@@ -45,7 +45,7 @@ public class EquipmentManager : MonoBehaviour
         foreach (EquipmentType type in Enum.GetValues(typeof(EquipmentType)))
         {
             if (!iconDict.ContainsKey(type))
-                Debug.LogException(new Exception($"EquipmentManager has not icon for {type}!"));
+                Debug.LogException(new Exception($"EquipmentManager has no icon for {type}!"));
         }
         
         FinalizeEquipmentList();
@@ -72,7 +72,8 @@ public class EquipmentManager : MonoBehaviour
         // TEMP
         if (Input.GetKeyDown(KeyCode.P))
         {
-            LevelUpUI.instance.Open();
+            if (LevelUpUI.instance == null) Debug.LogError("Can't open level-up ui; none exists in this scene!");
+            else LevelUpUI.instance.Open();
         }
     }
 
@@ -81,7 +82,7 @@ public class EquipmentManager : MonoBehaviour
      * These can be either new equipment or an upgrade to old equipment.
      * Called when the LevelUpUI is instantiated.
      */
-    public List<UpgradeOption> GetUpgradeOptions()
+    public List<UpgradeOption> GetUpgradeOptions(bool weaponsOnly = false)
     {
         var options = new List<UpgradeOption>();
         var weaponCount = currentEquipment.Count(e => e is Weapon);
@@ -90,21 +91,35 @@ public class EquipmentManager : MonoBehaviour
         foreach (var equipment in allEquipment)
         {
             if (equipment is Weapon && weaponCount >= MAX_WEAPONS) continue;
-            if (equipment is Passive && passiveCount >= MAX_PASSIVES) continue;
+            if (equipment is Passive)
+            {
+                if (weaponsOnly) continue;
+                if (passiveCount >= MAX_PASSIVES) continue;
+            }
 
+            var icon = GetIcon(equipment);
+            
             var duplicate = currentEquipment.FirstOrDefault(e => e == equipment);
             if (duplicate != null) // equipment is already in use. present level-up instead
             {
                 if (duplicate.levelUpsDone >= MAX_EQUIPMENT_LEVELS) continue; // already max level
-                options.Add(new UpgradeOption(equipment, true, GetLevelUps(equipment)));
+                else print($"levelUpsDone = {duplicate.levelUpsDone}");
+                var (description, applyLevelUp) = equipment.GetLevelUps();
+                Action onApply = () =>
+                {
+                    equipment.levelUpsDone += 1;
+                    applyLevelUp();
+                };
+                options.Add(new UpgradeOption(icon.name, icon.icon, description, onApply));
             }
             else // present new equipment
             {
-                options.Add(new UpgradeOption(equipment, false, null));
+                Action onApply = () => AddNewEquipment(equipment);
+                options.Add(new UpgradeOption(icon.name, icon.icon, icon.description, onApply));
             }
         }
 
-        return options.OrderBy(e => Random.Range(0f, 1f)).Take(4).ToList();
+        return options.OrderBy(_ => Random.Range(0f, 1f)).Take(4).ToList();
     }
 
     public EquipmentIcon GetIcon(Equipment equipment)
@@ -112,75 +127,47 @@ public class EquipmentManager : MonoBehaviour
         return iconDict[equipment.type];
     }
 
-    WeaponLevelUp[] GetLevelUps(Equipment equipment)
+    private void AddNewEquipment(Equipment equipment)
     {
-        if (equipment is Passive) return null;
-        else if (equipment is Weapon weapon)
+        this.currentEquipment.Add(equipment);
+        equipment.OnEquip();
+        
+        foreach (var prevEquipment in currentEquipment)
         {
-            return weapon.levelUpOptions.OrderBy(e => Random.Range(0f, 1f)).Take(2).ToArray();
+            if (prevEquipment == equipment) continue;
+            
+            equipment.ProcessOther(prevEquipment);
         }
-        else throw new Exception("Invalid equipment type!");
     }
 
-    /**
-     * After presenting the options from GetUpgradeOptions, when the player selects one, this function is called to apply it.
-     */
-    public void ApplyUpgradeOption(UpgradeOption upgrade)
+    public List<Texture> EquippedWeaponIcons()
     {
-        if (upgrade.isLevelUp)
-        {
-            switch (upgrade.equipment)
-            {
-                case Weapon weapon:
-                {
-                    foreach (var levelUp in upgrade.levelUps)
-                        weapon.ApplyLevelUp(levelUp);
-                    break;
-                }
-                case Passive passive:
-                    passive.ApplyLevelUp();
-                    break;
-                default:
-                    Debug.LogError($"Unexpected equipment type `{upgrade.equipment.GetType()}`!");
-                    break;
-            }
-        }
-        else
-        {
-            this.currentEquipment.Add(upgrade.equipment);
-            upgrade.equipment.OnEquip();
-
-            foreach (var prevEquipment in currentEquipment)
-            {
-                if (prevEquipment == upgrade.equipment) continue;
-                
-                upgrade.equipment.ProcessOther(prevEquipment);
-            }
-        }
+        return currentEquipment.Where(e => e is Weapon).Select(e => GetIcon(e).icon).ToList();
+    }
+    
+    public List<Texture> EquippedPassiveIcons()
+    {
+        return currentEquipment.Where(e => e is Passive).Select(e => GetIcon(e).icon).ToList();
     }
 }
 
 /**
- * Holds an option presented to the player when they level up.
- * Can be either a weapon, a passive, or an upgrade to an existed item.
+ * Holds an option presented to the player when they level up. Can be either a new equipment or an item level-up.
+ * onSelect is called when the user selects this upgrade, and should add the equipment or level-up the item.
  */
 public class UpgradeOption
 {
-    public Equipment equipment;
-    
-    /** True if this is upgrading an already-existing equipment. */
-    public bool isLevelUp;
+    public string name;
+    public Texture icon;
+    public string description;
+    public Action onSelect;
 
-    /**
-     * If isUpgrade is true AND equipment is a weapon, this will hold the two improvements to apply to the weapon.
-     * else, it will be NULL.
-     */
-    public WeaponLevelUp[] levelUps;
 
-    public UpgradeOption(Equipment equipment, bool isLevelUp, WeaponLevelUp[] levelUps)
+    public UpgradeOption(string name, Texture icon, string description, Action onSelect)
     {
-        this.equipment = equipment;
-        this.isLevelUp = isLevelUp;
-        this.levelUps = levelUps;
+        this.name = name;
+        this.icon = icon;
+        this.description = description;
+        this.onSelect = onSelect;
     }
 }
