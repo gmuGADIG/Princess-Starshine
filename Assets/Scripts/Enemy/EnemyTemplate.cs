@@ -38,7 +38,7 @@ public class EnemyTemplate : MonoBehaviour
 
     [Tooltip("How long knockback lasts on the enemy.")]
     [SerializeField] 
-    protected float knockbackDuration = .1f;
+    protected float knockbackDuration = .2f;
 
     [Header("XP Settings")]
     [SerializeField] 
@@ -72,6 +72,7 @@ public class EnemyTemplate : MonoBehaviour
      * Called when the enemy has knockback applied
      **/
     public void ApplyKnockback(Vector2 _knockbackVelocity) {
+        Debug.Log("knockback");
         knockbackVelocity = _knockbackVelocity;
         knockbackDurationLeft = knockbackDuration;
     }
@@ -104,7 +105,7 @@ public class EnemyTemplate : MonoBehaviour
 
     protected void MoveTowardsObject() {
         if (knockbackDurationLeft > 0) {
-            gameObject.transform.position += knockbackVelocity * Time.deltaTime;
+            gameObject.transform.position += knockbackVelocity * Time.deltaTime * knockbackMultiplier;
             knockbackDurationLeft -= Time.deltaTime;
         }
         else if (moveTowardsObject != null)

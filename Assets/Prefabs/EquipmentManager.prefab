@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 6091703581706924927}
   - component: {fileID: 3817496222761909004}
   - component: {fileID: 7051461549712998661}
+  - component: {fileID: 4258276493323907073}
   m_Layer: 0
   m_Name: EquipmentManager
   m_TagString: Untagged
@@ -182,6 +183,7 @@ MonoBehaviour:
     damage: 25
     knockback: 2
     fireRate: 1
+    dotRate: 0
     size: 1
     projectileSpeed: 5
     maxProjectiles: 100
@@ -224,6 +226,7 @@ MonoBehaviour:
     damage: 30
     knockback: 0
     fireRate: 1
+    dotRate: 0
     size: 1
     projectileSpeed: 1
     maxProjectiles: 100
@@ -265,6 +268,7 @@ MonoBehaviour:
     damage: 30
     knockback: 0
     fireRate: 1
+    dotRate: 0
     size: 0.5
     projectileSpeed: 10
     maxProjectiles: 1
@@ -293,3 +297,45 @@ MonoBehaviour:
     icon: {fileID: 2800000, guid: 0cfd59be06ac67c4aa03f4a0900ae7df, type: 3}
   levelUpsDone: 0
   projectileSizeIncrease: 1.5
+--- !u!114 &4258276493323907073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 416059617501603780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fec7a66e047a30f79564a910a790e97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon:
+    name: LovelyLullaby
+    description: Attacks in an area around the player
+    icon: {fileID: 2800000, guid: d4746f1ed233a3da6a77460c2b111fa3, type: 3}
+  levelUpsDone: 0
+  levelUpOptions:
+  - type: 0
+    amount: 1
+  - type: 1
+    amount: 1
+  - type: 3
+    amount: 1
+  - type: 8
+    amount: 1
+  availableAtStart: 1
+  weaponStats:
+    damage: 10
+    knockback: 7
+    fireRate: 0
+    dotRate: 1
+    size: 5
+    projectileSpeed: 0
+    maxProjectiles: 1
+    projectilesPerShot: 1
+    pierceCount: -1
+  targetingStrategy: 0
+  spawnProjectileAtTarget: 0
+  projectileLocalSpace: 1
+  projectilePrefab: {fileID: 3250261032997418282, guid: 3055f22084227ea39afde10008cfdfad, type: 3}
+  shootSoundName: 

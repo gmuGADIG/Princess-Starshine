@@ -70,7 +70,13 @@ abstract public class ProjectileWeapon : Weapon
         var targetPosition = GetTarget();
         if (projectileLocalSpace) proj.transform.SetParent(EquipmentManager.instance.transform);
         if (spawnProjectileAtTarget) proj.transform.position = targetPosition;
-        else proj.transform.position = EquipmentManager.instance.transform.position;
+        else {
+            proj.transform.position = new Vector3(
+                EquipmentManager.instance.transform.position.x,
+                EquipmentManager.instance.transform.position.y,
+                proj.transform.position.z
+            );
+        }
         proj.Setup(this, targetPosition, Damage, PierceCount, ProjectileSpeed, Knockback, ProjectileSize, DotRate);
         if (shootSoundName != "")
         {
@@ -167,7 +173,7 @@ abstract public class ProjectileWeapon : Weapon
                 ApplyLevelUp(levelUp);
             
             foreach (var proj in projectileSet)
-                proj.OnWeaponLevelUp(Damage, PierceCount, ProjectileSpeed, Knockback, ProjectileSize);
+                proj.OnWeaponLevelUp(Damage, PierceCount, ProjectileSpeed, Knockback, ProjectileSize, DotRate);
         };
 
         return (description, onApply);
@@ -188,6 +194,9 @@ abstract public class ProjectileWeapon : Weapon
                 break;
             case WeaponLevelUpType.FireRate:
                 statModifiers.fireRate += levelUp.amount;
+                break;
+            case WeaponLevelUpType.DotRate:
+                statModifiers.dotRate += levelUp.amount;
                 break;
             case WeaponLevelUpType.ProjectilesPerShot:
                 statModifiers.projectilesPerShot += (int) levelUp.amount;
