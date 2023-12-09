@@ -32,6 +32,14 @@ public class EnemyTemplate : MonoBehaviour
     [SerializeField] 
     protected GameObject moveTowardsObject;
 
+    [Tooltip("How powerful knockback is on the enemy.")]
+    [SerializeField] 
+    protected float knockbackMultiplier = 1f;
+
+    [Tooltip("How long knockback lasts on the enemy.")]
+    [SerializeField] 
+    protected float knockbackDuration = .1f;
+
     [Header("XP Settings")]
     [SerializeField] 
     private GameObject XPOrb;
@@ -57,6 +65,16 @@ public class EnemyTemplate : MonoBehaviour
     private Rigidbody2D rb;
     public Rigidbody2D RigidBody { get => rb; }
 
+    private Vector3 knockbackVelocity;
+    private float knockbackDurationLeft = 0f;
+
+    /**
+     * Called when the enemy has knockback applied
+     **/
+    public void ApplyKnockback(Vector2 _knockbackVelocity) {
+        knockbackVelocity = _knockbackVelocity;
+        knockbackDurationLeft = knockbackDuration;
+    }
     
     /**
      * Called when the enemy takes damage
@@ -85,7 +103,11 @@ public class EnemyTemplate : MonoBehaviour
     }
 
     protected void MoveTowardsObject() {
-        if (moveTowardsObject != null)
+        if (knockbackDurationLeft > 0) {
+            gameObject.transform.position += knockbackVelocity * Time.deltaTime;
+            knockbackDurationLeft -= Time.deltaTime;
+        }
+        else if (moveTowardsObject != null)
         {
             gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, moveTowardsObject.transform.position, movementSpeed * Time.deltaTime);
         }

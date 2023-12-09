@@ -22,6 +22,6 @@ public class GlitterExplode : MonoBehaviour
     {
         this.transform.localScale = 2.5f*scale;
         this.damage = newDamage;
-        this.GetComponent<ProjectileCollision>().Setup(newDamage, .1f);
+        this.GetComponent<ProjectileCollision>().Setup(newDamage, .1f, 0f);
     }
 }
