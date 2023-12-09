@@ -9,6 +9,7 @@ public class ProjectileCollision : MonoBehaviour
 {
     float damage = 0;
     float hitsPerSecond = 1;
+    float knockback = 1;
     bool isSetUp = false;
 
     Collider2D collider;
@@ -52,7 +53,12 @@ public class ProjectileCollision : MonoBehaviour
             {
                 var enemy = col.GetComponent<EnemyTemplate>();
                 if (enemy == null) throw new Exception("Object with tag `Enemy` did not have an `EnemyTemplate` script!");
+
                 enemy.TakeDamage(this.damage);
+                if (knockback != 0) {
+                    Vector3 toEnemyHat = (enemy.transform.position - transform.position).normalized;
+                    enemy.ApplyKnockback(toEnemyHat * knockback);
+                }
             }
             else if (isBoss)
             {
@@ -69,10 +75,11 @@ public class ProjectileCollision : MonoBehaviour
         }
     }
 
-    public void Setup(float newDamage, float newHitsPerSecond)
+    public void Setup(float newDamage, float newHitsPerSecond, float newKnockback)
     {
         this.damage = newDamage;
         this.hitsPerSecond = newHitsPerSecond;
+        this.knockback = newKnockback;
         this.isSetUp = true;
     }
 }

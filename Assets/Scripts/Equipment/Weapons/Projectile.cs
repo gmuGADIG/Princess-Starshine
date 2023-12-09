@@ -29,7 +29,7 @@ public class Projectile : MonoBehaviour
         var projCollision = GetComponent<ProjectileCollision>();
         if (projCollision != null)
         {
-            projCollision.Setup(this.damage, this.dotRate);
+            projCollision.Setup(this.damage, this.dotRate, this.knockback);
             projCollision.onHit += OnProjectileHit;
         }
     }
