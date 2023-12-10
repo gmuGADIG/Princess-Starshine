@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 6091703581706924927}
   - component: {fileID: 3817496222761909004}
   - component: {fileID: 7051461549712998661}
+  - component: {fileID: 5547434088086199653}
   m_Layer: 0
   m_Name: EquipmentManager
   m_TagString: Untagged
@@ -182,6 +183,7 @@ MonoBehaviour:
     damage: 25
     knockback: 2
     fireRate: 1
+    dotRate: 0
     size: 1
     projectileSpeed: 5
     maxProjectiles: 100
@@ -224,6 +226,7 @@ MonoBehaviour:
     damage: 30
     knockback: 0
     fireRate: 1
+    dotRate: 0
     size: 1
     projectileSpeed: 1
     maxProjectiles: 100
@@ -265,6 +268,7 @@ MonoBehaviour:
     damage: 30
     knockback: 0
     fireRate: 1
+    dotRate: 0
     size: 0.5
     projectileSpeed: 10
     maxProjectiles: 1
@@ -293,3 +297,43 @@ MonoBehaviour:
     icon: {fileID: 2800000, guid: 0cfd59be06ac67c4aa03f4a0900ae7df, type: 3}
   levelUpsDone: 0
   projectileSizeIncrease: 1.5
+--- !u!114 &5547434088086199653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 416059617501603780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48de6596f73dfe8de85c8daedb78b1e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon:
+    name: Margarita The Pomeranian
+    description: Dog who wanders and attacks enemies
+    icon: {fileID: 2800000, guid: dec69ff2785837c8ca25b656231e9973, type: 3}
+  levelUpsDone: 0
+  levelUpOptions:
+  - type: 0
+    amount: 1
+  - type: 4
+    amount: 1
+  - type: 3
+    amount: 1
+  - type: 2
+    amount: 1
+  availableAtStart: 1
+  weaponStats:
+    damage: 30
+    knockback: 10
+    fireRate: 1
+    dotRate: 0
+    size: 1
+    projectileSpeed: 3
+    maxProjectiles: 0
+    projectilesPerShot: 0
+    pierceCount: 0
+  PomeranianPrefab: {fileID: 911611555918342212, guid: 8b41e9c44b30a9e789cd9089ef119b34, type: 3}
+  BarkPrefab: {fileID: 5583337273597254408, guid: 58b870784656e0794990a73d0d5fb561, type: 3}
+  BarkSoundName: 

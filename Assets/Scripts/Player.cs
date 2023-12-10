@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Player : MonoBehaviour
 {
@@ -61,6 +62,8 @@ public class Player : MonoBehaviour
 
     private int curTwirlCharges = 0;
     private float twirlRechargeTimeLeft = 0f;
+
+    public Action PlayerTwirled;
 
     private Consumable.Type heldConsumable = Consumable.Type.None;
     
@@ -207,6 +210,8 @@ public class Player : MonoBehaviour
                 //do twirl animation
                 playerAnimator.SetTrigger("Twirling");
                 SoundManager.Instance.PlaySoundGlobal(twirlDashSound);
+
+                PlayerTwirled?.Invoke();
             }
             else {
                 print("not enough charges!");
