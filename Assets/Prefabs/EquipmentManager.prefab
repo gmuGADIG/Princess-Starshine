@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 6091703581706924927}
   - component: {fileID: 3817496222761909004}
   - component: {fileID: 7051461549712998661}
+  - component: {fileID: 2438290056638984842}
   m_Layer: 0
   m_Name: EquipmentManager
   m_TagString: Untagged
@@ -182,6 +183,7 @@ MonoBehaviour:
     damage: 25
     knockback: 2
     fireRate: 1
+    dotRate: 0
     size: 1
     projectileSpeed: 5
     maxProjectiles: 100
@@ -192,6 +194,7 @@ MonoBehaviour:
   projectileLocalSpace: 0
   projectilePrefab: {fileID: 6198564449727914785, guid: 9c4da975914a3824cbfd6887823916cd, type: 3}
   shootSoundName: Fairy_Wand
+  Spread: 0
 --- !u!114 &6091703581706924927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,6 +227,7 @@ MonoBehaviour:
     damage: 30
     knockback: 0
     fireRate: 1
+    dotRate: 0
     size: 1
     projectileSpeed: 1
     maxProjectiles: 100
@@ -234,6 +238,7 @@ MonoBehaviour:
   projectileLocalSpace: 0
   projectilePrefab: {fileID: 7227924247430886604, guid: f438532f88467be4ab0da1afd295f71d, type: 3}
   shootSoundName: Glitter_Bomb_Throw
+  Spread: 0
 --- !u!114 &3817496222761909004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -265,6 +270,7 @@ MonoBehaviour:
     damage: 30
     knockback: 0
     fireRate: 1
+    dotRate: 0
     size: 0.5
     projectileSpeed: 10
     maxProjectiles: 1
@@ -275,6 +281,7 @@ MonoBehaviour:
   projectileLocalSpace: 0
   projectilePrefab: {fileID: 466492882040963849, guid: db69a31f668caf2498a1d2c85c1c2c17, type: 3}
   shootSoundName: 
+  Spread: 0
 --- !u!114 &7051461549712998661
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -293,3 +300,52 @@ MonoBehaviour:
     icon: {fileID: 2800000, guid: 0cfd59be06ac67c4aa03f4a0900ae7df, type: 3}
   levelUpsDone: 0
   projectileSizeIncrease: 1.5
+--- !u!114 &2438290056638984842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 416059617501603780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb26bb777e87f0db9919d85de433b9c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon:
+    name: Balloon Animal
+    description: Slow projectile that expands then explodes
+    icon: {fileID: 2800000, guid: 07c41882b0fd62e618895c7d08c16d2a, type: 3}
+  levelUpsDone: 0
+  levelUpOptions:
+  - type: 0
+    amount: 1
+  - type: 6
+    amount: 1
+  - type: 3
+    amount: 1
+  availableAtStart: 1
+  weaponStats:
+    damage: 5
+    knockback: 0
+    fireRate: 1
+    dotRate: 1
+    size: 1
+    projectileSpeed: 2
+    maxProjectiles: 1
+    projectilesPerShot: 1
+    pierceCount: -1
+  targetingStrategy: 3
+  spawnProjectileAtTarget: 0
+  projectileLocalSpace: 0
+  projectilePrefab: {fileID: 1696003635296911872, guid: 0cfbdd14428a4c0e6ab371283d748662, type: 3}
+  shootSoundName: 
+  Spread: 180
+  BalloonAnimalStats:
+    explosionSoundName: 
+    explosionDamage: 100
+    explosionPrefab: {fileID: 693691949679971025, guid: d8f72e7383d1faae2b51b69a8f20f434, type: 3}
+    timeUntilExplosion: 3
+    explosionSize: 10
+    explosionScaling: 0.75
+    inflationRate: 1
