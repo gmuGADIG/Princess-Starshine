@@ -9,7 +9,8 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     /** After this many seconds, projectiles will be automatically removed. */
-    protected float maxLifeTime = float.PositiveInfinity;
+    [HideInInspector]
+    public float maxLifeTime = float.PositiveInfinity;
     
     /** The weapon which fired this projectile. */
     protected ProjectileWeapon weapon;
@@ -24,6 +25,8 @@ public class Projectile : MonoBehaviour
     protected float timeAlive;
     protected float dotRate;
 
+    public Action LifetimeExpired;
+
     protected virtual void Start()
     {
         var projCollision = GetComponent<ProjectileCollision>();
@@ -32,12 +35,17 @@ public class Projectile : MonoBehaviour
             projCollision.Setup(this.damage, this.dotRate, this.knockback);
             projCollision.onHit += OnProjectileHit;
         }
-    }
+    
+}
 
     void OnProjectileHit()
     {
         if (pierceCount == 0) Destroy(this.gameObject); // < 0 is fine, because -1 pierce means infinite
         this.pierceCount -= 1;
+    }
+
+    protected virtual void Move() {
+        transform.position += (Vector3) velocity * Time.deltaTime;
     }
 
     protected virtual void Update()
@@ -48,12 +56,13 @@ public class Projectile : MonoBehaviour
             throw new Exception("Projectile has not been set up! Destroying projectile.");
         }
    
-        transform.position += (Vector3) velocity * Time.deltaTime;
+        Move();
 
         timeAlive += Time.deltaTime;
         if (timeAlive > maxLifeTime)
         {
             Destroy(this.gameObject);
+            LifetimeExpired?.Invoke();
         }
     }
 
