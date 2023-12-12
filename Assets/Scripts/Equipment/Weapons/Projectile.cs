@@ -9,7 +9,8 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     /** After this many seconds, projectiles will be automatically removed. */
-    protected float maxLifeTime = float.PositiveInfinity;
+    [HideInInspector]
+    public float maxLifeTime = float.PositiveInfinity;
     
     /** The weapon which fired this projectile. */
     protected ProjectileWeapon weapon;
@@ -24,6 +25,8 @@ public class Projectile : MonoBehaviour
     protected float timeAlive;
     protected float dotRate;
 
+    public Action LifetimeExpired;
+
     protected virtual void Start()
     {
         var projCollision = GetComponent<ProjectileCollision>();
@@ -32,7 +35,8 @@ public class Projectile : MonoBehaviour
             projCollision.Setup(this.damage, this.dotRate, this.knockback);
             projCollision.onHit += OnProjectileHit;
         }
-    }
+    
+}
 
     void OnProjectileHit()
     {
@@ -54,6 +58,7 @@ public class Projectile : MonoBehaviour
         if (timeAlive > maxLifeTime)
         {
             Destroy(this.gameObject);
+            LifetimeExpired?.Invoke();
         }
     }
 

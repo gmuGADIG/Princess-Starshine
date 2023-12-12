@@ -19,22 +19,22 @@ abstract public class ProjectileWeapon : Weapon
     [SerializeField] WeaponStats weaponStats;
     
     [Tooltip("Modifiers to the weapon's stats. For floats, 1 = +100% increase. For ints, 1 = +1 increase.")]
-    WeaponStats statModifiers;
+    protected WeaponStats statModifiers;
     
     [Tooltip("Modifiers which apply to all weapons.")]
     public static WeaponStats staticStatModifiers;
     
     
     #region Stat Properties
-    float Damage => weaponStats.damage * (1 + statModifiers.damage) * (1 + staticStatModifiers.damage);
-    float Knockback => weaponStats.knockback * (1 + statModifiers.knockback) * (1 + staticStatModifiers.knockback);
-    float FireRate => weaponStats.fireRate * (1 + statModifiers.fireRate) * (1 + staticStatModifiers.fireRate);
-    float DotRate => weaponStats.dotRate * (1 + statModifiers.dotRate) * (1 + staticStatModifiers.dotRate);
-    float ProjectileSize => weaponStats.size * (1 + statModifiers.size) * (1 + staticStatModifiers.size);
-    float ProjectileSpeed => weaponStats.projectileSpeed * (1 + statModifiers.projectileSpeed) * (1 + staticStatModifiers.projectileSpeed);
-    int MaxProjectiles => weaponStats.maxProjectiles + statModifiers.maxProjectiles + staticStatModifiers.maxProjectiles;
-    int ProjectilesPerShot => weaponStats.projectilesPerShot + statModifiers.projectilesPerShot + staticStatModifiers.projectilesPerShot;
-    int PierceCount => weaponStats.pierceCount + statModifiers.pierceCount + staticStatModifiers.pierceCount;
+    protected float Damage => weaponStats.damage * (1 + statModifiers.damage) * (1 + staticStatModifiers.damage);
+    protected float Knockback => weaponStats.knockback * (1 + statModifiers.knockback) * (1 + staticStatModifiers.knockback);
+    protected float FireRate => weaponStats.fireRate * (1 + statModifiers.fireRate) * (1 + staticStatModifiers.fireRate);
+    protected float DotRate => weaponStats.dotRate * (1 + statModifiers.dotRate) * (1 + staticStatModifiers.dotRate);
+    protected float ProjectileSize => weaponStats.size * (1 + statModifiers.size) * (1 + staticStatModifiers.size);
+    protected float ProjectileSpeed => weaponStats.projectileSpeed * (1 + statModifiers.projectileSpeed) * (1 + staticStatModifiers.projectileSpeed);
+    protected int MaxProjectiles => weaponStats.maxProjectiles + statModifiers.maxProjectiles + staticStatModifiers.maxProjectiles;
+    protected int ProjectilesPerShot => weaponStats.projectilesPerShot + statModifiers.projectilesPerShot + staticStatModifiers.projectilesPerShot;
+    protected int PierceCount => weaponStats.pierceCount + statModifiers.pierceCount + staticStatModifiers.pierceCount;
     #endregion
     
     
@@ -58,6 +58,9 @@ abstract public class ProjectileWeapon : Weapon
     /** Set of active projectiles. Updated in Fire and OnProjectileDestroy. Necessary to update projectiles when the weapon levels up. */
     HashSet<Projectile> projectileSet = new();
 
+    [Tooltip("Rotation offset (in degrees) of the projectiles (if more than one are shot at a time).")]
+    public float Spread = 0f;
+
     /**
      * Called whenever the weapon should fire, based on its `fireRate`.
      */
@@ -65,17 +68,28 @@ abstract public class ProjectileWeapon : Weapon
     {
         if (projectileSet.Count >= MaxProjectiles) return;
         
-        var proj = GameObject.Instantiate(projectilePrefab).GetComponent<Projectile>();
-        projectileSet.Add(proj);
-        var targetPosition = GetTarget();
-        if (projectileLocalSpace) proj.transform.SetParent(EquipmentManager.instance.transform);
-        if (spawnProjectileAtTarget) proj.transform.position = targetPosition;
-        else proj.transform.position = EquipmentManager.instance.transform.position;
-        proj.Setup(this, targetPosition, Damage, PierceCount, ProjectileSpeed, Knockback, ProjectileSize, DotRate);
-        if (shootSoundName != "")
-        {
-            SoundManager.Instance.PlaySoundGlobal(shootSoundName);
+        void FireToTarget(Vector3 target) {
+            var proj = Instantiate(projectilePrefab).GetComponent<Projectile>();
+            projectileSet.Add(proj);
+            if (projectileLocalSpace) proj.transform.SetParent(EquipmentManager.instance.transform);
+            if (spawnProjectileAtTarget) proj.transform.position = target;
+            else proj.transform.position = EquipmentManager.instance.transform.position;
+            proj.Setup(this, target, Damage, PierceCount, ProjectileSpeed, Knockback, ProjectileSize, DotRate);
+            if (shootSoundName != "")
+            {
+                SoundManager.Instance.PlaySoundGlobal(shootSoundName);
+            }
         }
+        
+        Vector3 playerPosition = Player.instance.transform.position;
+        var targetPosition = (Vector3)GetTarget();
+        FireToTarget(targetPosition);
+        Vector3 toTarget = targetPosition - playerPosition;
+        for (int i = 0; i < ProjectilesPerShot - 1; i++) {
+            Vector3 newTarget = playerPosition + Quaternion.Euler(0,0, Random.Range(-Spread,Spread)) * toTarget;
+            FireToTarget(newTarget);
+        }
+
         // TODO: handle projectile count
         // basic cases can be handled by just looping this, but if they have the same target, they'll need to be separated a bit
     }
