@@ -34,7 +34,7 @@ public class Projectile : MonoBehaviour
         }
     }
 
-    void OnProjectileHit()
+    protected virtual void OnProjectileHit()
     {
         if (pierceCount == 0) Destroy(this.gameObject); // < 0 is fine, because -1 pierce means infinite
         this.pierceCount -= 1;
