@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 6091703581706924927}
   - component: {fileID: 3817496222761909004}
   - component: {fileID: 7051461549712998661}
+  - component: {fileID: 3102620863815674545}
   m_Layer: 0
   m_Name: EquipmentManager
   m_TagString: Untagged
@@ -182,6 +183,7 @@ MonoBehaviour:
     damage: 25
     knockback: 2
     fireRate: 1
+    dotRate: 0
     size: 1
     projectileSpeed: 5
     maxProjectiles: 100
@@ -224,6 +226,7 @@ MonoBehaviour:
     damage: 30
     knockback: 0
     fireRate: 1
+    dotRate: 0
     size: 1
     projectileSpeed: 1
     maxProjectiles: 100
@@ -265,6 +268,7 @@ MonoBehaviour:
     damage: 30
     knockback: 0
     fireRate: 1
+    dotRate: 0
     size: 0.5
     projectileSpeed: 10
     maxProjectiles: 1
@@ -293,3 +297,50 @@ MonoBehaviour:
     icon: {fileID: 2800000, guid: 0cfd59be06ac67c4aa03f4a0900ae7df, type: 3}
   levelUpsDone: 0
   projectileSizeIncrease: 1.5
+--- !u!114 &3102620863815674545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 416059617501603780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcad0b35dd2cc0e54b9a8258544713ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon:
+    name: Cupquake
+    description: Cupcakes falling from the sky!
+    icon: {fileID: 2800000, guid: 01bf7458c89485d8f961cc627d7da80a, type: 3}
+  levelUpsDone: 0
+  levelUpOptions:
+  - type: 0
+    amount: 1
+  - type: 2
+    amount: 1
+  - type: 3
+    amount: 1
+  - type: 6
+    amount: 1
+  availableAtStart: 1
+  weaponStats:
+    damage: 50
+    knockback: 0
+    fireRate: 0.2
+    dotRate: 0
+    size: 1
+    projectileSpeed: 20
+    maxProjectiles: 1000
+    projectilesPerShot: 1
+    pierceCount: -1
+  targetingStrategy: 2
+  spawnProjectileAtTarget: 0
+  projectileLocalSpace: 0
+  projectilePrefab: {fileID: 158878207728383601, guid: 64a63230e8adae5049a7375ace4e0bbb, type: 3}
+  shootSoundName: 
+  CupquakeExplosionSize: 5
+  CupquakeExplosionLifetime: 0.3
+  CupquakeExplosionPrefab: {fileID: 6558438144801322321, guid: f087df268fa80a230a52c60d8a54043e, type: 3}
+  CupquakeExplosionSoundName: 
+  FollowTarget: 0
