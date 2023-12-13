@@ -19,7 +19,8 @@ GameObject:
   - component: {fileID: 6091703581706924927}
   - component: {fileID: 3817496222761909004}
   - component: {fileID: 7051461549712998661}
-  - component: {fileID: 2438290056638984842}
+  - component: {fileID: 8728917983658432178}
+  - component: {fileID: 4851443988552811489}
   m_Layer: 0
   m_Name: EquipmentManager
   m_TagString: Untagged
@@ -300,7 +301,51 @@ MonoBehaviour:
     icon: {fileID: 2800000, guid: 0cfd59be06ac67c4aa03f4a0900ae7df, type: 3}
   levelUpsDone: 0
   projectileSizeIncrease: 1.5
---- !u!114 &2438290056638984842
+--- !u!114 &8728917983658432178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 416059617501603780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee25f383e2cc04844913706549b7ac20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon:
+    name: Jumpin Jellybean
+    description: Jellybean that bounces off enemies
+    icon: {fileID: 2800000, guid: cd568a474cd9e5b78aa41efc560b72be, type: 3}
+  levelUpsDone: 0
+  levelUpOptions:
+  - type: 0
+    amount: 1
+  - type: 4
+    amount: 1
+  - type: 2
+    amount: 1
+  - type: 7
+    amount: 1
+  availableAtStart: 1
+  weaponStats:
+    damage: 20
+    knockback: 0
+    fireRate: 0.333
+    dotRate: 1
+    size: 1
+    projectileSpeed: 3
+    maxProjectiles: 3
+    projectilesPerShot: 1
+    pierceCount: 5
+  targetingStrategy: 1
+  spawnProjectileAtTarget: 0
+  projectileLocalSpace: 0
+  projectilePrefab: {fileID: 8617614301484164888, guid: e641acd7610a9bbbc89f8427044eb935, type: 3}
+  shootSoundName: 
+  Spread: 0
+  BounceSoundName: 
+--- !u!114 &4851443988552811489
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
