@@ -563,7 +563,7 @@ MonoBehaviour:
     fireRate: 0.5
     dotRate: 0.25
     size: 1
-    projectileSpeed: 2
+    projectileSpeed: 10
     maxProjectiles: 1000
     projectilesPerShot: 1
     pierceCount: -1
@@ -572,11 +572,11 @@ MonoBehaviour:
   projectileLocalSpace: 0
   projectilePrefab: {fileID: 5249661839970473252, guid: b1036f69fe54546288774cf31d9dfcfa, type: 3}
   shootSoundName: 
-  Spread: 80
+  Spread: 180
   roundaboutTime: 0.5
   DistanceSpeedScaling: 0.25
   RoundaboutRatio: 0.25
-  RotationalSpeed: 9000
+  RotationalSpeed: 4500
 --- !u!114 &9019476187453430192
 MonoBehaviour:
   m_ObjectHideFlags: 0
