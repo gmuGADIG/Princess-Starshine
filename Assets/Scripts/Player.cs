@@ -123,6 +123,9 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        // Kill the player if a keybind is pressed
+        if (Application.isEditor && Input.GetKey(KeyCode.B) && Input.GetKey(KeyCode.L))
+            GetComponent<PlayerHealth>().decreaseHealth(2 << 28); // is she hurt enough?
 
         Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
 
