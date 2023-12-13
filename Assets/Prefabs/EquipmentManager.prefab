@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 4851443988552811489}
   - component: {fileID: 7370942178866099648}
   - component: {fileID: 1809436753416420170}
+  - component: {fileID: 4816434653988682659}
   m_Layer: 0
   m_Name: EquipmentManager
   m_TagString: Untagged
@@ -479,3 +480,51 @@ MonoBehaviour:
   PomeranianPrefab: {fileID: 911611555918342212, guid: 8b41e9c44b30a9e789cd9089ef119b34, type: 3}
   BarkPrefab: {fileID: 5583337273597254408, guid: 58b870784656e0794990a73d0d5fb561, type: 3}
   BarkSoundName: 
+--- !u!114 &4816434653988682659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 416059617501603780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcad0b35dd2cc0e54b9a8258544713ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon:
+    name: Cupquake
+    description: Cupcakes falling from the sky!
+    icon: {fileID: 2800000, guid: 01bf7458c89485d8f961cc627d7da80a, type: 3}
+  levelUpsDone: 0
+  levelUpOptions:
+  - type: 0
+    amount: 1
+  - type: 2
+    amount: 1
+  - type: 3
+    amount: 1
+  - type: 6
+    amount: 1
+  availableAtStart: 1
+  weaponStats:
+    damage: 50
+    knockback: 0
+    fireRate: 0.2
+    dotRate: 0
+    size: 1
+    projectileSpeed: 20
+    maxProjectiles: 1000
+    projectilesPerShot: 1
+    pierceCount: -1
+  targetingStrategy: 2
+  spawnProjectileAtTarget: 1
+  projectileLocalSpace: 0
+  projectilePrefab: {fileID: 158878207728383601, guid: 64a63230e8adae5049a7375ace4e0bbb, type: 3}
+  shootSoundName: 
+  Spread: 0
+  CupquakeExplosionSize: 5
+  CupquakeExplosionLifetime: 0.3
+  CupquakeExplosionPrefab: {fileID: 6558438144801322321, guid: f087df268fa80a230a52c60d8a54043e, type: 3}
+  CupquakeExplosionSoundName: 
+  FollowTarget: 0

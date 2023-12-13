@@ -57,7 +57,7 @@ public class Projectile : MonoBehaviour
             throw new Exception("Projectile has not been set up! Destroying projectile.");
         }
    
-        Move();
+        Move(); // foobar
 
         timeAlive += Time.deltaTime;
         if (timeAlive > maxLifeTime)

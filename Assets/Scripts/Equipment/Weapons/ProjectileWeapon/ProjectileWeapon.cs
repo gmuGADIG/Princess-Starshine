@@ -50,13 +50,13 @@ abstract public class ProjectileWeapon : Weapon
     [SerializeField] bool projectileLocalSpace;
 
     [Tooltip("The object that gets initialized on each fire. Must have the <b>Projectile</b> component attached to it.")]
-    [SerializeField] GameObject projectilePrefab;
+    [SerializeField] protected GameObject projectilePrefab;
 
     [Tooltip("The name of the sound played when this weapon is fired.")]
-    [SerializeField] string shootSoundName;
+    [SerializeField] protected string shootSoundName;
     
     /** Set of active projectiles. Updated in Fire and OnProjectileDestroy. Necessary to update projectiles when the weapon levels up. */
-    HashSet<Projectile> projectileSet = new();
+    protected HashSet<Projectile> projectileSet = new();
 
     [Tooltip("Rotation offset (in degrees) of the projectiles (if more than one are shot at a time).")]
     public float Spread = 0f;
@@ -64,7 +64,7 @@ abstract public class ProjectileWeapon : Weapon
     /**
      * Called whenever the weapon should fire, based on its `fireRate`.
      */
-    private void Fire()
+    protected virtual void Fire()
     {
         if (projectileSet.Count >= MaxProjectiles) return;
         
@@ -124,6 +124,7 @@ abstract public class ProjectileWeapon : Weapon
      * For targeting strategies that aim at an enemy, this will be that enemy's position.
      * Otherwise, it will be the player's position plus the direction with an arbitrary magnitude.
      */
+    
     Vector2 GetTarget()
     {
         var player = Player.instance;
