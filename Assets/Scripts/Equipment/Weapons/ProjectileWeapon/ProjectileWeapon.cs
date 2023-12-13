@@ -71,9 +71,17 @@ abstract public class ProjectileWeapon : Weapon
         void FireToTarget(Vector3 target) {
             var proj = Instantiate(projectilePrefab).GetComponent<Projectile>();
             projectileSet.Add(proj);
+
+            Vector3 projectilePos = proj.transform.position;
+
             if (projectileLocalSpace) proj.transform.SetParent(EquipmentManager.instance.transform);
-            if (spawnProjectileAtTarget) proj.transform.position = target;
-            else proj.transform.position = EquipmentManager.instance.transform.position;
+            if (spawnProjectileAtTarget) projectilePos = target;
+            else projectilePos = EquipmentManager.instance.transform.position;
+
+            proj.transform.position = new Vector3(
+                projectilePos.x, projectilePos.y, proj.transform.position.z
+            );
+
             proj.Setup(this, target, Damage, PierceCount, ProjectileSpeed, Knockback, ProjectileSize, DotRate);
             if (shootSoundName != "")
             {
@@ -191,7 +199,7 @@ abstract public class ProjectileWeapon : Weapon
                 ApplyLevelUp(levelUp);
             
             foreach (var proj in projectileSet)
-                proj.OnWeaponLevelUp(Damage, PierceCount, ProjectileSpeed, Knockback, ProjectileSize);
+                proj.OnWeaponLevelUp(Damage, PierceCount, ProjectileSpeed, Knockback, ProjectileSize, DotRate);
         };
 
         return (description, onApply);
@@ -212,6 +220,9 @@ abstract public class ProjectileWeapon : Weapon
                 break;
             case WeaponLevelUpType.FireRate:
                 statModifiers.fireRate += levelUp.amount;
+                break;
+            case WeaponLevelUpType.DotRate:
+                statModifiers.dotRate += levelUp.amount;
                 break;
             case WeaponLevelUpType.ProjectilesPerShot:
                 statModifiers.projectilesPerShot += (int) levelUp.amount;

@@ -21,6 +21,8 @@ GameObject:
   - component: {fileID: 7051461549712998661}
   - component: {fileID: 8728917983658432178}
   - component: {fileID: 4851443988552811489}
+  - component: {fileID: 7370942178866099648}
+  - component: {fileID: 1809436753416420170}
   m_Layer: 0
   m_Name: EquipmentManager
   m_TagString: Untagged
@@ -394,3 +396,86 @@ MonoBehaviour:
     explosionSize: 10
     explosionScaling: 0.75
     inflationRate: 1
+--- !u!114 &7370942178866099648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 416059617501603780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fec7a66e047a30f79564a910a790e97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon:
+    name: Lovely Lullaby
+    description: Attacks in the area around the player
+    icon: {fileID: 2800000, guid: d4746f1ed233a3da6a77460c2b111fa3, type: 3}
+  levelUpsDone: 0
+  levelUpOptions:
+  - type: 0
+    amount: 1
+  - type: 1
+    amount: 1
+  - type: 3
+    amount: 1
+  - type: 8
+    amount: 1
+  availableAtStart: 1
+  weaponStats:
+    damage: 10
+    knockback: 7
+    fireRate: 0
+    dotRate: 1
+    size: 5
+    projectileSpeed: 0
+    maxProjectiles: 1
+    projectilesPerShot: 1
+    pierceCount: -1
+  targetingStrategy: 0
+  spawnProjectileAtTarget: 0
+  projectileLocalSpace: 1
+  projectilePrefab: {fileID: 3250261032997418282, guid: 3055f22084227ea39afde10008cfdfad, type: 3}
+  shootSoundName: 
+  Spread: 0
+--- !u!114 &1809436753416420170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 416059617501603780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48de6596f73dfe8de85c8daedb78b1e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon:
+    name: Margarita The Pomeranian
+    description: Dog who wanders and attacks enemies
+    icon: {fileID: 2800000, guid: dec69ff2785837c8ca25b656231e9973, type: 3}
+  levelUpsDone: 0
+  levelUpOptions:
+  - type: 0
+    amount: 1
+  - type: 4
+    amount: 1
+  - type: 3
+    amount: 1
+  - type: 2
+    amount: 1
+  availableAtStart: 1
+  weaponStats:
+    damage: 30
+    knockback: 10
+    fireRate: 1
+    dotRate: 0
+    size: 1
+    projectileSpeed: 3
+    maxProjectiles: 0
+    projectilesPerShot: 0
+    pierceCount: 0
+  PomeranianPrefab: {fileID: 911611555918342212, guid: 8b41e9c44b30a9e789cd9089ef119b34, type: 3}
+  BarkPrefab: {fileID: 5583337273597254408, guid: 58b870784656e0794990a73d0d5fb561, type: 3}
+  BarkSoundName: 

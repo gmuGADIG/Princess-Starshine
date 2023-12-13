@@ -7,9 +7,9 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public class ProjectileCollision : MonoBehaviour
 {
-    float damage = 0;
-    float hitsPerSecond = 1;
-    float knockback = 1;
+    public float damage { get; set; } = 0;
+    public float hitsPerSecond { get; set; } = 1;
+    public float knockback { get; set; } = 1;
     bool isSetUp = false;
 
     Collider2D collider;
@@ -42,8 +42,11 @@ public class ProjectileCollision : MonoBehaviour
             float hitPeriod = 1 / hitsPerSecond;
             if (pastCollisionTimes.ContainsKey(col) && pastCollisionTimes[col] > Time.time - hitPeriod)
             {
-                if (!(pastCollisionTimes[col] > Time.time - hitPeriod))
-                    print("already hit!");
+                // if (!(pastCollisionTimes[col] > Time.time - hitPeriod))
+
+                print("already hit!");
+                // print($"already hit! {hitPeriod - (Time.time - pastCollisionTimes[col])}");
+                // print($"already hit! {(Time.time)} -  {hitPeriod} = {Time.time - hitPeriod}");
                 continue;
             }
             
@@ -54,6 +57,7 @@ public class ProjectileCollision : MonoBehaviour
                 var enemy = col.GetComponent<EnemyTemplate>();
                 if (enemy == null) throw new Exception("Object with tag `Enemy` did not have an `EnemyTemplate` script!");
 
+                Debug.Log("Attacking enemy!");
                 enemy.TakeDamage(this.damage);
                 if (knockback != 0) {
                     Vector3 toEnemyHat = (enemy.transform.position - transform.position).normalized;

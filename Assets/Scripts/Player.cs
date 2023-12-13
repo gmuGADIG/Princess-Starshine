@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Player : MonoBehaviour
 {
@@ -62,6 +63,8 @@ public class Player : MonoBehaviour
     private int curTwirlCharges = 0;
     private float twirlRechargeTimeLeft = 0f;
 
+    public Action PlayerTwirled;
+
     private Consumable.Type heldConsumable = Consumable.Type.None;
     
     //for collision function; radius is currently determined by player
@@ -120,6 +123,9 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        // Kill the player if a keybind is pressed
+        if (Application.isEditor && Input.GetKey(KeyCode.B) && Input.GetKey(KeyCode.L))
+            GetComponent<PlayerHealth>().decreaseHealth(2 << 28); // is she hurt enough?
 
         Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
 
@@ -207,6 +213,8 @@ public class Player : MonoBehaviour
                 //do twirl animation
                 playerAnimator.SetTrigger("Twirling");
                 SoundManager.Instance.PlaySoundGlobal(twirlDashSound);
+
+                PlayerTwirled?.Invoke();
             }
             else {
                 print("not enough charges!");

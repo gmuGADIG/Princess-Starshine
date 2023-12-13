@@ -56,12 +56,13 @@ public class TeaTime : Projectile
     }
 
     //Change stats once the weapon is leveled up
-    public override void OnWeaponLevelUp(float newDamage, int newPierceCount, float newSpeed, float newKnockback, float newSize) 
+    public override void OnWeaponLevelUp(float newDamage, int newPierceCount, float newSpeed, float newKnockback, float newSize, float newDotRate) 
     {
         damage = newDamage;
         pierceCount = newPierceCount;
         speed = newSpeed;
         knockback = newKnockback;
+        dotRate = newDotRate;
         transform.localScale = new Vector2(newSize, newSize);    
     }
 
@@ -178,5 +179,33 @@ public class TeaTime : Projectile
         // var bottomLeft = camPos - new Vector3(halfWidth, halfHeight);
         // var topRight = camPos + new Vector3(halfWidth, halfHeight);
         // return new Rect(bottomLeft.x, bottomLeft.y, topRight.x, topRight.y);
+    }
+
+    /// <summary>
+    /// Like Rect.Contains, but it requires the point to be inside a little more.
+    /// </summary>
+    /// <param name="bufferX">How far in the point needs to be to be considered inside</param>
+    /// <param name="bufferY">How far the point need to be in to be considered inside</param>
+    /// <param name="point">The point in question</param>
+    /// <param name="rect">The rect in question</param>
+    /// <returns></returns>
+    public static bool pointInRect(Vector2 point, Rect rect, float bufferX, float bufferY) {
+        var xMin = rect.xMin + bufferX;
+        var xMax = rect.xMax - bufferX;
+        var yMin = rect.yMin + bufferY;
+        var yMax = rect.yMax - bufferY;
+
+        return point.x >= xMin && point.x <= xMax && point.y >= yMin && point.y <= yMax;
+    }
+
+    /// <summary>
+    /// Like cameraBoundingBox().Contains, but it requires the point to be inside a little more.
+    /// </summary>
+    /// <param name="bufferX">How far in the point needs to be to be considered inside</param>
+    /// <param name="bufferY">How far the point need to be in to be considered inside</param>
+    /// <param name="point">The point in question</param>
+    /// <returns></returns>
+    public static bool pointInCameraBoundingBox(Vector2 point, float bufferX, float bufferY) {
+        return pointInRect(point, cameraBoundingBox(), bufferX, bufferY);
     }
 }

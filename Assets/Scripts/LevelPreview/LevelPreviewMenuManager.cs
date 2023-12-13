@@ -46,6 +46,8 @@ public class LevelPreviewMenuManager : MonoBehaviour
     }
 
     public void Start() {
+        Time.timeScale = 1;
+
         LPPlayer.Instance.CurrentNode = FirstNode;
         LevelText.text = "";
 
