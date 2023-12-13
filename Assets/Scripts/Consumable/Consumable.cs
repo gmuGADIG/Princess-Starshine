@@ -12,12 +12,15 @@ public class Consumable : MonoBehaviour
 
     static IEnumerator InvincibilityPayload() { // make the player not die
         PlayerHealth ph = Player.instance.GetComponent<PlayerHealth>();
+        DamageFlash df = Player.instance.GetComponent<DamageFlash>();
 
         ph.invincible = true;
+        df.HealthyColor = ConsumableManager.Instance.InvincibleColor;
         ConsumableManager.Instance.PlayerInvincible.Invoke();
         
         yield return new WaitForSeconds(ConsumableManager.Instance.InvincibilityDuration);
         
+        df.HealthyColor = Color.white;
         ph.invincible = false;
         ConsumableManager.Instance.PlayerVulnerable.Invoke();
     }

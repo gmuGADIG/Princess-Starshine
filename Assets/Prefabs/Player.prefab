@@ -286,6 +286,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60248b5cd3a484c42bce421d12e99013, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DamagedColor: {r: 1, g: 0, b: 0, a: 1}
+  HealthyColor: {r: 1, g: 1, b: 1, a: 1}
   sprite: {fileID: 4059327565965219088}
 --- !u!1 &4807934055577374158
 GameObject:
@@ -444,130 +446,6 @@ PrefabInstance:
     - target: {fileID: 416059617501603780, guid: a26d146851436054ea68a288a76774ea, type: 3}
       propertyPath: m_Name
       value: EquipmentManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 1297070300227585684, guid: a26d146851436054ea68a288a76774ea, type: 3}
-      propertyPath: icon.icon
-      value: 
-      objectReference: {fileID: 2800000, guid: 534e89111aac93348b795499956abe9d, type: 3}
-    - target: {fileID: 1297070300227585684, guid: a26d146851436054ea68a288a76774ea, type: 3}
-      propertyPath: scaleMultiplier
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1297070300227585684, guid: a26d146851436054ea68a288a76774ea, type: 3}
-      propertyPath: walkSpeedMultiplier
-      value: 1.16
-      objectReference: {fileID: 0}
-    - target: {fileID: 2309382276257578686, guid: a26d146851436054ea68a288a76774ea, type: 3}
-      propertyPath: icon.icon
-      value: 
-      objectReference: {fileID: 2800000, guid: a8b18013a7afa894e95d8d182b3e9f86, type: 3}
-    - target: {fileID: 2309382276257578686, guid: a26d146851436054ea68a288a76774ea, type: 3}
-      propertyPath: SpawnChangeScalar
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2309382276257578686, guid: a26d146851436054ea68a288a76774ea, type: 3}
-      propertyPath: CollisionRadiusScalar
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 2309382276257578686, guid: a26d146851436054ea68a288a76774ea, type: 3}
-      propertyPath: InitialSpawnChanceMultiplier
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 2309382276257578686, guid: a26d146851436054ea68a288a76774ea, type: 3}
-      propertyPath: InitialCollisionRadiusMultiplier
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 2724561924137807355, guid: a26d146851436054ea68a288a76774ea, type: 3}
-      propertyPath: icon.icon
-      value: 
-      objectReference: {fileID: 2800000, guid: 6ecefc1fc03d3434db0ce584488e7eee, type: 3}
-    - target: {fileID: 2724561924137807355, guid: a26d146851436054ea68a288a76774ea, type: 3}
-      propertyPath: fireRateIncrease
-      value: 1.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 3817496222761909004, guid: a26d146851436054ea68a288a76774ea, type: 3}
-      propertyPath: icon.icon
-      value: 
-      objectReference: {fileID: 2800000, guid: bac4f19dde50a904b9ada28c8620a351, type: 3}
-    - target: {fileID: 4829297850847493770, guid: a26d146851436054ea68a288a76774ea, type: 3}
-      propertyPath: icon.icon
-      value: 
-      objectReference: {fileID: 2800000, guid: 165cabaf96308f14197d5f8bb02620d2, type: 3}
-    - target: {fileID: 4829297850847493770, guid: a26d146851436054ea68a288a76774ea, type: 3}
-      propertyPath: speedIncrease
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5517776088446958833, guid: a26d146851436054ea68a288a76774ea, type: 3}
-      propertyPath: icon.icon
-      value: 
-      objectReference: {fileID: 2800000, guid: 563c7c3dffa606b41b8f77aa4586f01e, type: 3}
-    - target: {fileID: 5517776088446958833, guid: a26d146851436054ea68a288a76774ea, type: 3}
-      propertyPath: levelUpOptions.Array.data[0].amount
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5517776088446958833, guid: a26d146851436054ea68a288a76774ea, type: 3}
-      propertyPath: levelUpOptions.Array.data[1].amount
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5517776088446958833, guid: a26d146851436054ea68a288a76774ea, type: 3}
-      propertyPath: levelUpOptions.Array.data[3].amount
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6091703581706924927, guid: a26d146851436054ea68a288a76774ea, type: 3}
-      propertyPath: icon.icon
-      value: 
-      objectReference: {fileID: 2800000, guid: d591fb254fb40df4fb3368454a431a97, type: 3}
-    - target: {fileID: 6091703581706924927, guid: a26d146851436054ea68a288a76774ea, type: 3}
-      propertyPath: weaponStats.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6091703581706924927, guid: a26d146851436054ea68a288a76774ea, type: 3}
-      propertyPath: targetingStrategy
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6091703581706924927, guid: a26d146851436054ea68a288a76774ea, type: 3}
-      propertyPath: weaponStats.damage
-      value: 150
-      objectReference: {fileID: 0}
-    - target: {fileID: 6091703581706924927, guid: a26d146851436054ea68a288a76774ea, type: 3}
-      propertyPath: weaponStats.fireRate
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6091703581706924927, guid: a26d146851436054ea68a288a76774ea, type: 3}
-      propertyPath: weaponStats.knockback
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6091703581706924927, guid: a26d146851436054ea68a288a76774ea, type: 3}
-      propertyPath: weaponStats.projectileSpeed
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6091703581706924927, guid: a26d146851436054ea68a288a76774ea, type: 3}
-      propertyPath: weaponStats.projectilesPerShot
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6091703581706924927, guid: a26d146851436054ea68a288a76774ea, type: 3}
-      propertyPath: levelUpOptions.Array.data[1].amount
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6091703581706924927, guid: a26d146851436054ea68a288a76774ea, type: 3}
-      propertyPath: levelUpOptions.Array.data[2].amount
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6263036761839964436, guid: a26d146851436054ea68a288a76774ea, type: 3}
-      propertyPath: icon.icon
-      value: 
-      objectReference: {fileID: 2800000, guid: 8951eebc4dfb16846922055cd296b4b7, type: 3}
-    - target: {fileID: 6263036761839964436, guid: a26d146851436054ea68a288a76774ea, type: 3}
-      propertyPath: healAmount
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7051461549712998661, guid: a26d146851436054ea68a288a76774ea, type: 3}
-      propertyPath: icon.icon
-      value: 
-      objectReference: {fileID: 2800000, guid: 83525f06fa72317449683ba20c77f41c, type: 3}
-    - target: {fileID: 7051461549712998661, guid: a26d146851436054ea68a288a76774ea, type: 3}
-      propertyPath: projectileSizeIncrease
-      value: 1.09
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

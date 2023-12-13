@@ -12,6 +12,8 @@ public class ConsumableManager : MonoBehaviour
     public float InvincibilityDuration = 5f;
     [SerializeField] private float initialConsumableCollisionRadius = 0.5f;
 
+    public Color InvincibleColor = Color.yellow;
+
     [Header("Overpowered Buff")]
     public float OverpoweredBuffDuration = 5f;
     public float DamageDealtMutliplier = 5f;

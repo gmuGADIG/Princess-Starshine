@@ -8,14 +8,17 @@ using UnityEngine;
  */
 public class DamageFlash : MonoBehaviour
 {
+    public Color DamagedColor = Color.red;
+    public Color HealthyColor = Color.white;
+
     public SpriteRenderer sprite;
     const float FlashDuration = 0.1f;
     float flashTimeRemaining;
 
     void Update()
     {
-        if (flashTimeRemaining <= 0) sprite.color = Color.white;
-        else sprite.color = Color.red;
+        if (flashTimeRemaining <= 0) sprite.color = HealthyColor;
+        else sprite.color = DamagedColor;
 
         flashTimeRemaining -= Time.deltaTime;
     }
