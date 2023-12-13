@@ -9,7 +9,8 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     /** After this many seconds, projectiles will be automatically removed. */
-    protected float maxLifeTime = float.PositiveInfinity;
+    [HideInInspector]
+    public float maxLifeTime = float.PositiveInfinity;
     
     /** The weapon which fired this projectile. */
     protected ProjectileWeapon weapon;
@@ -24,20 +25,28 @@ public class Projectile : MonoBehaviour
     protected float timeAlive;
     protected float dotRate;
 
+    public Action LifetimeExpired;
+    internal ProjectileCollision projectileCollision;
+
     protected virtual void Start()
     {
-        var projCollision = GetComponent<ProjectileCollision>();
-        if (projCollision != null)
+        projectileCollision = GetComponent<ProjectileCollision>();
+        if (projectileCollision != null)
         {
-            projCollision.Setup(this.damage, this.dotRate);
-            projCollision.onHit += OnProjectileHit;
+            projectileCollision.Setup(this.damage, this.dotRate, this.knockback);
+            projectileCollision.onHit += OnProjectileHit;
         }
-    }
+    
+}
 
-    void OnProjectileHit()
+    protected virtual void OnProjectileHit()
     {
         if (pierceCount == 0) Destroy(this.gameObject); // < 0 is fine, because -1 pierce means infinite
         this.pierceCount -= 1;
+    }
+
+    protected virtual void Move() {
+        transform.position += (Vector3) velocity * Time.deltaTime;
     }
 
     protected virtual void Update()
@@ -48,12 +57,13 @@ public class Projectile : MonoBehaviour
             throw new Exception("Projectile has not been set up! Destroying projectile.");
         }
    
-        transform.position += (Vector3) velocity * Time.deltaTime;
+        Move(); // foobar
 
         timeAlive += Time.deltaTime;
         if (timeAlive > maxLifeTime)
         {
             Destroy(this.gameObject);
+            LifetimeExpired?.Invoke();
         }
     }
 
@@ -77,6 +87,7 @@ public class Projectile : MonoBehaviour
         this.knockback = knockback;
         this.size = size;
         this.transform.localScale = new Vector3(size, size);
+        this.dotRate = dotRate;
         hasBeenSetUp = true;
     }
 
@@ -85,5 +96,5 @@ public class Projectile : MonoBehaviour
      * Most weapons have no need to be changed when the weapon upgrades, as they'll quickly be replaced by new projectiles.
      * For long-lasting projectiles however, you'll need this to be implemented.
      */
-    public virtual void OnWeaponLevelUp(float newDamage, int newPierceCount, float newSpeed, float newKnockback, float newSize) { }
+    public virtual void OnWeaponLevelUp(float newDamage, int newPierceCount, float newSpeed, float newKnockback, float newSize, float newDotRate) { }
 }

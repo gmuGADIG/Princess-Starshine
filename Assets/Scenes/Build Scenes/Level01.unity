@@ -661,7 +661,7 @@ Transform:
   m_GameObject: {fileID: 625996618}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.70710677, z: -0.70710677, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 10}
+  m_LocalPosition: {x: 0, y: 0, z: 100}
   m_LocalScale: {x: 2001, y: 2001, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -724,6 +724,46 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7197858040286465293, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
+      propertyPath: levelUpOptions.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7197858040286465293, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
+      propertyPath: levelUpOptions.Array.data[4].type
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7197858040286465293, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
+      propertyPath: levelUpOptions.Array.data[4].amount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8561095181787317387, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
+      propertyPath: levelUpOptions.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8561095181787317387, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
+      propertyPath: weaponStats.projectileSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8561095181787317387, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
+      propertyPath: BalloonAnimalStats.explosionSize
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8561095181787317387, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
+      propertyPath: levelUpOptions.Array.data[1].type
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8561095181787317387, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
+      propertyPath: levelUpOptions.Array.data[2].type
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8561095181787317387, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
+      propertyPath: levelUpOptions.Array.data[3].type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8561095181787317387, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
+      propertyPath: BalloonAnimalStats.explosionPrefab
+      value: 
+      objectReference: {fileID: 693691949679971025, guid: d8f72e7383d1faae2b51b69a8f20f434, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

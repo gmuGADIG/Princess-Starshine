@@ -8,11 +8,14 @@ public enum WeaponLevelUpType
 {
     // float modifiers (1 = +100%)
     Damage, Knockback,
-    FireRate,
+    FireRate, 
     ProjectileSize, ProjectileSpeed,
     
     // int modifiers (1 = +1)
     MaxProjectiles, ProjectilesPerShot, Pierce,
+   
+    // float modifiers (1 = +100%)
+    DotRate,
 }
 
 [Serializable]

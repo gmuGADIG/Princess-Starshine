@@ -1,0 +1,1 @@
+class CupquakeExplosion : Projectile {}
