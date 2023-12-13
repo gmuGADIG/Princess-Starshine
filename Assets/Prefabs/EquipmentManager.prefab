@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 7370942178866099648}
   - component: {fileID: 1809436753416420170}
   - component: {fileID: 4816434653988682659}
+  - component: {fileID: 2457162538701147535}
   m_Layer: 0
   m_Name: EquipmentManager
   m_TagString: Untagged
@@ -528,3 +529,50 @@ MonoBehaviour:
   CupquakeExplosionPrefab: {fileID: 6558438144801322321, guid: f087df268fa80a230a52c60d8a54043e, type: 3}
   CupquakeExplosionSoundName: 
   FollowTarget: 0
+--- !u!114 &2457162538701147535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 416059617501603780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f592a6eaec55f0cedae5a1ab156f8854, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon:
+    name: Glass Shoemerang
+    description: A shoe that's a boomerang!
+    icon: {fileID: 2800000, guid: 32bf9c2a465b6185583c24bb253369e8, type: 3}
+  levelUpsDone: 0
+  levelUpOptions:
+  - type: 0
+    amount: 1
+  - type: 2
+    amount: 1
+  - type: 6
+    amount: 1
+  - type: 4
+    amount: 1
+  availableAtStart: 1
+  weaponStats:
+    damage: 20
+    knockback: 0
+    fireRate: 0.5
+    dotRate: 0.25
+    size: 1
+    projectileSpeed: 2
+    maxProjectiles: 1000
+    projectilesPerShot: 1
+    pierceCount: -1
+  targetingStrategy: 1
+  spawnProjectileAtTarget: 0
+  projectileLocalSpace: 0
+  projectilePrefab: {fileID: 5249661839970473252, guid: b1036f69fe54546288774cf31d9dfcfa, type: 3}
+  shootSoundName: 
+  Spread: 80
+  roundaboutTime: 0.5
+  DistanceSpeedScaling: 0.25
+  RoundaboutRatio: 0.25
+  RotationalSpeed: 9000
