@@ -26,14 +26,15 @@ public class Projectile : MonoBehaviour
     protected float dotRate;
 
     public Action LifetimeExpired;
+    internal ProjectileCollision projectileCollision;
 
     protected virtual void Start()
     {
-        var projCollision = GetComponent<ProjectileCollision>();
-        if (projCollision != null)
+        projectileCollision = GetComponent<ProjectileCollision>();
+        if (projectileCollision != null)
         {
-            projCollision.Setup(this.damage, this.dotRate, this.knockback);
-            projCollision.onHit += OnProjectileHit;
+            projectileCollision.Setup(this.damage, this.dotRate, this.knockback);
+            projectileCollision.onHit += OnProjectileHit;
         }
     
 }
@@ -86,6 +87,7 @@ public class Projectile : MonoBehaviour
         this.knockback = knockback;
         this.size = size;
         this.transform.localScale = new Vector3(size, size);
+        this.dotRate = dotRate;
         hasBeenSetUp = true;
     }
 
@@ -94,5 +96,5 @@ public class Projectile : MonoBehaviour
      * Most weapons have no need to be changed when the weapon upgrades, as they'll quickly be replaced by new projectiles.
      * For long-lasting projectiles however, you'll need this to be implemented.
      */
-    public virtual void OnWeaponLevelUp(float newDamage, int newPierceCount, float newSpeed, float newKnockback, float newSize) { }
+    public virtual void OnWeaponLevelUp(float newDamage, int newPierceCount, float newSpeed, float newKnockback, float newSize, float newDotRate) { }
 }

@@ -56,12 +56,13 @@ public class TeaTime : Projectile
     }
 
     //Change stats once the weapon is leveled up
-    public override void OnWeaponLevelUp(float newDamage, int newPierceCount, float newSpeed, float newKnockback, float newSize) 
+    public override void OnWeaponLevelUp(float newDamage, int newPierceCount, float newSpeed, float newKnockback, float newSize, float newDotRate) 
     {
         damage = newDamage;
         pierceCount = newPierceCount;
         speed = newSpeed;
         knockback = newKnockback;
+        dotRate = newDotRate;
         transform.localScale = new Vector2(newSize, newSize);    
     }
 
