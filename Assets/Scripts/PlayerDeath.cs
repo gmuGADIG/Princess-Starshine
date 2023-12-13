@@ -16,13 +16,16 @@ public class PlayerDeath : MonoBehaviour
     {
         LoadObjects();
     }
+    
+    bool gameOvered = false;
     private void Update()
     {
-        if (health.isDead)
+        if (health.isDead && !gameOvered)
         {
             if (gameOver != null)
             {
                 gameOver.DoGameOver();
+                gameOvered = true;
             }
         }
     }

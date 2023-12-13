@@ -98,9 +98,7 @@ public class LPPlayer : MonoBehaviour
     public static void FireSwapToLevel(string sceneName) { SwapToLevel(sceneName); }
 
     public void Awake() {
-        if (Instance == null) {
-            Instance = this;
-        }
+        Instance = this;
     }
 
     public void Start() {
