@@ -347,9 +347,9 @@ MonoBehaviour:
   spawnProjectileAtTarget: 0
   projectileLocalSpace: 0
   projectilePrefab: {fileID: 8617614301484164888, guid: e641acd7610a9bbbc89f8427044eb935, type: 3}
-  shootSoundName: 
+  shootSoundName: Jelly_Bean_Hit
   Spread: 0
-  BounceSoundName: 
+  BounceSoundName: Jelly_Bean_Hit
 --- !u!114 &4851443988552811489
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -374,7 +374,7 @@ MonoBehaviour:
     amount: 1
   - type: 3
     amount: 1
-  availableAtStart: 1
+  availableAtStart: 0
   weaponStats:
     damage: 5
     knockback: 0
@@ -389,14 +389,14 @@ MonoBehaviour:
   spawnProjectileAtTarget: 0
   projectileLocalSpace: 0
   projectilePrefab: {fileID: 1696003635296911872, guid: 0cfbdd14428a4c0e6ab371283d748662, type: 3}
-  shootSoundName: 
+  shootSoundName: Balloon_Animal_Inflate
   Spread: 180
   BalloonAnimalStats:
-    explosionSoundName: 
+    explosionSoundName: Balloon_Animal_Pop
     explosionDamage: 100
     explosionPrefab: {fileID: 693691949679971025, guid: d8f72e7383d1faae2b51b69a8f20f434, type: 3}
     timeUntilExplosion: 3
-    explosionSize: 10
+    explosionSize: 1
     explosionScaling: 0.75
     inflationRate: 1
 --- !u!114 &7370942178866099648
@@ -481,7 +481,7 @@ MonoBehaviour:
     pierceCount: 0
   PomeranianPrefab: {fileID: 911611555918342212, guid: 8b41e9c44b30a9e789cd9089ef119b34, type: 3}
   BarkPrefab: {fileID: 5583337273597254408, guid: 58b870784656e0794990a73d0d5fb561, type: 3}
-  BarkSoundName: 
+  BarkSoundName: Pomeranian_Bark
 --- !u!114 &4816434653988682659
 MonoBehaviour:
   m_ObjectHideFlags: 0
