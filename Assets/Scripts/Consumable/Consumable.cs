@@ -27,9 +27,9 @@ public class Consumable : MonoBehaviour
 
     static IEnumerator OverpoweredBuffPayload() { // make the player strong
         var damageMult = ConsumableManager.Instance.DamageDealtMutliplier;
-        var fireRateMult = ConsumableManager.Instance.DamageDealtMutliplier;
-        var walkSpeedMult = ConsumableManager.Instance.DamageDealtMutliplier;
-        var damageTakenMult = ConsumableManager.Instance.DamageDealtMutliplier;
+        var fireRateMult = ConsumableManager.Instance.FireRateMutliplier;
+        var walkSpeedMult = ConsumableManager.Instance.WalkSpeedMutliplier;
+        var damageTakenMult = ConsumableManager.Instance.DamageTakenMutliplier;
         var buffDuration = ConsumableManager.Instance.OverpoweredBuffDuration;
         
         // increase damage and fire rate
