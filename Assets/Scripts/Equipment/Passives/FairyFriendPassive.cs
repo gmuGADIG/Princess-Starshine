@@ -63,5 +63,6 @@ public class FairyFriendPassive : Passive
     protected override object FreezeRaw() { return healAmount; }
     protected override void Thaw(object data) {
         healAmount = (float)data;
+        OnEquip();
     }
 }
