@@ -43,7 +43,8 @@ public class SaveManager : MonoBehaviour
     }
 
     void OnDestroy() {
-        Debug.LogWarning("SaveManager is being destroyed! Saving game! (This should only happen when the game closes)");
-        Save();
+        if (Instance == this) {
+            Save();
+        }
     }
 }
