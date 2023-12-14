@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
@@ -35,7 +36,10 @@ public class Player : MonoBehaviour
 
     //for xp mechanic 
     int cumulativeXpPoints = 0;
-    int xpThisLevel = 0;
+    int xpThisLevel { 
+        get => SaveManager.SaveData.PlayerXP;
+        set => SaveManager.SaveData.PlayerXP = value;
+    }
     int xpLevel { 
         get => SaveManager.SaveData.PlayerLevel;
         set => SaveManager.SaveData.PlayerLevel = value;
@@ -99,11 +103,12 @@ public class Player : MonoBehaviour
     string twirlDashSound = "Princess_Dash";
 
 
-    // Start is called before the first frame update
-    void Start()
-    {
+    void Awake() {
         instance = this;
+    }
 
+    // Start is called before the first frame update
+    void Start() {
         camera = Camera.main;
         float aspectRatio = (float)Screen.width / Screen.height;
         float worldHeight = camera.orthographicSize * 2;
@@ -119,7 +124,7 @@ public class Player : MonoBehaviour
 
         //Test the xp system with 10 xpPoints
         // AddXP(10);
-        InGameUI.SetXp(0, 0);
+        InGameUI.SetXp(xpLevel, (float)xpThisLevel / XpLevelUpGoal());
 
         onLevelUp += (newLevel, xpThatLevel) => LevelUpUI.instance.Open();
 

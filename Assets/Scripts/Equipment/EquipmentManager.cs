@@ -42,7 +42,8 @@ public class EquipmentManager : MonoBehaviour
         }
     }
 
-    void Start() {
+    // NOTE: Thaw needs to happen after Player.Awake and before InGameUI.Start (ie GetUpgradeOptions(true))
+    void Thaw() {
         currentEquipment = new();
         foreach (var deadEquipment in SaveManager.SaveData.deadEquipment) {
             // find "alive" equipment
@@ -79,6 +80,10 @@ public class EquipmentManager : MonoBehaviour
      */
     public List<UpgradeOption> GetUpgradeOptions(bool firstShow = false)
     {
+        if (firstShow) {
+            Thaw();
+        }
+
         var options = new List<UpgradeOption>();
         var weaponCount = currentEquipment.Count(e => e is Weapon);
         var passiveCount = currentEquipment.Count(e => e is Passive);
@@ -99,6 +104,7 @@ public class EquipmentManager : MonoBehaviour
             var icon = equipment.icon;
             
             var duplicate = currentEquipment.FirstOrDefault(e => e == equipment);
+
             if (duplicate != null) // equipment is already in use. present level-up instead
             {
                 if (duplicate.levelUpsDone >= MAX_EQUIPMENT_LEVELS) continue; // already max level
