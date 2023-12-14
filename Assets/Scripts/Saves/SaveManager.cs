@@ -11,9 +11,11 @@ public class SaveManager : MonoBehaviour
 
     void Awake() {
         if (Instance != null) {
-            Debug.LogError("More than one SaveManager exists!");
-        } Instance = this;
+            Destroy(gameObject);
+            return;
+        } 
 
+        Instance = this;
         DontDestroyOnLoad(gameObject);
         Load();
     }
