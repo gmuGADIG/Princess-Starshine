@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
@@ -35,7 +36,11 @@ public class Player : MonoBehaviour
     //for xp mechanic 
     int cumulativeXpPoints = 0;
     int xpThisLevel = 0;
-    int xpLevel = 1;
+    int xpLevel { 
+        get => SaveManager.SaveData.PlayerLevel;
+        set => SaveManager.SaveData.PlayerLevel = value;
+    }
+    // int xpLevel = 1;
     
     [Tooltip("The initial amount of XP required for the player to level up.")]
     [SerializeField]

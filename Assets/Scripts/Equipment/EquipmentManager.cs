@@ -29,13 +29,29 @@ public class EquipmentManager : MonoBehaviour
     // run-time
     private List<Equipment> currentEquipment = new();
 
-    void Awake()
-    {
+    void OnDestroy() {
+        SaveManager.SaveData.deadEquipment = currentEquipment;
+    }
+
+    void Awake() {
         instance = this;
         
         foreach (Equipment equipment in GetComponents<Equipment>()) {
             equipment.enabled = false;
             allEquipment.Add(equipment);
+        }
+    }
+
+    void Start() {
+        currentEquipment = new();
+        foreach (var deadEquipment in SaveManager.SaveData.deadEquipment) {
+            // find "alive" equipment
+            var t = deadEquipment.GetType().ToString();
+            var equipment = allEquipment.Where(e => e.GetType() == deadEquipment.GetType()).ToArray()[0];
+            equipment.Thaw(deadEquipment);
+
+            currentEquipment.Add(equipment);
+            equipment.enabled = true;
         }
     }
 

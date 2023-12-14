@@ -60,4 +60,11 @@ public class FairyFriendPassive : Passive
     {
         return ("Greater Health Regen", levelUp);
     }
+
+    public override void Thaw(Equipment equipment)
+    {
+        var trueEquipment = (FairyFriendPassive)equipment;
+
+        healAmount = trueEquipment.healAmount;
+    }
 }

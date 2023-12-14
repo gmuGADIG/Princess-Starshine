@@ -241,6 +241,13 @@ abstract public class ProjectileWeapon : Weapon
                 throw new Exception($"Invalid weapon level-up type! type = {levelUp.type}");
         }
     }
+    
+    public override void Thaw(Equipment equipment) {
+        var trueEquipment = (ProjectileWeapon)equipment;
+
+        statModifiers = trueEquipment.statModifiers;
+        // PostLevelUp(); TODO
+    }
 }
 
 public enum TargetType

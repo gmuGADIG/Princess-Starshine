@@ -50,4 +50,11 @@ public abstract class Equipment : MonoBehaviour
      * This function can be non-deterministic, as is the case with weapon upgrades.
      */
     public abstract (string description, Action onApply) GetLevelUps();
+
+    /// <summary>
+    /// Called when this equipment is thawed. 
+    /// This will be called in place of "lifecycle" methods like OnEquip and ProcessOther.
+    /// </summary>
+    /// <param name="equipment">The older version of this equipment. Should be safe to downcast.</param>
+    public abstract void Thaw(Equipment equipment);
 }

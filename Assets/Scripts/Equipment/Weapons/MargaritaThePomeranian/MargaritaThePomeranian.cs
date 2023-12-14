@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEditor.Rendering;
+using UnityEditor.Tilemaps;
 using UnityEngine;
 using UnityEngine.Assertions;
 using Random = UnityEngine.Random;
@@ -121,7 +122,10 @@ public class MargaritaThePomeranian : Weapon {
     }
 
     void PostLevelUp() {
-        pomeranian.Speed = ProjectileSpeed;
+        if (pomeranian != null) {
+            pomeranian.Speed = ProjectileSpeed;
+        }
+
         barkTimer = Mathf.Min(barkTimer, 1 / FireRate);
     }
 
@@ -159,5 +163,12 @@ public class MargaritaThePomeranian : Weapon {
         PostLevelUp();
     }
 
+    public override void Thaw(Equipment equipment) {
+        var trueEquipment = (MargaritaThePomeranian)equipment;
+
+        statModifiers = trueEquipment.statModifiers;
+        OnEquip();
+        PostLevelUp();
+    }
 }
 

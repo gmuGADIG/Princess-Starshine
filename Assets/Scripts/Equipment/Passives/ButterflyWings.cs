@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ButterflyWings : Passive {
@@ -25,5 +26,14 @@ public class ButterflyWings : Passive {
 
     public override void OnUnEquip() {
         receipt.Unbuff();
+    }
+
+    public override void Thaw(Equipment equipment)
+    {
+        var trueEquipment = (ButterflyWings)equipment;
+
+        var mul = trueEquipment.receipt.Value;
+        receipt?.Unbuff();
+        receipt = Player.instance.moveSpeedMultiplier.MultiplierBuff(mul);
     }
 }

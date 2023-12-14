@@ -5,6 +5,7 @@ public class ChubbyCookiePassive : Passive
 {
     //increase in weapon size
     public float projectileSizeIncrease = 1.5f;
+    float state = 0f;
 
     //the Player prefab
     private GameObject playerPrefab;
@@ -15,6 +16,7 @@ public class ChubbyCookiePassive : Passive
 
     public void applyProjectileSize()
     {
+        state += projectileSizeIncrease;
         ProjectileWeapon.staticStatModifiers.size += projectileSizeIncrease;
     }
 
@@ -23,4 +25,13 @@ public class ChubbyCookiePassive : Passive
     }
 
     public override void OnUnEquip() {     }
+
+    public override void Thaw(Equipment equipment)
+    {
+        var trueEquipment = (ChubbyCookiePassive)equipment;
+
+        ProjectileWeapon.staticStatModifiers.size -= state;
+        state = trueEquipment.state;
+        ProjectileWeapon.staticStatModifiers.size += state;
+    }
 }

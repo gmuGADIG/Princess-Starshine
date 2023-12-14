@@ -33,4 +33,18 @@ public class LuckyLipstick : Passive {
         collisionRadiusReceipt.Unbuff();
         spawnChanceReceipt.Unbuff();
     }
+
+    public override void Thaw(Equipment equipment)
+    {
+        var trueEquipment = (LuckyLipstick)equipment;
+
+        var radius = trueEquipment.collisionRadiusReceipt.Value;
+        var spawnChance = trueEquipment.spawnChanceReceipt.Value;
+
+        collisionRadiusReceipt?.Unbuff();
+        spawnChanceReceipt?.Unbuff();
+
+        collisionRadiusReceipt = ConsumableManager.Instance.ConsumableCollisionRadius.MultiplierBuff(radius);
+        spawnChanceReceipt = ConsumableManager.Instance.ConsumableSpawnChance.MultiplierBuff(spawnChance);
+    }
 }

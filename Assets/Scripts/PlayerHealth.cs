@@ -1,14 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class PlayerHealth : MonoBehaviour
 {
+    public Action PlayerDied;
+
     [Tooltip("The player's max health.")]
     public float maxHealth = 100;
-    public float tempHealth;
-    public bool isDead;
+    public float tempHealth { get; private set; }
+    public bool isDead { get; private set; }
 
     // the higher the number, more damage the player takes
     // the lower the number, less damage the player takes
@@ -23,20 +23,8 @@ public class PlayerHealth : MonoBehaviour
     void Start()
     {
         defaultDamageTakenMultiplier = damageTakenMultiplier;
-        tempHealth = 100;
+        tempHealth = maxHealth;
         InGameUI.SetHp(1f);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (tempHealth > maxHealth)
-            tempHealth = maxHealth;
-        else if (tempHealth <= 0)
-        {
-            tempHealth = 0;
-            isDead = true;
-        }
     }
 
     public void decreaseHealth(float num)
@@ -45,12 +33,25 @@ public class PlayerHealth : MonoBehaviour
             tempHealth -= num * damageTakenMultiplier;
             InGameUI.SetHp(tempHealth / maxHealth);
             GetComponent<DamageFlash>().Damage();
+
+            if (tempHealth <= 0 && !isDead) {
+                tempHealth = 0;
+                isDead = true;
+
+                PlayerDied?.Invoke();
+            }
         }
+
     }
 
     public void increaseHealth(float num)
     {
         tempHealth += num;
+
+        if (tempHealth > maxHealth) {
+            tempHealth = maxHealth;
+        }
+
         // Debug.Log(tempHealth);
         InGameUI.SetHp(tempHealth / maxHealth);
     }
