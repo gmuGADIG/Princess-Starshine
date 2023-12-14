@@ -23,18 +23,6 @@ public class LPNode : MonoBehaviour
     public string LevelName;
     public string LevelSceneName;
 
-    IEnumerator LateStart() {
-        yield return null;
-
-        if (!Unlocked) {
-            var sprite = GetComponentInChildren<SpriteRenderer>();
-
-            if (sprite != null) {
-                sprite.color = new Color(.2f, .2f, .2f);
-            }
-        }
-    }
-
     public void Start() {
         if (NextPath.Enabled) {
             NextPath.StartNode = this;
@@ -42,6 +30,12 @@ public class LPNode : MonoBehaviour
             NextPath.Start();
         }
     
-        StartCoroutine(LateStart());
+        if (!Unlocked) {
+            var sprite = GetComponentInChildren<SpriteRenderer>();
+
+            if (sprite != null) {
+                sprite.color = new Color(.2f, .2f, .2f);
+            }
+        }
     }
 }

@@ -45,6 +45,19 @@ public class LevelPreviewMenuManager : MonoBehaviour
         SceneManager.LoadScene("TitleScreenScene");
     }
 
+    public void Awake() {
+        // lock any level the player hasn't unlocked yet
+        LPNode node = FirstNode;
+        string name = SaveManager.SaveData.FurthestLevelSceneName;
+
+        bool unlocked = node.LevelSceneName != name;
+        while (node.NextPath.Enabled) {
+            node = node.NextPath.EndNode;
+            node.Unlocked = unlocked;
+            unlocked = unlocked && node.LevelSceneName != name;
+        }
+    }
+
     public void Start() {
         Time.timeScale = 1;
 
@@ -54,16 +67,5 @@ public class LevelPreviewMenuManager : MonoBehaviour
         LPPlayer.LeftLevel += OnLeftLevel;
         LPPlayer.AtLevel += OnAtLevel;
         LPPlayer.SwapToLevel += OnSwapToLevel;
-        
-        // lock any level the player hasn't unlocked yet
-        bool unlocked = true;
-        LPNode node = FirstNode;
-        string name = SaveManager.SaveData.FurthestLevelSceneName;
-
-        do {
-            node.Unlocked = unlocked;
-            unlocked = unlocked && node.LevelSceneName != name;
-            node = node.NextPath.EndNode;
-        } while (node.NextPath.Enabled );
     }
 }
