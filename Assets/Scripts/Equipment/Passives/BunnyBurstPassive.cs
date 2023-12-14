@@ -26,13 +26,9 @@ public class BunnyBurstPassive : Passive
         ProjectileWeapon.staticStatModifiers.projectileSpeed += speedIncrease;
     }
 
-
-    public override void Thaw(Equipment equipment)
-    {
-        var trueEquipment = (BunnyBurstPassive)equipment;
-
-        ProjectileWeapon.staticStatModifiers.projectileSpeed -= state;
-        state = trueEquipment.state;
+    protected override object FreezeRaw() { return state; }
+    protected override void Thaw(object data) {
+        state = (float)data;
         ProjectileWeapon.staticStatModifiers.projectileSpeed += state;
     }
 }

@@ -242,11 +242,14 @@ abstract public class ProjectileWeapon : Weapon
         }
     }
     
-    public override void Thaw(Equipment equipment) {
-        var trueEquipment = (ProjectileWeapon)equipment;
+    protected override object FreezeRaw() {
+        return statModifiers;
+    }
 
-        statModifiers = trueEquipment.statModifiers;
-        // PostLevelUp(); TODO
+    protected override void Thaw(object data) {
+        string type = data.GetType().ToString();
+
+        statModifiers = (WeaponStats)data;
     }
 }
 

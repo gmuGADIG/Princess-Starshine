@@ -30,7 +30,7 @@ public class EquipmentManager : MonoBehaviour
     private List<Equipment> currentEquipment = new();
 
     void OnDestroy() {
-        SaveManager.SaveData.deadEquipment = currentEquipment;
+        SaveManager.SaveData.frozenEquipment = currentEquipment.Select(e => e.Freeze()).ToList();
     }
 
     void Awake() {
@@ -47,11 +47,10 @@ public class EquipmentManager : MonoBehaviour
     // NOTE: Thaw needs to happen after Player.Awake and before InGameUI.Start (ie GetUpgradeOptions(true))
     void Thaw() {
         currentEquipment = new();
-        foreach (var deadEquipment in SaveManager.SaveData.deadEquipment) {
+        foreach (var frozen in SaveManager.SaveData.frozenEquipment) {
             // find "alive" equipment
-            var t = deadEquipment.GetType().ToString();
-            var equipment = allEquipment.Where(e => e.GetType() == deadEquipment.GetType()).ToArray()[0];
-            equipment.Thaw(deadEquipment);
+            var equipment = allEquipment.Where(e => e.GetType().ToString() == frozen.Type).ToArray()[0];
+            equipment.Thaw(frozen);
 
             currentEquipment.Add(equipment);
             equipment.enabled = true;

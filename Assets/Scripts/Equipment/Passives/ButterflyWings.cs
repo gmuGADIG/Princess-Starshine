@@ -27,13 +27,8 @@ public class ButterflyWings : Passive {
     public override void OnUnEquip() {
         receipt.Unbuff();
     }
-
-    public override void Thaw(Equipment equipment)
-    {
-        var trueEquipment = (ButterflyWings)equipment;
-
-        var mul = trueEquipment.receipt.Value;
-        receipt?.Unbuff();
-        receipt = Player.instance.moveSpeedMultiplier.MultiplierBuff(mul);
+    protected override object FreezeRaw() { return receipt?.Value ?? 0f; }
+    protected override void Thaw(object data) {
+        receipt = Player.instance.moveSpeedMultiplier.MultiplierBuff((float)data);
     }
 }

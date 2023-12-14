@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
-
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 
 /**
  * A single piece of equipment (weapon or passive).
@@ -51,10 +52,38 @@ public abstract class Equipment : MonoBehaviour
      */
     public abstract (string description, Action onApply) GetLevelUps();
 
+    public FrozenEquipment Freeze() {
+        return new FrozenEquipment {
+            Type = GetType().ToString(),
+            Data = FreezeRaw()
+        };
+    }
+
+    public void Thaw(FrozenEquipment frozen) {
+        if (frozen.Type == GetType().ToString()) {
+            var data = frozen.Data;
+
+            if (data is JObject) {
+                Thaw(JsonConvert.DeserializeObject(data.ToString(), FreezeRaw().GetType()));
+            } else {
+                Thaw(data);
+            }
+        } else {
+            throw new ArgumentException("frozen.Type != GetType().ToString()");
+        }
+    }
+
+    /// <summary>
+    /// Called when the state of an equipment needs to be saved/carried between scenes.
+    /// This function may also be called for type information, so it needs to handle invalid states.
+    /// </summary>
+    /// <returns>Data representing the state of this equipment</returns>
+    protected abstract object FreezeRaw();
+
     /// <summary>
     /// Called when this equipment is thawed. 
-    /// This will be called in place of "lifecycle" methods like OnEquip and ProcessOther.
+    /// This will be called in place of lifecycle methods like OnEquip and ProcessOther.
     /// </summary>
-    /// <param name="equipment">The older version of this equipment. Should be safe to downcast.</param>
-    public abstract void Thaw(Equipment equipment);
+    /// <param name="data">The data returned from FreezeRaw()</param>
+    protected abstract void Thaw(object data);
 }

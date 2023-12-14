@@ -25,13 +25,9 @@ public class ChubbyCookiePassive : Passive
     }
 
     public override void OnUnEquip() {     }
-
-    public override void Thaw(Equipment equipment)
-    {
-        var trueEquipment = (ChubbyCookiePassive)equipment;
-
-        ProjectileWeapon.staticStatModifiers.size -= state;
-        state = trueEquipment.state;
+    protected override object FreezeRaw() { return state; }
+    protected override void Thaw(object data) {
+        state = (float)data;
         ProjectileWeapon.staticStatModifiers.size += state;
     }
 }

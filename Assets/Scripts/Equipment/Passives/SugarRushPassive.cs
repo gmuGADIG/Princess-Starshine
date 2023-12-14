@@ -24,13 +24,9 @@ public class SugarRushPassive : Passive
 
     public override void OnUnEquip() {      }
 
-
-    public override void Thaw(Equipment equipment)
-    {
-        var trueEquipment = (SugarRushPassive)equipment;
-
-        ProjectileWeapon.staticStatModifiers.damage -= state;
-        state = trueEquipment.state;
+    protected override object FreezeRaw() { return state; }
+    protected override void Thaw(object data) {
+        state = (float)data;
         ProjectileWeapon.staticStatModifiers.damage += state;
     }
 }

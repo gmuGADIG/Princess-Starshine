@@ -27,12 +27,9 @@ public class SunnySqueePassive : Passive
 
     public override void OnUnEquip() {     }
 
-    public override void Thaw(Equipment equipment)
-    {
-        var trueEquipment = (SunnySqueePassive)equipment;
-
-        ProjectileWeapon.staticStatModifiers.fireRate -= state;
-        state = trueEquipment.state;
+    protected override object FreezeRaw() { return state; }
+    protected override void Thaw(object data) {
+        state = (float)data;
         ProjectileWeapon.staticStatModifiers.fireRate += state;
     }
 }
