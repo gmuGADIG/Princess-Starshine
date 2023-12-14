@@ -40,6 +40,8 @@ public class EquipmentManager : MonoBehaviour
             equipment.enabled = false;
             allEquipment.Add(equipment);
         }
+
+        ProjectileWeapon.staticStatModifiers = new();
     }
 
     // NOTE: Thaw needs to happen after Player.Awake and before InGameUI.Start (ie GetUpgradeOptions(true))
