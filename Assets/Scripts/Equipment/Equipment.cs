@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
+using UnityEngine.Assertions;
 
 /**
  * A single piece of equipment (weapon or passive).
@@ -64,8 +65,12 @@ public abstract class Equipment : MonoBehaviour
             var data = frozen.Data;
 
             if (data is JObject) {
-                Thaw(JsonConvert.DeserializeObject(data.ToString(), FreezeRaw().GetType()));
-            } else {
+                var parsed = JsonConvert.DeserializeObject(data.ToString(), FreezeRaw().GetType());
+                Thaw(parsed);
+            } else if (data is double && FreezeRaw() is float) {
+                Thaw((float)(double)data); // only sane code written here
+            }
+            else {
                 Thaw(data);
             }
         } else {
