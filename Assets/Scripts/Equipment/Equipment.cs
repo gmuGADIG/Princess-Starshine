@@ -56,12 +56,14 @@ public abstract class Equipment : MonoBehaviour
     public FrozenEquipment Freeze() {
         return new FrozenEquipment {
             Type = GetType().ToString(),
+            LevelUpsDone = levelUpsDone,
             Data = FreezeRaw()
         };
     }
 
     public void Thaw(FrozenEquipment frozen) {
         if (frozen.Type == GetType().ToString()) {
+            levelUpsDone = frozen.LevelUpsDone;
             var data = frozen.Data;
 
             if (data is JObject) {

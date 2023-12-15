@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FrozenEquipment {
     public string Type;
+    public int LevelUpsDone;
     public object Data;
 }
 
