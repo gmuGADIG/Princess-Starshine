@@ -165,15 +165,23 @@ public class Player : MonoBehaviour
                 velocity = Vector2.ClampMagnitude(velocity, maxSpeed);
 
                 //Check for camera bounds
-                if (gameObject.transform.position.y>camera.transform.position.y+constraintHeight&& velocity.y>0)
+                if (transform.position.y > camera.transform.position.y + constraintHeight && velocity.y>0)
                     velocity.y = 0;
-                else if (gameObject.transform.position.y < camera.transform.position.y - constraintHeight && velocity.y < 0)
+                else if (transform.position.y < camera.transform.position.y - constraintHeight && velocity.y < 0)
                     velocity.y = 0;
 
-                if (gameObject.transform.position.x > camera.transform.position.x + constraintWidth && velocity.x > 0)
+                if (transform.position.x > camera.transform.position.x + constraintWidth && velocity.x > 0)
                     velocity.x = 0;
-                else if (gameObject.transform.position.x < camera.transform.position.x - constraintWidth && velocity.x < 0)
-                    gameObject.transform.position = new Vector2(camera.transform.position.x - constraintWidth, gameObject.transform.position.y);
+                else if (transform.position.x < camera.transform.position.x - constraintWidth && velocity.x < 0)
+                    transform.position = new Vector2(camera.transform.position.x - constraintWidth, transform.position.y);
+                
+                // Handle wall bound
+                var wall = FindObjectOfType<Wall>();
+                if (wall != null) {
+                    if (transform.position.y > wall.Border && velocity.y > 0) {
+                        velocity.y = 0;
+                    }
+                }
             }
             else
             {
