@@ -102,6 +102,7 @@ public class Player : MonoBehaviour
     string levelUpSound = "Level_Up";
     string twirlDashSound = "Princess_Dash";
 
+    Wall wall;
 
     void Awake() {
         instance = this;
@@ -129,6 +130,8 @@ public class Player : MonoBehaviour
         onLevelUp += (newLevel, xpThatLevel) => LevelUpUI.instance.Open();
 
         InGameUI.UpdateTwirls(curTwirlCharges);                
+
+        wall = FindObjectOfType<Wall>();
     }
 
     void Update()
@@ -176,7 +179,6 @@ public class Player : MonoBehaviour
                     transform.position = new Vector2(camera.transform.position.x - constraintWidth, transform.position.y);
                 
                 // Handle wall bound
-                var wall = FindObjectOfType<Wall>();
                 if (wall != null) {
                     if (transform.position.y > wall.Border && velocity.y > 0) {
                         velocity.y = 0;
