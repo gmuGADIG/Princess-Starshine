@@ -102,6 +102,8 @@ public class Player : MonoBehaviour
     string levelUpSound = "Level_Up";
     string twirlDashSound = "Princess_Dash";
 
+    public Action<Consumable?> PickedUpConsumable;
+    
     Wall wall;
 
     void Awake() {
@@ -218,6 +220,7 @@ public class Player : MonoBehaviour
                 Consumable.Apply(heldConsumable);
                 Debug.Log("Player.cs: Consumed Successfully");
                 heldConsumable = Consumable.Type.None;
+                PickedUpConsumable?.Invoke(null);
             }
         }
     }
@@ -322,6 +325,7 @@ public class Player : MonoBehaviour
             else // otherwise just hold onto it
             {
                 heldConsumable = consumable.ConsumableType;
+                PickedUpConsumable?.Invoke(consumable);
             }
 
             // destroy any consumables we "consume"
