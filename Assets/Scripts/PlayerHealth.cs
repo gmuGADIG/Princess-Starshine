@@ -20,11 +20,19 @@ public class PlayerHealth : MonoBehaviour
     [Tooltip("If checked, the player will be invincible.")]
     public bool invincible;
     // Start is called before the first frame update
+    
+    [Tooltip("The amount the player heals per second.")]
+    [SerializeField] float passiveHealAmount;
+
     void Start()
     {
         defaultDamageTakenMultiplier = damageTakenMultiplier;
         tempHealth = maxHealth;
         InGameUI.SetHp(1f);
+    }
+
+    void Update() {
+        increaseHealth(passiveHealAmount * Time.deltaTime);
     }
 
     public void decreaseHealth(float num)
