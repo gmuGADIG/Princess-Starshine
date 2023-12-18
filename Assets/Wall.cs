@@ -1,7 +1,11 @@
 using UnityEngine;
 
 public class Wall : MonoBehaviour {
+    [Tooltip("How tall the wall is (i.e. how low it should stretch from the top of the camera).")]
     [SerializeField] float wallHeight;
+    /// <summary>
+    /// The Y coordinate of the bottom edge of the wall
+    /// </summary>
     public float Border { get => TeaTime.cameraBoundingBox().yMax - wallHeight; }
 
     void OnDrawGizmos() {
