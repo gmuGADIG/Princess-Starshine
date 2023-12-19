@@ -35,8 +35,8 @@ public class Player : MonoBehaviour
     //private float playerWidth;
 
     //for xp mechanic 
-    int cumulativeXpPoints = 0;
-    int xpThisLevel { 
+    float cumulativeXpPoints = 0;
+    float xpThisLevel { 
         get => SaveManager.SaveData.PlayerXP;
         set => SaveManager.SaveData.PlayerXP = value;
     }
@@ -56,7 +56,7 @@ public class Player : MonoBehaviour
 
     [SerializeField]
     int XpLevelUpGoal() => (increaseXP * xpLevel) + initialXpToLevelUp;
-    static Action<int, int> onLevelUp;
+    static Action<int, float> onLevelUp;
 
     //For dodge twirl
     public bool isTwirling = false;
@@ -266,7 +266,7 @@ public class Player : MonoBehaviour
     }
 
     //current placeholder for xp function
-    public void AddXP(int points) 
+    public void AddXP(float points) 
     {
         cumulativeXpPoints += points;
         xpThisLevel += points;
@@ -277,7 +277,7 @@ public class Player : MonoBehaviour
         {
             xpThisLevel -= goal;
             xpLevel += 1;
-            onLevelUp?.Invoke(cumulativeXpPoints, xpLevel);
+            onLevelUp?.Invoke(xpLevel, cumulativeXpPoints);
             SoundManager.Instance.PlaySoundGlobal(levelUpSound);
         }
 

@@ -13,5 +13,5 @@ public class SaveData
     public string FurthestLevelSceneName = "Level01Dialogue";
     public List<FrozenEquipment> frozenEquipment = new();
     public int PlayerLevel = 1;
-    public int PlayerXP = 0;
+    public float PlayerXP = 0;
 }
