@@ -10,7 +10,11 @@ public class ConsumableManager : MonoBehaviour
     [SerializeField] private float initialConsumableSpawnChance = 0.01f;
     public float HealthConsumableHealing = 100f;
     public float InvincibilityDuration = 5f;
+
+    [Tooltip("How far away the player needs to be to collect a consumable.")]
     [SerializeField] private float initialConsumableCollisionRadius = 0.5f;
+    [Tooltip("How far away the player needs to be to collect xp.")] 
+    [SerializeField] private float initialXpCollisionRadius = 0.5f;
 
     public Color InvincibleColor = Color.yellow;
 
@@ -31,20 +35,28 @@ public class ConsumableManager : MonoBehaviour
     public UnityEvent PlayerNotOverpowered = new UnityEvent();
 
     [HideInInspector] public BuffableStat ConsumableCollisionRadius { get; private set; }
+    [HideInInspector] public BuffableStat XpCollisionRadius { get; private set; }
     [HideInInspector] public BuffableStat ConsumableSpawnChance { get; private set; }
     void Awake() {
         Instance = this;
 
-        ConsumableCollisionRadius = new BuffableStat(initialConsumableCollisionRadius);
-        ConsumableSpawnChance = new BuffableStat(initialConsumableSpawnChance);
+        ConsumableCollisionRadius = new(initialConsumableCollisionRadius);
+        XpCollisionRadius = new(initialXpCollisionRadius);
+        ConsumableSpawnChance = new(initialConsumableSpawnChance);
     }
 
     void Start() {
         GameObject[] consumablePrefabs = Resources.LoadAll<GameObject>("Consumables");
 
         ConsumableCollisionRadius.ValueUpdated.AddListener((radius) => { // Update consumable collision radius when the value changes
-            foreach (Consumable c in FindObjectsOfType<Consumable>())
+            foreach (var c in FindObjectsOfType<Consumable>())
                 c.GetComponent<CircleCollider2D>().radius = radius;
+        });
+
+        XpCollisionRadius.ValueUpdated.AddListener((radius) => {
+            foreach (var xp in FindObjectsOfType<XpOrb>()) {
+                xp.GetComponent<CircleCollider2D>().radius = radius;
+            }
         });
 
         // chance to spawn a consumable every time an enemy spawns
