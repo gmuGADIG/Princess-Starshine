@@ -32,6 +32,11 @@ public class BossHealth : MonoBehaviour
     {
         isDead = true;
         print("BOSS DEFEATED!!");
-        SceneManager.LoadScene("Scenes/Build Scenes/LevelPreview");
+    
+        //may have to change the number based on index of the first level
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+            SceneManager.LoadScene("Scenes/DailogueAfterBoss");
+        else
+            SceneManager.LoadScene("Scenes/Build Scenes/LevelPreview");
     }
 }
