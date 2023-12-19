@@ -33,7 +33,7 @@ public class BossHealth : MonoBehaviour
         isDead = true;
         print("BOSS DEFEATED!!");
     
-        //may have to change the number based on index of the first level
+        //may have to change the number based on index of the first level; change int value in following statement
         if (SceneManager.GetActiveScene().buildIndex == 1)
             SceneManager.LoadScene("Scenes/DailogueAfterBoss");
         else
