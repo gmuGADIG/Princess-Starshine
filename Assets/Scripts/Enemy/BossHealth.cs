@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,9 @@ public class BossHealth : MonoBehaviour
 
     float currentHealth;
     bool isDead = false;
+
+    // NOTE: Assumes there's only one boss per scene!
+    public static Action BossDied; 
 
     private void Start()
     {
@@ -31,6 +35,7 @@ public class BossHealth : MonoBehaviour
     public void Die()
     {
         isDead = true;
+        BossDied?.Invoke();
         print("BOSS DEFEATED!!");
         SceneManager.LoadScene("Scenes/Build Scenes/LevelPreview");
     }

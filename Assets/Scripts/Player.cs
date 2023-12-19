@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
@@ -33,9 +35,16 @@ public class Player : MonoBehaviour
     //private float playerWidth;
 
     //for xp mechanic 
-    int cumulativeXpPoints = 0;
-    int xpThisLevel = 0;
-    int xpLevel = 1;
+    float cumulativeXpPoints = 0;
+    float xpThisLevel { 
+        get => SaveManager.SaveData.PlayerXP;
+        set => SaveManager.SaveData.PlayerXP = value;
+    }
+    int xpLevel { 
+        get => SaveManager.SaveData.PlayerLevel;
+        set => SaveManager.SaveData.PlayerLevel = value;
+    }
+    // int xpLevel = 1;
     
     [Tooltip("The initial amount of XP required for the player to level up.")]
     [SerializeField]
@@ -47,7 +56,7 @@ public class Player : MonoBehaviour
 
     [SerializeField]
     int XpLevelUpGoal() => (increaseXP * xpLevel) + initialXpToLevelUp;
-    static Action<int, int> onLevelUp;
+    static Action<int, float> onLevelUp;
 
     //For dodge twirl
     public bool isTwirling = false;
@@ -94,12 +103,15 @@ public class Player : MonoBehaviour
     string twirlDashSound = "Princess_Dash";
 
     public Action<Consumable?> PickedUpConsumable;
+    
+    Wall wall;
+
+    void Awake() {
+        instance = this;
+    }
 
     // Start is called before the first frame update
-    void Start()
-    {
-        instance = this;
-
+    void Start() {
         camera = Camera.main;
         float aspectRatio = (float)Screen.width / Screen.height;
         float worldHeight = camera.orthographicSize * 2;
@@ -115,11 +127,13 @@ public class Player : MonoBehaviour
 
         //Test the xp system with 10 xpPoints
         // AddXP(10);
-        InGameUI.SetXp(0, 0);
+        InGameUI.SetXp(xpLevel, (float)xpThisLevel / XpLevelUpGoal());
 
         onLevelUp += (newLevel, xpThatLevel) => LevelUpUI.instance.Open();
 
         InGameUI.UpdateTwirls(curTwirlCharges);                
+
+        wall = FindObjectOfType<Wall>();
     }
 
     void Update()
@@ -156,15 +170,22 @@ public class Player : MonoBehaviour
                 velocity = Vector2.ClampMagnitude(velocity, maxSpeed);
 
                 //Check for camera bounds
-                if (gameObject.transform.position.y>camera.transform.position.y+constraintHeight&& velocity.y>0)
+                if (transform.position.y > camera.transform.position.y + constraintHeight && velocity.y>0)
                     velocity.y = 0;
-                else if (gameObject.transform.position.y < camera.transform.position.y - constraintHeight && velocity.y < 0)
+                else if (transform.position.y < camera.transform.position.y - constraintHeight && velocity.y < 0)
                     velocity.y = 0;
 
-                if (gameObject.transform.position.x > camera.transform.position.x + constraintWidth && velocity.x > 0)
+                if (transform.position.x > camera.transform.position.x + constraintWidth && velocity.x > 0)
                     velocity.x = 0;
-                else if (gameObject.transform.position.x < camera.transform.position.x - constraintWidth && velocity.x < 0)
-                    gameObject.transform.position = new Vector2(camera.transform.position.x - constraintWidth, gameObject.transform.position.y);
+                else if (transform.position.x < camera.transform.position.x - constraintWidth && velocity.x < 0)
+                    transform.position = new Vector2(camera.transform.position.x - constraintWidth, transform.position.y);
+                
+                // Handle wall bound
+                if (wall != null) {
+                    if (transform.position.y > wall.Border && velocity.y > 0) {
+                        velocity.y = 0;
+                    }
+                }
             }
             else
             {
@@ -245,7 +266,7 @@ public class Player : MonoBehaviour
     }
 
     //current placeholder for xp function
-    public void AddXP(int points) 
+    public void AddXP(float points) 
     {
         cumulativeXpPoints += points;
         xpThisLevel += points;
@@ -256,7 +277,7 @@ public class Player : MonoBehaviour
         {
             xpThisLevel -= goal;
             xpLevel += 1;
-            onLevelUp?.Invoke(cumulativeXpPoints, xpLevel);
+            onLevelUp?.Invoke(xpLevel, cumulativeXpPoints);
             SoundManager.Instance.PlaySoundGlobal(levelUpSound);
         }
 

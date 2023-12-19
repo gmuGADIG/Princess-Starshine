@@ -16,13 +16,14 @@ public class TitleSceenButtons : MonoBehaviour
     public void ContinueButton()
     {
         // retrieve player data
-        SceneManager.LoadScene(savedLevelSceneName); // TEMPORARY, NEED LEVELS AND SAVE SYSTEM
+        SceneManager.LoadScene(savedLevelSceneName); 
         //Debug.Log("continue");
     }
 
     public void NewRunButton()
     {
-        SceneManager.LoadScene(firstLevelSceneName); // TEMPORARY, NEED LEVELS
+        SaveManager.Instance.NewGame();
+        SceneManager.LoadScene(firstLevelSceneName); 
         //Debug.Log("newrun");
     }
 

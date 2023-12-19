@@ -164,10 +164,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  tempHealth: 0
-  isDead: 0
   damageTakenMultiplier: 1
   invincible: 0
+  passiveHealAmount: 1
 --- !u!95 &1201584929703181706
 Animator:
   serializedVersion: 5

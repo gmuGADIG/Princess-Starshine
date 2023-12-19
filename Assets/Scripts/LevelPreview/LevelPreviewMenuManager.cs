@@ -45,6 +45,19 @@ public class LevelPreviewMenuManager : MonoBehaviour
         SceneManager.LoadScene("TitleScreenScene");
     }
 
+    public void Awake() {
+        // lock any level the player hasn't unlocked yet
+        LPNode node = FirstNode;
+        string name = SaveManager.SaveData.FurthestLevelSceneName;
+
+        bool unlocked = node.LevelSceneName != name;
+        while (node.NextPath.Enabled) {
+            node = node.NextPath.EndNode;
+            node.Unlocked = unlocked;
+            unlocked = unlocked && node.LevelSceneName != name;
+        }
+    }
+
     public void Start() {
         Time.timeScale = 1;
 

@@ -41,6 +41,8 @@ public class EnemySpawner : MonoBehaviour
     
     public static UnityEvent SpawningEnemy = new UnityEvent();
 
+    Wall wall;
+
     public void RandomSpawn()
     {
         SpawningEnemy.Invoke();
@@ -83,18 +85,31 @@ public class EnemySpawner : MonoBehaviour
         const float distanceFromBounds = 1; // how far past the bounds the enemy's center will spawn at
         
         // randomly spawn at the right, bottom, or top wall, weighted by the lengths of those walls
-        var rand = Random.Range(0, halfHeight + halfWidth + halfWidth);
-        if (rand < halfHeight) // spawn at right wall
-        {
-            return camPos + Vector3.right * (halfWidth + distanceFromBounds) + Vector3.up * Random.Range(-halfHeight, halfHeight);
-        }
-        else if (rand < halfHeight + halfWidth) // spawn at bottom wall
-        {
-            return camPos + Vector3.down * (halfHeight + distanceFromBounds) + Vector3.right * Random.Range(-halfWidth, halfWidth);
-        }
-        else // spawn at top wall
-        {
-            return camPos + Vector3.up * (halfHeight + distanceFromBounds) + Vector3.right * Random.Range(-halfWidth, halfWidth);
+        if (wall == null) {
+            var rand = Random.Range(0, halfHeight + halfWidth + halfWidth);
+            if (rand < halfHeight) // spawn at right wall
+            {
+                return camPos + Vector3.right * (halfWidth + distanceFromBounds) + Vector3.up * Random.Range(-halfHeight, halfHeight);
+            }
+            else if (rand < halfHeight + halfWidth) // spawn at bottom wall
+            {
+                return camPos + Vector3.down * (halfHeight + distanceFromBounds) + Vector3.right * Random.Range(-halfWidth, halfWidth);
+            }
+            else // spawn at top wall
+            {
+                return camPos + Vector3.up * (halfHeight + distanceFromBounds) + Vector3.right * Random.Range(-halfWidth, halfWidth);
+            }
+        } else {
+            var rand = Random.Range(0, halfHeight + halfWidth + halfWidth);
+            if (rand < halfHeight) // spawn at right wall
+            {
+                var maxY = wall.Border - camPos.y;
+                return camPos + Vector3.right * (halfWidth + distanceFromBounds) + Vector3.up * Random.Range(-halfHeight, maxY);
+            }
+            else // spawn at bottom wall
+            {
+                return camPos + Vector3.down * (halfHeight + distanceFromBounds) + Vector3.right * Random.Range(-halfWidth, halfWidth);
+            }
         }
 
     }
@@ -102,6 +117,7 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
         startTime = Time.time;
+        wall = FindObjectOfType<Wall>();
     }
 
     void Update()
