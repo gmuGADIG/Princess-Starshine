@@ -110,7 +110,13 @@ public class EnemyTemplate : MonoBehaviour
         }
         else if (moveTowardsObject != null)
         {
-            gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, moveTowardsObject.transform.position, movementSpeed * Time.deltaTime);
+            var startPos = (Vector2)transform.position;
+            var endPos = (Vector2)moveTowardsObject.transform.position;
+            var resultPos = Vector2.MoveTowards(startPos, endPos, movementSpeed * Time.deltaTime);
+
+            transform.position = new Vector3(
+                resultPos.x, resultPos.y, transform.position.z
+            );
         }
     }
 
