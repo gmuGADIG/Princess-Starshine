@@ -14,10 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioVariants:
   - {fileID: 8300000, guid: 837a5ed44df255b4a8aa12f4ae5637c5, type: 3}
+  - {fileID: 8300000, guid: b2af887af29002e4b86ecbdeee95dbee, type: 3}
+  - {fileID: 8300000, guid: e08c1be67cb52224b827551d393b2fb9, type: 3}
+  - {fileID: 8300000, guid: 16318be21cd94a041abaf5597d09b7c4, type: 3}
   volume: 1
   volumeVariance: 0
   pitch: 1
-  pitchVariance: 0
+  pitchVariance: 0.1
   minimumDistance: 10
   loop: 0
   mixerGroup: {fileID: 0}
