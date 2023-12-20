@@ -341,7 +341,7 @@ MonoBehaviour:
     Stops: []
     EndNode: {fileID: 1637137179}
   LevelName: 'Level 3: Frozen Icy Hellscape'
-  LevelSceneName: Level03
+  LevelSceneName: Level03Dialogue
 --- !u!1 &71079458
 GameObject:
   m_ObjectHideFlags: 0
@@ -1716,7 +1716,7 @@ MonoBehaviour:
     Stops: []
     EndNode: {fileID: 0}
   LevelName: 'Level 7: Gothic Dungeon'
-  LevelSceneName: Level07
+  LevelSceneName: Level07Dialogue
 --- !u!1 &746490490
 GameObject:
   m_ObjectHideFlags: 0
@@ -2137,7 +2137,7 @@ MonoBehaviour:
     Stops: []
     EndNode: {fileID: 738882616}
   LevelName: 'Level 6: Flesh Land'
-  LevelSceneName: Level06
+  LevelSceneName: Level06Dialogue
 --- !u!1 &898736671
 GameObject:
   m_ObjectHideFlags: 0
@@ -2430,7 +2430,7 @@ MonoBehaviour:
     Stops: []
     EndNode: {fileID: 48812805}
   LevelName: 'Level 2: Corporate Office Hell'
-  LevelSceneName: Level02
+  LevelSceneName: Level02Dialogue
 --- !u!1 &1028082051 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7844938225608219057, guid: 80d554e2857124c47b70bfe258af8576, type: 3}
@@ -3355,7 +3355,7 @@ MonoBehaviour:
     Stops: []
     EndNode: {fileID: 1882905973}
   LevelName: 'Level 4: Industrial Hellscape'
-  LevelSceneName: Level04
+  LevelSceneName: Level04Dialogue
 --- !u!1 &1648575169
 GameObject:
   m_ObjectHideFlags: 0
@@ -3909,7 +3909,7 @@ MonoBehaviour:
     Stops: []
     EndNode: {fileID: 896058338}
   LevelName: 'Level 5: Casino'
-  LevelSceneName: Level05
+  LevelSceneName: Level05Dialogue
 --- !u!1 &2050615906
 GameObject:
   m_ObjectHideFlags: 0

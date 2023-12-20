@@ -5,6 +5,7 @@ using System.Linq;
 using JetBrains.Annotations;
 using TMPro;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
@@ -30,13 +31,19 @@ public class DialoguePlayer : MonoBehaviour
     public DialogueSequence dialogueSequence;
     public DialogueCommand[] commands;
 
-    [Header("End Transition")]
-    public string nextScene;
+    [Header("Ending")]
+    [Tooltip("When the player skips the dialogue, this event should set everything to its final state.\n" +
+             "e.g. if the princess walks around, this should set her position to where she stops.\n" +
+             "note that endEvent is also invoked when the dialogue is skipped.")]
+    public UnityEvent onSkip;
+    
+    [Tooltip("After the dialogue ends, this object is disabled and this event is invoked.")]
+    public UnityEvent endEvent;
 
     string[] lines;
     int currentLineIndex = 0;
     Dictionary<string, UnityEvent> commandDict;
-    Dictionary<string, DialogueCharacter> characterDict;
+    static Dictionary<string, DialogueCharacter> characterDict;
     
     bool isTextInProgress;
     bool skipPressed;
@@ -63,51 +70,53 @@ public class DialoguePlayer : MonoBehaviour
     {
         lines = dialogueSequence.text.Split(new[] {'\n', '\r'}, StringSplitOptions.RemoveEmptyEntries);
 
-        commandDict = new Dictionary<string, UnityEvent>();
-        foreach (var command in commands)
-            commandDict.Add(command.name, command.action);
-
-        characterDict = new Dictionary<string, DialogueCharacter>();
-        foreach (var character in dialogueSequence.characters)
-            characterDict.Add(character.scriptName, character);
-        
+        SetUpCommandAndCharacterDict();
         ProcessLine();
     }
 
-    void EndDialogue()
+    void OnDisable()
     {
-        if (nextScene != "")
+        print($"dialogue {this.name} disabled");
+    }
+
+    void SetUpCommandAndCharacterDict()
+    {
+        if (commandDict == null)
         {
-            SceneManager.LoadScene(nextScene);
+            commandDict = new Dictionary<string, UnityEvent>();
+            foreach (var command in commands)
+                commandDict.Add(command.name, command.action);
         }
-        gameObject.SetActive(false);
+        
+        if (characterDict == null)
+        {
+            characterDict = new Dictionary<string, DialogueCharacter>();
+            var allCharacters = Resources.LoadAll<DialogueCharacter>("Dialogue/Characters");
+            if (allCharacters.Length == 0) Debug.LogError("No character resources were loaded! Dialogue will not work");
+            foreach (var character in allCharacters)
+                characterDict.Add(character.scriptName, character);
+        }
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space)) // advance
         {
             if (dialogueBox.activeSelf == false) return;
             if (isTextInProgress) skipPressed = true;
             else ProcessLine();
         }
+
+        if (Input.GetKeyDown(KeyCode.BackQuote)) SkipDialogue();
     }
 
-    /**
-     * Helpful function for commands. If you want to play an animation, use this to hide the dialogue box until it finishes.
-     */
-    public void HideDialogueBoxThenAdvance(float seconds)
+    void SkipDialogue()
     {
-        dialogueBox.SetActive(false);
-        StartCoroutine(Coroutine());
-        IEnumerator Coroutine()
-        {
-            yield return new WaitForSeconds(seconds);
-            ProcessLine();
-            dialogueBox.SetActive(true);
-        }
+        this.gameObject.SetActive(false);
+        onSkip.Invoke();
+        endEvent.Invoke();
     }
-    
+
     /**
      * Runs a single line of the dialogue sequence, displaying the text and triggering any commands.
      * Advances the currentLineIndex by one.
@@ -115,13 +124,17 @@ public class DialoguePlayer : MonoBehaviour
      */
     public void ProcessLine()
     {
-        if (currentLineIndex >= lines.Length)
+        int thisLineIndex = currentLineIndex;
+        currentLineIndex += 1;
+        
+        if (thisLineIndex >= lines.Length)
         {
-            EndDialogue();
+            this.gameObject.SetActive(false);
+            endEvent.Invoke();
             return;
         }
-        
-        var line = lines[currentLineIndex];
+
+        var line = lines[thisLineIndex];
         var curlyIndex = line.IndexOf('{');
         var closingCurlyIndex = line.IndexOf('}');
 
@@ -138,10 +151,8 @@ public class DialoguePlayer : MonoBehaviour
         }
         else
         {
-            throw new Exception($"Unbalanced curly braces in line {currentLineIndex}!\n`{line}`");
+            throw new Exception($"Unbalanced curly braces in line {thisLineIndex}!\n`{line}`");
         }
-
-        currentLineIndex += 1;
     }
 
     /**
@@ -217,4 +228,129 @@ public class DialoguePlayer : MonoBehaviour
         }
         else commandDict[commandName].Invoke();
     }
+
+    #region validation
+    public void ValidateDialogue()
+    {
+        if (transform.parent.name != "DialogueHolder") Debug.LogError("DialoguePlayer must be child to an object named \"DialogueHolder\"");
+        
+        if (dialogueSequence == null)
+        {
+            Debug.LogError("Dialogue player is missing a DialogueSequence!");
+            return;
+        }
+        
+        var missingCharacters = new HashSet<string>();
+        var missingCommands = new HashSet<string>();
+        
+        SetUpCommandAndCharacterDict();
+        var allLines = dialogueSequence.text.Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
+        foreach (var line in allLines)
+        {
+            var curlyIndex = line.IndexOf('{');
+            var closingCurlyIndex = line.IndexOf('}');
+
+            if (curlyIndex == -1 && closingCurlyIndex == -1) VerifyDialogue(line);
+            else if (curlyIndex != -1 && closingCurlyIndex != -1)
+            {
+                var dialogue = line[0 .. curlyIndex].TrimEnd();
+                var command = line[(curlyIndex+1) .. closingCurlyIndex];
+                if (dialogue.Length != 0) VerifyDialogue(dialogue);
+                VerifyCommand(command);
+            }
+            else
+            {
+                Debug.LogError($"Invalid line `{line}`!\n(Unbalanced curly braces)");
+            }
+        }
+
+        if (missingCharacters.Count == 0) Debug.Log("All characters are accounted for.");
+        else Debug.LogError($"Found {missingCharacters.Count} missing characters! {string.Join(", ", missingCharacters)}");
+        
+        if (missingCommands.Count == 0) Debug.Log("All commands are accounted for.");
+        else Debug.LogError($"Found {missingCommands.Count} missing commands! {string.Join(", ", missingCommands)}");
+        
+        Debug.Log("Validation finished.");
+        
+        void VerifyDialogue(string line)
+        {
+            var colonIndex = line.IndexOf(':');
+            if (colonIndex == -1) throw new Exception($"Invalid line `{line}`!\nLine is neither a valid command nor dialogue (missing colon)");
+            var speakerScriptName = line[0 .. colonIndex];
+            if (characterDict.ContainsKey(speakerScriptName) == false) missingCharacters.Add(speakerScriptName);
+        }
+
+        void VerifyCommand(string command)
+        {
+            if (commandDict.ContainsKey(command) == false) missingCommands.Add(command);
+        }
+    }
+    #endregion
+    
+    #region UnityEvent helper functions
+    /**
+     * Helpful function for commands. If you want to play an animation, use this to hide the dialogue box until it finishes.
+     */
+    public void HideDialogueBoxThenAdvance(float seconds)
+    {
+        dialogueBox.SetActive(false);
+        StartCoroutine(Coroutine());
+        IEnumerator Coroutine()
+        {
+            yield return new WaitForSeconds(seconds);
+            ProcessLine();
+            dialogueBox.SetActive(true);
+        }
+    }
+    
+    /**
+     * Simply calls SceneManager.LoadScene(scene). Necessary to change scene in UnityEvents.
+     */
+    public void ChangeScene(string scene)
+    {
+        SceneManager.LoadScene(scene);
+    }
+
+    /**
+     * Changes scenes to the level select and unlocks the next level.
+     */
+    public void OpenLevelPreview(string nextLevel)
+    {
+        SaveManager.SaveData.FurthestLevelSceneName = nextLevel;
+        SceneManager.LoadScene("LevelPreview");
+    }
+
+    /**
+     * Destroys all enemies (objects with an EnemyTemplate component), without dropping xp.
+     */
+    public void DeleteEnemies()
+    {
+        foreach (var enemy in FindObjectsOfType<EnemyTemplate>())
+            Destroy(enemy.gameObject);
+    }
+
+    /**
+     * Finds and activates the EnemySpawner, BossWeapon, and IBossMovement component in the current scene.
+     */
+    public void ActivateBossAndEnemies()
+    {
+        FindObjectOfType<EnemySpawner>().enabled = true;
+        FindObjectOfType<BossWeapon>().enabled = true;
+        FindObjectOfType<IBossMovement>().enabled = true;
+    }
+    #endregion
+}
+
+[CustomEditor(typeof(DialoguePlayer))]
+public class DialoguePlayerEditor : Editor
+{
+    public override void OnInspectorGUI()
+    {
+        DrawDefaultInspector();
+        if (GUILayout.Button("Validate Dialogue Sequence"))
+        {
+            var player = (DialoguePlayer)this.target;
+            player.ValidateDialogue();
+        }
+    } 
 }

@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfdcc9cbed7effe47855230305df1a91, type: 3}
+  m_Name: L04-D01-StartDialogue
+  m_EditorClassIdentifier: 
+  text: "Virgil: Thank Satan, we\u2019re finally out of that frigid place\u2026I\u2019m
+    starting to feel my fingers again\u2026\r\nPrincess: But Vi-Vi, you don\u2019t
+    have fingers!\r\nVirgil: Well, the tour must continue on! Let\u2019s see, given
+    the wretched smell in the air, we must be at the Industrial Domain.\r\nPrincess:
+    Indestreel? That sounds like some fancy-pantsy knight name!\r\nVirgil: Oh right,
+    you\u2019re a princess from an old-fashioned kingdom. As your trusty tour guide,
+    let me explain! Hell- I mean, the Sauna, is much more technologically advanced
+    than your kingdom, so we can manufacture a variety of high end prod-\r\nPrincess:
+    Ooooh! What\u2019s that?\r\nVirgil: \u2026Are you even listening to me?\r\nPrincess:
+    Nope! :3\r\nVirgil: I can\u2019t believe this\u2026\r\nPrincess: Who's that girl
+    in the painting?\r\nVirgil: Oh, her. That\u2019s Becky... She\u2019s the idol
+    of Hell- the Sauna, with fans from all seven Domains, as well as the leader of
+    this place. Her careless nature is why this place is such a dump\u2026\r\nPrincess: 
+    She looks so nice! I wanna have tea with her! What's she doing in that painting?\r\nVirgil:
+    That \"painting\" is a Hellywood movie poster for her upcoming film: Resident
+    Good 11, where she fights with a machine gun against a horde of humans who are
+    trying to make her eat vegetables. Truly vile things.\r\nPrincess: That\u2019s
+    sooooooo cool! Well, onwards, Vi-Vi! I wanna check out that radioactive waste
+    over there!"

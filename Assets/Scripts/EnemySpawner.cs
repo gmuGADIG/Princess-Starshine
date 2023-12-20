@@ -15,11 +15,12 @@ public class EnemySpawner : MonoBehaviour
     public float startSpawnRate = 1.0f;
     [Tooltip("How fast enemies spawn towards the end of the level, in spawns per second. Spawn rate will linearly approach this value as the level plays.")]
     public float endSpawnRate = 5.0f;
-    [Tooltip("How fast enemies spawn while the boss has been spawned.")]
-    public float midBossSpawnRate = 0.5f;
-    
+
     [Tooltip("How long the level is, which determines when the boss spawns and how quickly the spawn rate approaches endSpawnRate")]
     public float levelSeconds = 50;
+
+    [Tooltip("The scene swap to after the time ends, unless this string is empty, in which case nothing happens and spawning continues.")]
+    public string bossSceneOrEmpty;
 
     [System.Serializable]
     public struct EnemySpawn
@@ -33,12 +34,9 @@ public class EnemySpawner : MonoBehaviour
     }
     public EnemySpawn[] enemySpawns;
     
-    public bool isSpawningPaused = false;
-    
     float startTime;
     float timeTillNextSpawn = 0;
-    float t => (Time.time - startTime) / levelSeconds;
-    
+
     public static UnityEvent SpawningEnemy = new UnityEvent();
 
     Wall wall;
@@ -70,6 +68,7 @@ public class EnemySpawner : MonoBehaviour
             GameObject enemy = Instantiate(spawn.enemyType, GetSpawnPosition(), Quaternion.identity);
             if (enemy.TryGetComponent(out Damage damage))
             {
+                float t = (Time.time - startTime) / levelSeconds;
                 damage.damage = Mathf.Lerp(spawn.startingDamage, spawn.endingDamage, t);
             }
         }
@@ -124,48 +123,26 @@ public class EnemySpawner : MonoBehaviour
     {
         var secondsSinceStart = Time.time - startTime;
         var bossSpawned = secondsSinceStart > levelSeconds;
-        
-        if (!isSpawningPaused)
-        {
-            timeTillNextSpawn -= Time.deltaTime;
-            if (timeTillNextSpawn <= 0)
-            {
-                if (EnemyManager.enemyManager.enemies.Count <= EnemyManager.enemyManager.maxEnemies)
-                {
-                    RandomSpawn();
-                }
 
-                float rate;
-                if (bossSpawned) rate = midBossSpawnRate;
-                else rate = Mathf.Lerp(startSpawnRate, endSpawnRate, t);
-                
-                timeTillNextSpawn += 1 / rate;
+        if (bossSpawned && bossSceneOrEmpty != "")
+        {
+            print("SPAWNING BOSS!");
+            SceneManager.LoadScene(bossSceneOrEmpty);
+            return;
+        }
+        
+        timeTillNextSpawn -= Time.deltaTime;
+        if (timeTillNextSpawn <= 0)
+        {
+            if (EnemyManager.enemyManager.enemies.Count <= EnemyManager.enemyManager.maxEnemies)
+            {
+                RandomSpawn();
             }
+
+            float t = (Time.time - startTime) / levelSeconds;
+            float rate = Mathf.Lerp(startSpawnRate, endSpawnRate, t);
+            
+            timeTillNextSpawn += 1 / rate;
         }
     }
-
-    // void StartBoss()
-    // {
-    //     if (string.IsNullOrEmpty(bossSceneName)) return;
-    //
-    //     SceneManager.LoadScene(bossSceneName);
-    // }
-
-    // public void ScreenWipe()
-    // {
-    //     foreach (EnemyTemplate enemy in FindObjectsOfType<EnemyTemplate>()) {
-    //         enemy.Die();
-    //     }
-    // }
-    
-    // public void PauseSpawning()
-    // {
-    //     if (isSpawningPaused == true) Debug.LogWarning("PauseSpawning called when spawning was already paused. This may be unintentional.");
-    //     isSpawningPaused = true;
-    // }
-    // public void ResumeSpawning()
-    // {
-    //     if (isSpawningPaused == false) Debug.LogWarning("ResumeSpawning called when spawning was already playing. This may be unintentional.");
-    //     isSpawningPaused = false;
-    // }
 }

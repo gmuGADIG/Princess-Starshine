@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfdcc9cbed7effe47855230305df1a91, type: 3}
+  m_Name: L05-D03-PostBossDialogue
+  m_EditorClassIdentifier: 
+  text: "House: :(\r\n{house_explode}\r\nPrincess: Fireworks! So pretty! Look at
+    all those colors!!! :D\r\nVirgil: Would that be considered a jackpot?\r\n{becky_enter}\r\nBecky:
+    NO NO NO! This is impossible! The House never loses! You, you, you cheated!!\r\nVirgil:
+    Starshine is exceptionally good at killing things. You should know that by now.\r\nPrincess:
+    Papa always said it was a special talent of mine! :3\r\nBecky: I HATE YOU Starshine!!!\r\nPrincess:
+    Now your face is even redder than before Bestie-Becky!\r\nBecky: HRAAGHH! I hope
+    the paparazzi stalks you the rest of your life! I hope you trip and fall down
+    the stairs every morning! I hope you sneeze every time you go outside I, I, I\u2026
+    I\u2026\r\nVirgil: That\u2019s enough Ms. Becky. Don\u2019t you have a movie
+    to film?\r\nBecky: \u2026I do but\u2026 I don\u2019t want to anymore\u2026 my
+    life is ruined\u2026\r\nVirgil: But think of all your fans! They still want to
+    see you sparkle on the big screen!\r\nBecky: Why do you care about what I do?
+    You\u2019re just a dumb skull.\r\nVirgil: Well, my old boss happened to be a
+    big fan of your films, and I, well, I happened to become a bit of a fan myself.
+    Call it Stockholm syndrome, but I began looking forward to them.\r\nBecky: You\u2026
+    you did?\r\nPrincess: So it is time for us to have tea together Bestie-Becky?\r\nBecky:
+    I\u2026 need some time to think. I think I\u2019m just going to sit here. Yes,
+    that sounds like a good idea.\r\nPrincess: OMG I\u2019ll get the teacups!\r\nVirgil:
+    Now now Ms. Starshine, I think it\u2019s best we keep moving for the time being.
+    And let Ms. Becky um\u2026 finish setting up the tea party herself.\r\nPrincess:
+    OK! :3"

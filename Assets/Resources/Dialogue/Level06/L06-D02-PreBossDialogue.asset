@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfdcc9cbed7effe47855230305df1a91, type: 3}
+  m_Name: L06-D02-PreBossDialogue
+  m_EditorClassIdentifier: 
+  text: "Princess: Ladeedaadeeedaaaa! :D\r\nFleshUnknown: You really ought to watch
+    where you\u2019re going, miss.\r\nPrincess: Ooh, a new friend!\r\nVirgil: Princess,
+    not everyone can be your friend, especially after what\u2026\r\n*Janitor enters
+    from right*\r\nPrincess: Aw, he\u2019s so wrinkly...\r\nFleshUnknown: Now, that\u2019s
+    no way to speak to your elders.\r\nVirgil: Oh, it\u2019s just the janitor. \r\nPrincess:
+    Hi Jan!\r\nVirgil: His name isn\u2019t Jan, I said he\u2019s a .....\r\nJanitor:
+    That\u2019s quite alright, sonny. Now, miss, could you please pay more attention?
+    Word around Hell is you\u2019ve been making quite the mess.\r\nPrincess: Awww,
+    you sound just like papa, always telling me I can\u2019t have fun.\r\nJanitor:
+    Yes, well unfortunately, I'M the one who ends up cleaning up after you, so if
+    you could consider\u2026\r\nPrincess: No thanks!\r\nJanitor: You can\u2019t just
+    go around interrupting\u2026\r\nPrincess: You\u2019re boring, I\u2019m going
+    to go play now.\r\nVirgil: Princess, maybe we should hear the old geezer out.\r\nJanitor:
+    You both have such disgusting attitudes, going around making such a mess. Dirty,
+    filthy little\u2026\r\nPrincess: Vivi, come one, this guy just goes on and on
+    and on..\r\nJanitor: Don\u2019t interrupt me, child. Someone ought to clean you
+    up!\r\n{janitor_transform}"

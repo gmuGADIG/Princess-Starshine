@@ -42,11 +42,6 @@ public class ProjectileCollision : MonoBehaviour
             float hitPeriod = 1 / hitsPerSecond;
             if (pastCollisionTimes.ContainsKey(col) && pastCollisionTimes[col] > Time.time - hitPeriod)
             {
-                // if (!(pastCollisionTimes[col] > Time.time - hitPeriod))
-
-                print("already hit!");
-                // print($"already hit! {hitPeriod - (Time.time - pastCollisionTimes[col])}");
-                // print($"already hit! {(Time.time)} -  {hitPeriod} = {Time.time - hitPeriod}");
                 continue;
             }
             

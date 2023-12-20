@@ -12,33 +12,69 @@ EditorBuildSettings:
     path: Assets/Scenes/Build Scenes/LevelPreview.unity
     guid: 24e79c603d2d9703499d24ae5038c66e
   - enabled: 1
+    path: Assets/Scenes/Build Scenes/Level01Dialogue.unity
+    guid: be63403db2070f6498f8dca2bfc39a5b
+  - enabled: 1
     path: Assets/Scenes/Build Scenes/Level01.unity
     guid: 702583e8e023e504396eeebba8950842
   - enabled: 1
+    path: Assets/Scenes/Build Scenes/Level01Boss.unity
+    guid: 8790fa365cd08eb489e3aff25b59dfc2
+  - enabled: 1
+    path: Assets/Scenes/Build Scenes/Level02Dialogue.unity
+    guid: c5fe72aac5c25ee4c9adc3923a46223e
+  - enabled: 1
     path: Assets/Scenes/Build Scenes/Level02.unity
+    guid: 485c0805be3128f4b814c673ab927564
+  - enabled: 1
+    path: Assets/Scenes/Build Scenes/Level02Boss.unity
     guid: 37c9a853e1f90ca4d91b30465c9af165
+  - enabled: 1
+    path: Assets/Scenes/Build Scenes/Level03Dialogue.unity
+    guid: 67dde0801874d8344b95cdad544965c4
   - enabled: 1
     path: Assets/Scenes/Build Scenes/Level03.unity
     guid: f84edd51684d44b4e9baad751eb73b02
   - enabled: 1
+    path: Assets/Scenes/Build Scenes/Level03Boss.unity
+    guid: 57f0f1ef53a32954db0f2aedcf8b257d
+  - enabled: 1
+    path: Assets/Scenes/Build Scenes/Level04Dialogue.unity
+    guid: 3d09c5027df5f914aa4b558d15fd21d2
+  - enabled: 1
     path: Assets/Scenes/Build Scenes/Level04.unity
     guid: b07220da70c6f6c42a96ce81f5249aa9
+  - enabled: 1
+    path: Assets/Scenes/Build Scenes/Level04Boss.unity
+    guid: 2b4c166edc94e0f4881f34de2531a3fd
+  - enabled: 1
+    path: Assets/Scenes/Build Scenes/Level05Dialogue.unity
+    guid: d8896c44012f1364e96999a3c0d8a216
   - enabled: 1
     path: Assets/Scenes/Build Scenes/Level05.unity
     guid: 2953d8948b6ecda40942060eef60bdc8
   - enabled: 1
+    path: Assets/Scenes/Build Scenes/Level05Boss.unity
+    guid: aea5d6ee4d0c35847be93ffc33efed62
+  - enabled: 1
+    path: Assets/Scenes/Build Scenes/Level06Dialogue.unity
+    guid: 5b4c30ed5635ff14492979cf31a855da
+  - enabled: 1
     path: Assets/Scenes/Build Scenes/Level06.unity
     guid: b307c6146a899684fb3fee8b185c8b11
+  - enabled: 1
+    path: Assets/Scenes/Build Scenes/Level06Boss.unity
+    guid: 6874521b92928e44fbf2eb8914271edd
+  - enabled: 1
+    path: Assets/Scenes/Build Scenes/Level07Dialogue.unity
+    guid: 04fee17f26899aa44b3600f4002bd713
   - enabled: 1
     path: Assets/Scenes/Build Scenes/Level07.unity
     guid: 79c834a1f7065db4fb6dbd7d0c644888
   - enabled: 1
+    path: Assets/Scenes/Build Scenes/Level07Boss.unity
+    guid: a3bc5aff803c7f246862f5d8fb3175e8
+  - enabled: 1
     path: Assets/Scenes/Build Scenes/DialogueTestPreview.unity
     guid: f1672cf0ab3b62242b427170a0cd7a02
-  - enabled: 1
-    path: Assets/Scenes/Build Scenes/Level01Dialogue.unity
-    guid: c601afb0ef681ef458597a6390b419fe
-  - enabled: 1
-    path: Assets/Scenes/Build Scenes/Level02Dialogue.unity
-    guid: c5fe72aac5c25ee4c9adc3923a46223e
   m_configObjects: {}
