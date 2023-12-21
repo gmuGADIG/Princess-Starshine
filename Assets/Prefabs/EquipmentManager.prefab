@@ -618,5 +618,5 @@ MonoBehaviour:
   spawnProjectileAtTarget: 0
   projectileLocalSpace: 0
   projectilePrefab: {fileID: 4414555733823826805, guid: 536edafd6f3098c7fa252b9d49fbf961, type: 3}
-  shootSoundName: 
+  shootSoundName: Parasol_Whoosh
   Spread: 0
