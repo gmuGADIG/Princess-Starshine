@@ -270,7 +270,7 @@ public class Player : MonoBehaviour
     {
         cumulativeXpPoints += points;
         xpThisLevel += points;
-        SoundManager.Instance.PlaySoundGlobal(xpPickupSound);
+        SoundManager.Instance.PlaySoundAtPosition(xpPickupSound, Camera.main.transform.position, Camera.main.transform);
 
         var goal = XpLevelUpGoal();
         if (xpThisLevel >= goal)
