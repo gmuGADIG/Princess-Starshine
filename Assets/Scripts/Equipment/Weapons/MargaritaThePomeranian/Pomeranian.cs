@@ -49,7 +49,7 @@ class MoveToEnemy : IPomeranianState {
     public IPomeranianState NewState(Pomeranian pomeranian) {
         if (
             enemy == null ||
-            Vector3.Distance(
+            Vector2.Distance(
                 pomeranian.transform.position, 
                 enemy.transform.position
             ) < IPomeranianState.fuzzyDistance
@@ -63,10 +63,17 @@ class MoveToEnemy : IPomeranianState {
     public void Update(Pomeranian pomeranian) {
         if (enemy != null) {
             var step = pomeranian.Speed * Time.deltaTime;
-            pomeranian.transform.position = Vector3.MoveTowards(
+            var z = pomeranian.transform.position.z;
+            pomeranian.transform.position = Vector2.MoveTowards(
                 pomeranian.transform.position, 
                 enemy.transform.position,
                 step
+            );
+
+            pomeranian.transform.position = new Vector3(
+                pomeranian.transform.position.x,
+                pomeranian.transform.position.y,
+                z
             );
         }
     }
