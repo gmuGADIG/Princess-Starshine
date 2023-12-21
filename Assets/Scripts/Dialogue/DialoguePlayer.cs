@@ -32,6 +32,8 @@ public class DialoguePlayer : MonoBehaviour
     public DialogueCommand[] commands;
 
     [Header("Ending")]
+    [Tooltip("Fired when the dialogue begins.")]
+    public UnityEvent startEvent;
     [Tooltip("When the player skips the dialogue, this event should set everything to its final state.\n" +
              "e.g. if the princess walks around, this should set her position to where she stops.\n" +
              "note that endEvent is also invoked when the dialogue is skipped.")]
@@ -68,6 +70,7 @@ public class DialoguePlayer : MonoBehaviour
 
     void Start()
     {
+        startEvent.Invoke();
         lines = dialogueSequence.text.Split(new[] {'\n', '\r'}, StringSplitOptions.RemoveEmptyEntries);
 
         SetUpCommandAndCharacterDict();

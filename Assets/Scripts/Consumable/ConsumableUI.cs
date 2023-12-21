@@ -6,9 +6,7 @@ public class ConsumableUI : MonoBehaviour
 {
     public GameObject UIParent;
 
-    IEnumerator LateStart() {
-        yield return 0; 
-
+    void Start() {
         UIParent.SetActive(false);
         var image = UIParent.GetComponentInChildren<Image>();
         Player.instance.PickedUpConsumable += (consumable) => {
@@ -20,9 +18,5 @@ public class ConsumableUI : MonoBehaviour
             image.sprite = consumable.GetComponentInChildren<SpriteRenderer>().sprite;
             UIParent.SetActive(true);
         };
-    }
-
-    void Start() {
-        StartCoroutine(LateStart());
     }
 }
