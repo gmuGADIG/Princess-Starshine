@@ -29,13 +29,31 @@ public class EquipmentManager : MonoBehaviour
     // run-time
     private List<Equipment> currentEquipment = new();
 
-    void Awake()
-    {
+    void OnDestroy() {
+        SaveManager.SaveData.frozenEquipment = currentEquipment.Select(e => e.Freeze()).ToList();
+    }
+
+    void Awake() {
         instance = this;
         
         foreach (Equipment equipment in GetComponents<Equipment>()) {
             equipment.enabled = false;
             allEquipment.Add(equipment);
+        }
+
+        ProjectileWeapon.staticStatModifiers = new();
+    }
+
+    // NOTE: Thaw needs to happen after Player.Awake and before InGameUI.Start (ie GetUpgradeOptions(true))
+    void Thaw() {
+        currentEquipment = new();
+        foreach (var frozen in SaveManager.SaveData.frozenEquipment) {
+            // find "alive" equipment
+            var equipment = allEquipment.Where(e => e.GetType().ToString() == frozen.Type).ToArray()[0];
+            equipment.Thaw(frozen);
+
+            currentEquipment.Add(equipment);
+            equipment.enabled = true;
         }
     }
 
@@ -63,6 +81,10 @@ public class EquipmentManager : MonoBehaviour
      */
     public List<UpgradeOption> GetUpgradeOptions(bool firstShow = false)
     {
+        if (firstShow) {
+            Thaw();
+        }
+
         var options = new List<UpgradeOption>();
         var weaponCount = currentEquipment.Count(e => e is Weapon);
         var passiveCount = currentEquipment.Count(e => e is Passive);
@@ -83,6 +105,7 @@ public class EquipmentManager : MonoBehaviour
             var icon = equipment.icon;
             
             var duplicate = currentEquipment.FirstOrDefault(e => e == equipment);
+
             if (duplicate != null) // equipment is already in use. present level-up instead
             {
                 if (duplicate.levelUpsDone >= MAX_EQUIPMENT_LEVELS) continue; // already max level

@@ -204,6 +204,8 @@ MonoBehaviour:
   maxHealth: 40
   movementSpeed: 2
   moveTowardsObject: {fileID: 0}
+  knockbackMultiplier: 1
+  knockbackDuration: 0.2
   XPOrb: {fileID: 6433517325453158020, guid: 1762732203a121541b8b0dde1f1223bd, type: 3}
   xpDropAmount: 3
   deathSoundName: Demon_Death_Sound
@@ -230,7 +232,7 @@ Animator:
   m_GameObject: {fileID: 3498557936519908969}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8812049079214168a86507160caa96ff, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -253,6 +255,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60248b5cd3a484c42bce421d12e99013, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DamagedColor: {r: 1, g: 0, b: 0, a: 1}
+  HealthyColor: {r: 1, g: 1, b: 1, a: 1}
   sprite: {fileID: 8858910374489197595}
 --- !u!58 &8249705733931127298
 CircleCollider2D:

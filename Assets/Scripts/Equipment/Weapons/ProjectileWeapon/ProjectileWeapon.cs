@@ -241,6 +241,16 @@ abstract public class ProjectileWeapon : Weapon
                 throw new Exception($"Invalid weapon level-up type! type = {levelUp.type}");
         }
     }
+    
+    protected override object FreezeRaw() {
+        return statModifiers;
+    }
+
+    protected override void Thaw(object data) {
+        string type = data.GetType().ToString();
+
+        statModifiers = (WeaponStats)data;
+    }
 }
 
 public enum TargetType

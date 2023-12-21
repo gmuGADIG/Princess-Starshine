@@ -4,8 +4,10 @@ using System.Drawing;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEditor.Rendering;
+using UnityEditor.Tilemaps;
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.Rendering.LookDev;
 using Random = UnityEngine.Random;
 
 public class MargaritaThePomeranian : Weapon {
@@ -121,7 +123,10 @@ public class MargaritaThePomeranian : Weapon {
     }
 
     void PostLevelUp() {
-        pomeranian.Speed = ProjectileSpeed;
+        if (pomeranian != null) {
+            pomeranian.Speed = ProjectileSpeed;
+        }
+
         barkTimer = Mathf.Min(barkTimer, 1 / FireRate);
     }
 
@@ -159,5 +164,15 @@ public class MargaritaThePomeranian : Weapon {
         PostLevelUp();
     }
 
+    protected override object FreezeRaw() {
+        return statModifiers;
+    }
+
+    protected override void Thaw(object data) {
+        statModifiers = (WeaponStats)data;
+
+        OnEquip();
+        PostLevelUp();
+    }
 }
 

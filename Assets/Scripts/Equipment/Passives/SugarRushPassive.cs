@@ -5,6 +5,7 @@ public class SugarRushPassive : Passive
 {
     //Amount of damage dealt by weapon
     public float damageIncrease = 1.5f;
+    float state = 0f;
 
     public override (string description, Action onApply) GetLevelUps() 
     {
@@ -13,6 +14,7 @@ public class SugarRushPassive : Passive
 
     public void applyDamage() 
     {
+        state += damageIncrease;
         ProjectileWeapon.staticStatModifiers.damage += damageIncrease;
     }
 
@@ -22,4 +24,9 @@ public class SugarRushPassive : Passive
 
     public override void OnUnEquip() {      }
 
+    protected override object FreezeRaw() { return state; }
+    protected override void Thaw(object data) {
+        state = (float)data;
+        ProjectileWeapon.staticStatModifiers.damage += state;
+    }
 }

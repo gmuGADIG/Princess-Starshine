@@ -60,4 +60,9 @@ public class FairyFriendPassive : Passive
     {
         return ("Greater Health Regen", levelUp);
     }
+    protected override object FreezeRaw() { return healAmount; }
+    protected override void Thaw(object data) {
+        healAmount = (float)data;
+        OnEquip();
+    }
 }

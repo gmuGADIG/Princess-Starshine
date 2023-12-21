@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 /*
@@ -23,16 +24,18 @@ public class LPNode : MonoBehaviour
     public string LevelSceneName;
 
     public void Start() {
-        /*
-        if (Next != null) {
-            Next.Previous = this;
-        }
-        */
-
         if (NextPath.Enabled) {
             NextPath.StartNode = this;
             NextPath.EndNode.PreviousPath = NextPath;
             NextPath.Start();
+        }
+    
+        if (!Unlocked) {
+            var sprite = GetComponentInChildren<SpriteRenderer>();
+
+            if (sprite != null) {
+                sprite.color = new Color(.2f, .2f, .2f);
+            }
         }
     }
 }

@@ -6,6 +6,7 @@ using UnityEngine;
 public class BunnyBurstPassive : Passive
 {
     public float speedIncrease = 2f;
+    float state = 0f;
 
     public override void OnEquip()
     {
@@ -21,7 +22,13 @@ public class BunnyBurstPassive : Passive
 
     void applySpeed()
     {
+        state += speedIncrease;
         ProjectileWeapon.staticStatModifiers.projectileSpeed += speedIncrease;
     }
 
+    protected override object FreezeRaw() { return state; }
+    protected override void Thaw(object data) {
+        state = (float)data;
+        ProjectileWeapon.staticStatModifiers.projectileSpeed += state;
+    }
 }
