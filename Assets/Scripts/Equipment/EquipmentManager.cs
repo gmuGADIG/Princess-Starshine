@@ -66,6 +66,8 @@ public class EquipmentManager : MonoBehaviour
         }
 
         thawed = true;
+
+        InGameUI.UpdateItems();
     }
 
     void Update()
@@ -83,6 +85,64 @@ public class EquipmentManager : MonoBehaviour
             if (LevelUpUI.instance == null) Debug.LogError("Can't open level-up ui; none exists in this scene!");
             else LevelUpUI.instance.Open();
         }
+    }
+
+    /// <summary>
+    /// Gets a random number of elements from input and returns a new list from them.
+    /// Effectively returns the list shuffled if `input.Count <= n`.
+    /// </summary>
+    public static List<T> takeRandom<T>(List<T> input, int n) {
+        var bag = new List<T>(input);
+        var result = new List<T>();
+
+        for (int i = 0; i < n; i++) {
+            if (bag.Count == 0) { break; }
+
+            var index = Random.Range(0, bag.Count);
+            result.Add(bag[index]);
+            bag.RemoveAt(index);
+        }
+
+        return result;
+    }
+
+    /// <summary>
+    /// Retrieves options for hell's curse.
+    /// Returns an empty list (if the player has only one weapon),
+    /// a list with the player's highest level weapon, 
+    /// or 1-4 of the weapons meeting the <paramref name="minLevel"/> constraint.
+    /// </summary>
+    public List<UpgradeOption> GetHellsCurseOptions(int minLevel) 
+    {
+        Thaw();
+
+        // Don't destroy the player's last weapon.
+        if (currentEquipment.OfType<Weapon>().Count() == 1) {
+            return new();
+        }
+
+        // Get 4 random weapons that satisfy the level requirement
+        var weapons = takeRandom(currentEquipment
+            .OfType<Weapon>()
+            .Where(e => e.levelUpsDone >= minLevel - 1)
+            .ToList(), 4); 
+
+        // If no weapons satisfy the level requirement, then pick the highest level one.
+        if (weapons.Count == 0) {
+            weapons = currentEquipment
+                .OfType<Weapon>()
+                .OrderByDescending(e => e.levelUpsDone)
+                .Take(1)
+                .ToList();
+        }
+
+        // Map the weapons to upgrade options that remove the weapon when selected.
+        return weapons.Select(e => new UpgradeOption(
+            e.icon.name,
+            e.icon.icon,
+            $"Level: {e.levelUpsDone + 1}",
+            () => RemoveEquipment(e)
+        )).ToList();
     }
 
     /**
@@ -136,6 +196,19 @@ public class EquipmentManager : MonoBehaviour
         }
 
         return options.OrderBy(_ => Random.Range(0f, 1f)).Take(4).ToList();
+    }
+
+    private void RemoveEquipment(Equipment equipment) {
+        currentEquipment.Remove(equipment);
+        equipment.OnUnEquip();
+        equipment.enabled = false;
+
+        foreach (var prevEquipment in currentEquipment)
+        {
+            if (prevEquipment == equipment) continue;
+            
+            equipment.ProcessOtherRemoval(prevEquipment);
+        }
     }
 
     private void AddNewEquipment(Equipment equipment)

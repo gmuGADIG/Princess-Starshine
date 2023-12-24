@@ -13,7 +13,11 @@ public abstract class Equipment : MonoBehaviour
 {
     [SerializeField] public EquipmentIcon icon;
     
-    /** The amount of times this equipment has been leveled up. Necessary to avoid going past the limit */
+    /// <summary>
+    /// The amount of times this equipment has been leveled up. 
+    /// Necessary to avoid going past the limit.
+    /// This value is one lower than the "level" of the weapon.
+    /// </summary>
     [HideInInspector] public int levelUpsDone = 0;
 
     /**

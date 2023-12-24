@@ -12,8 +12,18 @@ public class LevelUpUI : MonoBehaviour
 
     public GameObject iconPrefab;
     public GameObject menuParent;
+    public TextMeshProUGUI title;
+    public TextMeshProUGUI subtitle;
     public Transform iconHolder;
     public bool openOnStart = true;
+    public bool hellsCurseStart = true;
+    public int currentLevel = 2;
+
+    [TextArea] public string LevelUpTitle = "Level Up!\nSparkle On, Princess Starshine!!";
+    public string LevelUpSubtitle = "Choose one:";
+    [TextArea] public string HellsCurseTitle = "";
+    public string HellsCurseSubtitle = "Choose one to lose:";
+
 
     void Awake()
     {
@@ -38,7 +48,15 @@ public class LevelUpUI : MonoBehaviour
         this.gameObject.SetActive(true);
         Time.timeScale = 0;
         
-        ShowOptions(EquipmentManager.instance.GetUpgradeOptions(true));
+        if (hellsCurseStart) {
+            title.text = HellsCurseTitle;
+            subtitle.text = HellsCurseSubtitle;
+            ShowOptions(EquipmentManager.instance.GetHellsCurseOptions(currentLevel - 1));
+        } else {
+            title.text = LevelUpTitle;
+            subtitle.text = LevelUpSubtitle;
+            ShowOptions(EquipmentManager.instance.GetUpgradeOptions(true));
+        }
     }
     
     /**
@@ -50,11 +68,17 @@ public class LevelUpUI : MonoBehaviour
         this.menuParent.SetActive(true);
         Time.timeScale = 0;
         
+        title.text = LevelUpTitle;
+        subtitle.text = LevelUpSubtitle;
         ShowOptions(EquipmentManager.instance.GetUpgradeOptions());
     }
 
     private void ShowOptions(List<UpgradeOption> upgradeOptions)
     {
+        if (upgradeOptions.Count == 0) {
+            Close();
+        }
+
         if (iconHolder == null) throw new Exception("LevelUpUI failed to find icon holder!");
         foreach (Transform icon in iconHolder.transform) Destroy(icon.gameObject); // destroy left-over icons
         foreach (var option in upgradeOptions)
