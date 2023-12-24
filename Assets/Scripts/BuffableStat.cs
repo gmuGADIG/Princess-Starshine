@@ -56,6 +56,10 @@ public class BuffableStat {
     private float multiplier = 1;
     private float adds = 0;
     private float initial;
+    
+    /// <summary>
+    /// The value of the stat after all of the buffs have been applied.
+    /// </summary>
     public float Value { get {
         if (order == Order.AddThenMultiply)
             return (initial + adds) * multiplier;
@@ -75,6 +79,9 @@ public class BuffableStat {
         }
 
         public enum Type { Add, Multiply }
+        /// <summary>
+        /// The amount this receipt is modifying the underlying BuffableStat
+        /// </summary>
         public float Value { get; private set; }
         private Type type;
         private string callerFilePath;

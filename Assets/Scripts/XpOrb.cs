@@ -8,6 +8,10 @@ public class XpOrb : MonoBehaviour
     [Tooltip("The multiplier of the XP points collected when in the wall of fire.")]
     [SerializeField] float fireMultiplier = 0.5f;
 
+    void Start() {
+        GetComponent<CircleCollider2D>().radius = ConsumableManager.Instance.XpCollisionRadius.Value;
+    }
+
     void Update() {
         if (transform.position.x < TeaTime.cameraBoundingBox().xMin + 1) {
             Destroy(gameObject);
