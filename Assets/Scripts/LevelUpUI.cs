@@ -46,7 +46,8 @@ public class LevelUpUI : MonoBehaviour
      */
     public void Open()
     {
-        menuParent.SetActive(true);
+        this.gameObject.SetActive(true);
+        this.menuParent.SetActive(true);
         Time.timeScale = 0;
         
         ShowOptions(EquipmentManager.instance.GetUpgradeOptions());
