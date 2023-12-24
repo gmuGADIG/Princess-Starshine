@@ -35,6 +35,7 @@ public class MargaritaThePomeranian : Weapon {
     Pomeranian pomeranian;
 
     public override void OnEquip() {
+        if (Player.instance == null) { return; }
         if (pomeranian != null) { return; }
 
         var go = Instantiate(PomeranianPrefab, Player.instance.transform.position, Quaternion.identity);
@@ -51,6 +52,7 @@ public class MargaritaThePomeranian : Weapon {
     }
 
     void OnDisable() {
+        if (pomeranian == null) { return; }
         Destroy(pomeranian.gameObject);
         pomeranian = null;
     }
