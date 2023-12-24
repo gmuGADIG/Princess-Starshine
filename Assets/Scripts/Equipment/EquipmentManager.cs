@@ -29,7 +29,10 @@ public class EquipmentManager : MonoBehaviour
     // run-time
     private List<Equipment> currentEquipment = new();
 
-    void OnDestroy() {
+    /// <summary>
+    /// Saves the current equipment to disk.
+    /// </summary>
+    public void Freeze() {
         SaveManager.SaveData.frozenEquipment = currentEquipment.Select(e => e.Freeze()).ToList();
     }
 

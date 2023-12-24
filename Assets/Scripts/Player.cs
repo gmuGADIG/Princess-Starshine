@@ -36,15 +36,8 @@ public class Player : MonoBehaviour
 
     //for xp mechanic 
     float cumulativeXpPoints = 0;
-    float xpThisLevel { 
-        get => SaveManager.SaveData.PlayerXP;
-        set => SaveManager.SaveData.PlayerXP = value;
-    }
-    int xpLevel { 
-        get => SaveManager.SaveData.PlayerLevel;
-        set => SaveManager.SaveData.PlayerLevel = value;
-    }
-    // int xpLevel = 1;
+    float xpThisLevel = 0;
+    int xpLevel = 1;
     
     [Tooltip("The initial amount of XP required for the player to level up.")]
     [SerializeField]
@@ -106,12 +99,24 @@ public class Player : MonoBehaviour
     
     Wall wall;
 
+    public void Freeze() {
+        SaveManager.SaveData.PlayerLevel = xpLevel;
+        SaveManager.SaveData.PlayerXP = xpThisLevel;
+    }
+
+    public void Thaw() {
+        xpLevel = SaveManager.SaveData.PlayerLevel;
+        xpThisLevel = SaveManager.SaveData.PlayerXP;
+    }
+
     void Awake() {
         instance = this;
     }
 
     // Start is called before the first frame update
     void Start() {
+        Thaw();
+
         camera = Camera.main;
         float aspectRatio = (float)Screen.width / Screen.height;
         float worldHeight = camera.orthographicSize * 2;

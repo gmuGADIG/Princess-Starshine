@@ -982,6 +982,10 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5029426298668080483, guid: cbfcf353b47be194aaf412d17a346848, type: 3}
+      propertyPath: startEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5029426298668080483, guid: cbfcf353b47be194aaf412d17a346848, type: 3}
       propertyPath: startEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 990772856}
@@ -1002,6 +1006,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5029426298668080483, guid: cbfcf353b47be194aaf412d17a346848, type: 3}
+      propertyPath: startEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5029426298668080483, guid: cbfcf353b47be194aaf412d17a346848, type: 3}
       propertyPath: startEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetActive
       objectReference: {fileID: 0}
@@ -1015,6 +1023,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5029426298668080483, guid: cbfcf353b47be194aaf412d17a346848, type: 3}
       propertyPath: startEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5029426298668080483, guid: cbfcf353b47be194aaf412d17a346848, type: 3}
+      propertyPath: startEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5029426298668080483, guid: cbfcf353b47be194aaf412d17a346848, type: 3}

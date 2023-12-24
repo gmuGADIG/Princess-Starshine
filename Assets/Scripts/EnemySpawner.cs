@@ -122,12 +122,16 @@ public class EnemySpawner : MonoBehaviour
     void Update()
     {
         var secondsSinceStart = Time.time - startTime;
-        var bossSpawned = secondsSinceStart > levelSeconds;
+        var bossShouldSpawn = secondsSinceStart > levelSeconds;
 
-        if (bossSpawned && bossSceneOrEmpty != "")
+        if (bossShouldSpawn && bossSceneOrEmpty != "")
         {
             print("SPAWNING BOSS!");
             SceneManager.LoadScene(bossSceneOrEmpty);
+
+            EquipmentManager.instance.Freeze();
+            Player.instance.Freeze();
+
             return;
         }
         
