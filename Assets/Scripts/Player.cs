@@ -102,11 +102,13 @@ public class Player : MonoBehaviour
     public void Freeze() {
         SaveManager.SaveData.PlayerLevel = xpLevel;
         SaveManager.SaveData.PlayerXP = xpThisLevel;
+        SaveManager.SaveData.HeldConsumable = heldConsumable;
     }
 
     public void Thaw() {
         xpLevel = SaveManager.SaveData.PlayerLevel;
         xpThisLevel = SaveManager.SaveData.PlayerXP;
+        heldConsumable = SaveManager.SaveData.HeldConsumable;
     }
 
     void Awake() {
@@ -130,9 +132,9 @@ public class Player : MonoBehaviour
 
         curTwirlCharges = maxTwirlCharges;
 
-        //Test the xp system with 10 xpPoints
-        // AddXP(10);
+        // Update UIs
         InGameUI.SetXp(xpLevel, (float)xpThisLevel / XpLevelUpGoal());
+        PickedUpConsumable.Invoke(ConsumableManager.Instance.ConsumableOfConsumableType(heldConsumable));
 
         onLevelUp += (newLevel, xpThatLevel) => LevelUpUI.instance.Open();
 
