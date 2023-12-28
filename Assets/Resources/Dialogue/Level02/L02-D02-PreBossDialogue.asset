@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfdcc9cbed7effe47855230305df1a91, type: 3}
+  m_Name: L02-D02-PreBossDialogue
+  m_EditorClassIdentifier: 
+  text: "OfficeBoss: So that\u2019s the general idea, what do you guys think?\r\nYesMan1:
+    Brilliant!\r\nYesMan2: Excellent!\r\nYesMan3: Masterful gambit, sir!\r\nNoMan:
+    I dunno.\r\n{turn_to_no_man}\r\nOfficeBoss: 136.94.216.35\r\nNo Man: H-how do
+    you know that?\r\nOfficeBoss: Do you want to find out?\r\nNo Man: Uh\u2026 no,
+    no, it\u2019s a great idea.\r\nOfficeBoss: Alright, it\u2019s official. The work
+    day is now 25 hours long.\r\n{virgil_look_at_bael}\r\nVirgil: Hey, didn\u2019t
+    we kill you?\r\nBael: Ahem, um, no.\r\nVirgil: So\u2026 what are you doing here?\r\nBael:
+    This is my day job. I have a life outside of you.\r\n{boss_look_at_princess}\r\nOfficeBoss:
+    You there, nameless employee, go tell everyone that the work day has been extended.\r\nPrincess:
+    Wow, this is such a big library! There are so many shiny things in here!\r\nOfficeBoss:
+    They are shiny, aren\u2019t they? I earned them. From my dad. Who gave them to
+    me. Maybe if you get back to work, one day you could too.\r\nPrincess: Oh, we
+    don\u2019t work here! :3\r\nOfficeBoss: Well in that case you\u2019re both hired!\r\nPrincess:
+    Really?\r\nOfficeBoss: Yes! Now get back to work.\r\nVirgil: Yeah, well, we quit.\r\nOfficeBoss:
+    Well in that case you won\u2019t be receiving your severance package!\r\nVirgil:
+    Then fire me!\r\nOfficeBoss: Fine! You\u2019re fired!\r\nVirgil: You can\u2019t
+    fire me, I quit!\r\nOfficeBoss: Ok, this isn\u2019t getting us anywhere. If you\u2019re
+    not here to work, you\u2019re useless to me.\r\n{yes_men_move}\r\nOfficeBoss:
+    Nothing personal. It\u2019s just (my dad's) business."

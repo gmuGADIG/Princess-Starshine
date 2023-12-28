@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfdcc9cbed7effe47855230305df1a91, type: 3}
+  m_Name: L03-D01-StartDialogue
+  m_EditorClassIdentifier: 
+  text: "Virgil: Oh Good Satan!! I feel my blood turning into solid ice!\r\nPrincess:
+    BRRRR!! This place is soooo cold and icy! Are we in Capitalism??? I always thought
+    that place wasn\u2019t real!!! :o \r\nVirgil: No Princess, we\u2019re in-\r\nPrincess:
+    I got it! Is this the ARCAC ACTIC then??? WOW! I sooo thought that place was
+    made up tooo!! Omigosh, can we go see the baby pengweens?? That\u2019d be TOTES
+    SO FUN AND CUTE!! :3\r\nVirgil: If you\u2019d let me finish\u2026 It seems that
+    we are in the Ice Domain of the uh, sauna.\r\nPrincess: The Ice Domain? <:o \r\nVirgil:
+    Yes, Ice Domain, princess. You know, like a freezer or whatever, of the sauna.
+    You know how saunas just have extremely giant freezers? This is of the same caliber.\r\nPrincess:
+    That sounds like, soooooooooo cool! :D I wonder what kinda goodies are in here!\r\nVirgil:
+    Ah, yes, the \u201Cgoodies\u201D of the Ice Domain\u2026 People who are cheaters,
+    cowards, backstabbers, betrayers\u2026 Those who never commit to their responsibilities
+    and plans rightfully end up in this freezing purgatory.\r\nPrincess: I wonder
+    what kind of bog-sicles are in here, OOH! I sooooo sosososososo would LOVE if
+    there were any lemon ones! Those are my fav! \r\nVirgil: B- bogsicles? Did you
+    even listen to anything I said? You seem more scatterbrained than usual\u2026\r\nPrincess:
+    Who me? I don't feel any different! I don't even feel my fingers! *LOUD CHATTER
+    NOISES*\r\nVirgil: Oh, you're cold. That um, sort of explains it\u2026\r\nPrincess:
+    Ohmegosh,I sosososososo SO hope that they have choco -nilla swirls with cookie
+    crunchies!!!! I haven\u2019t had one since like what, two days? \r\nVirgil: What
+    are you even talking about- Ah, right\u2026the \u2018freezer\u2019. Got it."

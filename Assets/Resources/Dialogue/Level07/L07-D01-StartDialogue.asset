@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfdcc9cbed7effe47855230305df1a91, type: 3}
+  m_Name: L07-D01-StartDialogue
+  m_EditorClassIdentifier: 
+  text: "Virgil: And\u2026we\u2019re here\u2026I\u2019ve heard rumors of this place\u2026but
+    it\u2019s truly so horrifying in person\u2026h-hey, Princess, could we go back?
+    A-a place like this is-\r\nPrincess: OMG! I love this place! All the purples
+    and blacks just go together so well! It could use a little more pink though\u2026
+    And wowwwwww!!! Look at the apartments here! Everyone looks so happy and cozy!\r\nVirgil:
+    Princess! T-this is the last floor\u2026and the\u2026you know\u2026devil lives
+    here? The boss man\u2026 I-if he finds us after what we-\r\nPrincess: Oh, the
+    devil lives here? I can\u2019t wait to meet him! I\u2019ll ask him how much one
+    of these rooms cost, Papa will so totally get me one!\r\nVirgil: P-princess,
+    if the devil finds us he\u2019ll-\r\nPrincess: Laadeelaadeeda~\r\nVirgil: Oh
+    dear\u2026\u2026think, Virgil, think! \u2026Ah! Princess, I know you really want
+    one of these apartments, but they are incredibly popular and the queue to get
+    one is quite long... \r\nVirgil: Perhaps you could find a place of residence
+    elsewhere? Like a cozy bedroom in a castle, just like the one you have back home!
+    let\u2019s go there!\r\nPrincess: But this place looks sooooo much cuter than
+    a boring old castle! Maybe Mr. Nice-Devil can make me a new one! Papa says I\u2019m
+    sooooo cute that no one can resist when I ask for something!\r\nVirgil: Is there
+    no escape from this crazed woman\u2019s insanity\u2026\r\nPrincess: Hm? Did you
+    say something, Vi-Vi?\r\nVirgil: Nope! Nothing at all! Although, given that this
+    is the last floor, it seems like our journey together is almost complete. Even
+    I\u2019m starting to get a little sentimental.\r\nPrincess: Aw, thanks Vi-Vi.
+    <3 Anyways, look! A playground!\r\nVirgil: That\u2019s a torture device, not
+    a- PRINCESS, NO!"

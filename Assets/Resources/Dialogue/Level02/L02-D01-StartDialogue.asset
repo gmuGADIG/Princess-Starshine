@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfdcc9cbed7effe47855230305df1a91, type: 3}
+  m_Name: L02-D01-StartDialogue
+  m_EditorClassIdentifier: 
+  text: "Virgil: Oh. Great\u2026 if it isn't the Hell inside- Uh. The Sauna inside
+    the sauna. The Office. I remember interning here\u2026 never again.\r\nPrincess:
+    Oooooh! This place reminds me of the castle stables!\r\nVirgil: ...Yes? \u2026Indeed,
+    Princess! Let\u2019s say we skip this domain shall we? As your trustworthy tour
+    guide, I do say that this place is not even worth an ounce of our time-\r\nPrincess:
+    There\u2019s so many little cubbies \u2026 they\u2019re all soooooooo CUTE! I
+    want to cover them with lots and lots of sparkles! \r\nVirgil: Those are office
+    cubicles. You can\u2019t do anything in them-\r\nPrincess: WOWIE!!! My nose smells
+    a\u2026 *sniff sniff* I dunno what I smell. Let\u2019s go find out Vi-vi! :P\r\nVirgil:
+    Now don\u2019t run off princess- AGHHHH.\r\n{run_right}\r\nWorker: Finally\u2026
+    we get another pizza party\u2026 and Bill said we were never getting another
+    one\u2026 and I got a whole 1/1,000,000 portion size this time\u2026\r\nVirgil:
+    I didn\u2019t know that Pizzelzebub's Pizzeria was still around. Even the edible
+    ones made me squeamish. \r\nPrincess: Is that for me??? Thank you so much!! That
+    TOTES looks like it\u2019d be yumyum in my tumtum! :3\r\n{princess_move_to_worker}\r\nWorker:
+    Huh\u2026? Oh, I guess you can have it I guess\u2026\r\nPrincess: YUMMY! Tastes
+    like splintered wood and glitter! :P\r\nVirgil: I don\u2019t think that that
+    was safe to eat, Pri- \r\n{princess_turn_to_cubicle}\r\nPrincess: Ooh! That cubicle\u2026
+    are those SPARKLE FORCE GLITTER PENS?? SQUEEE!!! I\u2019VE WANTED ONE FOR SO
+    LONG! >o<\r\n{run_and_shove_worker}\r\nVirgil: Princess, stop running ahead!
+    Oh, we\u2019re going to get lost, aren\u2019t we\u2026\r\n"

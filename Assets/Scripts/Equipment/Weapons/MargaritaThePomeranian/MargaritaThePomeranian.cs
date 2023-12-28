@@ -35,11 +35,24 @@ public class MargaritaThePomeranian : Weapon {
     Pomeranian pomeranian;
 
     public override void OnEquip() {
+        if (pomeranian != null) { return; }
+
         var go = Instantiate(PomeranianPrefab, Player.instance.transform.position, Quaternion.identity);
         pomeranian = go.GetComponent<Pomeranian>();
         Assert.IsNotNull(pomeranian);
 
         pomeranian.Speed = ProjectileSpeed;
+    }
+
+    void OnEnable() {
+        if (pomeranian == null) {
+            OnEquip();
+        }
+    }
+
+    void OnDisable() {
+        Destroy(pomeranian.gameObject);
+        pomeranian = null;
     }
 
     public override void OnUnEquip() { }

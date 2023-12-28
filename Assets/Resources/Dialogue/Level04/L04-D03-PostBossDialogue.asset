@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfdcc9cbed7effe47855230305df1a91, type: 3}
+  m_Name: L04-D03-PostBossDialogue
+  m_EditorClassIdentifier: 
+  text: "Becky: Cut! Cut! Stop the cameras!\r\nPrincess: Hm? What\u2019s up Bestie-Becky?
+    Are we stopping playtime?\r\nBecky: What\u2019s up!?!? You totes ruined my show,
+    Star-Star! I can\u2019t believe you! I thought we were friends! This isn\u2019t
+    how it was supposed to go\u2026\r\nVirgil: You\u2026were trying to kill us. Of
+    course we were going to fight back.\r\nPrincess: I\u2019m sure she wasn\u2019t
+    trying to, Vi-Vi. We were just playing around! :3\r\nVirgil: *sigh*\r\nBecky:
+    I thought you were like, super great, and cute, and wonderful, and the best\u2026but\u2026y-you
+    ruined my show\u2026you ruined everything\u2026 *sniffle*\r\nPrincess: Aw, don\u2019t
+    cry Bestie-Becky. We can make your show even better! :D\r\nBecky: Make my PERFECT
+    show better? After YOU destroyed it? And btw- stop calling me \"Bestie-Becky\u2026\"
+    Forget besties, we\u2019re not even friends anymore\u2026 *sniffle* YOU\u2019RE
+    THE WORST! I HATE YOU SHINESTAR! WAAH!\r\n{becky_run_off_screen}\r\nVirgil: Erm,
+    that\u2026certainly happened.\r\nPrincess: Aw\u2026where\u2019s she going? We
+    haven\u2019t had teatime yet! \r\nVirgil: Who knows? That said, let's move on!
+    You'll uh, ADORE the next attraction! Besides, haven\u2019t you had enough of
+    this place? The longer we stay here, the more I feel the toxins in the air corroding
+    my skull.\r\nPrincess: Aw, I quite like the fuzzy feeling on my face. It\u2019s
+    like I\u2019m being hugged! :3\r\nVirgil: You\u2019re insane\u2026you know that?\r\nPrincess:
+    Hmm? Did you say something?\r\nVirgil: N-nothing!"

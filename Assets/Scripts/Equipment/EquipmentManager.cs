@@ -45,7 +45,16 @@ public class EquipmentManager : MonoBehaviour
     }
 
     // NOTE: Thaw needs to happen after Player.Awake and before InGameUI.Start (ie GetUpgradeOptions(true))
-    void Thaw() {
+    /// <summary>
+    /// Restores weapons between scene changes / disk. This should only be called once.
+    /// </summary>
+    bool thawed = false;
+    public void Thaw() {
+        if (thawed) { 
+            Debug.LogWarning("EquipmentManager.Thaw called more than once!");
+            return; 
+        }
+
         currentEquipment = new();
         foreach (var frozen in SaveManager.SaveData.frozenEquipment) {
             // find "alive" equipment
@@ -55,6 +64,8 @@ public class EquipmentManager : MonoBehaviour
             currentEquipment.Add(equipment);
             equipment.enabled = true;
         }
+
+        thawed = true;
     }
 
     void Update()

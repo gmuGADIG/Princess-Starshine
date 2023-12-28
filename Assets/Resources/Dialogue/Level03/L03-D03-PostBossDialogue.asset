@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfdcc9cbed7effe47855230305df1a91, type: 3}
+  m_Name: L03-D03-PostBossDialogue
+  m_EditorClassIdentifier: 
+  text: "{braxax_dies}\r\nIceImp: NO! WHAT HAVE YOU DONE!? My beautiful creature\u2026
+    what will I do without him!? Ah, no\u2026 my heart\u2026 IT\u2019S\u2026!\r\n{ice_imp_dies}\r\nVirgil:
+    Wow, what a terrible pet owner. Couldn\u2019t even keep himself alive.\r\nPrincess:
+    Aww, but we were having so much fun! Oh well, nighty-night Braxy!\r\nVirgil:
+    Onwards then, Princess?\r\nPrincess: Okie-dokie!"

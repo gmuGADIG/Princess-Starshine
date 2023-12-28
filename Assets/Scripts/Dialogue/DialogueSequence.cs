@@ -11,23 +11,8 @@ using UnityEngine.Events;
 [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/DialogueSequence")]
 public class DialogueSequence : ScriptableObject
 {
-    public DialogueCharacter[] characters;
-    
     [TextArea(20, int.MaxValue)]
     public string text;
-}
-
-/**
- * Holds a single character for use in dialogue sequences.
- * Characters have a scriptName which is referenced in the dialogue script, a name displayed to the user, and an image.
- * To give a single character multiple variations, create multiple DialogueCharacters, e.g. Princess and PrincessSurprised
- */
-[Serializable]
-public class DialogueCharacter
-{
-    public string scriptName;
-    public string displayName;
-    public Texture picture;
 }
 
 /**

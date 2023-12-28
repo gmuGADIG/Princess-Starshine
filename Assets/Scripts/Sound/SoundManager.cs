@@ -86,6 +86,7 @@ public class SoundManager : MonoBehaviour
 		Sound sound = sounds[soundID];
 
 		PositionalAudioSource source = positionalSources.Dequeue();
+		source.transform.SetParent(null);
 		source.SetSound(sound);
 		source.transform.position = position;
 		source.Play();
@@ -102,7 +103,8 @@ public class SoundManager : MonoBehaviour
 	public PositionalAudioSource PlaySoundAtPosition(string soundName, Vector3 position, Transform parent)
 	{
 		PositionalAudioSource source = PlaySoundAtPosition(soundName, position);
-		source.SetFollowTarget(parent);
+		//source.SetFollowTarget(parent);
+		source.transform.SetParent(parent);
 		return source;
 	}
 
