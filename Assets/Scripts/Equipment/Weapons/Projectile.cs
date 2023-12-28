@@ -86,9 +86,11 @@ public class Projectile : MonoBehaviour
         this.damage = damage;
         this.knockback = knockback;
         this.size = size;
-        this.transform.localScale = new Vector3(size, size);
+        this.transform.localScale = new Vector3(size, size, 1);
         this.dotRate = dotRate;
         hasBeenSetUp = true;
+        
+        print($"set size to {size}");
     }
 
     /**

@@ -7,7 +7,7 @@ public class Cupquake : ProjectileWeapon {
     public float CupquakeExplosionSize = 5;
 
     [Tooltip("How long the explosion is on screen.")]
-    public float CupquakeExplosionLifetime = 0.3f;
+    public float CupquakeExplosionLifetime = 0.5f;
 
     [Tooltip("The cupcake explosion prefab.")]
     public GameObject CupquakeExplosionPrefab;
