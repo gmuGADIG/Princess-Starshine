@@ -51,7 +51,7 @@ public class BossHealth : MonoBehaviour
         // destroy the boss
         // todo: add support for animations
         this.gameObject.SetActive(false);
-        
+
         // trigger post-boss dialogue
         postBossDialogue.gameObject.SetActive(true);
     }

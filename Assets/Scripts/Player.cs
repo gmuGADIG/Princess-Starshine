@@ -98,7 +98,7 @@ public class Player : MonoBehaviour
 
     // sound names
     string xpPickupSound = "XP_Pickup";
-    string takeDamageSound = "Princess_Damage";
+    public string takeDamageSound { get; private set; } = "Princess_Damage";
     string levelUpSound = "Level_Up";
     string twirlDashSound = "Princess_Dash";
 
@@ -141,6 +141,12 @@ public class Player : MonoBehaviour
         // Kill the player if a keybind is pressed
         if (Application.isEditor && Input.GetKey(KeyCode.B) && Input.GetKey(KeyCode.L))
             GetComponent<PlayerHealth>().decreaseHealth(2 << 28); // is she hurt enough?
+
+        // Almost kill the player if a keybind is pressed
+        if (Application.isEditor && Input.GetKey(KeyCode.B) && Input.GetKey(KeyCode.I)) {
+            var health = GetComponent<PlayerHealth>();
+            health.decreaseHealth(health.tempHealth - 1); // owchie
+        }
 
         Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
 
@@ -338,7 +344,6 @@ public class Player : MonoBehaviour
     {
         immuneTime = ImmunityTimeBetweenHits;
         GetComponent<PlayerHealth>().decreaseHealth(damage);
-        SoundManager.Instance.PlaySoundGlobal(takeDamageSound);
         //print("oww!");
     }
 }
