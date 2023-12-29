@@ -37,8 +37,8 @@ public class InGameUI : MonoBehaviour
 
     public static void UpdateItems()
     {
-        SetItemList(instance.passives, EquipmentManager.instance.EquippedWeaponIcons());
-        SetItemList(instance.weapons, EquipmentManager.instance.EquippedPassiveIcons());
+        SetItemList(instance.passives, EquipmentManager.instance.EquippedPassiveIcons());
+        SetItemList(instance.weapons, EquipmentManager.instance.EquippedWeaponIcons());
     }
 
     public static void UpdateTwirls(int count)

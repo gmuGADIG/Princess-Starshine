@@ -13,7 +13,7 @@ public class EquipmentManager : MonoBehaviour
 {
     // constants
     const int MAX_WEAPONS = 7;
-    const int MAX_PASSIVES = 7;
+    const int MAX_PASSIVES = 5;
     const int MAX_EQUIPMENT_LEVELS = 7;
     
     
@@ -44,11 +44,11 @@ public class EquipmentManager : MonoBehaviour
         ProjectileWeapon.staticStatModifiers = new();
     }
 
-    // NOTE: Thaw needs to happen after Player.Awake and before InGameUI.Start (ie GetUpgradeOptions(true))
+    bool thawed = false;
     /// <summary>
     /// Restores weapons between scene changes / disk. This should only be called once.
     /// </summary>
-    bool thawed = false;
+    // NOTE: Thaw needs to happen after Player.Awake and before InGameUI.Start (ie GetUpgradeOptions(true))
     public void Thaw() {
         if (thawed) { 
             Debug.LogWarning("EquipmentManager.Thaw called more than once!");
@@ -102,15 +102,13 @@ public class EquipmentManager : MonoBehaviour
 
         foreach (var equipment in allEquipment)
         {
-            // enforce first show rules and max weapon and max passive count
-            if (equipment is Weapon && weaponCount >= MAX_WEAPONS) continue;
+            // enforce first show rules 
             if (equipment is Weapon)
                 if (!(equipment as Weapon).availableAtStart && firstShow)
                     continue;
             if (equipment is Passive)
             {
                 if (firstShow) continue;
-                if (passiveCount >= MAX_PASSIVES) continue;
             }
 
             var icon = equipment.icon;
@@ -130,6 +128,9 @@ public class EquipmentManager : MonoBehaviour
             }
             else // present new equipment
             {
+                // only present new equipment if there's enough space
+                if (equipment is Passive && passiveCount >= MAX_PASSIVES) { continue; }
+                if (equipment is Weapon && weaponCount >= MAX_WEAPONS) { continue; }
                 Action onApply = () => AddNewEquipment(equipment);
                 options.Add(new UpgradeOption(icon.name, icon.icon, icon.description, onApply));
             }
