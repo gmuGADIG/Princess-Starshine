@@ -647,6 +647,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3040502151226404785, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
+      propertyPath: levelUpOptions.Array.data[0].amount
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3040502151226404785, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
+      propertyPath: levelUpOptions.Array.data[1].amount
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3040502151226404785, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
+      propertyPath: levelUpOptions.Array.data[2].amount
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 3040502151226404785, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
+      propertyPath: levelUpOptions.Array.data[3].amount
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 3932130429666288465, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -657,7 +673,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3932130429666288465, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3932130429666288465, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
       propertyPath: m_LocalRotation.w
@@ -691,42 +707,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 7197858040286465293, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
-      propertyPath: levelUpOptions.Array.data[4].type
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7197858040286465293, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
-      propertyPath: levelUpOptions.Array.data[4].amount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8561095181787317387, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
-      propertyPath: levelUpOptions.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8561095181787317387, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
-      propertyPath: weaponStats.projectileSpeed
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8561095181787317387, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
-      propertyPath: BalloonAnimalStats.explosionSize
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 8561095181787317387, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
-      propertyPath: levelUpOptions.Array.data[1].type
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8561095181787317387, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
-      propertyPath: levelUpOptions.Array.data[2].type
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8561095181787317387, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
-      propertyPath: levelUpOptions.Array.data[3].type
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8561095181787317387, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
-      propertyPath: BalloonAnimalStats.explosionPrefab
-      value: 
-      objectReference: {fileID: 693691949679971025, guid: d8f72e7383d1faae2b51b69a8f20f434, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -20,7 +20,7 @@ public class BalloonAnimal : ProjectileWeapon {
         public float explosionSize = 5f;
         [Tooltip("How much the explosion size is affected by projectile size scaling upgrades.")]
         public float explosionScaling = 0.5f;
-        [Tooltip("How quickly the balloon inflates (in percent per second).")]
+        [Tooltip("How quickly the balloon grows while inflating. 1 = +100% per second")]
         public float inflationRate = 1f;
     }
 
