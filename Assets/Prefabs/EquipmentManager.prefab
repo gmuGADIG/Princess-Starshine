@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 4816434653988682659}
   - component: {fileID: 2457162538701147535}
   - component: {fileID: 9019476187453430192}
+  - component: {fileID: 6232821952494979781}
   m_Layer: 0
   m_Name: EquipmentManager
   m_TagString: Untagged
@@ -154,10 +155,10 @@ MonoBehaviour:
     description: Increases consumable spawn chance and pickup radius
     icon: {fileID: 2800000, guid: a8b18013a7afa894e95d8d182b3e9f86, type: 3}
   levelUpsDone: 0
-  InitialCollisionRadiusMultiplier: 100
+  InitialPickUpRangeMultiplier: 2
   InitialSpawnChanceMultiplier: 0.05
-  CollisionRadiusScalar: 100
-  SpawnChangeScalar: 1
+  PickUpRangeScalar: 2
+  SpawnChanceScalar: 1
 --- !u!114 &5517776088446958833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -620,3 +621,21 @@ MonoBehaviour:
   projectilePrefab: {fileID: 4414555733823826805, guid: 536edafd6f3098c7fa252b9d49fbf961, type: 3}
   shootSoundName: Parasol_Whoosh
   Spread: 0
+--- !u!114 &6232821952494979781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 416059617501603780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9708e552de0671143bfbb53ee1931cd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon:
+    name: S
+    description: Increases weapon damage
+    icon: {fileID: 2800000, guid: 601c8c3a1f1d6b76186cef332fdc5784, type: 3}
+  levelUpsDone: 0
+  damageIncrease: 1.5
