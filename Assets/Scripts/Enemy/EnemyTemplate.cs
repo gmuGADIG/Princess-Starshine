@@ -68,6 +68,8 @@ public class EnemyTemplate : MonoBehaviour
     private Vector3 knockbackVelocity;
     private float knockbackDurationLeft = 0f;
 
+    public static Action EnemyDied;
+
     /**
      * Called when the enemy has knockback applied
      **/
@@ -96,6 +98,7 @@ public class EnemyTemplate : MonoBehaviour
     public virtual void Die()
     {
         if (isDead) { return; }
+        EnemyDied?.Invoke();
         isDead = true;
         EnemyManager.enemyManager.enemies.Remove(gameObject);
         DistrubuteXP();

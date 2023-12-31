@@ -27,6 +27,7 @@ GameObject:
   - component: {fileID: 2457162538701147535}
   - component: {fileID: 9019476187453430192}
   - component: {fileID: 6232821952494979781}
+  - component: {fileID: 7222985572356536306}
   m_Layer: 0
   m_Name: EquipmentManager
   m_TagString: Untagged
@@ -634,8 +635,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon:
-    name: S
+    name: SUGAR RUSH!!!
     description: Increases weapon damage
     icon: {fileID: 2800000, guid: 601c8c3a1f1d6b76186cef332fdc5784, type: 3}
   levelUpsDone: 0
   damageIncrease: 1.5
+--- !u!114 &7222985572356536306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 416059617501603780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52811136bb98addb1b43e3591903c622, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon:
+    name: Buttercream
+    description: Increase max health and a chance to heal on kill
+    icon: {fileID: 2800000, guid: 17e1d9c91c7d0056b9214bcc2a2d4ccc, type: 3}
+  levelUpsDone: 0
+  maxHealthBuff: 40
+  healChance: 1
+  lifestealAmount: 50
