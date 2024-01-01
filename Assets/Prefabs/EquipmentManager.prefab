@@ -29,6 +29,7 @@ GameObject:
   - component: {fileID: 6232821952494979781}
   - component: {fileID: 7222985572356536306}
   - component: {fileID: 2387503206305047277}
+  - component: {fileID: 2051232784743966262}
   m_Layer: 0
   m_Name: EquipmentManager
   m_TagString: Untagged
@@ -704,3 +705,47 @@ MonoBehaviour:
   projectilePrefab: {fileID: 4347030225597185653, guid: 3b60e233e997f34699bddce08efee732, type: 3}
   shootSoundName: Bubble_Blast
   Spread: 30
+--- !u!114 &2051232784743966262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 416059617501603780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3174a1d1a624bcb27861b497d8fc81d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon:
+    name: Flocks of a Feather
+    description: Feathers orbiting the player
+    icon: {fileID: 2800000, guid: 9b3e953a2f0531d6b8811de393973975, type: 3}
+  levelUpsDone: 0
+  levelUpOptions:
+  - type: 0
+    amount: 0.35
+  - type: 4
+    amount: 0.5
+  - type: 1
+    amount: 1
+  - type: 6
+    amount: 2
+  availableAtStart: 1
+  weaponStats:
+    damage: 10
+    knockback: 5
+    fireRate: 0
+    dotRate: 1
+    size: 1
+    projectileSpeed: 5
+    maxProjectiles: 100
+    projectilesPerShot: 3
+    pierceCount: -1
+  targetingStrategy: 0
+  spawnProjectileAtTarget: 0
+  projectileLocalSpace: 1
+  projectilePrefab: {fileID: 8186855958207819470, guid: 749c81fd5949f0a70b039cf4d3da79c2, type: 3}
+  shootSoundName: Feather_Fire
+  Spread: 0
+  OrbitRadius: 2

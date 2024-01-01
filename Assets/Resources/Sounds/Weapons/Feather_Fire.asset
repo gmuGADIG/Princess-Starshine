@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 68cff8a68a791994698281d8d8db14fe, type: 3}
-  m_Name: Bubble_Blast
+  m_Name: Feather_Fire
   m_EditorClassIdentifier: 
   audioVariants:
-  - {fileID: 8300000, guid: 8c93baa72960bb5408f8aa08d688486f, type: 3}
-  volume: 1.516
+  - {fileID: 8300000, guid: 5e9c37d527d4f534fbdaa4b95339934d, type: 3}
+  volume: 1
   volumeVariance: 0
   pitch: 1
-  pitchVariance: 0.202
+  pitchVariance: 0
   minimumDistance: 10
   loop: 0
   mixerGroup: {fileID: 0}

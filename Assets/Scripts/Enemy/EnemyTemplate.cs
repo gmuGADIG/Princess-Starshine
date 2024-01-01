@@ -103,7 +103,8 @@ public class EnemyTemplate : MonoBehaviour
         EnemyManager.enemyManager.enemies.Remove(gameObject);
         DistrubuteXP();
         SoundManager.Instance.PlaySoundAtPosition(deathSoundName, transform.position);
-        StartCoroutine(DelayedDestroy());
+        //StartCoroutine(DelayedDestroy());
+        Destroy(gameObject);
     }
 
     protected void MoveTowardsObject() {

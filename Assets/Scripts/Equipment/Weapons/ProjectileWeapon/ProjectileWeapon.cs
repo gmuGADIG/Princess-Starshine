@@ -85,7 +85,7 @@ abstract public class ProjectileWeapon : Weapon
             proj.Setup(this, target, Damage, PierceCount, ProjectileSpeed, Knockback, ProjectileSize, DotRate);
             if (shootSoundName != "")
             {
-                SoundManager.Instance.PlaySoundAtPosition(shootSoundName, new(), Camera.main.transform);
+                SoundManager.Instance.PlaySoundAtPosition(shootSoundName, Camera.main.transform.position, Camera.main.transform);
                 //SoundManager.Instance.PlaySoundGlobal(shootSoundName);
             }
         }
@@ -204,7 +204,7 @@ abstract public class ProjectileWeapon : Weapon
         return (description, onApply);
     }
 
-    public void ApplyLevelUp(WeaponLevelUp levelUp)
+    public virtual void ApplyLevelUp(WeaponLevelUp levelUp)
     {
         switch (levelUp.type)
         {
