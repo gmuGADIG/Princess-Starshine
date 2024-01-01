@@ -14,4 +14,5 @@ public class SaveData
     public List<FrozenEquipment> frozenEquipment = new();
     public int PlayerLevel = 1;
     public float PlayerXP = 0;
+    public Consumable.Type HeldConsumable = Consumable.Type.None;
 }

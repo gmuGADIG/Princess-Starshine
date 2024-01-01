@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -37,16 +38,28 @@ public class ConsumableManager : MonoBehaviour
     [HideInInspector] public BuffableStat ConsumableCollisionRadius { get; private set; }
     [HideInInspector] public BuffableStat XpCollisionRadius { get; private set; }
     [HideInInspector] public BuffableStat ConsumableSpawnChance { get; private set; }
+    GameObject[] consumablePrefabs;
     void Awake() {
         Instance = this;
 
         ConsumableCollisionRadius = new(initialConsumableCollisionRadius);
         XpCollisionRadius = new(initialXpCollisionRadius);
         ConsumableSpawnChance = new(initialConsumableSpawnChance);
+
+        consumablePrefabs = Resources.LoadAll<GameObject>("Consumables");
+    }
+
+    public Consumable? ConsumableOfConsumableType(Consumable.Type? type) {
+        var result = consumablePrefabs
+            .Select(go => go.GetComponent<Consumable>())
+            .Where(c => c.ConsumableType == type)
+            .FirstOrDefault();
+        
+        return result;
     }
 
     void Start() {
-        GameObject[] consumablePrefabs = Resources.LoadAll<GameObject>("Consumables");
+        
 
         ConsumableCollisionRadius.ValueUpdated.AddListener((radius) => { // Update consumable collision radius when the value changes
             foreach (var c in FindObjectsOfType<Consumable>())

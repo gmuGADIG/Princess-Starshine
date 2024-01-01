@@ -494,4 +494,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iconPrefab: {fileID: 8729575364285574042, guid: aad4aa58f53cb334ea65c4c9ce841c45, type: 3}
   menuParent: {fileID: 6783261581992547978}
+  title: {fileID: 4038758583141364223}
+  subtitle: {fileID: 4151440169990518762}
   iconHolder: {fileID: 4024726319412199285}
+  openOnStart: 1
+  hellsCurseStart: 1
+  currentLevel: 2
+  LevelUpTitle: 'Level Up!
+
+    Sparkle On, Princess Starshine!!'
+  LevelUpSubtitle: 'Choose one:'
+  HellsCurseTitle: 'Hell''s Curse!
+
+    Sparkle Off, Princess Starshine!'
+  HellsCurseSubtitle: 'Choose one to lose:'

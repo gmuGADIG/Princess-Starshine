@@ -54,5 +54,9 @@ public class BossHealth : MonoBehaviour
 
         // trigger post-boss dialogue
         postBossDialogue.gameObject.SetActive(true);
+
+        // freeze weapons
+        EquipmentManager.instance.Freeze();
+        Player.instance.Freeze();
     }
 }
