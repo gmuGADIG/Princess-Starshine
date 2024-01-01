@@ -34,15 +34,21 @@ class Buttercream : Passive
         return ("Increase heal on kill chance and max HP", apply);
     }
 
+    void OnEnemyDied() {
+        if (enabled) { // double check that this passive is active
+            if (UnityEngine.Random.Range(0f, 1f) < state.healChance) {
+                ph.increaseHealth(lifestealAmount);
+            }
+        }
+    }
+
     void Initalize() {
         ph = Player.instance.GetComponent<PlayerHealth>();
-        EnemyTemplate.EnemyDied += () => {
-            if (enabled) { // double check that this passive is active
-                if (UnityEngine.Random.Range(0f, 1f) < state.healChance) {
-                    ph.increaseHealth(lifestealAmount);
-                }
-            }
-        };
+        EnemyTemplate.EnemyDied += OnEnemyDied;
+    }
+
+    void OnDestroy() {
+        EnemyTemplate.EnemyDied -= OnEnemyDied;
     }
 
     public override void OnEquip() { 
