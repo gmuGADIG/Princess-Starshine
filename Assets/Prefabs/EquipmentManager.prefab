@@ -28,6 +28,7 @@ GameObject:
   - component: {fileID: 9019476187453430192}
   - component: {fileID: 6232821952494979781}
   - component: {fileID: 7222985572356536306}
+  - component: {fileID: 2387503206305047277}
   m_Layer: 0
   m_Name: EquipmentManager
   m_TagString: Untagged
@@ -660,3 +661,46 @@ MonoBehaviour:
   maxHealthBuff: 40
   healChance: 1
   lifestealAmount: 50
+--- !u!114 &2387503206305047277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 416059617501603780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73175484d347a5d3da85a9c1046acf0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon:
+    name: Bubble Blast
+    description: Fires lots of bubbles!
+    icon: {fileID: 2800000, guid: 7d644094f7241ed578625bd287426e13, type: 3}
+  levelUpsDone: 0
+  levelUpOptions:
+  - type: 0
+    amount: 1
+  - type: 2
+    amount: 1
+  - type: 3
+    amount: 0.25
+  - type: 6
+    amount: 1
+  availableAtStart: 1
+  weaponStats:
+    damage: 5
+    knockback: 5
+    fireRate: 10
+    dotRate: 1
+    size: 1
+    projectileSpeed: 5
+    maxProjectiles: 250
+    projectilesPerShot: 1
+    pierceCount: 3
+  targetingStrategy: 1
+  spawnProjectileAtTarget: 0
+  projectileLocalSpace: 0
+  projectilePrefab: {fileID: 4347030225597185653, guid: 3b60e233e997f34699bddce08efee732, type: 3}
+  shootSoundName: Bubble_Blast
+  Spread: 30
