@@ -17,8 +17,13 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            menu.SetActive(true);
-            Time.timeScale = 0f;
+            // If the pause menu is closed and nothing else is pausing the game:
+            if (!menu.activeSelf && Time.timeScale != 0f) {
+                menu.SetActive(true);
+                Time.timeScale = 0f;
+            } else if (menu.activeSelf) { // if the pause menu is open:
+                Resume();
+            }
         }
     }
 
