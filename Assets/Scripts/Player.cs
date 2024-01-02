@@ -134,7 +134,7 @@ public class Player : MonoBehaviour
 
         // Update UIs
         InGameUI.SetXp(xpLevel, (float)xpThisLevel / XpLevelUpGoal());
-        PickedUpConsumable.Invoke(ConsumableManager.Instance.ConsumableOfConsumableType(heldConsumable));
+        PickedUpConsumable?.Invoke(ConsumableManager.Instance.ConsumableOfConsumableType(heldConsumable));
 
         onLevelUp += (newLevel, xpThatLevel) => LevelUpUI.instance.Open();
 

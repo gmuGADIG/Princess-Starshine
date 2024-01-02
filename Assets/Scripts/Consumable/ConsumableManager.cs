@@ -39,7 +39,8 @@ public class ConsumableManager : MonoBehaviour
     [HideInInspector] public BuffableStat XpCollisionRadius { get; private set; }
     [HideInInspector] public BuffableStat ConsumableSpawnChance { get; private set; }
     GameObject[] consumablePrefabs;
-    void Awake() {
+    void Awake() 
+    {
         Instance = this;
 
         ConsumableCollisionRadius = new(initialConsumableCollisionRadius);
