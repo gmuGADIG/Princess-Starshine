@@ -14,7 +14,7 @@ public class EquipmentManager : MonoBehaviour
 {
     // constants
     const int MAX_WEAPONS = 7;
-    const int MAX_PASSIVES = 7;
+    const int MAX_PASSIVES = 5;
     const int MAX_EQUIPMENT_LEVELS = 7;
     
     
@@ -30,7 +30,10 @@ public class EquipmentManager : MonoBehaviour
     // run-time
     private List<Equipment> currentEquipment = new();
 
-    void OnDestroy() {
+    /// <summary>
+    /// Saves the current equipment to disk.
+    /// </summary>
+    public void Freeze() {
         SaveManager.SaveData.frozenEquipment = currentEquipment.Select(e => e.Freeze()).ToList();
     }
 
@@ -45,11 +48,11 @@ public class EquipmentManager : MonoBehaviour
         ProjectileWeapon.staticStatModifiers = new();
     }
 
-    // NOTE: Thaw needs to happen after Player.Awake and before InGameUI.Start (ie GetUpgradeOptions(true))
+    bool thawed = false;
     /// <summary>
     /// Restores weapons between scene changes / disk. This should only be called once.
     /// </summary>
-    bool thawed = false;
+    // NOTE: Thaw needs to happen after Player.Awake and before InGameUI.Start (ie GetUpgradeOptions(true))
     public void Thaw() {
         if (thawed) { 
             Debug.LogWarning("EquipmentManager.Thaw called more than once!");
@@ -67,6 +70,8 @@ public class EquipmentManager : MonoBehaviour
         }
 
         thawed = true;
+
+        InGameUI.UpdateItems();
     }
 
     void Update()
@@ -86,6 +91,64 @@ public class EquipmentManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Gets a random number of elements from input and returns a new list from them.
+    /// Effectively returns the list shuffled if `input.Count <= n`.
+    /// </summary>
+    public static List<T> takeRandom<T>(List<T> input, int n) {
+        var bag = new List<T>(input);
+        var result = new List<T>();
+
+        for (int i = 0; i < n; i++) {
+            if (bag.Count == 0) { break; }
+
+            var index = Random.Range(0, bag.Count);
+            result.Add(bag[index]);
+            bag.RemoveAt(index);
+        }
+
+        return result;
+    }
+
+    /// <summary>
+    /// Retrieves options for hell's curse.
+    /// Returns an empty list (if the player has only one weapon),
+    /// a list with the player's highest level weapon, 
+    /// or 1-4 of the weapons meeting the <paramref name="minLevel"/> constraint.
+    /// </summary>
+    public List<UpgradeOption> GetHellsCurseOptions(int minLevel) 
+    {
+        Thaw();
+
+        // Don't destroy the player's last weapon.
+        if (currentEquipment.OfType<Weapon>().Count() == 1) {
+            return new();
+        }
+
+        // Get 4 random weapons that satisfy the level requirement
+        var weapons = takeRandom(currentEquipment
+            .OfType<Weapon>()
+            .Where(e => e.levelUpsDone >= minLevel - 1)
+            .ToList(), 4); 
+
+        // If no weapons satisfy the level requirement, then pick the highest level one.
+        if (weapons.Count == 0) {
+            weapons = currentEquipment
+                .OfType<Weapon>()
+                .OrderByDescending(e => e.levelUpsDone)
+                .Take(1)
+                .ToList();
+        }
+
+        // Map the weapons to upgrade options that remove the weapon when selected.
+        return weapons.Select(e => new UpgradeOption(
+            e.icon.name,
+            e.icon.icon,
+            $"Level: {e.levelUpsDone + 1}",
+            () => RemoveEquipment(e)
+        )).ToList();
+    }
+
     /**
      * Randomly picks and returns the four options available on level-up.
      * These can be either new equipment or an upgrade to old equipment.
@@ -103,15 +166,13 @@ public class EquipmentManager : MonoBehaviour
 
         foreach (var equipment in allEquipment)
         {
-            // enforce first show rules and max weapon and max passive count
-            if (equipment is Weapon && weaponCount >= MAX_WEAPONS) continue;
+            // enforce first show rules 
             if (equipment is Weapon)
                 if (!(equipment as Weapon).availableAtStart && firstShow)
                     continue;
             if (equipment is Passive)
             {
                 if (firstShow) continue;
-                if (passiveCount >= MAX_PASSIVES) continue;
             }
 
             var icon = equipment.icon;
@@ -138,12 +199,28 @@ public class EquipmentManager : MonoBehaviour
             }
             else // present new equipment
             {
+                // only present new equipment if there's enough space
+                if (equipment is Passive && passiveCount >= MAX_PASSIVES) { continue; }
+                if (equipment is Weapon && weaponCount >= MAX_WEAPONS) { continue; }
                 Action onApply = () => AddNewEquipment(equipment);
                 options.Add(new UpgradeOption(icon.name, icon.icon, icon.description, onApply));
             }
         }
 
         return options.OrderBy(_ => Random.Range(0f, 1f)).Take(4).ToList();
+    }
+
+    private void RemoveEquipment(Equipment equipment) {
+        currentEquipment.Remove(equipment);
+        equipment.OnUnEquip();
+        equipment.enabled = false;
+
+        foreach (var prevEquipment in currentEquipment)
+        {
+            if (prevEquipment == equipment) continue;
+            
+            equipment.ProcessOtherRemoval(prevEquipment);
+        }
     }
 
     private void AddNewEquipment(Equipment equipment)

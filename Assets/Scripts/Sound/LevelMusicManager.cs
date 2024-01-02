@@ -5,14 +5,22 @@ using UnityEngine;
 public class LevelMusicManager : MonoBehaviour
 {
     [SerializeField] string levelSong;
+    AudioSource audioSource;
+
+    const string deathSong = "DeathMusic";
 
     private void Start()
     {
         PlayLevelSong();
+
+        Player.instance.GetComponent<PlayerHealth>().PlayerDied += () => {
+            audioSource.Stop();
+            audioSource = SoundManager.Instance.PlaySoundGlobal(deathSong);
+        };
     }
 
     public void PlayLevelSong()
     {
-        SoundManager.Instance.PlaySoundGlobal(levelSong);
+        audioSource = SoundManager.Instance.PlaySoundGlobal(levelSong);
     }
 }

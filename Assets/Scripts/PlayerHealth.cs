@@ -37,7 +37,9 @@ public class PlayerHealth : MonoBehaviour
 
     public void decreaseHealth(float num)
     {
-        if (!invincible) {
+        if (!invincible && !BossSceneManager.InPostDialogue) {
+            SoundManager.Instance.PlaySoundGlobal(Player.instance.takeDamageSound);
+
             tempHealth -= num * damageTakenMultiplier;
             InGameUI.SetHp(tempHealth / maxHealth);
             GetComponent<DamageFlash>().Damage();
