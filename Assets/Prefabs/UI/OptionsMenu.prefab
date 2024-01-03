@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3830859958955009089}
   - component: {fileID: 8882708522275209657}
   m_Layer: 5
-  m_Name: SliderContainer (1)
+  m_Name: SFXSliderContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -391,13 +391,25 @@ MonoBehaviour:
   m_FillRect: {fileID: 2684360585152075194}
   m_HandleRect: {fileID: 7586971764675087548}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 0.0001
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3980669519811841909}
+        m_TargetAssemblyTypeName: OptionsMenu, Assembly-CSharp
+        m_MethodName: UpdateVolume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1711377033455101711
 GameObject:
   m_ObjectHideFlags: 0
@@ -481,7 +493,7 @@ GameObject:
   - component: {fileID: 2079357189567501518}
   - component: {fileID: 4190632889423994857}
   m_Layer: 5
-  m_Name: SliderContainer
+  m_Name: MusicSliderContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1136,13 +1148,25 @@ MonoBehaviour:
   m_FillRect: {fileID: 2576329103999233170}
   m_HandleRect: {fileID: 9001223517437980731}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 0.001
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3980669519811841909}
+        m_TargetAssemblyTypeName: OptionsMenu, Assembly-CSharp
+        m_MethodName: UpdateVolume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5458402751465874612
 GameObject:
   m_ObjectHideFlags: 0
@@ -1591,6 +1615,9 @@ MonoBehaviour:
   OnClose:
     m_PersistentCalls:
       m_Calls: []
+  mixerGroup: {fileID: 24100000, guid: e61ba0ca00a19cd06b1d5c09bcb40e46, type: 2}
+  musicSlider: {fileID: 5546844155993088660}
+  sfxSlider: {fileID: 5552456638924104807}
 --- !u!1 &7991599656468908428
 GameObject:
   m_ObjectHideFlags: 0
