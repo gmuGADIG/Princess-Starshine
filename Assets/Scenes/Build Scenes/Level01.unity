@@ -850,6 +850,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1462086359929697760, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
+      propertyPath: levelUpOptions.Array.data[2].amount
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 3040502151226404785, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
       propertyPath: levelUpOptions.Array.data[0].amount
       value: 0.25
@@ -865,6 +869,10 @@ PrefabInstance:
     - target: {fileID: 3040502151226404785, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
       propertyPath: levelUpOptions.Array.data[3].amount
       value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3331201366450397363, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
+      propertyPath: weaponStats.damage
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 3932130429666288465, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
       propertyPath: m_LocalPosition.x
@@ -909,6 +917,38 @@ PrefabInstance:
     - target: {fileID: 4739150525570968963, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5622177290105605451, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
+      propertyPath: weaponStats.size
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8274805714986294266, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
+      propertyPath: fireRateIncrease
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 8430752906437032846, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
+      propertyPath: Spread
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8430752906437032846, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
+      propertyPath: weaponStats.damage
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8430752906437032846, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
+      propertyPath: weaponStats.pierceCount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8430752906437032846, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
+      propertyPath: levelUpOptions.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8430752906437032846, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
+      propertyPath: levelUpOptions.Array.data[4].type
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8430752906437032846, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
+      propertyPath: levelUpOptions.Array.data[4].amount
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1093,6 +1133,10 @@ PrefabInstance:
     - target: {fileID: 2312159100198718302, guid: 333f1395049277e41bdd270c005a334b, type: 3}
       propertyPath: spawnRate
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2312159100198718302, guid: 333f1395049277e41bdd270c005a334b, type: 3}
+      propertyPath: endSpawnRate
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2312159100198718302, guid: 333f1395049277e41bdd270c005a334b, type: 3}
       propertyPath: minSpawnRate
