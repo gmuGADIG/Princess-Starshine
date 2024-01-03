@@ -90,7 +90,7 @@ public class Projectile : MonoBehaviour
         this.dotRate = dotRate;
         hasBeenSetUp = true;
         
-        print($"set size to {size}");
+        // print($"set size to {size}");
     }
 
     /**
