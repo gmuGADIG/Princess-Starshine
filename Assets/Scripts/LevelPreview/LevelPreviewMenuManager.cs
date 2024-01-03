@@ -31,14 +31,12 @@ public class LevelPreviewMenuManager : MonoBehaviour
         OptionsMenuVisible = true;
 
         OptionsMenu.SetActive(true);
-        LevelPreviewUI.SetActive(false);
     }
 
     public void OnOptionsMenuClose() {
         OptionsMenuVisible = false;
 
         OptionsMenu.SetActive(false);
-        LevelPreviewUI.SetActive(true);
     }
 
     public void OnMenuButtonClick() {
