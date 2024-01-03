@@ -177,7 +177,6 @@ public class Player : MonoBehaviour
             gameObject.transform.localScale = new Vector3(-1,1,1);
         else if(facingDirection.x > 0 && gameObject.transform.localScale.x < 0)
             gameObject.transform.localScale = new Vector3(1,1,1);
-        print("flipX = " + playerSprite.flipX);
 
         if (!isTwirling){
             if (input!=Vector2.zero) {
