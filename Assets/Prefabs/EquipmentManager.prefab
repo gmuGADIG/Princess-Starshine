@@ -84,8 +84,8 @@ MonoBehaviour:
     description: Gives passive health regeneration
     icon: {fileID: 2800000, guid: 8951eebc4dfb16846922055cd296b4b7, type: 3}
   levelUpsDone: 0
-  healAmount: 3
-  healAmountUpgrade: 1
+  healAmount: 0.5
+  healAmountUpgrade: 0.5
 --- !u!114 &4829297850847493770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,7 +121,7 @@ MonoBehaviour:
     description: Increases the fire rate of weapons
     icon: {fileID: 2800000, guid: 6ecefc1fc03d3434db0ce584488e7eee, type: 3}
   levelUpsDone: 0
-  fireRateIncrease: 1.05
+  fireRateIncrease: 0.05
 --- !u!114 &1297070300227585684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,7 +139,7 @@ MonoBehaviour:
     description: Increases your move speed
     icon: {fileID: 2800000, guid: 534e89111aac93348b795499956abe9d, type: 3}
   levelUpsDone: 0
-  walkSpeedMultiplier: 1.16
+  walkSpeedMultiplier: 1.25
   scaleMultiplier: 1
 --- !u!114 &2309382276257578686
 MonoBehaviour:
@@ -309,7 +309,7 @@ MonoBehaviour:
     description: Increases projectile size.
     icon: {fileID: 2800000, guid: 83525f06fa72317449683ba20c77f41c, type: 3}
   levelUpsDone: 0
-  projectileSizeIncrease: 1.5
+  projectileSizeIncrease: 0.11
 --- !u!114 &8728917983658432178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -329,21 +329,21 @@ MonoBehaviour:
   levelUpsDone: 0
   levelUpOptions:
   - type: 0
-    amount: 1
+    amount: 0.25
   - type: 4
-    amount: 1
+    amount: 0.3
   - type: 2
-    amount: 1
-  - type: 7
+    amount: 0.2
+  - type: 6
     amount: 1
   availableAtStart: 1
   weaponStats:
-    damage: 20
+    damage: 50
     knockback: 0
     fireRate: 0.333
     dotRate: 1
     size: 1
-    projectileSpeed: 3
+    projectileSpeed: 12
     maxProjectiles: 3
     projectilesPerShot: 1
     pierceCount: 5
@@ -373,11 +373,13 @@ MonoBehaviour:
   levelUpsDone: 0
   levelUpOptions:
   - type: 0
-    amount: 1
+    amount: 0.25
   - type: 6
     amount: 1
   - type: 3
-    amount: 1
+    amount: 0.3
+  - type: 2
+    amount: 0.2
   availableAtStart: 0
   weaponStats:
     damage: 5
@@ -389,7 +391,7 @@ MonoBehaviour:
     maxProjectiles: 1
     projectilesPerShot: 1
     pierceCount: -1
-  targetingStrategy: 3
+  targetingStrategy: 0
   spawnProjectileAtTarget: 0
   projectileLocalSpace: 0
   projectilePrefab: {fileID: 1696003635296911872, guid: 0cfbdd14428a4c0e6ab371283d748662, type: 3}
@@ -422,19 +424,19 @@ MonoBehaviour:
   levelUpsDone: 0
   levelUpOptions:
   - type: 0
-    amount: 1
+    amount: 0.25
   - type: 1
-    amount: 1
+    amount: 0.4
   - type: 3
-    amount: 1
+    amount: 0.15
   - type: 8
-    amount: 1
+    amount: 0.2
   availableAtStart: 1
   weaponStats:
     damage: 10
     knockback: 7
     fireRate: 0
-    dotRate: 1
+    dotRate: 2
     size: 5
     projectileSpeed: 0
     maxProjectiles: 1
@@ -465,20 +467,20 @@ MonoBehaviour:
   levelUpsDone: 0
   levelUpOptions:
   - type: 0
-    amount: 1
+    amount: 0.25
   - type: 4
-    amount: 1
+    amount: 0.4
   - type: 3
-    amount: 1
+    amount: 0.3
   - type: 2
-    amount: 1
+    amount: 0.2
   availableAtStart: 1
   weaponStats:
     damage: 30
     knockback: 10
     fireRate: 1
     dotRate: 0
-    size: 1
+    size: 1.3
     projectileSpeed: 3
     maxProjectiles: 0
     projectilesPerShot: 0
@@ -505,16 +507,16 @@ MonoBehaviour:
   levelUpsDone: 0
   levelUpOptions:
   - type: 0
-    amount: 1
+    amount: 0.25
   - type: 2
-    amount: 1
+    amount: 0.2
   - type: 3
-    amount: 1
+    amount: 0.22
   - type: 6
     amount: 1
   availableAtStart: 1
   weaponStats:
-    damage: 50
+    damage: 20
     knockback: 0
     fireRate: 0.2
     dotRate: 0
@@ -553,16 +555,18 @@ MonoBehaviour:
   levelUpsDone: 0
   levelUpOptions:
   - type: 0
-    amount: 1
+    amount: 0.25
   - type: 2
-    amount: 1
+    amount: 0.2
   - type: 6
     amount: 1
   - type: 4
+    amount: 0.3
+  - type: 7
     amount: 1
   availableAtStart: 1
   weaponStats:
-    damage: 20
+    damage: 40
     knockback: 0
     fireRate: 0.5
     dotRate: 0.25
@@ -570,13 +574,13 @@ MonoBehaviour:
     projectileSpeed: 10
     maxProjectiles: 1000
     projectilesPerShot: 1
-    pierceCount: -1
+    pierceCount: 3
   targetingStrategy: 1
   spawnProjectileAtTarget: 0
   projectileLocalSpace: 0
   projectilePrefab: {fileID: 5249661839970473252, guid: b1036f69fe54546288774cf31d9dfcfa, type: 3}
   shootSoundName: 
-  Spread: 180
+  Spread: 12
   roundaboutTime: 0.5
   DistanceSpeedScaling: 0.25
   RoundaboutRatio: 0.25
@@ -600,13 +604,13 @@ MonoBehaviour:
   levelUpsDone: 0
   levelUpOptions:
   - type: 0
-    amount: 1
+    amount: 0.25
   - type: 2
-    amount: 1
+    amount: 0.2
   - type: 3
-    amount: 1
+    amount: 0.35
   - type: 1
-    amount: 1
+    amount: 0.4
   availableAtStart: 1
   weaponStats:
     damage: 70
@@ -641,7 +645,7 @@ MonoBehaviour:
     description: Increases weapon damage
     icon: {fileID: 2800000, guid: 601c8c3a1f1d6b76186cef332fdc5784, type: 3}
   levelUpsDone: 0
-  damageIncrease: 1.5
+  damageIncrease: 0.09
 --- !u!114 &7222985572356536306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -659,9 +663,9 @@ MonoBehaviour:
     description: Increase max health and a chance to heal on kill
     icon: {fileID: 2800000, guid: 17e1d9c91c7d0056b9214bcc2a2d4ccc, type: 3}
   levelUpsDone: 0
-  maxHealthBuff: 40
-  healChance: 1
-  lifestealAmount: 50
+  maxHealthBuff: 10
+  healChance: 0.1
+  lifestealAmount: 5
 --- !u!114 &2387503206305047277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -681,24 +685,24 @@ MonoBehaviour:
   levelUpsDone: 0
   levelUpOptions:
   - type: 0
-    amount: 1
+    amount: 0.25
   - type: 2
-    amount: 1
+    amount: 0.2
   - type: 3
     amount: 0.25
-  - type: 6
-    amount: 1
+  - type: 1
+    amount: 0.4
   availableAtStart: 1
   weaponStats:
-    damage: 5
-    knockback: 5
-    fireRate: 10
+    damage: 7
+    knockback: 2
+    fireRate: 3
     dotRate: 1
     size: 1
     projectileSpeed: 5
     maxProjectiles: 250
     projectilesPerShot: 1
-    pierceCount: 3
+    pierceCount: 1
   targetingStrategy: 1
   spawnProjectileAtTarget: 0
   projectileLocalSpace: 0
@@ -734,13 +738,13 @@ MonoBehaviour:
   availableAtStart: 1
   weaponStats:
     damage: 10
-    knockback: 5
+    knockback: 2
     fireRate: 0
     dotRate: 1
     size: 1
-    projectileSpeed: 5
+    projectileSpeed: 2.5
     maxProjectiles: 100
-    projectilesPerShot: 3
+    projectilesPerShot: 2
     pierceCount: -1
   targetingStrategy: 0
   spawnProjectileAtTarget: 0

@@ -1,9 +1,11 @@
 using System;
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEditor.Animations;
 
 public class InGameUI : MonoBehaviour
 {
@@ -14,6 +16,7 @@ public class InGameUI : MonoBehaviour
     [SerializeField] TextMeshProUGUI xpBarText;
     [SerializeField] Transform weapons;
     [SerializeField] Transform passives;
+    [SerializeField] Texture emptyItem;
     
     [Header("Twirls")]
     [SerializeField] Transform twirlParent;
@@ -68,10 +71,9 @@ public class InGameUI : MonoBehaviour
 
     private static void SetItemList(Transform group, List<Texture> icons)
     {
-        for (int i = 0; i < icons.Count; i++)
-        {
-            var image = group.GetChild(i).GetComponent<RawImage>();
-            image.texture = icons[i];
+        for (int idx = 0; idx < group.childCount; idx++) {
+            var image = group.GetChild(idx).GetComponent<RawImage>();
+            image.texture = idx < icons.Count ? icons[idx] : instance.emptyItem;
         }
     }
 }

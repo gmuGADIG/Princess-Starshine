@@ -74,7 +74,6 @@ public class EnemyTemplate : MonoBehaviour
      * Called when the enemy has knockback applied
      **/
     public void ApplyKnockback(Vector2 _knockbackVelocity) {
-        Debug.Log("knockback");
         knockbackVelocity = _knockbackVelocity;
         knockbackDurationLeft = knockbackDuration;
     }
