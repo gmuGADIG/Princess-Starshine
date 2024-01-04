@@ -14,7 +14,7 @@ public class ProjectileCollision : MonoBehaviour
 
     Collider2D collider;
     ContactFilter2D filter;
-    Collider2D[] collisions = new Collider2D[64];
+    List<Collider2D> collisions = new(64);
     Dictionary<Collider2D, float> pastCollisionTimes = new();
 
     public event Action onHit;

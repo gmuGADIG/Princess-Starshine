@@ -26,6 +26,10 @@ GameObject:
   - component: {fileID: 4816434653988682659}
   - component: {fileID: 2457162538701147535}
   - component: {fileID: 9019476187453430192}
+  - component: {fileID: 6232821952494979781}
+  - component: {fileID: 7222985572356536306}
+  - component: {fileID: 2387503206305047277}
+  - component: {fileID: 2051232784743966262}
   m_Layer: 0
   m_Name: EquipmentManager
   m_TagString: Untagged
@@ -154,10 +158,10 @@ MonoBehaviour:
     description: Increases consumable spawn chance and pickup radius
     icon: {fileID: 2800000, guid: a8b18013a7afa894e95d8d182b3e9f86, type: 3}
   levelUpsDone: 0
-  InitialCollisionRadiusMultiplier: 100
+  InitialPickUpRangeMultiplier: 2
   InitialSpawnChanceMultiplier: 0.05
-  CollisionRadiusScalar: 100
-  SpawnChangeScalar: 1
+  PickUpRangeScalar: 2
+  SpawnChanceScalar: 1
 --- !u!114 &5517776088446958833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -620,3 +624,128 @@ MonoBehaviour:
   projectilePrefab: {fileID: 4414555733823826805, guid: 536edafd6f3098c7fa252b9d49fbf961, type: 3}
   shootSoundName: Parasol_Whoosh
   Spread: 0
+--- !u!114 &6232821952494979781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 416059617501603780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9708e552de0671143bfbb53ee1931cd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon:
+    name: SUGAR RUSH!!!
+    description: Increases weapon damage
+    icon: {fileID: 2800000, guid: 601c8c3a1f1d6b76186cef332fdc5784, type: 3}
+  levelUpsDone: 0
+  damageIncrease: 1.5
+--- !u!114 &7222985572356536306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 416059617501603780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52811136bb98addb1b43e3591903c622, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon:
+    name: Buttercream
+    description: Increase max health and a chance to heal on kill
+    icon: {fileID: 2800000, guid: 17e1d9c91c7d0056b9214bcc2a2d4ccc, type: 3}
+  levelUpsDone: 0
+  maxHealthBuff: 40
+  healChance: 1
+  lifestealAmount: 50
+--- !u!114 &2387503206305047277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 416059617501603780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73175484d347a5d3da85a9c1046acf0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon:
+    name: Bubble Blast
+    description: Fires lots of bubbles!
+    icon: {fileID: 2800000, guid: 7d644094f7241ed578625bd287426e13, type: 3}
+  levelUpsDone: 0
+  levelUpOptions:
+  - type: 0
+    amount: 1
+  - type: 2
+    amount: 1
+  - type: 3
+    amount: 0.25
+  - type: 6
+    amount: 1
+  availableAtStart: 1
+  weaponStats:
+    damage: 5
+    knockback: 5
+    fireRate: 10
+    dotRate: 1
+    size: 1
+    projectileSpeed: 5
+    maxProjectiles: 250
+    projectilesPerShot: 1
+    pierceCount: 3
+  targetingStrategy: 1
+  spawnProjectileAtTarget: 0
+  projectileLocalSpace: 0
+  projectilePrefab: {fileID: 4347030225597185653, guid: 3b60e233e997f34699bddce08efee732, type: 3}
+  shootSoundName: Bubble_Blast
+  Spread: 30
+--- !u!114 &2051232784743966262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 416059617501603780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3174a1d1a624bcb27861b497d8fc81d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon:
+    name: Flocks of a Feather
+    description: Feathers orbiting the player
+    icon: {fileID: 2800000, guid: 9b3e953a2f0531d6b8811de393973975, type: 3}
+  levelUpsDone: 0
+  levelUpOptions:
+  - type: 0
+    amount: 0.35
+  - type: 4
+    amount: 0.5
+  - type: 1
+    amount: 1
+  - type: 6
+    amount: 2
+  availableAtStart: 1
+  weaponStats:
+    damage: 10
+    knockback: 5
+    fireRate: 0
+    dotRate: 1
+    size: 1
+    projectileSpeed: 5
+    maxProjectiles: 100
+    projectilesPerShot: 3
+    pierceCount: -1
+  targetingStrategy: 0
+  spawnProjectileAtTarget: 0
+  projectileLocalSpace: 1
+  projectilePrefab: {fileID: 8186855958207819470, guid: 749c81fd5949f0a70b039cf4d3da79c2, type: 3}
+  shootSoundName: Feather_Fire
+  Spread: 0
+  OrbitRadius: 2

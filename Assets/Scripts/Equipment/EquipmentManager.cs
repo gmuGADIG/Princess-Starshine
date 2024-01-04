@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
@@ -186,6 +187,13 @@ public class EquipmentManager : MonoBehaviour
                 {
                     equipment.levelUpsDone += 1;
                     applyLevelUp();
+
+                    // Inform the other equipment about the upgrade
+                    foreach (var e in currentEquipment) {
+                        if (e == equipment)
+                        e.ProcessOther(equipment);
+                    }
+
                 };
                 options.Add(new UpgradeOption(icon.name, icon.icon, description, onApply));
             }
@@ -225,7 +233,11 @@ public class EquipmentManager : MonoBehaviour
         {
             if (prevEquipment == equipment) continue;
             
-            equipment.ProcessOther(prevEquipment);
+            if (!(equipment is FlocksOfAFeather)) { // avoid double spawning feathers
+                equipment.ProcessOther(prevEquipment);
+            }
+
+            prevEquipment.ProcessOther(equipment);
         }
     }
 

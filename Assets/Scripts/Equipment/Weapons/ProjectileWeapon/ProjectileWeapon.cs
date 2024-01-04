@@ -58,7 +58,7 @@ abstract public class ProjectileWeapon : Weapon
     /** Set of active projectiles. Updated in Fire and OnProjectileDestroy. Necessary to update projectiles when the weapon levels up. */
     protected HashSet<Projectile> projectileSet = new();
 
-    [Tooltip("Rotation offset (in degrees) of the projectiles (if more than one are shot at a time).")]
+    [Tooltip("Rotation offset (in degrees) of the projectiles.")]
     public float Spread = 0f;
 
     /**
@@ -85,21 +85,19 @@ abstract public class ProjectileWeapon : Weapon
             proj.Setup(this, target, Damage, PierceCount, ProjectileSpeed, Knockback, ProjectileSize, DotRate);
             if (shootSoundName != "")
             {
-                SoundManager.Instance.PlaySoundGlobal(shootSoundName);
+                SoundManager.Instance.PlaySoundAtPosition(shootSoundName, Camera.main.transform.position, Camera.main.transform);
+                //SoundManager.Instance.PlaySoundGlobal(shootSoundName);
             }
         }
         
         Vector3 playerPosition = Player.instance.transform.position;
         var targetPosition = (Vector3)GetTarget();
-        FireToTarget(targetPosition);
+        // FireToTarget(targetPosition);
         Vector3 toTarget = targetPosition - playerPosition;
-        for (int i = 0; i < ProjectilesPerShot - 1; i++) {
+        for (int i = 0; i < ProjectilesPerShot; i++) {
             Vector3 newTarget = playerPosition + Quaternion.Euler(0,0, Random.Range(-Spread,Spread)) * toTarget;
             FireToTarget(newTarget);
         }
-
-        // TODO: handle projectile count
-        // basic cases can be handled by just looping this, but if they have the same target, they'll need to be separated a bit
     }
 
     /** Called by the projectiles whenever one is destroyed. Used to remove from the set of projectiles. */
@@ -206,7 +204,7 @@ abstract public class ProjectileWeapon : Weapon
         return (description, onApply);
     }
 
-    public void ApplyLevelUp(WeaponLevelUp levelUp)
+    public virtual void ApplyLevelUp(WeaponLevelUp levelUp)
     {
         switch (levelUp.type)
         {
