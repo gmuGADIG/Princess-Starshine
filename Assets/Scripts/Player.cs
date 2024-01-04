@@ -280,11 +280,13 @@ public class Player : MonoBehaviour
     }
 
     //current placeholder for xp function
-    public void AddXP(float points) 
+    public void AddXP(float points, bool playSound = true) 
     {
         cumulativeXpPoints += points;
         xpThisLevel += points;
-        SoundManager.Instance.PlaySoundAtPosition(xpPickupSound, Camera.main.transform.position, Camera.main.transform);
+        if (playSound) {
+            SoundManager.Instance.PlaySoundAtPosition(xpPickupSound, Camera.main.transform.position, Camera.main.transform);
+        }
 
         var goal = XpLevelUpGoal();
         if (xpThisLevel >= goal)
