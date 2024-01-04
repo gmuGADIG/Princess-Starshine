@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68cff8a68a791994698281d8d8db14fe, type: 3}
   m_Name: Level06Theme
   m_EditorClassIdentifier: 
-  audioVariants: []
+  audioVariants:
+  - {fileID: 8300000, guid: 7de821d64c5ece54da15b30029ae02cd, type: 3}
   volume: 1
   volumeVariance: 0.1
   pitch: 1
