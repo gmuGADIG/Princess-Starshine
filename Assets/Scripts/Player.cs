@@ -173,10 +173,10 @@ public class Player : MonoBehaviour
         //changes where the player is looking
         if (velocity != Vector2.zero) facingDirection = velocity.normalized;
         //the checks after the &&s are to avoid making new Vector3 objects when not necessary
-        if (facingDirection.x < 0 && gameObject.transform.localScale.x > 0)
-            gameObject.transform.localScale = new Vector3(-1,1,1);
-        else if(facingDirection.x > 0 && gameObject.transform.localScale.x < 0)
-            gameObject.transform.localScale = new Vector3(1,1,1);
+        if (facingDirection.x < 0)
+            playerSprite.flipX = true;
+        else if (facingDirection.x > 0)
+            playerSprite.flipX = false;
 
         if (!isTwirling){
             if (input!=Vector2.zero) {
