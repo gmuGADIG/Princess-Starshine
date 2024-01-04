@@ -100,6 +100,7 @@ GameObject:
   - component: {fileID: 2163155196164173453}
   - component: {fileID: -8988737060406780490}
   - component: {fileID: 8249705733931127298}
+  - component: {fileID: -8089608667190846624}
   m_Layer: 0
   m_Name: PrinterEnemy
   m_TagString: Enemy
@@ -293,6 +294,18 @@ CircleCollider2D:
   m_Offset: {x: -0.07, y: 0}
   serializedVersion: 2
   m_Radius: 0.69
+--- !u!114 &-8089608667190846624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3498557936519908969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d50c7c4eece2819feaebfdf4bee4ed5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4460934440337177681
 GameObject:
   m_ObjectHideFlags: 0

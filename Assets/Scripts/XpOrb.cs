@@ -15,7 +15,7 @@ public class XpOrb : MonoBehaviour
     void Update() {
         if (transform.position.x < TeaTime.cameraBoundingBox().xMin + 1) {
             Destroy(gameObject);
-            Player.instance.AddXP(points * fireMultiplier);
+            Player.instance.AddXP(points * fireMultiplier, false);
         }
     }
 }
