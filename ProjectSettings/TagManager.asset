@@ -11,6 +11,8 @@ TagManager:
   - Enemy
   - XPOrb
   - Boss
+  - EnemyProjectile
+  - DeadBoss
   layers:
   - Default
   - TransparentFX

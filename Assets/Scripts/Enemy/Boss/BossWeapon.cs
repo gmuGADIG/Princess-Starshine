@@ -374,11 +374,8 @@ public class BossWeapon : MonoBehaviour
                     float fireAngle = UnityEngine.Random.Range(angle - (Mathf.Deg2Rad * machinegun.bulletSpread), angle + (Mathf.Deg2Rad * machinegun.bulletSpread));
                     Vector2 velocity = new Vector2(Mathf.Cos(fireAngle), Mathf.Sin(fireAngle));
 
-                    GameObject proj = Instantiate(machinegun.machineGunProjectile);
-                    proj.transform.position = currentPos;
-                    BossProjectile bossProjectile;
-                    proj.TryGetComponent<BossProjectile>(out bossProjectile);
-                    if (bossProjectile)
+                    GameObject proj = Instantiate(machinegun.machineGunProjectile, currentPos, Quaternion.identity);
+                    if (proj.TryGetComponent<BossProjectile>(out var bossProjectile))
                     {
                         bossProjectile.Setup(velocity, machinegun.machineGunDamage, machinegun.bulletSpeed, 5);
                     }
@@ -413,11 +410,8 @@ public class BossWeapon : MonoBehaviour
                         float fireAngle = UnityEngine.Random.Range(angle - (Mathf.Deg2Rad * machinegun.bulletSpread), angle + (Mathf.Deg2Rad * machinegun.bulletSpread));
                         Vector2 velocity = new Vector2(Mathf.Cos(fireAngle), Mathf.Sin(fireAngle));
 
-                        GameObject proj = Instantiate(machinegun.machineGunProjectile);
-                        proj.transform.position = currentPos;
-                        BossProjectile bossProjectile;
-                        proj.TryGetComponent<BossProjectile>(out bossProjectile);
-                        if (bossProjectile)
+                        GameObject proj = Instantiate(machinegun.machineGunProjectile, currentPos, Quaternion.identity);
+                        if (proj.TryGetComponent<BossProjectile>(out var bossProjectile))
                         {
                             bossProjectile.Setup(velocity, machinegun.machineGunDamage, machinegun.bulletSpeed, 5);
                         }

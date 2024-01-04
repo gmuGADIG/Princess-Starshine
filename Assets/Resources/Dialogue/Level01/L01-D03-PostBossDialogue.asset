@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfdcc9cbed7effe47855230305df1a91, type: 3}
   m_Name: L01-D03-PostBossDialogue
   m_EditorClassIdentifier: 
-  text: "Virgil: Haha! Take that as my resignation letter, you a!@#$%^&*! I\u2019d
-    make you MY cane topper if I didn\u2019t have better things to do! I\u2019m off
-    to join a union and definitely not escape this place!\r\nPrincess: Aw\u2026Playtime\u2019s
-    over\u2026\r\nVirgil: Oh, how terribly sad. All good things must come to an end
-    though, so let's get a move on! This tour won't guide itself! \r\nPrincess: poke\u2026poke\u2026\r\nVirgil:
+  text: "{virgil_walk_to_bael}\nVirgil: Haha! Take that as my resignation letter,
+    you a!@#$%^&*! I\u2019d make you MY cane topper if I didn\u2019t have better
+    things to do! I\u2019m off to join a union and definitely not escape this place!\r\nPrincess:
+    Aw\u2026Playtime\u2019s over\u2026\r\nVirgil: Oh, how terribly sad. All good
+    things must come to an end though, so let's get a move on! This tour won't guide
+    itself!\n{princess_walk_to_bael} \r\nPrincess: poke\u2026poke\u2026\r\nVirgil:
     What are you doing?\r\nPrincess: Trying to turn him back on!\r\nVirgil: \u2026He\u2019s
     not some oversized toy you know\u2026he was my annoying and insufferable boss
     for 283985 years\u2026\r\nPrincess: Wait, he can't turn back on? Ooooooooooooh\u2026

@@ -14,6 +14,9 @@ public class BossHealth : MonoBehaviour
 
     // NOTE: Assumes there's only one boss per scene!
     [SerializeField] DialoguePlayer postBossDialogue;
+    
+    [SerializeField, Tooltip("When the boss dies, this prefab is instantiated at it's position. Could be a dead sprite, particles, etc. Affects nothing if null.")]
+    GameObject onDeathPrefab;
 
     private void Start()
     {
@@ -49,8 +52,8 @@ public class BossHealth : MonoBehaviour
             Destroy(enemy.gameObject);
         
         // destroy the boss
-        // todo: add support for animations
         this.gameObject.SetActive(false);
+        if (onDeathPrefab != null) Instantiate(onDeathPrefab, transform.position, transform.rotation);
 
         // trigger post-boss dialogue
         postBossDialogue.gameObject.SetActive(true);

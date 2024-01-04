@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfdcc9cbed7effe47855230305df1a91, type: 3}
   m_Name: L02-D03-PostBossDialogue
   m_EditorClassIdentifier: 
-  text: "TheBoss: No\u2026! You\u2026 you can\u2019t do this to me! Do you have ANY
-    idea who I (or my dad) are??\r\nPrincess: Nope! :D\r\nTheBoss: Just wait\u2026
+  text: "OfficeBoss: No\u2026! You\u2026 you can\u2019t do this to me! Do you have
+    ANY idea who I (or my dad) are??\r\nPrincess: Nope! :D\r\nOfficeBoss: Just wait\u2026
     until my dad hears about this!\r\n{boss_dies}\r\nYesMan1: Sooo\u2026 do we need
     a new boss?\r\nYesMan2: YES! I mean, nah, sorry, force of habit. What did he
     really do around here besides play golf and brag about his dad?\r\nYesMan1: Good

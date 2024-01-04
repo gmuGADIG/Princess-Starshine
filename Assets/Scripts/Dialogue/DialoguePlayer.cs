@@ -19,7 +19,7 @@ using UnityEngine.SceneManagement;
  */
 public class DialoguePlayer : MonoBehaviour
 {
-    const float charsPerSecond = 20;
+    const float charsPerSecond = 100;
 
     [Header("Game Objects")]
     public GameObject dialogueBox;
@@ -31,7 +31,7 @@ public class DialoguePlayer : MonoBehaviour
     public DialogueSequence dialogueSequence;
     public DialogueCommand[] commands;
 
-    [Header("Ending")]
+    [Header("Events")]
     [Tooltip("Fired when the dialogue begins.")]
     public UnityEvent startEvent;
     [Tooltip("When the player skips the dialogue, this event should set everything to its final state.\n" +
@@ -48,7 +48,8 @@ public class DialoguePlayer : MonoBehaviour
     static Dictionary<string, DialogueCharacter> characterDict;
     
     bool isTextInProgress;
-    bool skipPressed;
+
+    public static DialoguePlayer currentPlayer;
 
     /**
      * Starts a dialogue player based on the name of the game object it's attached to.
@@ -70,6 +71,8 @@ public class DialoguePlayer : MonoBehaviour
 
     void Start()
     {
+        currentPlayer = this;
+        
         startEvent.Invoke();
         lines = dialogueSequence.text.Split(new[] {'\n', '\r'}, StringSplitOptions.RemoveEmptyEntries);
 
@@ -106,7 +109,7 @@ public class DialoguePlayer : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space)) // advance
         {
             if (dialogueBox.activeSelf == false) return;
-            if (isTextInProgress) skipPressed = true;
+            if (isTextInProgress) return;
             else ProcessLine();
         }
 
@@ -175,6 +178,7 @@ public class DialoguePlayer : MonoBehaviour
         var speakerChar = characterDict[speakerScriptName];
         speakerName.text = speakerChar.displayName;
         speakerImage.texture = speakerChar.picture;
+        dialogueBox.SetActive(true);
         
         // print($"`{speaker}` is saying `{words}`");
         StartCoroutine(Coroutine());
@@ -186,34 +190,12 @@ public class DialoguePlayer : MonoBehaviour
             var startTime = Time.time;
             for (int i = 0; i < words.Length; i++)
             {
-                if (skipPressed) i = words.Length - 1; // skip to end
-                else
-                {
-                    var elapsedTime = Time.time - startTime;
-                    yield return new WaitForSeconds((i + 1) / charsPerSecond - elapsedTime);
-                }
+                var elapsedTime = Time.time - startTime;
+                yield return new WaitForSeconds((i + 1) / charsPerSecond - elapsedTime);
+                
                 textObj.text = words[0 .. (i+1)];
-
-                // additional delays
-                if (i == words.Length - 1) continue; // ignore for end of line
-                var sentenceEnds = new[] { '.', '?', '!' };
-                // if this character is a sentence-end, and the next is not
-                // e.g "!!!!" will only pause on the final exclamation mark
-                var isEndOfSentence = sentenceEnds.Contains(words[i]) && !sentenceEnds.Contains(words[i + 1]);
-                if (isEndOfSentence)
-                {
-                    startTime += 0.5f;
-                    yield return new WaitForSeconds(0.5f);
-                }
-
-                if (words[i] == ',')
-                {
-                    startTime += 0.2f;
-                    yield return new WaitForSeconds(0.2f);
-                }
             }
 
-            skipPressed = false;
             isTextInProgress = false;
             if (commandOnFinish != null) RunCommand(commandOnFinish);
         }
@@ -305,7 +287,7 @@ public class DialoguePlayer : MonoBehaviour
             dialogueBox.SetActive(true);
         }
     }
-    
+
     /**
      * Simply calls SceneManager.LoadScene(scene). Necessary to change scene in UnityEvents.
      */
@@ -341,6 +323,51 @@ public class DialoguePlayer : MonoBehaviour
         FindObjectOfType<BossWeapon>().enabled = true;
         FindObjectOfType<IBossMovement>().enabled = true;
     }
+
+    /**
+     * Hides the dialogue box while the given GameObject walks towards the object with tag DeadBoss
+     */
+    public void HideDialogueAndWalkToDeadBoss(Transform walker)
+    {
+        var boss = GameObject.FindGameObjectWithTag("DeadBoss");
+        if (boss == null) throw new Exception("Couldn't find bael!");
+        
+        HideDialogueAndWalkTo(walker, boss.transform.position, 1.5f);
+    }
+
+    /**
+     * Hides the dialogue box while the given object walks towards the destination, stopping when it's `tolerance` meters away.
+     */
+    public void HideDialogueAndWalkTo(Transform walker, Vector3 destination, float tolerance = 0.05f)
+    {
+        StartCoroutine(Coroutine());
+        
+        IEnumerator Coroutine()
+        {
+            dialogueBox.SetActive(false);
+            while (true)
+            {
+                walker.position =
+                    Vector3.MoveTowards(
+                        walker.position, 
+                        destination,
+                        5 * Time.deltaTime
+                    );
+                
+                var distance = (walker.position - destination).magnitude;
+                if (distance < tolerance) break;
+                else yield return new WaitForEndOfFrame();
+            }
+            dialogueBox.SetActive(true);
+            ProcessLine();
+        }
+    }
+
+    public void DestroyDeadBoss()
+    {
+        GameObject.FindGameObjectWithTag("DeadBoss").gameObject.SetActive(false);
+    }
+    
     #endregion
 }
 
