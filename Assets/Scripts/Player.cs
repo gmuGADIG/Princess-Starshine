@@ -313,12 +313,13 @@ public class Player : MonoBehaviour
             Destroy(xpObj.gameObject);
         }
 
-        else if (hit.collider.CompareTag("Enemy")|| hit.collider.CompareTag("WallOfFire") || hit.collider.CompareTag("EnemyProjectile"))
+        //else if (hit.collider.CompareTag("Enemy")|| hit.collider.CompareTag("WallOfFire") || hit.collider.CompareTag("EnemyProjectile"))
+        else if (hit.collider.TryGetComponent<Damage>(out var damage) && damage.enabled)
         {
             if (isTwirling) return;
             if (immuneTime > 0) return;
             
-            OnAttacked(hit.collider.gameObject.GetComponent<Damage>().damage);
+            OnAttacked(damage.damage);
         }
 
         else if (hit.collider.CompareTag("Consumable"))
