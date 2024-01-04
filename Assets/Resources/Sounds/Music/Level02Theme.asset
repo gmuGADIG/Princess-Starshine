@@ -19,5 +19,5 @@ MonoBehaviour:
   pitchVariance: 0
   minimumDistance: 10
   loop: 0
-  mixerGroup: {fileID: 0}
+  mixerGroup: {fileID: -5511264307445594271, guid: e61ba0ca00a19cd06b1d5c09bcb40e46, type: 2}
   source: {fileID: 0}
