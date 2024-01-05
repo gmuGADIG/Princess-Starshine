@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 using static UnityEngine.GraphicsBuffer;
+
 public class ExplosionScript : MonoBehaviour
 {
     private GameObject player;

@@ -4,19 +4,25 @@ using UnityEngine;
 
 public class EnemyProjOnDeath : MonoBehaviour
 {
+    [Tooltip("The projectile that the enemy shoots.")]
     public GameObject bullet;
-    private Transform enemyPos;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        enemyPos = gameObject.GetComponent<Transform>();
-    }
+    [Tooltip("The speed the bullet travels at.")]
+    public float bulletSpeed = 5f;
+
+    [Tooltip("How long the bullet lives for.")]
+    public float bulletLifetime = 5f;
+
+    [Tooltip("How much damage the bullet will do.")]
+    public float bulletDamage = 2f;
 
     void OnDisable()
     {
-        if(!gameObject.scene.isLoaded) return; // Prevents instatiating bullet when scene isn't loaded
-        Instantiate(bullet, enemyPos.position, Quaternion.identity);
+        if(!gameObject.scene.isLoaded) return; // Prevents instantiating bullet when scene isn't loaded
+        var projectile = Instantiate(bullet, transform.position, Quaternion.identity).GetComponent<EnemyBullet>();
+
+        var toPlayerHat = ((Vector2)(Player.instance.transform.position - transform.position)).normalized;
+        projectile.Setup(toPlayerHat * bulletSpeed, bulletLifetime, bulletDamage);
     }
 
 }

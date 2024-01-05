@@ -11,7 +11,8 @@ public class Facer : MonoBehaviour
 
     SpriteRenderer sprite;
     void Start() {
-        Debug.Assert(TryGetComponent(out sprite));
+        sprite = GetComponentInChildren<SpriteRenderer>();
+        Debug.Assert(sprite != null);
     }
 
     void Update() {

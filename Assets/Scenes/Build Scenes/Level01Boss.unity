@@ -1859,14 +1859,54 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2312159100198718302, guid: 333f1395049277e41bdd270c005a334b, type: 3}
       propertyPath: enemySpawns.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2312159100198718302, guid: 333f1395049277e41bdd270c005a334b, type: 3}
       propertyPath: enemySpawns.Array.data[0].enemyType
       value: 
       objectReference: {fileID: 3498557936519908969, guid: 5c7654e7b4b04cf4fb639b265a6c2a79, type: 3}
     - target: {fileID: 2312159100198718302, guid: 333f1395049277e41bdd270c005a334b, type: 3}
+      propertyPath: enemySpawns.Array.data[1].enemyType
+      value: 
+      objectReference: {fileID: 8713614107051167126, guid: 718e58ec2362b24dfb0689f37fd9cb91, type: 3}
+    - target: {fileID: 2312159100198718302, guid: 333f1395049277e41bdd270c005a334b, type: 3}
+      propertyPath: enemySpawns.Array.data[2].enemyType
+      value: 
+      objectReference: {fileID: 3498557936519908969, guid: 85197d75546b61441bd6b4c231015f72, type: 3}
+    - target: {fileID: 2312159100198718302, guid: 333f1395049277e41bdd270c005a334b, type: 3}
+      propertyPath: enemySpawns.Array.data[1].spawnCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2312159100198718302, guid: 333f1395049277e41bdd270c005a334b, type: 3}
+      propertyPath: enemySpawns.Array.data[2].spawnCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2312159100198718302, guid: 333f1395049277e41bdd270c005a334b, type: 3}
+      propertyPath: enemySpawns.Array.data[1].endingDamage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2312159100198718302, guid: 333f1395049277e41bdd270c005a334b, type: 3}
+      propertyPath: enemySpawns.Array.data[2].endingDamage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2312159100198718302, guid: 333f1395049277e41bdd270c005a334b, type: 3}
+      propertyPath: enemySpawns.Array.data[1].startingDamage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2312159100198718302, guid: 333f1395049277e41bdd270c005a334b, type: 3}
+      propertyPath: enemySpawns.Array.data[2].startingDamage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2312159100198718302, guid: 333f1395049277e41bdd270c005a334b, type: 3}
       propertyPath: enemySpawns.Array.data[0].probabilityWeight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2312159100198718302, guid: 333f1395049277e41bdd270c005a334b, type: 3}
+      propertyPath: enemySpawns.Array.data[1].probabilityWeight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2312159100198718302, guid: 333f1395049277e41bdd270c005a334b, type: 3}
+      propertyPath: enemySpawns.Array.data[2].probabilityWeight
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6192394418400915519, guid: 333f1395049277e41bdd270c005a334b, type: 3}

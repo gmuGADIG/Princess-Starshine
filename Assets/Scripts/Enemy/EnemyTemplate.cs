@@ -97,21 +97,24 @@ public class EnemyTemplate : MonoBehaviour
     public virtual void Die()
     {
         if (isDead) { return; }
+        Destroy(gameObject);
         EnemyDied?.Invoke();
         isDead = true;
         EnemyManager.enemyManager.enemies.Remove(gameObject);
         DistrubuteXP();
         SoundManager.Instance.PlaySoundAtPosition(deathSoundName, transform.position);
         //StartCoroutine(DelayedDestroy());
-        Destroy(gameObject);
     }
 
     protected void MoveTowardsObject() {
         if (knockbackDurationLeft > 0) {
             gameObject.transform.position += knockbackVelocity * Time.deltaTime * knockbackMultiplier;
             knockbackDurationLeft -= Time.deltaTime;
-        }
-        else if (moveTowardsObject != null)
+        } else { MoveBehavior(); }
+    }
+
+    protected virtual void MoveBehavior() {
+        if (moveTowardsObject != null)
         {
             var startPos = (Vector2)transform.position;
             var endPos = (Vector2)moveTowardsObject.transform.position;
@@ -177,12 +180,12 @@ public class EnemyTemplate : MonoBehaviour
      */
     protected virtual void Start()
     {
-        EnemyManager.enemyManager.enemies.Add(gameObject);
         if (moveTowardsObject == null) { moveTowardsObject = GameObject.FindGameObjectWithTag("Player"); }
         if (XPOrb == null) { XPOrb = GameObject.FindGameObjectWithTag("XPOrb"); }
         if (tag.CompareTo("") == 0) { tag = "Enemy"; }
         CurrentHealth = MaxHealth;
         CheckDeath();
+        EnemyManager.enemyManager.enemies.Add(gameObject);
     }
 
     /**
