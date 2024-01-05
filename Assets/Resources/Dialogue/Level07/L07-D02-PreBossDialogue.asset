@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfdcc9cbed7effe47855230305df1a91, type: 3}
   m_Name: L07-D02-PreBossDialogue
   m_EditorClassIdentifier: 
-  text: "Princess: Who\u2019s that?\r\nVirgil: T-t-the devil\u2026\r\n{evil_princess_turn_around}\r\nEvilPrincess:
+  text: "Princess: Who\u2019s that?\r\nVirgil: T-t-the devil\u2026\r\n{reveal_evil_princess}\r\nEvilPrincess:
     Hello, Princess Starshine.\r\nPrincess: Woah! You look just like me! Except like,
     a lot of things! Am I looking in a mirror that makes you look boring?\r\nVirgil:
     No, Hell Mirrors don't work that way\u2026 \r\nPrincess: Well golly gee, then
@@ -23,9 +23,9 @@ MonoBehaviour:
     MY evil doppel-thingy? We could have sooooo many tea parties together!\r\nEvilPrincess:
     HA! You wish. You\u2019re MY evil doppelg\xE4nger. And you know what? For a while,
     I could almost tolerate your existence. Every yin must have its yang, as they
-    say. Probably. But then\u2026 it started. The glitter, the sparkles\u2026 people
-    DIED, Starshine.\r\nEvilPrincess: My own doppelg\xE4nger, killing people with
-    kindness\u2026 INSTEAD of VIOLENCE! Where\u2019s the carnage? The gut spilling,
+    say. Probably.\nEvilPrincess: But then\u2026 it started. The glitter, the sparkles\u2026
+    people DIED, Starshine. My own doppelg\xE4nger, killing people with kindness\u2026\nEvilPrincess:
+    INSTEAD of VIOLENCE!\nEvilPrincess: Where\u2019s the carnage? The gut spilling,
     visceral brutality!? YOU MAKE A MOCKERY OF EVERYTHING I STAND FOR!\r\nVirgil:
     So then what do you want?\r\nEvilPrincess: Ahem- In accordance with \u201CThe
     Devil Clause,\u201C whoever kills the Devil takes their place as ruler of Hell.
@@ -37,5 +37,5 @@ MonoBehaviour:
     What I\u2019m \u201Cgetting at\u201C is a battle to the death. Beauty on blood,
     cuteness on cruelty, sparkles on slaughter. Whaddya say?\r\nPrincess: \u201CBattle
     to the death\u2026\u201D IS THAT A FASHION SHOW!? abso-sparkle-lutely!! I\u2019m
-    in!!\r\n{deathsport_waiver_appears}\r\nThe Devil: Well, it\u2019s been nice knowing
-    you\u2026 NOT!\r\n{ackward_pause}"
+    in!!\r\r\nEvilPrincess: Well, it\u2019s been nice knowing you\u2026 NOT!\r\nPrincess:
+    ...\nEvilPrincess: ...\n{virgil_leave}\nVirgil: ..."

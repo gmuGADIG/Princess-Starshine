@@ -227,7 +227,9 @@ public class DialoguePlayer : MonoBehaviour
         
         var missingCharacters = new HashSet<string>();
         var missingCommands = new HashSet<string>();
-        
+
+        characterDict = null;
+        commandDict = null;
         SetUpCommandAndCharacterDict();
         var allLines = dialogueSequence.text.Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
         foreach (var line in allLines)
@@ -330,9 +332,26 @@ public class DialoguePlayer : MonoBehaviour
     public void HideDialogueAndWalkToDeadBoss(Transform walker)
     {
         var boss = GameObject.FindGameObjectWithTag("DeadBoss");
-        if (boss == null) throw new Exception("Couldn't find bael!");
+        if (boss == null) throw new Exception("Couldn't find dead boss!");
         
         HideDialogueAndWalkTo(walker, boss.transform.position, 1.5f);
+    }
+
+    public void HideDialogueAndWalkDeadBossToObject(Transform destination)
+    {
+        var boss = GameObject.FindGameObjectWithTag("DeadBoss");
+        if (boss == null) throw new Exception("Couldn't find dead boss!");
+
+        HideDialogueAndWalkTo(boss.transform, destination.position);
+    }
+
+    public void ExplodeHouse()
+    {
+        var boss = GameObject.FindGameObjectWithTag("DeadBoss");
+        if (boss == null) throw new Exception("Couldn't find dead boss!");
+
+        Instantiate(Resources.Load<GameObject>("HouseExplosionParticles"), boss.transform.position, Quaternion.identity);
+        Destroy(boss.gameObject);
     }
 
     /**
@@ -367,7 +386,7 @@ public class DialoguePlayer : MonoBehaviour
     {
         GameObject.FindGameObjectWithTag("DeadBoss").gameObject.SetActive(false);
     }
-    
+
     #endregion
 }
 

@@ -20,14 +20,14 @@ MonoBehaviour:
     you\u2019re a princess from an old-fashioned kingdom. As your trusty tour guide,
     let me explain! Hell- I mean, the Sauna, is much more technologically advanced
     than your kingdom, so we can manufacture a variety of high end prod-\r\nPrincess:
-    Ooooh! What\u2019s that?\r\nVirgil: \u2026Are you even listening to me?\r\nPrincess:
-    Nope! :3\r\nVirgil: I can\u2019t believe this\u2026\r\nPrincess: Who's that girl
-    in the painting?\r\nVirgil: Oh, her. That\u2019s Becky... She\u2019s the idol
-    of Hell- the Sauna, with fans from all seven Domains, as well as the leader of
-    this place. Her careless nature is why this place is such a dump\u2026\r\nPrincess: 
-    She looks so nice! I wanna have tea with her! What's she doing in that painting?\r\nVirgil:
-    That \"painting\" is a Hellywood movie poster for her upcoming film: Resident
-    Good 11, where she fights with a machine gun against a horde of humans who are
-    trying to make her eat vegetables. Truly vile things.\r\nPrincess: That\u2019s
-    sooooooo cool! Well, onwards, Vi-Vi! I wanna check out that radioactive waste
-    over there!"
+    Ooooh! What\u2019s that? {princess_move_to_poster}\r\nVirgil: \u2026Are you even
+    listening to me?\r\nPrincess: Nope! :3*\r\nVirgil: I can\u2019t believe this\u2026\r\nPrincess:
+    Who's that girl in the painting?\n{virgil_move_to_poster}\r\nVirgil: Oh, her.
+    That\u2019s Becky... She\u2019s the idol of Hell- the Sauna, with fans from all
+    seven Domains, as well as the leader of this place. Her careless nature is why
+    this place is such a dump\u2026\r\nPrincess:  She looks so nice! I wanna have
+    tea with her! What's she doing in that painting?\r\nVirgil: That \"painting\"
+    is a Hellywood movie poster for her upcoming film: Resident Good 11, where she
+    fights with a machine gun against a horde of humans who are trying to make her
+    eat vegetables. Truly vile things.\r\nPrincess: That\u2019s sooooooo cool!\nPrincess:
+    Well, onwards, Vi-Vi! I wanna check out that radioactive waste over there! {princess_move_right}"

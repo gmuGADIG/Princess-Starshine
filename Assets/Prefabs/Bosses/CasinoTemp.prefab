@@ -32,8 +32,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.6193917, y: 0.14268205, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 8, y: 8, z: 8}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -78,8 +78,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 2747690628134850419, guid: b670ab75dde984907b8570040daa08c5, type: 3}
-  m_Color: {r: 0.9339623, g: 0.7804277, b: 0.27666426, a: 1}
+  m_Sprite: {fileID: 2064638689, guid: 1e830b97908bf034d943ec5a64ea9bb6, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -102,6 +102,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 600
+  postBossDialogue: {fileID: 0}
+  onDeathPrefab: {fileID: 0}
 --- !u!114 &2936281100226465375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -233,4 +235,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60248b5cd3a484c42bce421d12e99013, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DamagedColor: {r: 1, g: 0, b: 0, a: 1}
+  HealthyColor: {r: 1, g: 1, b: 1, a: 1}
   sprite: {fileID: 7384148377432724362}
