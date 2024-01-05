@@ -79,9 +79,10 @@ public class ConsumableManager : MonoBehaviour
             if (UnityEngine.Random.value < ConsumableSpawnChance.Value) {
                 // pick a random point in the camera bounds
                 Rect cameraBounds = TeaTime.cameraBoundingBox();
+                var minY = FindObjectOfType<Wall>() != null ? FindObjectOfType<Wall>().Border : cameraBounds.y;
                 Vector3 pos = new Vector3(
-                    cameraBounds.x + UnityEngine.Random.Range(0f, cameraBounds.width),
-                    cameraBounds.y + UnityEngine.Random.Range(0f, cameraBounds.height)
+                    UnityEngine.Random.Range(cameraBounds.x, cameraBounds.x + cameraBounds.width),
+                    UnityEngine.Random.Range(minY, cameraBounds.y + cameraBounds.height)
                 );
 
                 // yes, Random.Range is max exclusive for ints and max inclusive for floats
