@@ -252,7 +252,7 @@ public class DialoguePlayer : MonoBehaviour
         
         // read voice sound resources
         var soundResourceSet = new HashSet<String>();
-        foreach (var soundResource in Resources.LoadAll<Sound>("Sound/"))
+        foreach (var soundResource in Resources.LoadAll<Sound>("Sounds/"))
             soundResourceSet.Add(soundResource.name);
 
         // process all lines and verify them
@@ -296,7 +296,7 @@ public class DialoguePlayer : MonoBehaviour
         else Debug.LogError($"Found {missingCommands.Count} missing commands! {string.Join(", ", missingCommands)}");
         
         if (missingVoiceLines.Count == 0) Debug.Log("All voice lines are accounted for.");
-        else Debug.LogError($"Found {missingVoiceLines} missing voice lines! {string.Join(", ", missingVoiceLines)}");
+        else Debug.LogError($"Found {missingVoiceLines.Count} missing voice lines! {string.Join(", ", missingVoiceLines)}");
         
         Debug.Log("Validation finished.");
         
