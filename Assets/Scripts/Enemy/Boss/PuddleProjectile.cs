@@ -13,13 +13,15 @@ public class PuddleProjectile : BossProjectile
 
     private void Start()
     {
-        //TryGetComponent<CircleCollider2D>(out circleCollider);
+        TryGetComponent<CircleCollider2D>(out circleCollider);
         circleCollider.enabled = false;
     }
 
     // Update is called once per frame
-    void Update()
+    public override void Update()
     {
+        base.Update();
+
         if (changeSize)
         {
             transform.localScale += transform.localScale * sizeChange * Time.deltaTime;
