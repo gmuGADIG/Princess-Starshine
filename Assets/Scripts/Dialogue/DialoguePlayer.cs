@@ -387,6 +387,13 @@ public class DialoguePlayer : MonoBehaviour
         GameObject.FindGameObjectWithTag("DeadBoss").gameObject.SetActive(false);
     }
 
+    public void SetPlayerActive(bool active)
+    {
+        Player.instance.enabled = active;
+        EquipmentManager.instance.gameObject.SetActive(active);
+        if (CutscenePlayer.instance != null) CutscenePlayer.instance.animator.enabled = false;
+    }
+
     #endregion
 }
 

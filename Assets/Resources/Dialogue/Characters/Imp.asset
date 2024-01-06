@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Imp
   m_EditorClassIdentifier: 
   scriptName: Imp
-  displayName: Imp
-  picture: {fileID: 2800000, guid: 839ab4f3c278ddf4ba9baf54531f1f67, type: 3}
+  displayName: Elevator Imp
+  picture: {fileID: 2800000, guid: 23f97bb2318366e4891c74f00c7ee2a9, type: 3}

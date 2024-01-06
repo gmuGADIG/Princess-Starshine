@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Princess
   m_EditorClassIdentifier: 
   scriptName: Princess
-  displayName: Princess
+  displayName: Princess Starshine
   picture: {fileID: 2800000, guid: f4fc316fcae2fff4ea04ee2bf4d0ce4b, type: 3}
