@@ -12,13 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfdcc9cbed7effe47855230305df1a91, type: 3}
   m_Name: L06-D03-PostBossDialogue
   m_EditorClassIdentifier: 
-  text: "Janitor: AGHHHH! Now\u2026 I\u2019m the one\u2026 making a mess\u2026\r\n{janitor_dies}\r\nPrincess:
-    Aww, done playing already? I was just starting to have fun\u2026\r\nVirgil: I\u2019ll
-    never get over how casual you are about all of this.\r\nPrincess: It\u2019s okay,
-    I kind of figured he wouldn\u2019t be able to play for very long. Papa gets tired
-    quickly when we play too!\r\nVirgil: The fact that your father can even walk
-    away from your little play dates is amazing.\r\nPrincess: Really? You think I\u2019m
-    that much FUN? Awww, thanks, Vi-vi!\r\nVirgil: Sure, no problem. Now, let\u2019s
-    get out of here. I can\u2019t stand to look at these \u201Cclouds\u201D anymore.\r\nPrincess:
-    Okie dokie, but remember the way back here, okay? I just HAVE to come back here
-    for my B-Day! :3"
+  text: "Janitor: AGHHHH! Now\u2026 I\u2019m the one\u2026 making a mess\u2026 %%Janitor_Ah
+    Ah AH Gurgle\r\n{janitor_dies}\r\nPrincess: Aww, done playing already? I was
+    just starting to have fun\u2026 %%Princess_Byeee\r\nVirgil: I\u2019ll never get
+    over how casual you are about all of this. %%Virgil_Sigh\r\nPrincess: It\u2019s
+    okay, I kind of figured he wouldn\u2019t be able to play for very long. Papa
+    gets tired quickly when we play too! %%Princess_Sparkle On\r\nVirgil: The fact
+    that your father can even walk away from your little play dates is amazing. %%Virgil_Sigh\r\nPrincess:
+    Really? You think I\u2019m that much FUN? Awww, thanks, Vi-vi! %%Princess_Yippee\r\nVirgil:
+    Sure, no problem. Now, let\u2019s get out of here. I can\u2019t stand to look
+    at these \u201Cclouds\u201D anymore. %%Virgil_What do You want\r\nPrincess: Okie
+    dokie, but remember the way back here, okay? I just HAVE to come back here for
+    my B-Day! :3 %%Princess_Byeee"
