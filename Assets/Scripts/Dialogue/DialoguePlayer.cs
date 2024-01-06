@@ -144,9 +144,20 @@ public class DialoguePlayer : MonoBehaviour
         var curlyIndex = line.IndexOf('{');
         var closingCurlyIndex = line.IndexOf('}');
 
+        var doublePercentIndex = line.IndexOf("%%");
+        if (doublePercentIndex != -1)
+        {
+            var voiceLine = line[(doublePercentIndex + 2) ..];
+            print($"playing dialogue voice line {voiceLine}");
+            SoundManager.Instance.PlaySoundGlobal(voiceLine);
+        }
+
         if (curlyIndex == -1 && closingCurlyIndex == -1)
         {
-            ShowDialogue(line, null);
+            if (doublePercentIndex == -1)
+                ShowDialogue(line, null);
+            else
+                ShowDialogue(line[0 .. doublePercentIndex], null);
         }
         else if (curlyIndex != -1 && closingCurlyIndex != -1)
         {
