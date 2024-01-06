@@ -231,6 +231,7 @@ public class DialoguePlayer : MonoBehaviour
     #region validation
     public void ValidateDialogue()
     {
+        // initial validation
         if (transform.parent.name != "DialogueHolder") Debug.LogError("DialoguePlayer must be child to an object named \"DialogueHolder\"");
         
         if (dialogueSequence == null)
@@ -239,19 +240,42 @@ public class DialoguePlayer : MonoBehaviour
             return;
         }
         
+        // set up problem lists
         var missingCharacters = new HashSet<string>();
         var missingCommands = new HashSet<string>();
+        var missingVoiceLines = new HashSet<string>();
 
+        // read characters (from resources) and commands (from the serialized command list)
         characterDict = null;
         commandDict = null;
         SetUpCommandAndCharacterDict();
+        
+        // read voice sound resources
+        var soundResourceSet = new HashSet<String>();
+        foreach (var soundResource in Resources.LoadAll<Sound>("Sound/"))
+            soundResourceSet.Add(soundResource.name);
+
+        // process all lines and verify them
         var allLines = dialogueSequence.text.Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
         foreach (var line in allLines)
         {
             var curlyIndex = line.IndexOf('{');
             var closingCurlyIndex = line.IndexOf('}');
 
-            if (curlyIndex == -1 && closingCurlyIndex == -1) VerifyDialogue(line);
+            var doublePercentIndex = line.IndexOf("%%");
+            if (doublePercentIndex != -1)
+            {
+                var voiceLine = line[(doublePercentIndex + 2) ..];
+                VerifyVoiceLine(voiceLine);
+            }
+            
+            if (curlyIndex == -1 && closingCurlyIndex == -1)
+            {
+                if (doublePercentIndex == -1)
+                    VerifyDialogue(line);
+                else
+                    VerifyDialogue(line[0 .. doublePercentIndex]);
+            }
             else if (curlyIndex != -1 && closingCurlyIndex != -1)
             {
                 var dialogue = line[0 .. curlyIndex].TrimEnd();
@@ -271,6 +295,9 @@ public class DialoguePlayer : MonoBehaviour
         if (missingCommands.Count == 0) Debug.Log("All commands are accounted for.");
         else Debug.LogError($"Found {missingCommands.Count} missing commands! {string.Join(", ", missingCommands)}");
         
+        if (missingVoiceLines.Count == 0) Debug.Log("All voice lines are accounted for.");
+        else Debug.LogError($"Found {missingVoiceLines} missing voice lines! {string.Join(", ", missingVoiceLines)}");
+        
         Debug.Log("Validation finished.");
         
         void VerifyDialogue(string line)
@@ -284,6 +311,11 @@ public class DialoguePlayer : MonoBehaviour
         void VerifyCommand(string command)
         {
             if (commandDict.ContainsKey(command) == false) missingCommands.Add(command);
+        }
+
+        void VerifyVoiceLine(string soundName)
+        {
+            if (soundResourceSet.Contains(soundName) == false) missingVoiceLines.Add(soundName);
         }
     }
     #endregion
