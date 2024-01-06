@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 68cff8a68a791994698281d8d8db14fe, type: 3}
-  m_Name: Princess_Hai
+  m_Name: Boss_You_re Fired
   m_EditorClassIdentifier: 
   audioVariants:
-  - {fileID: 8300000, guid: 806a5470232268249bd07016d288d28a, type: 3}
+  - {fileID: 8300000, guid: 4acf48f74ce50e64a86939bbf97eaa50, type: 3}
   volume: 1
-  volumeVariance: 0.1
+  volumeVariance: 0
   pitch: 1
   pitchVariance: 0
   minimumDistance: 10
