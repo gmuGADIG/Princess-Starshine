@@ -120,6 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 1800
   postBossDialogue: {fileID: 0}
+  onDeathPrefab: {fileID: 0}
 --- !u!114 &5055002487998193704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,6 +265,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1932674722255664469}
   - component: {fileID: 1271895349687713298}
+  - component: {fileID: 7676048444295175747}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -338,6 +340,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7676048444295175747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6010484244140792609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d3cec449bb7a9a488954fc01c514b22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scriptNames:
+  - Balrog
 --- !u!1 &6698416493418927804
 GameObject:
   m_ObjectHideFlags: 0

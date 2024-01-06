@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4101087830487716390}
   - component: {fileID: 4414830741808293254}
   - component: {fileID: 3194975080705201832}
+  - component: {fileID: 2302865732076711125}
   m_Layer: 0
   m_Name: JanitorTemp
   m_TagString: Boss
@@ -102,6 +103,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 1800
+  postBossDialogue: {fileID: 0}
+  onDeathPrefab: {fileID: 0}
 --- !u!114 &8158819521071834500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,4 +234,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60248b5cd3a484c42bce421d12e99013, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DamagedColor: {r: 1, g: 0, b: 0, a: 1}
+  HealthyColor: {r: 1, g: 1, b: 1, a: 1}
   sprite: {fileID: 8298162642901945424}
+--- !u!114 &2302865732076711125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2266018917075444731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d3cec449bb7a9a488954fc01c514b22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scriptNames:
+  - JanitorUnknown
+  - Janitor

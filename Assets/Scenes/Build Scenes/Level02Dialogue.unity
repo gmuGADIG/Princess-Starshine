@@ -1225,7 +1225,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1937161107}
   - component: {fileID: 1937161109}
-  - component: {fileID: 1937161108}
+  - component: {fileID: 1937161110}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -1248,27 +1248,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1007325045}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &1937161108
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1937161106}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ea21f7cc54cb7494a8a380e42eeb5d1b, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!212 &1937161109
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1321,6 +1300,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1937161110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1937161106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d3cec449bb7a9a488954fc01c514b22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scriptNames:
+  - Princess
 --- !u!1001 &2109092803
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1881,8 +1874,30 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 362796862933854514, guid: ed87289d6c2cfd641901f53aed0c75cc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3002063743397681259}
   m_SourcePrefab: {fileID: 100100000, guid: ed87289d6c2cfd641901f53aed0c75cc, type: 3}
+--- !u!1 &3002063743397681258 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 362796862933854514, guid: ed87289d6c2cfd641901f53aed0c75cc, type: 3}
+  m_PrefabInstance: {fileID: 3002063743397681257}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3002063743397681259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3002063743397681258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d3cec449bb7a9a488954fc01c514b22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scriptNames:
+  - Worker
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

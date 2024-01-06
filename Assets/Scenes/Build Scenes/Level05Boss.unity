@@ -2978,6 +2978,7 @@ GameObject:
   - component: {fileID: 245354871504587780}
   - component: {fileID: 2227782045751770820}
   - component: {fileID: 5382493049243339811}
+  - component: {fileID: 5382493049243339812}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -3203,6 +3204,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5382493049243339812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1045794167863623116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d3cec449bb7a9a488954fc01c514b22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scriptNames:
+  - Becky
 --- !u!1 &8798547321583946772
 GameObject:
   m_ObjectHideFlags: 0

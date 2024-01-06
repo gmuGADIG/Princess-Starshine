@@ -180,7 +180,10 @@ public class DialoguePlayer : MonoBehaviour
         speakerImage.texture = speakerChar.picture;
         dialogueBox.SetActive(true);
         
-        // print($"`{speaker}` is saying `{words}`");
+        // make character bob
+        foreach (var bobber in FindObjectsOfType<DialogueBobber>())
+            bobber.CheckBob(speakerScriptName);
+        
         StartCoroutine(Coroutine());
         
         IEnumerator Coroutine()

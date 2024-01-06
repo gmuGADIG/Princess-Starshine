@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 245354871023082417}
   - component: {fileID: 2227782045428984177}
   - component: {fileID: 5382493049591421846}
+  - component: {fileID: 625173702231009647}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -106,6 +107,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &625173702231009647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1045794167254477433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d3cec449bb7a9a488954fc01c514b22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scriptNames:
+  - Becky
 --- !u!1 &2628070505168376622
 GameObject:
   m_ObjectHideFlags: 0
@@ -210,6 +225,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 1800
+  postBossDialogue: {fileID: 0}
+  onDeathPrefab: {fileID: 0}
 --- !u!114 &8608746096506491626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -344,6 +361,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60248b5cd3a484c42bce421d12e99013, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DamagedColor: {r: 1, g: 0, b: 0, a: 1}
+  HealthyColor: {r: 1, g: 1, b: 1, a: 1}
   sprite: {fileID: 2227782045428984177}
 --- !u!1 &8798547322057694113
 GameObject:

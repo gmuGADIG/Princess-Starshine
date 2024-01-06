@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2005381725287824551}
   - component: {fileID: 7418533569525167378}
   - component: {fileID: 7861906945920510838}
+  - component: {fileID: 7743382329100167011}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -106,6 +107,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7743382329100167011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 749373607415195211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d3cec449bb7a9a488954fc01c514b22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scriptNames:
+  - OfficeBoss
 --- !u!1 &6031957489174021204
 GameObject:
   m_ObjectHideFlags: 0
@@ -157,6 +172,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 1800
+  postBossDialogue: {fileID: 0}
+  onDeathPrefab: {fileID: 0}
 --- !u!114 &3699130459720114343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -291,6 +308,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60248b5cd3a484c42bce421d12e99013, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DamagedColor: {r: 1, g: 0, b: 0, a: 1}
+  HealthyColor: {r: 1, g: 1, b: 1, a: 1}
   sprite: {fileID: 7418533569525167378}
 --- !u!1 &8917041634746136062
 GameObject:
