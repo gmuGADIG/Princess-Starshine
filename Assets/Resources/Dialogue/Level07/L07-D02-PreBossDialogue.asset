@@ -12,30 +12,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfdcc9cbed7effe47855230305df1a91, type: 3}
   m_Name: L07-D02-PreBossDialogue
   m_EditorClassIdentifier: 
-  text: "Princess: Who\u2019s that?\r\nVirgil: T-t-the devil\u2026\r\n{reveal_evil_princess}\r\nEvilPrincess:
-    Hello, Princess Starshine.\r\nPrincess: Woah! You look just like me! Except like,
-    a lot of things! Am I looking in a mirror that makes you look boring?\r\nVirgil:
-    No, Hell Mirrors don't work that way\u2026 \r\nPrincess: Well golly gee, then
-    who could she be?\r\nEvilPrincess: Don\u2019t you know? It\u2019s Newton\u2019s
-    4th law: for every person, there exists an evil and opposite doppel-person. Well,
-    I guess it\u2019s not a surprise you don\u2019t know it. Not after EVIL Newton
-    crossed it out of his notes.\r\nPrincess: No way! Does that mean you\u2019re
+  text: "Princess: Who\u2019s that?\r\nVirgil: T-t-the devil\u2026\r\n{reveal_evil_princess}\nEvilPrincess:
+    Hello, Princess Starshine. %%Devil_Laugh\r\nPrincess: Woah! You look just like
+    me! Except like, a lot of things! Am I looking in a mirror that makes you look
+    boring?\r\nVirgil: No, Hell Mirrors don't work that way\u2026 \r\nPrincess: Well
+    golly gee, then who could she be?\r\nEvilPrincess: Don\u2019t you know? It\u2019s
+    Newton\u2019s 4th law: for every person, there exists an evil and opposite doppel-person.
+    Well, I guess it\u2019s not a surprise you don\u2019t know it. Not after EVIL
+    Newton crossed it out of his notes.\r\nPrincess: No way! Does that mean you\u2019re
     MY evil doppel-thingy? We could have sooooo many tea parties together!\r\nEvilPrincess:
-    HA! You wish. You\u2019re MY evil doppelg\xE4nger. And you know what? For a while,
-    I could almost tolerate your existence. Every yin must have its yang, as they
-    say. Probably.\nEvilPrincess: But then\u2026 it started. The glitter, the sparkles\u2026
-    people DIED, Starshine. My own doppelg\xE4nger, killing people with kindness\u2026\nEvilPrincess:
+    HA! You wish. You\u2019re MY evil doppelg\xE4nger. %%Devil_I Am The Real Princess\nEvilPrincess:
+    And you know what? For a while, I could almost tolerate your existence. Every
+    yin must have its yang, as they say. Probably. %%Devil_Tch You\nEvilPrincess:
+    But then\u2026 it started. The glitter, the sparkles\u2026 people DIED, Starshine.
+    My own doppelg\xE4nger, killing people with kindness\u2026 %%Devil_Grr\nEvilPrincess:
     INSTEAD of VIOLENCE!\nEvilPrincess: Where\u2019s the carnage? The gut spilling,
     visceral brutality!? YOU MAKE A MOCKERY OF EVERYTHING I STAND FOR!\r\nVirgil:
-    So then what do you want?\r\nEvilPrincess: Ahem- In accordance with \u201CThe
-    Devil Clause,\u201C whoever kills the Devil takes their place as ruler of Hell.
-    You could remake this whole place as you see fit. And after I went through the
-    hassle of sending that elevator through a broken shaft for you, I think you owe
-    me one.\r\nPrincess: I don\u2019t know what a \"Deviled Claws\" is, but I can
-    do whatever you need me to~~!\r\nVirgil: Is that really what you\u2019re getting
-    at? You want her to kill you? (And here I thought SHE'D be the sane one\u2026)\r\nEvilPrincess:
-    What I\u2019m \u201Cgetting at\u201C is a battle to the death. Beauty on blood,
-    cuteness on cruelty, sparkles on slaughter. Whaddya say?\r\nPrincess: \u201CBattle
-    to the death\u2026\u201D IS THAT A FASHION SHOW!? abso-sparkle-lutely!! I\u2019m
-    in!!\r\r\nEvilPrincess: Well, it\u2019s been nice knowing you\u2026 NOT!\r\nPrincess:
-    ...\nEvilPrincess: ...\n{virgil_leave}\nVirgil: ..."
+    So then what do you want? %%Virgil_What do You want\r\nEvilPrincess: Ahem- In
+    accordance with \u201CThe Devil Clause,\u201C whoever kills the Devil takes their
+    place as ruler of Hell. You could remake this whole place as you see fit. And
+    after I went through the hassle of sending that elevator through a broken shaft
+    for you, I think you owe me one.\r\nPrincess: I don\u2019t know what a \"Deviled
+    Claws\" is, but I can do whatever you need me to~~!\r\nVirgil: Is that really
+    what you\u2019re getting at? You want her to kill you? (And here I thought SHE'D
+    be the sane one\u2026)\r\nEvilPrincess: What I\u2019m \u201Cgetting at\u201C
+    is a battle to the death. Beauty on blood, cuteness on cruelty, sparkles on slaughter.
+    Whaddya say?\r\nPrincess: \u201CBattle to the death\u2026\u201D IS THAT A FASHION
+    SHOW!? abso-sparkle-lutely!! I\u2019m in!! %%Princess_Oh My Gosh\r\r\nEvilPrincess:
+    Well, it\u2019s been nice knowing you\u2026 NOT! %%Devil_Die\r\nPrincess: ...\nEvilPrincess:
+    ...\n{virgil_leave}\nVirgil: ..."

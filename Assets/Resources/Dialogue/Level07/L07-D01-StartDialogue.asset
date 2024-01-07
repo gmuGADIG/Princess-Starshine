@@ -16,22 +16,24 @@ MonoBehaviour:
     it\u2019s truly so horrifying in person\u2026h-hey, Princess, could we go back?
     A-a place like this is-\r\nPrincess: OMG! I love this place! All the purples
     and blacks just go together so well! It could use a little more pink though\u2026
-    And wowwwwww!!! Look at the apartments here! Everyone looks so happy and cozy!\r\nVirgil:
-    Princess! T-this is the last floor\u2026and the\u2026you know\u2026devil lives
-    here? The boss man\u2026 I-if he finds us after what we-\r\nPrincess: Oh, the
-    devil lives here? I can\u2019t wait to meet him! I\u2019ll ask him how much one
-    of these rooms cost, Papa will so totally get me one!\r\nVirgil: P-princess,
-    if the devil finds us he\u2019ll-\n{princess_walk}\r\nPrincess: Laadeelaadeeda~\r\nVirgil:
-    Oh dear\u2026\u2026think, Virgil, think! \u2026Ah!\n{virgil_walk}\nVirgil: Princess,
-    I know you really want one of these apartments, but they are incredibly popular
-    and the queue to get one is quite long...\nVirgil: Perhaps you could find a place
-    of residence elsewhere? Like a cozy bedroom in a castle, just like the one you
-    have back home! let\u2019s go there!\r\nPrincess: But this place looks sooooo
-    much cuter than a boring old castle! Maybe Mr. Nice-Devil can make me a new one!
-    Papa says I\u2019m sooooo cute that no one can resist when I ask for something!\r\nVirgil:
-    Is there no escape from this crazed woman\u2019s insanity\u2026\r\nPrincess:
+    And wowwwwww!!! Look at the apartments here! Everyone looks so happy and cozy!
+    %%Princess_Oh My Gosh\r\nVirgil: Princess! T-this is the last floor\u2026and
+    the\u2026you know\u2026devil lives here? The boss man\u2026 I-if he finds us
+    after what we- %%Virgil_Eh, I dont think so\r\nPrincess: Oh, the devil lives
+    here? I can\u2019t wait to meet him! I\u2019ll ask him how much one of these
+    rooms cost, Papa will so totally get me one! %%Princess_So Many New Friends\r\nVirgil:
+    P-princess, if the devil finds us he\u2019ll-\n{princess_walk}\r\nPrincess: Laadeelaadeeda~
+    %%Princess_Sparkle On\r\nVirgil: Oh dear\u2026\u2026think, Virgil, think! \u2026Ah!
+    %%Virgil_Wait a Minute\n{virgil_walk}\nVirgil: Princess, I know you really want
+    one of these apartments, but they are incredibly popular and the queue to get
+    one is quite long...\nVirgil: Perhaps you could find a place of residence elsewhere?
+    Like a cozy bedroom in a castle, just like the one you have back home! let\u2019s
+    go there!\r\nPrincess: But this place looks sooooo much cuter than a boring old
+    castle! Maybe Mr. Nice-Devil can make me a new one! Papa says I\u2019m sooooo
+    cute that no one can resist when I ask for something!\r\nVirgil: Is there no
+    escape from this crazed woman\u2019s insanity\u2026 %%Virgil_Sigh\r\nPrincess:
     Hm? Did you say something, Vi-Vi?\r\nVirgil: Nope! Nothing at all! Although,
     given that this is the last floor, it seems like our journey together is almost
-    complete. Even I\u2019m starting to get a little sentimental.\r\nPrincess: Aw,
-    thanks Vi-Vi. <3 Anyways, look! A playground!\n{princess_walk_off_screen}\r\nVirgil:
+    complete. Even I\u2019m starting to get a little sentimental. %%Virgil_Hehe,
+    no\r\nPrincess: Aw, thanks Vi-Vi. <3 Anyways, look! A playground! %%Princess_Besties\n{princess_walk_off_screen}\r\nVirgil:
     That\u2019s a torture device, not a- PRINCESS, NO!"

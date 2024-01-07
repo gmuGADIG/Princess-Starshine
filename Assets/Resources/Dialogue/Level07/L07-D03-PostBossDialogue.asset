@@ -12,20 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfdcc9cbed7effe47855230305df1a91, type: 3}
   m_Name: L07-D03-PostBossDialogue
   m_EditorClassIdentifier: 
-  text: "{virgil_enter}\nVirgil: Wow\u2026I can\u2019t believe she\u2019s really
-    dead\u2026\r\nPrincess: Aww, another friend too tired to play.\r\nVirgil: Princess,
-    do you know what this means?\r\nPrincess: We have to find more friends?\r\nVirgil:
+  text: "{virgil_enter} %%Devil_Was I The Fake\nVirgil: Wow\u2026I can\u2019t believe
+    she\u2019s really dead\u2026\r\nPrincess: Aww, another friend too tired to play.\r\nVirgil:
+    Princess, do you know what this means?\r\nPrincess: We have to find more friends?\r\nVirgil:
     It means that you won. The Devil Clause says that whoever defeats the Devil becomes
     the Devil. You become the ruler of Hell! Your power and the forces of hell are
     now intertwined, every flame sparklier, every torture chamber mushier, every-\r\nPrincess:
-    Sounds pretty!\r\nVirgil: I honestly didn\u2019t think Hell could get even worse,
-    but this changes everything!\r\nPrincess: Okay, let\u2019s go! :3\r\nVirgil:
-    I don\u2019t know princess, you kind of just killed your landlord, so I don\u2019t
-    think you\u2019re going to be able to get an apartment here. Maybe we should
-    just head back to the castle\u2026\r\nPrincess: No, silly-billy! We have to go
-    see how my new friends are doing! They'll totes want a tea party with me now!!\r\nVirgil:
-    You\u2019ve got to be kidding me. Don\u2019t you have a castle to tend to, people
-    to rule, a horse whose hair needs braiding?\r\nPrincess: Nooooooooo, if everything
-    here is way cuter, then I want to see it all again!\r\nVirgil: Princess, please.
-    Can\u2019t we just-\r\nPrincess: Hurry up, slowpoke! I need my guide if I want
-    to get home after this adventure!\r\nVirgil: *sigh*"
+    Sounds pretty! %%Princess_Yippee\r\nVirgil: I honestly didn\u2019t think Hell
+    could get even worse, but this changes everything!\r\nPrincess: Okay, let\u2019s
+    go! :3 %%Princess_Sparkle On\r\nVirgil: I don\u2019t know princess, you kind
+    of just killed your landlord, so I don\u2019t think you\u2019re going to be able
+    to get an apartment here. Maybe we should just head back to the castle\u2026\r\nPrincess:
+    No, silly-billy! We have to go see how my new friends are doing! They'll totes
+    want a tea party with me now!! %%Princess_hehe\r\nVirgil: You\u2019ve got to
+    be kidding me. Don\u2019t you have a castle to tend to, people to rule, a horse
+    whose hair needs braiding?\r\nPrincess: Nooooooooo, if everything here is way
+    cuter, then I want to see it all again!\r\nVirgil: Princess, please. Can\u2019t
+    we just-\r\nPrincess: Hurry up, slowpoke! I need my guide if I want to get home
+    after this adventure!\r\nVirgil: *sigh* %%Virgil_Sigh"
