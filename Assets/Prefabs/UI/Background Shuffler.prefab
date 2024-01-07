@@ -311,7 +311,6 @@ GameObject:
   - component: {fileID: 5849254297672388482}
   - component: {fileID: 2792704735425566333}
   - component: {fileID: 8272685891012962927}
-  - component: {fileID: 1905982348451113564}
   m_Layer: 5
   m_Name: Background Shuffler
   m_TagString: Untagged
@@ -380,28 +379,6 @@ MonoBehaviour:
   - {fileID: 2572260397264435156}
   - {fileID: 6333889373421828427}
   - {fileID: 4355696201779698936}
-  changeTime: 8
-  transitionTime: 4
---- !u!114 &1905982348451113564
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4428766505161610363}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f3c593fc307bb94eb3df7ad84ee77c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  backgrounds:
-  - {fileID: 8498182732674998875}
-  - {fileID: 1833738223647872861}
-  - {fileID: 1199855212639640241}
-  - {fileID: 1178071889792023751}
-  - {fileID: 3957984354250580667}
-  - {fileID: 145142495301111797}
-  - {fileID: 5636135286353672567}
   changeTime: 8
   transitionTime: 4
 --- !u!1 &4680958513015363612

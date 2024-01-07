@@ -13,10 +13,13 @@ public class LevelMusicManager : MonoBehaviour
     {
         PlayLevelSong();
 
-        Player.instance.GetComponent<PlayerHealth>().PlayerDied += () => {
-            audioSource.Stop();
-            audioSource = SoundManager.Instance.PlaySoundGlobal(deathSong);
-        };
+        if (Player.instance != null)
+        {
+            Player.instance.GetComponent<PlayerHealth>().PlayerDied += () => {
+                audioSource.Stop();
+                audioSource = SoundManager.Instance.PlaySoundGlobal(deathSong);
+            };
+        }
     }
 
     public void PlayLevelSong()

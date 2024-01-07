@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68cff8a68a791994698281d8d8db14fe, type: 3}
   m_Name: Level05Theme
   m_EditorClassIdentifier: 
-  audioVariants: []
+  audioVariants:
+  - {fileID: 8300000, guid: 2facfa18c08964f448af5deb1de0381e, type: 3}
   volume: 1
-  volumeVariance: 0.1
+  volumeVariance: 0
   pitch: 1
   pitchVariance: 0
   minimumDistance: 10
