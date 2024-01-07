@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: L02-D03-PostBossDialogue
   m_EditorClassIdentifier: 
   text: "OfficeBoss: No\u2026! You\u2026 you can\u2019t do this to me! Do you have
-    ANY idea who I (or my dad) are??\r\nPrincess: Nope! :D\r\nOfficeBoss: Just wait\u2026
-    until my dad hears about this!\r\n{boss_dies}\r\nYesMan1: Sooo\u2026 do we need
-    a new boss?\r\nYesMan2: YES! I mean, nah, sorry, force of habit. What did he
-    really do around here besides play golf and brag about his dad?\r\nYesMan1: Good
-    point.\r\n{yes_men_leave}\r\nVirgil: Capitalism.\r\nPrincess: What\u2019s that?\r\nVirgil:
-    Uuhhh\u2026 it\u2019s this um, really cool thing we can find one floor down!
-    Let\u2019s check it out!\r\nPrincess: OK! :3"
+    ANY idea who I (or my dad) are?? %%Boss_Inconceivable\r\nPrincess: Nope! :D\r\nOfficeBoss:
+    Just wait\u2026 until my dad hears about this! %%Boss_Wait Til My Dad Hears\n{boss_dies}\r\nYesMan1:
+    Sooo\u2026 do we need a new boss?\r\nYesMan2: YES! I mean, nah, sorry, force
+    of habit. What did he really do around here besides play golf and brag about
+    his dad?\r\nYesMan1: Good point.\r\n{yes_men_leave}\r\nVirgil: Capitalism. %%Virgil_Sigh\r\nPrincess:
+    What\u2019s that?\r\nVirgil: Uuhhh\u2026 it\u2019s this um, really cool thing
+    we can find one floor down! Let\u2019s check it out!\r\nPrincess: OK! :3 %%Princess_Sparkle
+    On"
