@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: L03-D03-PostBossDialogue
   m_EditorClassIdentifier: 
   text: "IceImp: NO! WHAT HAVE YOU DONE!? My beautiful creature\u2026 what will I
-    do without him!? Ah, no\u2026 my heart\u2026 IT\u2019S\u2026!\r\n{ice_imp_dies}\r\nVirgil:
-    Wow, what a terrible pet owner. Couldn\u2019t even keep himself alive.\r\nPrincess:
-    Aww, but we were having so much fun! Oh well, nighty-night Braxy!\r\nVirgil:
-    Onwards then, Princess?\r\nPrincess: Okie-dokie!"
+    do without him!? Ah, no\u2026 my heart\u2026 IT\u2019S\u2026! %%Imp_Braxas Braxas
+    BRAXAS\r\n{ice_imp_dies}\r\nVirgil: Wow, what a terrible pet owner. Couldn\u2019t
+    even keep himself alive.\r\nPrincess: Aww, but we were having so much fun! Oh
+    well, nighty-night Braxy! %%Princess_Byeee\r\nVirgil: Onwards then, Princess?\r\nPrincess:
+    Okie-dokie! %%Princess_Sparkle On"

@@ -12,15 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfdcc9cbed7effe47855230305df1a91, type: 3}
   m_Name: L03-D02-PreBossDialogue
   m_EditorClassIdentifier: 
-  text: "{enter}\r\nIceImp: There you go, you\u2019ve been such a good boy!\r\nDamnedSoul:
-    AAAAAHHH! AAAAAAAAHHHHHH!!!\r\nIceImp: SHUSH! HE DOESN\u2019T LIKE LOUD NOISES!!!
-    I\u2019m so sorry Braxas, have some more!\r\nPrincess: Don\u2019t forget to share
-    some with me, teehee~\r\n{ice_imp_look_at_princess}\r\nIceImp: Eeehh?? Who are
-    you? Why haven\u2019t you gotten in my creature\u2019s mouth yet? GET IN THERE!\r\nPrincess:
-    Ok! :P\r\n{princess_walk_towards_boss}\r\nVirgil: I\u2019m sorry, what? You\u2019re
-    actually falling for this bull-\r\nIceImp: WHO ARE YOU CALLING A BULL?! I\u2019M
-    A DEMON YOU IDIOT! YOU\u2019RE THE BULL!\r\nBraxas: :(\r\nIceImp: No, no, not
-    you! You\u2019re perfect!\r\nPrincess: He is! He\u2019s so cute~!\r\nVirgil:
-    He looks like a character a middle schooler would draw\u2026\r\nIceImp: THAT\u2019S
-    IT! You can insult me, but don\u2019t you DARE insult my beautiful baby boy!
-    BRAXAS, YOU KNOW WHAT TO DO!"
+  text: "{enter}\r\nIceImp: There you go, you\u2019ve been such a good boy! %%Imp_Its
+    Dinner Time Braxas\r\nDamnedSoul: AAAAAHHH! AAAAAAAAHHHHHH!!!\r\nIceImp: SHUSH!
+    HE DOESN\u2019T LIKE LOUD NOISES!!! I\u2019m so sorry Braxas, have some more!
+    %%Imp_Shut Up\r\nPrincess: Don\u2019t forget to share some with me, teehee~ %%Princess_hehe\r\n{ice_imp_look_at_princess}\r\nIceImp:
+    Eeehh?? Who are you? Why haven\u2019t you gotten in my creature\u2019s mouth
+    yet? GET IN THERE! %%Imp_EEEH\r\nPrincess: Ok! :P %%Princess_Yippee\r\n{princess_walk_towards_boss}\r\nVirgil:
+    I\u2019m sorry, what? You\u2019re actually falling for this bull- %Virgil_Wait
+    a Minute\r\nIceImp: WHO ARE YOU CALLING A BULL?! I\u2019M A DEMON YOU IDIOT!
+    YOU\u2019RE THE BULL! %%Imp_Who you callin bull\r\nBraxas: :( %%Braxas_Roar3\r\nIceImp:
+    No, no, not you! You\u2019re perfect!\r\nPrincess: He is! He\u2019s so cute~!\r\nVirgil:
+    He looks like a character a middle schooler would draw\u2026$$Virgil_Sigh\r\nIceImp:
+    THAT\u2019S IT! You can insult me, but don\u2019t you DARE insult my beautiful
+    baby boy!\nIceImp: BRAXAS, YOU KNOW WHAT TO DO! %%Imp_Sick Em Braxas"

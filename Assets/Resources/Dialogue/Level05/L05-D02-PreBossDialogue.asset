@@ -12,27 +12,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfdcc9cbed7effe47855230305df1a91, type: 3}
   m_Name: L05-D02-PreBossDialogue
   m_EditorClassIdentifier: 
-  text: "Princess: OMG! It\u2019s Bestie-Becky! Haiiiiiii! :D\r\nBecky: Wha? Huh?
-    YOU\u2026 You followed me here\u2026? Really, after all you already did?\r\nVirgil:
-    Why are you here? This isn\u2019t your Domain. What, did management run out of
-    assets or something?\r\nBecky: We have all the assets we need, actually. We do
-    our JOB down here, thank you very much. I came here to blow off some steam. The
-    steam that the two of YOU caused.\r\nPrincess: Ooh so you\u2019re playing the
-    games here too? We can play together! That\u2019ll be so much fun bestie! :3\r\nBecky:
-    Stop calling me that! I\u2019m not your bestie. I am Becky: The Idol of Hell,
-    and I won\u2019t let a stupid outsider ruin my perfect reputation and my show!\r\nVirgil:
-    So you\u2019re going to fight us again? You know that\u2019s not allowed right?
-    According to the Hell Articles: Rules of Engagement part VI, Section II-\r\nBecky:
-    Oh get your skull out of your non-existent behind, you good for nothing cane
-    topper. I know the stupid rules.\r\nPrincess: Bestie-Becky! Your face is so red!
-    It matches the color of your dress, that's so cute!! :D\r\nBecky: Shut it Starshine.
-    You made my mascara run. NOBODY MAKES MY MASCARA RUN.\r\nPrincess: Oh no it ran
-    away? Ooh! Maybe we can search for it together Bestie-\r\nBecky: Anyways, like
-    I was saying. The Articles do exist. So let me introduce you to an old friend.
-    Ohhhhh House!!!\r\n{house_enter}\r\nHouse: >:(\r\nBecky: Meet the House- They\u2019re
-    an old friend of mine, back from my poker days. Trust me, they're quite the powerhouse.
-    I used to be a sore loser, so I know they can take a beating! :3\r\nVirgil: Used
-    to?\r\nPrincess: OMG! Is that your dollhouse? It\u2019s so big and colorful and-\r\nBecky:
-    Shut up! When the House is done with you, I\u2019ll turn your dust into my new
-    makeup line, and soon all the Domains will be wearing your ashes!!! And you know
-    what they say: THE HOUSE ALWAYS WINS.\r\nHouse: >:(\r\n{becky_exit}"
+  text: "Princess: OMG! It\u2019s Bestie-Becky! Haiiiiiii! :D %%Princess_Besties\r\nBecky:
+    Wha? Huh? YOU\u2026 You followed me here\u2026? Really, after all you already
+    did?\r\nVirgil: Why are you here? This isn\u2019t your Domain. What, did management
+    run out of assets or something? %%Virgil_Wait a Minute\r\nBecky: We have all
+    the assets we need, actually. We do our JOB down here, thank you very much. I
+    came here to blow off some steam. The steam that the two of YOU caused. %%Becky_Ugh
+    As If\r\nPrincess: Ooh so you\u2019re playing the games here too? We can play
+    together! That\u2019ll be so much fun bestie! :3 \r\nBecky: Stop calling me that!
+    I\u2019m not your bestie. I am Becky: The Idol of Hell, and I won\u2019t let
+    a stupid outsider ruin my perfect reputation and my show!\r\nVirgil: So you\u2019re
+    going to fight us again? You know that\u2019s not allowed right? According to
+    the Hell Articles: Rules of Engagement part VI, Section II- %%Virgil_What do
+    You want\r\nBecky: Oh get your skull out of your non-existent behind, you good
+    for nothing cane topper. I know the stupid rules.\r\nPrincess: Bestie-Becky!
+    Your face is so red! It matches the color of your dress, that's so cute!! :D\r\nBecky:
+    Shut it Starshine. You made my mascara run. NOBODY MAKES MY MASCARA RUN.\r\nPrincess:
+    Oh no it ran away? Ooh! Maybe we can search for it together Bestie-\r\nBecky:
+    Anyways, like I was saying. The Articles do exist. So let me introduce you to
+    an old friend. Ohhhhh House!!!\r\n{house_enter}\r\nHouse: >:(\r\nBecky: Meet
+    the House- They\u2019re an old friend of mine, back from my poker days. Trust
+    me, they're quite the powerhouse. I used to be a sore loser, so I know they can
+    take a beating! :3\r\nVirgil: Used to?\r\nPrincess: OMG! Is that your dollhouse?
+    It\u2019s so big and colorful and-\r\nBecky: Shut up! When the House is done
+    with you, I\u2019ll turn your dust into my new makeup line, and soon all the
+    Domains will be wearing your ashes!!! And you know what they say: THE HOUSE ALWAYS
+    WINS. %%Becky_Die Please\r\nHouse: >:(\r\n{becky_exit}"
