@@ -89,7 +89,7 @@ public class SoundManager : MonoBehaviour
 		source.transform.SetParent(null);
 		source.SetSound(sound);
 		source.transform.position = position;
-		source.Play();
+		source.Play(sound.mixerGroup);
 		positionalSources.Enqueue(source);
 		return source;
 	}
