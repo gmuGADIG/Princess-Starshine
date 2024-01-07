@@ -30,6 +30,5 @@ MonoBehaviour:
     your severance package! %%Boss_Inconceivable\r\nVirgil: Then fire me!\r\nOfficeBoss:
     Fine! You\u2019re fired! %%Boss_You_re Fired\r\nVirgil: You can\u2019t fire me,
     I quit! %%Virgil_Hehe, no\r\nOfficeBoss: Ok, this isn\u2019t getting us anywhere.
-    If you\u2019re not here to work, you\u2019re useless to me. %%Boss_Sales Are
-    Goin Up\r\n{yes_men_move}\r\nOfficeBoss: Nothing personal. It\u2019s just (my
-    dad's) business."
+    If you\u2019re not here to work, you\u2019re useless to me.\r\n{yes_men_move}\r\nOfficeBoss:
+    Nothing personal. It\u2019s just (my dad's) business. %%Boss_Sales Are Goin Up"
