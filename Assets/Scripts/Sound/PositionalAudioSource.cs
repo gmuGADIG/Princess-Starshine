@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class PositionalAudioSource : MonoBehaviour
 {
@@ -35,8 +36,9 @@ public class PositionalAudioSource : MonoBehaviour
         this.delay = delay;
     }
 
-    public void Play()
+    public void Play(AudioMixerGroup mixerGroup)
     {
+        audioSource.outputAudioMixerGroup = mixerGroup;
         audioSource.PlayDelayed(delay);
     }
 

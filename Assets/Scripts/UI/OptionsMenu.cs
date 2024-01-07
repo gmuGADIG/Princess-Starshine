@@ -46,5 +46,12 @@ public class OptionsMenu : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape)) {
             Close();
         }
+
+        UpdateVolume();
+    }
+
+    void OnDestroy() {
+        Debug.Log(PlayerPrefs.GetFloat(musicVolKey, 0.75f));
+        Debug.Log(PlayerPrefs.GetFloat(sfxVolKey, 0.75f));
     }
 }
