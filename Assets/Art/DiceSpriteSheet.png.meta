@@ -124,8 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8dc655392e508074d93e9c1ec95e62b2
-      internalID: 2099547295
+      spriteID: fe27149d17097036c8d282991e612506
+      internalID: 1202872335
       vertices: []
       indices: 
       edges: []
@@ -145,8 +145,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f3ca855887b67434b9abf72c58d211f2
-      internalID: 739258817
+      spriteID: e06c652bd2c4d8ded9e571530c3a205c
+      internalID: 1126970906
       vertices: []
       indices: 
       edges: []
@@ -166,8 +166,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 84a68a75ae4a25345a94c99611421ccb
-      internalID: -527387294
+      spriteID: 8db6061cdfbbb064796e769c8504ba91
+      internalID: 1958796294
       vertices: []
       indices: 
       edges: []
@@ -187,8 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3f1041a9942251e4083bb538a51ffde0
-      internalID: 329566100
+      spriteID: e16d75bdada4890c08b59363f9473d57
+      internalID: -1072682077
       vertices: []
       indices: 
       edges: []
@@ -204,10 +204,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      DiceSpriteSheet_0: 2099547295
-      DiceSpriteSheet_1: 739258817
-      DiceSpriteSheet_2: -527387294
-      DiceSpriteSheet_3: 329566100
+      DiceSpriteSheet_0: 1202872335
+      DiceSpriteSheet_1: 1126970906
+      DiceSpriteSheet_2: 1958796294
+      DiceSpriteSheet_3: -1072682077
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

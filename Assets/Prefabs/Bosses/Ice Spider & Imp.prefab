@@ -258,7 +258,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 1800
   postBossDialogue: {fileID: 0}
-  onDeathPrefab: {fileID: 0}
 --- !u!114 &5498695415664551577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -266,13 +265,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3307996292842739383}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a3ef91eceb79ad64582df0ef9c53283e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveTowards: {fileID: 0}
-  speed: 5
+  speed: 3
 --- !u!114 &6472719709612196679
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -280,7 +279,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3307996292842739383}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a5cb1fa493c0a44dbc2d98340cd74d9, type: 3}
   m_Name: 
@@ -333,7 +332,7 @@ MonoBehaviour:
     speed: 0.5
     numberRepeat: 3
     movementType: 3
-  meleeCollider: {fileID: 0}
+  meleeCollider: {fileID: 8549655467703271645}
   enemySpawnEnabled: 0
   enemySpawnFrequency: 0
   enemySpawn:

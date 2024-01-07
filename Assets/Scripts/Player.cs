@@ -172,9 +172,10 @@ public class Player : MonoBehaviour
         //check to see if the player is moving right or left
         //changes where the player is looking
         if (velocity != Vector2.zero) facingDirection = velocity.normalized;
+        //the checks after the &&s are to avoid making new Vector3 objects when not necessary
         if (facingDirection.x < 0)
             playerSprite.flipX = true;
-        else if(facingDirection.x > 0)
+        else if (facingDirection.x > 0)
             playerSprite.flipX = false;
 
         if (!isTwirling){
@@ -279,11 +280,13 @@ public class Player : MonoBehaviour
     }
 
     //current placeholder for xp function
-    public void AddXP(float points) 
+    public void AddXP(float points, bool playSound = true) 
     {
         cumulativeXpPoints += points;
         xpThisLevel += points;
-        SoundManager.Instance.PlaySoundAtPosition(xpPickupSound, Camera.main.transform.position, Camera.main.transform);
+        if (playSound) {
+            SoundManager.Instance.PlaySoundAtPosition(xpPickupSound, Camera.main.transform.position, Camera.main.transform);
+        }
 
         var goal = XpLevelUpGoal();
         if (xpThisLevel >= goal)
@@ -310,12 +313,13 @@ public class Player : MonoBehaviour
             Destroy(xpObj.gameObject);
         }
 
-        else if (hit.collider.CompareTag("Enemy")|| hit.collider.CompareTag("WallOfFire") || hit.collider.CompareTag("EnemyProjectile"))
+        //else if (hit.collider.CompareTag("Enemy")|| hit.collider.CompareTag("WallOfFire") || hit.collider.CompareTag("EnemyProjectile"))
+        else if (hit.collider.TryGetComponent<Damage>(out var damage) && damage.enabled)
         {
             if (isTwirling) return;
             if (immuneTime > 0) return;
             
-            OnAttacked(hit.collider.gameObject.GetComponent<Damage>().damage);
+            OnAttacked(damage.damage);
         }
 
         else if (hit.collider.CompareTag("Consumable"))

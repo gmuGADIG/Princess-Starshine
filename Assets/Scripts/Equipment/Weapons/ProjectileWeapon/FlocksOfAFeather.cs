@@ -13,12 +13,6 @@ public class FlocksOfAFeather : ProjectileWeapon
         ApplyLevelUp(null);
     }
 
-    public override void ProcessOtherRemoval(Equipment other) {
-        print("processotherremoval");
-        base.ProcessOtherRemoval(other);
-        ApplyLevelUp(null);
-    }
-
     bool shouldSound = true;
 
     public override void ApplyLevelUp(WeaponLevelUp? levelUp)

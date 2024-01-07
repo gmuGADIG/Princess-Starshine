@@ -124,8 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8daacb6f17b08584aa9bdb714f0f70d2
-      internalID: -782496985
+      spriteID: a988965888a0a27038e28f4a56716161
+      internalID: -2087827400
       vertices: []
       indices: 
       edges: []
@@ -145,8 +145,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c83d47a89b944b143a69f79cc64f2c18
-      internalID: -1523833802
+      spriteID: 56062ffd95f4bd887b4e23deb0b693b4
+      internalID: 147453160
       vertices: []
       indices: 
       edges: []
@@ -166,8 +166,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 918197ee82bbeed49952a965d64b3033
-      internalID: 1615953341
+      spriteID: 14bd4870f6df7755aaeb81f21b9e9ffa
+      internalID: 432856033
       vertices: []
       indices: 
       edges: []
@@ -187,8 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 60d11b26abf790b48b4f006a719dd9b7
-      internalID: 110856507
+      spriteID: cd1768e86e970f46cb071fe82f4b52ee
+      internalID: 1801401620
       vertices: []
       indices: 
       edges: []
@@ -204,10 +204,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      MeltedSpriteSheet_0: -782496985
-      MeltedSpriteSheet_1: -1523833802
-      MeltedSpriteSheet_2: 1615953341
-      MeltedSpriteSheet_3: 110856507
+      MeltedSpriteSheet_0: -2087827400
+      MeltedSpriteSheet_1: 147453160
+      MeltedSpriteSheet_2: 432856033
+      MeltedSpriteSheet_3: 1801401620
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

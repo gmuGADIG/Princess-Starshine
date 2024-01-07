@@ -162,7 +162,13 @@ abstract public class ProjectileWeapon : Weapon
     }
     
     public override void OnEquip() { }
-    public override void OnUnEquip() { }
+
+    void OnDisable() { OnUnEquip(); }
+    public override void OnUnEquip() {
+        foreach (var proj in projectileSet) {
+            Destroy(proj.gameObject);
+        }
+    }
 
     public override void Update()
     {
