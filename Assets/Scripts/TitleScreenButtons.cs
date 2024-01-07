@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,13 +11,28 @@ public class TitleSceenButtons : MonoBehaviour
     public string savedLevelSceneName; // create function that tracks the level the player is on
     public GameObject OptionsUI;       // saves options ui prefab to toggle on/off, this script toggles ON
 
+    public void Start()
+    {
+        var saveExists = PlayerPrefs.HasKey("save");
+        var continueButton = transform.Find("ContinueButton").GetComponent<RectTransform>();
+        var newRunButton = transform.Find("NewRunButton").GetComponent<RectTransform>();
+        if (continueButton == null || newRunButton == null) throw new Exception("Title screen is missing some buttons! requires 'ContinueButton' and 'NewRunButton'");
 
-
+        if (saveExists)
+        {
+            continueButton.sizeDelta *= 1.3f;
+        }
+        else
+        {
+            continueButton.gameObject.SetActive(false);
+            newRunButton.sizeDelta *= 1.3f;
+        }
+    }
 
     public void ContinueButton()
     {
         // retrieve player data
-        SceneManager.LoadScene(savedLevelSceneName); 
+        SceneManager.LoadScene(savedLevelSceneName);
         //Debug.Log("continue");
     }
 
