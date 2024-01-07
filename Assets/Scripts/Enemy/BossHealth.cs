@@ -39,6 +39,7 @@ public class BossHealth : MonoBehaviour
         }
         
         GetComponent<DamageFlash>().Damage();
+        BossHealthBarUI.SetHealth(currentHealth / maxHealth);
     }
 
     public void Die()

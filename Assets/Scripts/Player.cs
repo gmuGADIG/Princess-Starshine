@@ -178,37 +178,37 @@ public class Player : MonoBehaviour
         else if (facingDirection.x > 0)
             playerSprite.flipX = false;
 
-        if (!isTwirling){
-            if (input!=Vector2.zero) {
+        // Set velocity
+        if (!isTwirling) {
+            if (input != Vector2.zero) {
                 velocity += input * acceleration * Time.deltaTime;
                 velocity = Vector2.ClampMagnitude(velocity, maxSpeed);
 
-                //Check for camera bounds
-                if (transform.position.y > camera.transform.position.y + constraintHeight && velocity.y>0)
-                    velocity.y = 0;
-                else if (transform.position.y < camera.transform.position.y - constraintHeight && velocity.y < 0)
-                    velocity.y = 0;
-
-                if (transform.position.x > camera.transform.position.x + constraintWidth && velocity.x > 0)
-                    velocity.x = 0;
-                else if (transform.position.x < camera.transform.position.x - constraintWidth && velocity.x < 0)
-                    transform.position = new Vector2(camera.transform.position.x - constraintWidth, transform.position.y);
-                
-                // Handle wall bound
-                if (wall != null) {
-                    if (transform.position.y > wall.Border && velocity.y > 0) {
-                        velocity.y = 0;
-                    }
-                }
-            }
-            else
-            {
+            } else {
                 velocity = Vector2.MoveTowards(velocity,Vector2.zero,deceleration*Time.deltaTime);
             }
         }
         
         // twirl
         UpdateTwirl(input);
+
+        //Check for camera bounds
+        if (transform.position.y > camera.transform.position.y + constraintHeight && velocity.y>0)
+            velocity.y = 0;
+        else if (transform.position.y < camera.transform.position.y - constraintHeight && velocity.y < 0)
+            velocity.y = 0;
+
+        if (transform.position.x > camera.transform.position.x + constraintWidth && velocity.x > 0)
+            velocity.x = 0;
+        else if (transform.position.x < camera.transform.position.x - constraintWidth && velocity.x < 0)
+            transform.position = new Vector2(camera.transform.position.x - constraintWidth, transform.position.y);
+
+        // Handle wall bound
+        if (wall != null) {
+            if (transform.position.y > wall.Border && velocity.y > 0) {
+                velocity.y = 0;
+            }
+        }
 
         UsedConsumable();
 

@@ -29,6 +29,8 @@ public class PlayerHealth : MonoBehaviour
         defaultDamageTakenMultiplier = damageTakenMultiplier;
         tempHealth = maxHealth;
         InGameUI.SetHp(1f);
+
+        invincible = invincible && Application.isEditor;
     }
 
     void Update() {

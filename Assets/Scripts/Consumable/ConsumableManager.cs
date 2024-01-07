@@ -39,6 +39,9 @@ public class ConsumableManager : MonoBehaviour
     [HideInInspector] public BuffableStat XpCollisionRadius { get; private set; }
     [HideInInspector] public BuffableStat ConsumableSpawnChance { get; private set; }
     GameObject[] consumablePrefabs;
+    
+    Wall wall;
+
     void Awake() 
     {
         Instance = this;
@@ -60,7 +63,7 @@ public class ConsumableManager : MonoBehaviour
     }
 
     void Start() {
-        
+        wall = FindObjectOfType<Wall>();
 
         ConsumableCollisionRadius.ValueUpdated.AddListener((radius) => { // Update consumable collision radius when the value changes
             foreach (var c in FindObjectsOfType<Consumable>())
@@ -79,10 +82,16 @@ public class ConsumableManager : MonoBehaviour
             if (UnityEngine.Random.value < ConsumableSpawnChance.Value) {
                 // pick a random point in the camera bounds
                 Rect cameraBounds = TeaTime.cameraBoundingBox();
-                var minY = FindObjectOfType<Wall>() != null ? FindObjectOfType<Wall>().Border : cameraBounds.y;
+                var maxY = wall?.Border ?? cameraBounds.y;
                 Vector3 pos = new Vector3(
-                    UnityEngine.Random.Range(cameraBounds.x, cameraBounds.x + cameraBounds.width),
-                    UnityEngine.Random.Range(minY, cameraBounds.y + cameraBounds.height)
+                    UnityEngine.Random.Range(
+                        cameraBounds.x + ConsumableCollisionRadius.Value,
+                        cameraBounds.x + cameraBounds.width - ConsumableCollisionRadius.Value
+                    ),
+                    UnityEngine.Random.Range(
+                        cameraBounds.y + ConsumableCollisionRadius.Value,
+                        maxY - ConsumableCollisionRadius.Value
+                    )
                 );
 
                 // yes, Random.Range is max exclusive for ints and max inclusive for floats
