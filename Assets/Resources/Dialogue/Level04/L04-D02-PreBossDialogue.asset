@@ -13,36 +13,42 @@ MonoBehaviour:
   m_Name: L04-D02-PreBossDialogue
   m_EditorClassIdentifier: 
   text: "Becky: O.M.G. You\u2019re finally here!!!!! I\u2019m so happy to finally
-    meet you, Ms. Shinestar!\r\nPrincess: I remember you! From the poster!\r\nBecky:
-    You saw my poster? Aw, thank you so much! You lovelies probably already know
-    my name, but just to reintroduce myself, I\u2019m Becky, the star of Hell-\r\nVirgil:
-    SAUNA!\r\nBecky: Hmm? What\u2019s his deal?\r\nPrincess: I don\u2019t know, Bestie-Becky.
-    He gets weird sometimes! :P\r\nBecky: Bestie-Becky? That\u2019s\u2026TOTES CUTE!
-    I love it! I\u2019ve been watching you slaaayyyy the other Domains and give the
-    other rulers nicknames, and I\u2019m so happy to finally get one! Thank you so
-    much, Star-Star!\r\nPrincess: Star-Star! We\u2019re like, twinsies!\r\nVirgil:
+    meet you, Ms. Shinestar!\r\nPrincess: I remember you! From the poster! %%Princess_Hai
+    Hai\r\nBecky: You saw my poster? Aw, thank you so much! You lovelies probably
+    already know my name, but just to reintroduce myself, I\u2019m Becky, the star
+    of Hell- %%Becky_Hello My Adoring Fans\r\nVirgil: SAUNA! %%Virgil_Hehe, no\r\nBecky:
+    Hmm? What\u2019s his deal? %%Becky_Cut the Cameras\r\nPrincess: I don\u2019t
+    know, Bestie-Becky. He gets weird sometimes! :P %%Princess_So Many New Friends\r\nBecky:
+    Bestie-Becky? That\u2019s\u2026TOTES CUTE! I love it! I\u2019ve been watching
+    you slaaayyyy the other Domains and give the other rulers nicknames, and I\u2019m
+    so happy to finally get one! Thank you so much, Star-Star! %%Becky_Hello My Adoring
+    Fans\r\nPrincess: Star-Star! We\u2019re like, twinsies! %%Princess_Besties\r\nVirgil:
     Are we just going to completely gloss over the fact she\u2019s been stalking
-    us?\r\nBecky: It\u2019s not my fault. It\u2019s the paparazzi\u2019s fault! Regardless,
-    I\u2019m so happy to finally meet you! Your sunshine and sparkles are just\u2026.fantabulous!\r\nPrincess:
-    You are sooooo fantabulous too! I adore your fashion sense!\r\nBecky: OMG thank
-    you! I absolutely LOVE cute things, like you!\r\nVirgil: If you\u2019re so into
-    cute things, then why have you let your Domain become such a\u2026well\u2026dump?\r\nBecky:
-    Well you can't be THIS cute without a few hundred sacrifices! :3 By the way,
-    do you want some makeup? Made from the now-extinct screamwood trees!\r\nPrincess:
-    Ohmygosh, I\u2019d love some!\r\nBecky: I even have some super adorable Princess
-    Shinestar and Virgil plushies!\r\nVirgil: DON\u2019T TURN ME INTO A MARKETABLE
-    PLUSHIE!!!\r\nBecky: Aw, don\u2019t be like that Vi-Vi, you\u2019re only being
-    exploited for capitalistic gains!\r\nPrincess: Yeah! What she said!\r\nVirgil:
-    Stop calling me Vi-Vi! I swear, one of you was enough of a headache, and now
-    there are two!\r\nBecky: Oh! And I forgot to mention! This show wouldn\u2019t
-    be possible without our sponsor, Flamin Hot Frittatas!\r\nBecky: As crunchy as
-    the bones of your enemies, and as hot as everyone\u2019s least favorite ruler
-    of the Fire Domain! Buy yours today! Anyway, you were saying?\r\nVirgil: N-nothing\u2026what
-    was that about?\r\nBecky: Sorry, contractual obligations. :3\r\nPrincess: Sounds
-    fun! Hey, we should totes have a tea party!\r\nBecky: Y\u2019know, I\u2019d love
-    to, buuuut\u2026\r\nPrincess: What is it Bestie-Becky?\r\nBecky: Your sparkles
+    us? %%Virgil_Sigh \r\nBecky: It\u2019s not my fault. It\u2019s the paparazzi\u2019s
+    fault! Regardless, I\u2019m so happy to finally meet you! Your sunshine and sparkles
+    are just\u2026.fantabulous! %%Becky_That wasnt in my script\r\nPrincess: You
+    are sooooo fantabulous too! I adore your fashion sense!  %%Princess_Sparkle On\r\nBecky:
+    OMG thank you! I absolutely LOVE cute things, like you!\r\nVirgil: If you\u2019re
+    so into cute things, then why have you let your Domain become such a\u2026well\u2026dump?
+    %%Virgil_Eh, I dont think so\r\nBecky: Well you can't be THIS cute without a
+    few hundred sacrifices! :3 By the way, do you want some makeup? Made from the
+    now-extinct screamwood trees!\r\nPrincess: Ohmygosh, I\u2019d love some! %%Princess_Yippee\r\nBecky:
+    I even have some super adorable Princess Shinestar and Virgil plushies! %%Becky_Smile
+    for the camera\r\nVirgil: DON\u2019T TURN ME INTO A MARKETABLE PLUSHIE!!!\r\nBecky:
+    Aw, don\u2019t be like that Vi-Vi, you\u2019re only being exploited for capitalistic
+    gains!\r\nPrincess: Yeah! What she said!\r\nVirgil: Stop calling me Vi-Vi! I
+    swear, one of you was enough of a headache, and now there are two! %%Virgil_Sigh\r\nBecky:
+    Oh! And I forgot to mention! This show wouldn\u2019t be possible without our
+    sponsor, Flamin Hot Frittatas!\r\nBecky: As crunchy as the bones of your enemies,
+    and as hot as everyone\u2019s least favorite ruler of the Fire Domain! Buy yours
+    today! Anyway, you were saying?\r\nVirgil: N-nothing\u2026what was that about?\r\nBecky:
+    Sorry, contractual obligations. :3\r\nPrincess: Sounds fun! Hey, we should totes
+    have a tea party! %%Princess_So Many New Friends\r\nBecky: Y\u2019know, I\u2019d
+    love to, buuuut\u2026\r\nPrincess: What is it Bestie-Becky?\r\nBecky: Your sparkles
     are so great, Star-Star! Just picture it: Human Kingdom Sparkles! They'd sell
     like hotcakes!\r\nVirgil: I\u2019ve got a bad feeling about this.\r\nBecky: So,
     like, I\u2019d looove to spend more time together with you cutie, but I\u2019ve
     just suuper got to get to the secrets behind your sparkles\u2026Sorry, it\u2019s
-    just business~\r\nBecky: LIGHTS! \r\nBecky: CAMERA!!\r\nBecky: ACTION!!!!!!"
+    just business~ %%Becky_I'm Gonna Grind You\r\nBecky: LIGHTS! %%Becky_Hello My
+    Adoring Fans\r\nBecky: CAMERA!! %%Becky_Smile for the camera\r\nBecky: ACTION!!!!!!
+    %%Becky_Sugoi"
