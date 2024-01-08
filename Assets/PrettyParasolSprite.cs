@@ -23,6 +23,6 @@ public class PrettyParasolSprite : MonoBehaviour
 
     void Start()
     {
-        Debug.Assert(TryGetComponent(out animator));
+        PrettyParasol.Assert(TryGetComponent(out animator));
     }
 }

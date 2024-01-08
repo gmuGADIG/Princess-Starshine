@@ -66,7 +66,7 @@ class CupquakeProjectile : Projectile {
         base.Setup(weapon, target.transform.position, damage, pierceCount, speed, knockback, size, dotRate);
 
         alt = UnityEngine.Random.Range(0f, 1f) < 0.5;
-        Debug.Assert(TryGetComponent(out animator));
+        PrettyParasol.Assert(TryGetComponent(out animator));
         animator.SetBool("Alt", alt);
 
         if (followTarget) {
