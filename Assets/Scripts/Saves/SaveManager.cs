@@ -1,7 +1,7 @@
 using UnityEngine;
 using Newtonsoft.Json;
 using System.IO;
-using UnityEditor;
+//using UnityEditor;
 
 public class SaveManager : MonoBehaviour
 {
@@ -49,9 +49,9 @@ public class SaveManager : MonoBehaviour
         }
     }
 
-    [MenuItem("SaveTools/ClearSaveData")]
-    static void ClearSaveData()
-    {
-        PlayerPrefs.DeleteAll();
-    }
+    //[MenuItem("SaveTools/ClearSaveData")]
+    //static void ClearSaveData()
+    //{
+    //    PlayerPrefs.DeleteAll();
+    //}
 }

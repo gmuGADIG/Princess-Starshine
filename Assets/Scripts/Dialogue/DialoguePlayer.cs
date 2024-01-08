@@ -4,11 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using TMPro;
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
@@ -443,16 +440,3 @@ public class DialoguePlayer : MonoBehaviour
     #endregion
 }
 
-[CustomEditor(typeof(DialoguePlayer))]
-public class DialoguePlayerEditor : Editor
-{
-    public override void OnInspectorGUI()
-    {
-        DrawDefaultInspector();
-        if (GUILayout.Button("Validate Dialogue Sequence"))
-        {
-            var player = (DialoguePlayer)this.target;
-            player.ValidateDialogue();
-        }
-    } 
-}
