@@ -97,7 +97,6 @@ abstract public class ProjectileWeapon : Weapon
         var targetPosition = (Vector3)GetTarget();
         // FireToTarget(targetPosition);
         Vector3 toTarget = targetPosition - playerPosition;
-        FireToTarget(targetPosition);
         for (int i = 0; i < ProjectilesPerShot; i++) {
             Vector3 newTarget = new();
 
