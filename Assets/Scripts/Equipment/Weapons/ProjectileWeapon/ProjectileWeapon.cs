@@ -55,10 +55,13 @@ abstract public class ProjectileWeapon : Weapon
     [Tooltip("The name of the sound played when this weapon is fired.")]
     [SerializeField] protected string shootSoundName;
     
+    [Tooltip("How the weapon determines where to fire if firing multiple shots. <b>Spread</b> shoots the bullets with random spread from the first one (effectively a no-op). <b>Random Enemy</b> picks a random enemy to target for each extra bullet.")]
+    [SerializeField] protected MultishotType multishotType = MultishotType.Spread;
+    
     /** Set of active projectiles. Updated in Fire and OnProjectileDestroy. Necessary to update projectiles when the weapon levels up. */
     protected HashSet<Projectile> projectileSet = new();
 
-    [Tooltip("Rotation offset (in degrees) of the projectiles.")]
+    [Tooltip("Rotation offset (in degrees) of the projectiles. Ignored if <b>Multishot Type</b> is <b>Random Enemy</b>.")]
     public float Spread = 0f;
 
     /**
@@ -94,8 +97,24 @@ abstract public class ProjectileWeapon : Weapon
         var targetPosition = (Vector3)GetTarget();
         // FireToTarget(targetPosition);
         Vector3 toTarget = targetPosition - playerPosition;
+        FireToTarget(targetPosition);
         for (int i = 0; i < ProjectilesPerShot; i++) {
-            Vector3 newTarget = playerPosition + Quaternion.Euler(0,0, Random.Range(-Spread,Spread)) * toTarget;
+            Vector3 newTarget = new();
+
+            switch (multishotType) {
+                case MultishotType.Spread:
+                    newTarget = playerPosition + Quaternion.Euler(0,0, Random.Range(-Spread,Spread)) * toTarget;
+                    break;
+                case MultishotType.RandomEnemy:
+                    // Conditional needed because spread affects all bullets, but multishot only affects subsequent bullets.
+                    if (i == 0) {
+                        newTarget = targetPosition;
+                    } else {
+                        newTarget = (Vector3)GetTarget(TargetType.RandomEnemy);
+                    }
+                    break;
+            }
+
             FireToTarget(newTarget);
         }
     }
@@ -123,18 +142,20 @@ abstract public class ProjectileWeapon : Weapon
      * Otherwise, it will be the player's position plus the direction with an arbitrary magnitude.
      */
     
-    Vector2 GetTarget()
+    Vector2 GetTarget(TargetType? targetingMethod = null)
     {
+        targetingMethod = targetingMethod ?? this.targetingStrategy;
+
         var player = Player.instance;
         var enemies = getEnemies();
         
-        if (targetingStrategy == TargetType.RandomDirection || enemies.Count == 0)
+        if (targetingMethod == TargetType.RandomDirection || enemies.Count == 0)
         {
             var randomRads = Random.Range(0, 2 * Mathf.PI);
             return (Vector2)player.transform.position + new Vector2(Mathf.Cos(randomRads), Mathf.Sin(randomRads));
         }
 
-        switch (targetingStrategy)
+        switch (targetingMethod)
         {
             case TargetType.WalkingDirection:
                 return (Vector2) player.transform.position + player.facingDirection;
@@ -157,7 +178,7 @@ abstract public class ProjectileWeapon : Weapon
                 var randomRads = Random.Range(0, 2 * Mathf.PI);
                 return (Vector2) player.transform.position + new Vector2(Mathf.Cos(randomRads), Mathf.Sin(randomRads));
             default:
-                throw new Exception($"Invalid targeting strategy `{targetingStrategy}`!");
+                throw new Exception($"Invalid targeting strategy `{targetingMethod}`!");
         }
     }
     
@@ -260,4 +281,8 @@ abstract public class ProjectileWeapon : Weapon
 public enum TargetType
 {
     WalkingDirection, NearestEnemy, RandomEnemy, RandomDirection
+}
+
+public enum MultishotType {
+    Spread, RandomEnemy
 }

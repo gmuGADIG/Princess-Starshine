@@ -41,9 +41,7 @@ class MoveToEnemy : IPomeranianState {
 
         if (enemies.Length != 0) {
             enemy = enemies[UnityEngine.Random.Range(0, enemies.Length)].gameObject;
-        } else { // abusively use the player as the target if there are no enemies
-            enemy = Player.instance.gameObject;
-        }
+        } 
     }
 
     public IPomeranianState NewState(Pomeranian pomeranian) {
