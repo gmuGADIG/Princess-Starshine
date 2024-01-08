@@ -48,6 +48,10 @@ class CupquakeProjectile : Projectile {
     float explosionLifeTime;
     LineRenderer line;
 
+    Animator animator;
+
+    bool alt;
+
     public override void Setup(ProjectileWeapon weapon, Vector2 target, float damage, int pierceCount, float speed, float knockback, float size, float dotRate)
     {
         // use CupquakeProjectile.SetupExt
@@ -60,6 +64,10 @@ class CupquakeProjectile : Projectile {
         float knockback, float size, float dotRate, bool followTarget
     ) {
         base.Setup(weapon, target.transform.position, damage, pierceCount, speed, knockback, size, dotRate);
+
+        alt = UnityEngine.Random.Range(0f, 1f) < 0.5;
+        Debug.Assert(TryGetComponent(out animator));
+        animator.SetBool("Alt", alt);
 
         if (followTarget) {
             this.target = new CTGameObject(target);
@@ -81,7 +89,7 @@ class CupquakeProjectile : Projectile {
         explosionSize = weapon.CupquakeExplosionSize;
         explosionLifeTime = weapon.CupquakeExplosionLifetime;
 
-        line = GetComponentInChildren<LineRenderer>();
+        line = GetComponentInChildren<LineRenderer>(true);
     }
 
     protected override void Move()
@@ -98,10 +106,10 @@ class CupquakeProjectile : Projectile {
             // boom!
             Destroy(gameObject);
 
-            var explosion = Instantiate(explosionPrefab).GetComponent<Projectile>();
+            var explosion = Instantiate(explosionPrefab).GetComponent<CupquakeExplosion>();
             explosion.transform.position = transform.position;
             explosion.maxLifeTime = explosionLifeTime;
-            explosion.Setup(weapon, Vector2.zero, damage, pierceCount, 0, knockback, size * explosionSize, dotRate);
+            explosion.SetupExt(weapon, Vector2.zero, damage, pierceCount, 0, knockback, size * explosionSize, dotRate, alt);
 
             SoundManager.Instance.PlaySoundGlobal(explosionSoundName);
         }

@@ -420,7 +420,7 @@ MonoBehaviour:
   icon:
     name: Lovely Lullaby
     description: Attacks in the area around the player
-    icon: {fileID: 2800000, guid: d4746f1ed233a3da6a77460c2b111fa3, type: 3}
+    icon: {fileID: 2800000, guid: 5df56890a87d70ae7955dad17274db72, type: 3}
   levelUpsDone: 0
   levelUpOptions:
   - type: 0
@@ -503,7 +503,7 @@ MonoBehaviour:
   icon:
     name: Cupquake
     description: Cupcakes falling from the sky!
-    icon: {fileID: 2800000, guid: 01bf7458c89485d8f961cc627d7da80a, type: 3}
+    icon: {fileID: 2800000, guid: bd9e3d4157344a98590d2cd4f76bffae, type: 3}
   levelUpsDone: 0
   levelUpOptions:
   - type: 0
@@ -551,7 +551,7 @@ MonoBehaviour:
   icon:
     name: Glass Shoemerang
     description: A shoe that's a boomerang!
-    icon: {fileID: 2800000, guid: 32bf9c2a465b6185583c24bb253369e8, type: 3}
+    icon: {fileID: 2800000, guid: eb5f4de55bee2263db84509d64bf56fa, type: 3}
   levelUpsDone: 0
   levelUpOptions:
   - type: 0
@@ -600,7 +600,7 @@ MonoBehaviour:
   icon:
     name: Pretty Parasol
     description: Slow but powerful melee attack
-    icon: {fileID: 2800000, guid: 85600ca9529005a499bebc6b19e283a2, type: 3}
+    icon: {fileID: 2800000, guid: 2fccefc1063f198c88001efbc6ce8a27, type: 3}
   levelUpsDone: 0
   levelUpOptions:
   - type: 0
@@ -628,6 +628,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 4414555733823826805, guid: 536edafd6f3098c7fa252b9d49fbf961, type: 3}
   shootSoundName: Parasol_Whoosh
   Spread: 0
+  spritePrefab: {fileID: 8088032995622335006, guid: a0e9f4a9dd7100ed9b0a17a2b0b0a55c, type: 3}
 --- !u!114 &6232821952494979781
 MonoBehaviour:
   m_ObjectHideFlags: 0

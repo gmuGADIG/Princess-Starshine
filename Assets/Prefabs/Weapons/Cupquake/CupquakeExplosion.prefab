@@ -4897,7 +4897,7 @@ GameObject:
   - component: {fileID: 2057311824616227452}
   - component: {fileID: 3907609282120157302}
   - component: {fileID: 7720820063614404508}
-  - component: {fileID: 2662290651480814126}
+  - component: {fileID: 2607687512993322730}
   m_Layer: 0
   m_Name: CupquakeExplosion
   m_TagString: Untagged
@@ -4968,7 +4968,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 478abfc422869d340891d4c9c9f97369, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2662290651480814126
+--- !u!114 &2607687512993322730
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4977,7 +4977,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6558438144801322321}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd7fddb073412eb498309c978f8c0edf, type: 3}
+  m_Script: {fileID: 11500000, guid: 745e52f425d2249c59fef9e46a49e237, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxLifeTime: Infinity
