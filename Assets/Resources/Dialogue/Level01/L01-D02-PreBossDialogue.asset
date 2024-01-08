@@ -13,21 +13,24 @@ MonoBehaviour:
   m_Name: L01-D02-PreBossDialogue
   m_EditorClassIdentifier: 
   text: "{bael_enter}\r\nBaelUnknown: Whomst art thou that graces my domain?\r\nPrincess:
-    I\u2019m Princess Starshine!\r\nBaelUnknown: Ahh! A princess! Finally, someone
-    who can appreciate the order and refinement of-\r\nPrincess: What\u2019s your
-    name?\r\nBaelUnknown: I am the hellish Bael I. Frittata, Marquess of Flames,
-    the fourth in my line, Royal-\r\nPrincess: I\u2019m calling you Bae Bae!\r\nBaelBaeBae:
-    Well, I never. YOU are a PRINCESS, surely her highness has a modicum of formality
-    in her. It is quite rude to-\n{princess_walk_forward}\r\nPrincess: Can you move?
-    I need to get over there to continue my walk.\n{bael_approach_princess}\r\nBael:
-    LISTEN HERE!\r\nVirgil: Now, now, Bae Bae, remember your anger management classes.\n{bael_approach_virgil}\r\nBael:
+    I\u2019m Princess Starshine! %%Princess_Its Me Princess Starshine\r\nBaelUnknown:
+    Ahh! A princess! Finally, someone who can appreciate the order and refinement
+    of- %%Bael_Hello There Old Sport\r\nPrincess: What\u2019s your name?\r\nBaelUnknown:
+    I am the hellish Bael I. Frittata, Marquess of Flames, the fourth in my line,
+    Royal- %%Bael_Indubitably\r\nPrincess: I\u2019m calling you Bae Bae! %%Princess_Bae
+    Bae\r\nBaelBaeBae: Well, I never. YOU are a PRINCESS, surely her highness has
+    a modicum of formality in her. It is quite rude to- %%Bael_Oh Dare I Say\r\n{princess_walk_forward}\r\nPrincess:
+    Can you move? I need to get over there to continue my walk. %%Princess_Byeee\r\n{bael_approach_princess}\r\nBael:
+    LISTEN HERE!\r\nVirgil: Now, now, Bae Bae, remember your anger management classes.\r\n{bael_approach_virgil}\r\nBael:
     Virgil? My dear advisor, is that you?\r\nVirgil: FORMER Advisor. And FORMER Cane-Topper
-    at that. Let\u2019s go, princess, this guy is bad news.\r\nBael: With great respect,
-    her Highness must return what is rightfully mine. You see, without Virgil in
-    his place atop my cane, the order of things is disrupted and I do pride myself
-    in the tidiness of my realm.\r\nVirgil: Well then, you\u2019re not gonna like
-    the reorganizing we did\u2026\r\nBael: Pardon?\r\n{view_damage}\r\nBael: \u2026WHAT?\r\nBael:
-    Princess, I have expended my last formality and I must ask you that-\r\nPrincess:
-    Sorry, I got distracted. What did you say?\n{screen_shake}\r\nBael: RUAGHHHHHH!!!!\r\r\nPrincess:
-    Awwww, is Bae Bae a gwumpus wumpus?\n{virgil_leave}\r\nVirgil: Well, now you\u2019ve
-    done it\u2026\r"
+    at that. Let\u2019s go, princess, this guy is bad news. %%Virgil_What do You
+    want\r\nBael: With great respect, her Highness must return what is rightfully
+    mine. You see, without Virgil in his place atop my cane, the order of things
+    is disrupted and I do pride myself in the tidiness of my realm.\r\nVirgil: Well
+    then, you\u2019re not gonna like the reorganizing we did\u2026 %%Virgil_Hehe,
+    no\r\nBael: Pardon?\r\n{view_damage}\r\nBael: \u2026WHAT?\r\nBael: Princess,
+    I have expended my last formality and I must ask you that-\r\nPrincess: Sorry,
+    I got distracted. What did you say? %%Princess_hehe\r\n{screen_shake}\r\nBael:
+    RUAGHHHHHH!!!! %%Bael_ROAH\r\nPrincess: Awwww, is Bae Bae a gwumpus wumpus? %%Princess_Bae
+    Bae\r\n{virgil_leave}\r\nVirgil: Well, now you\u2019ve done it\u2026 %%Virgil_Wait
+    a Minute"

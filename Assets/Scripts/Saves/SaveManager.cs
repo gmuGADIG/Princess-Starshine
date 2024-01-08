@@ -1,6 +1,7 @@
 using UnityEngine;
 using Newtonsoft.Json;
 using System.IO;
+using UnityEditor;
 
 public class SaveManager : MonoBehaviour
 {
@@ -24,7 +25,7 @@ public class SaveManager : MonoBehaviour
         if (Application.isEditor && Input.GetKey(KeyCode.Q) && Input.GetKey(KeyCode.M))
             NewGame();
     }
-
+    
     public void NewGame() {
         PlayerPrefs.DeleteKey(savename);
         SaveData = new();
@@ -46,5 +47,11 @@ public class SaveManager : MonoBehaviour
         if (Instance == this) {
             Save();
         }
+    }
+
+    [MenuItem("SaveTools/ClearSaveData")]
+    static void ClearSaveData()
+    {
+        PlayerPrefs.DeleteAll();
     }
 }
