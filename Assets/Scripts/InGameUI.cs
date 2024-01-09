@@ -10,7 +10,10 @@ public class InGameUI : MonoBehaviour
 {
     private static InGameUI instance;
 
+    [SerializeField] float secondHealthBarDelay = 1f;
+    [SerializeField] float secondHealthBarCorrectionSpeed = 1f;
     [SerializeField] Image hpBarMask;
+    [SerializeField] Image secondHPBarMask;
     [SerializeField] Image xpBarMask;
     [SerializeField] TextMeshProUGUI xpBarText;
     [SerializeField] Transform weapons;
@@ -21,10 +24,17 @@ public class InGameUI : MonoBehaviour
     [SerializeField] Transform twirlParent;
     [SerializeField] Sprite twirlFilledImage;
     [SerializeField] Sprite twirlEmptyImage;
+
+    float secondHealthBarTarget = 1;
     
     void Awake()
     {
         instance = this;
+    }
+
+    private void Update()
+    {
+        instance.secondHPBarMask.fillAmount = Mathf.Lerp(instance.secondHPBarMask.fillAmount, secondHealthBarTarget, secondHealthBarCorrectionSpeed * Time.deltaTime);
     }
 
     /**
@@ -65,7 +75,17 @@ public class InGameUI : MonoBehaviour
      */
     public static void SetHp(float fractionalHp)
     {
-        instance.hpBarMask.fillAmount = fractionalHp;
+        if (instance.isActiveAndEnabled)
+        {
+            instance.hpBarMask.fillAmount = fractionalHp;
+            instance.StartCoroutine(SetSecondHP(fractionalHp));
+        }
+    }
+
+    public static IEnumerator SetSecondHP(float fractionalHp)
+    {
+        yield return new WaitForSeconds(instance.secondHealthBarDelay);
+        instance.secondHealthBarTarget = fractionalHp;
     }
 
     private static void SetItemList(Transform group, List<Texture> icons)

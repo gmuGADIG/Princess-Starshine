@@ -24,6 +24,7 @@ public class PrettyParasol : ProjectileWeapon {
     }
 
     void Setup() {
+        
         Assert(Instantiate(spritePrefab, Player.instance.transform).TryGetComponent(out sprite));
 
         // we're only going to fire when the correct frame in the animation is displayed
