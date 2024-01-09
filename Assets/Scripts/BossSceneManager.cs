@@ -35,4 +35,8 @@ public class BossSceneManager : MonoBehaviour
 
         // TODO: Persist consumables and update consumables UI
     }
+
+    public void ClearSave() {
+        SaveManager.ClearSaveData();
+    }
 }

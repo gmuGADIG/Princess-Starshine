@@ -8,7 +8,7 @@ public class SaveManager : MonoBehaviour
     public static SaveManager Instance { get; private set; }
     public static SaveData SaveData = new();
 
-    string savename = "save";
+    public static string savename = "save";
 
     void Awake() {
         if (Instance != null) {
@@ -20,13 +20,11 @@ public class SaveManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         Load();
     }
-
-    public void Update() {
-        if (Application.isEditor && Input.GetKey(KeyCode.Q) && Input.GetKey(KeyCode.M))
-            NewGame();
-    }
     
-    public void NewGame() {
+    /// <summary>
+    /// Clears SaveData.
+    /// </summary>
+    public static void ClearSaveData() {
         PlayerPrefs.DeleteKey(savename);
         SaveData = new();
     }

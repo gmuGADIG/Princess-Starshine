@@ -344,9 +344,9 @@ public class DialoguePlayer : MonoBehaviour
     /**
      * Changes scenes to the level select and unlocks the next level.
      */
-    public void OpenLevelPreview(string nextLevel)
+    public void OpenLevelPreview(int nextLevel)
     {
-        SaveManager.SaveData.FurthestLevelSceneName = nextLevel;
+        SaveManager.SaveData.NextLevel = nextLevel;
         SceneManager.LoadScene("LevelPreview");
     }
 

@@ -10,7 +10,7 @@ public class FrozenEquipment {
 
 public class SaveData 
 {
-    public string FurthestLevelSceneName = "Level01Dialogue";
+    public int NextLevel;
     public List<FrozenEquipment> frozenEquipment = new();
     public int PlayerLevel = 1;
     public float PlayerXP = 0;
