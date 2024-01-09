@@ -12,7 +12,7 @@ public class DamageFlash : MonoBehaviour
     public Color HealthyColor = Color.white;
 
     public SpriteRenderer sprite;
-    const float FlashDuration = 0.1f;
+    const float FlashDuration = 0.15f;
     float flashTimeRemaining;
 
     void Update()
