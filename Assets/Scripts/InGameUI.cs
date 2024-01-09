@@ -75,8 +75,11 @@ public class InGameUI : MonoBehaviour
      */
     public static void SetHp(float fractionalHp)
     {
-        instance.hpBarMask.fillAmount = fractionalHp;
-        instance.StartCoroutine(SetSecondHP(fractionalHp));
+        if (instance.isActiveAndEnabled)
+        {
+            instance.hpBarMask.fillAmount = fractionalHp;
+            instance.StartCoroutine(SetSecondHP(fractionalHp));
+        }
     }
 
     public static IEnumerator SetSecondHP(float fractionalHp)
