@@ -85,8 +85,8 @@ MonoBehaviour:
     icon: {fileID: 2800000, guid: 8951eebc4dfb16846922055cd296b4b7, type: 3}
     titleFontSize: -1
   levelUpsDone: 0
-  healAmount: 0.5
-  healAmountUpgrade: 0.5
+  healAmount: 0.2
+  healAmountUpgrade: 0.1
 --- !u!114 &4829297850847493770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,7 +197,7 @@ MonoBehaviour:
   availableAtStart: 1
   weaponStats:
     damage: 25
-    knockback: 2
+    knockback: 0.1
     fireRate: 1
     dotRate: 0
     size: 1
@@ -242,7 +242,7 @@ MonoBehaviour:
   availableAtStart: 1
   weaponStats:
     damage: 30
-    knockback: 0
+    knockback: 1
     fireRate: 1
     dotRate: 0
     size: 1
@@ -277,11 +277,11 @@ MonoBehaviour:
   levelUpsDone: 0
   levelUpOptions:
   - type: 0
-    amount: 1
+    amount: 0.2
   - type: 3
-    amount: 1
+    amount: 0.3
   - type: 4
-    amount: 1
+    amount: 0.3
   - type: 5
     amount: 1
   availableAtStart: 0
@@ -351,7 +351,7 @@ MonoBehaviour:
   availableAtStart: 1
   weaponStats:
     damage: 50
-    knockback: 0
+    knockback: 0.1
     fireRate: 0.333
     dotRate: 1
     size: 1
@@ -535,7 +535,7 @@ MonoBehaviour:
     amount: 1
   availableAtStart: 1
   weaponStats:
-    damage: 20
+    damage: 40
     knockback: 0
     fireRate: 0.2
     dotRate: 0
@@ -723,7 +723,7 @@ MonoBehaviour:
   availableAtStart: 1
   weaponStats:
     damage: 7
-    knockback: 2
+    knockback: 0.2
     fireRate: 3
     dotRate: 1
     size: 1
@@ -768,7 +768,7 @@ MonoBehaviour:
   availableAtStart: 1
   weaponStats:
     damage: 10
-    knockback: 2
+    knockback: 0.1
     fireRate: 0
     dotRate: 1
     size: 1
