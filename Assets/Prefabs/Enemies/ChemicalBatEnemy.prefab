@@ -230,7 +230,7 @@ MonoBehaviour:
   bullet: {fileID: 5484213388468280392, guid: 624ff9c1693ff01469d7b5f6c797b15c, type: 3}
   bulletSpeed: 5
   bulletLifetime: 5
-  bulletDamage: 2
+  bulletDamage: 10
 --- !u!1 &4557956196941170014
 GameObject:
   m_ObjectHideFlags: 0

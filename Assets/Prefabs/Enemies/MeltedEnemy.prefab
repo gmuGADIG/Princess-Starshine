@@ -205,7 +205,7 @@ MonoBehaviour:
   knockbackMultiplier: 1
   knockbackDuration: 0.2
   XPOrb: {fileID: 6433517325453158020, guid: 1762732203a121541b8b0dde1f1223bd, type: 3}
-  xpDropAmount: 3
+  xpDropAmount: 8
   deathSoundName: Demon_Death_Sound
   explosionPrefab: {fileID: 3852935772755487749, guid: f06a7dce13d07f5ae956856d7d448704, type: 3}
 --- !u!114 &3322944011749376035
