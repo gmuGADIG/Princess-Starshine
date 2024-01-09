@@ -14,4 +14,5 @@ public class EquipmentIcon
     public string name;
     public string description;
     public Texture icon;
+    public int titleFontSize = -1;
 }

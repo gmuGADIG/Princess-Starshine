@@ -439,50 +439,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: EquipmentManager
       objectReference: {fileID: 0}
-    - target: {fileID: 2051232784743966262, guid: a26d146851436054ea68a288a76774ea, type: 3}
-      propertyPath: weaponStats.knockback
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2387503206305047277, guid: a26d146851436054ea68a288a76774ea, type: 3}
-      propertyPath: weaponStats.knockback
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3817496222761909004, guid: a26d146851436054ea68a288a76774ea, type: 3}
-      propertyPath: levelUpOptions.Array.data[0].amount
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3817496222761909004, guid: a26d146851436054ea68a288a76774ea, type: 3}
-      propertyPath: levelUpOptions.Array.data[1].amount
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3817496222761909004, guid: a26d146851436054ea68a288a76774ea, type: 3}
-      propertyPath: levelUpOptions.Array.data[2].amount
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4816434653988682659, guid: a26d146851436054ea68a288a76774ea, type: 3}
-      propertyPath: weaponStats.damage
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 5517776088446958833, guid: a26d146851436054ea68a288a76774ea, type: 3}
-      propertyPath: weaponStats.knockback
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6091703581706924927, guid: a26d146851436054ea68a288a76774ea, type: 3}
-      propertyPath: weaponStats.knockback
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6263036761839964436, guid: a26d146851436054ea68a288a76774ea, type: 3}
-      propertyPath: healAmount
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6263036761839964436, guid: a26d146851436054ea68a288a76774ea, type: 3}
-      propertyPath: healAmountUpgrade
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8728917983658432178, guid: a26d146851436054ea68a288a76774ea, type: 3}
-      propertyPath: weaponStats.knockback
-      value: 0.1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -171,7 +171,7 @@ MonoBehaviour:
   enemySpawnFrequency: 5
   enemySpawn:
     enemySpawnLocation: 3
-    enemy: {fileID: 4785212365360498297, guid: 21577118a513dde449a7fbde4a03c2a8, type: 3}
+    enemy: {fileID: 5234250484175444544, guid: b994504049f6e47fda9eae1a7abc41e9, type: 3}
     enemyQuantity: 20
     additionalDelay: 3
 --- !u!114 &8996447837466261480

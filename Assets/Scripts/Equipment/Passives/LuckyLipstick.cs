@@ -46,6 +46,7 @@ public class LuckyLipstick : Passive {
     protected override void Thaw(object _data) {
         var (radiusMultiplier, spawnChance) = ((float, float))_data;
         collisionRadiusReceipt = ConsumableManager.Instance.ConsumableCollisionRadius.MultiplierBuff(radiusMultiplier);
+        xpRadiusReceipt = ConsumableManager.Instance.XpCollisionRadius.MultiplierBuff(radiusMultiplier);
         spawnChanceReceipt = ConsumableManager.Instance.ConsumableSpawnChance.MultiplierBuff(spawnChance);
     }
 }

@@ -89,6 +89,7 @@ public class LevelUpUI : MonoBehaviour
             var description = obj.transform.Find("Description").GetComponent<TextMeshProUGUI>();
             
             name.text = option.name;
+            name.fontSize = option.titleFontSize == -1 ? 18 : option.titleFontSize;
             image.texture = option.icon;
             description.text = option.description;
 
