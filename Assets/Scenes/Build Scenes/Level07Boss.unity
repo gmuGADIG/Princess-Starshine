@@ -225,7 +225,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5029426298668080483, guid: cbfcf353b47be194aaf412d17a346848, type: 3}
       propertyPath: endEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5029426298668080483, guid: cbfcf353b47be194aaf412d17a346848, type: 3}
       propertyPath: startEvent.m_PersistentCalls.m_Calls.Array.size
@@ -246,7 +246,7 @@ PrefabInstance:
     - target: {fileID: 5029426298668080483, guid: cbfcf353b47be194aaf412d17a346848, type: 3}
       propertyPath: endEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1833581886}
     - target: {fileID: 5029426298668080483, guid: cbfcf353b47be194aaf412d17a346848, type: 3}
       propertyPath: startEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 5
@@ -292,6 +292,10 @@ PrefabInstance:
       value: ChangeScene
       objectReference: {fileID: 0}
     - target: {fileID: 5029426298668080483, guid: cbfcf353b47be194aaf412d17a346848, type: 3}
+      propertyPath: endEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: ClearSave
+      objectReference: {fileID: 0}
+    - target: {fileID: 5029426298668080483, guid: cbfcf353b47be194aaf412d17a346848, type: 3}
       propertyPath: startEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
@@ -332,7 +336,15 @@ PrefabInstance:
       value: DialoguePlayer, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5029426298668080483, guid: cbfcf353b47be194aaf412d17a346848, type: 3}
+      propertyPath: endEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: BossSceneManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5029426298668080483, guid: cbfcf353b47be194aaf412d17a346848, type: 3}
       propertyPath: endEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5029426298668080483, guid: cbfcf353b47be194aaf412d17a346848, type: 3}
+      propertyPath: endEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5029426298668080483, guid: cbfcf353b47be194aaf412d17a346848, type: 3}
@@ -361,7 +373,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5029426298668080483, guid: cbfcf353b47be194aaf412d17a346848, type: 3}
       propertyPath: endEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: TitleScreenScene
+      value: CreditsScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 5029426298668080483, guid: cbfcf353b47be194aaf412d17a346848, type: 3}
+      propertyPath: endEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
+      value: CreditsScene
       objectReference: {fileID: 0}
     - target: {fileID: 5029426298668080483, guid: cbfcf353b47be194aaf412d17a346848, type: 3}
       propertyPath: startEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
@@ -397,6 +413,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5029426298668080483, guid: cbfcf353b47be194aaf412d17a346848, type: 3}
       propertyPath: endEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5029426298668080483, guid: cbfcf353b47be194aaf412d17a346848, type: 3}
+      propertyPath: endEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5029426298668080483, guid: cbfcf353b47be194aaf412d17a346848, type: 3}

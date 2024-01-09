@@ -17,7 +17,6 @@ public class OptionsMenu : MonoBehaviour
     public Slider sfxSlider;
 
     void InitalizeVolume() {
-        print($"musicSlider: {musicSlider == null}");
         musicSlider.value = PlayerPrefs.GetFloat(musicVolKey, 0.75f);
         sfxSlider.value = PlayerPrefs.GetFloat(sfxVolKey, 0.75f);
 
@@ -48,10 +47,5 @@ public class OptionsMenu : MonoBehaviour
         }
 
         UpdateVolume();
-    }
-
-    void OnDestroy() {
-        Debug.Log(PlayerPrefs.GetFloat(musicVolKey, 0.75f));
-        Debug.Log(PlayerPrefs.GetFloat(sfxVolKey, 0.75f));
     }
 }

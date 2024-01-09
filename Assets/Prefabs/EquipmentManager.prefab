@@ -450,7 +450,7 @@ MonoBehaviour:
   availableAtStart: 1
   weaponStats:
     damage: 10
-    knockback: 7
+    knockback: 1
     fireRate: 0
     dotRate: 2
     size: 5
@@ -536,7 +536,7 @@ MonoBehaviour:
   availableAtStart: 1
   weaponStats:
     damage: 40
-    knockback: 0
+    knockback: 1
     fireRate: 0.2
     dotRate: 0
     size: 1
