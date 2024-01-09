@@ -83,6 +83,7 @@ MonoBehaviour:
     name: Fairy Friend
     description: Gives passive health regeneration
     icon: {fileID: 2800000, guid: 8951eebc4dfb16846922055cd296b4b7, type: 3}
+    titleFontSize: -1
   levelUpsDone: 0
   healAmount: 0.5
   healAmountUpgrade: 0.5
@@ -102,6 +103,7 @@ MonoBehaviour:
     name: Bunny Burst
     description: Increases speed of weapon projectiles
     icon: {fileID: 2800000, guid: 165cabaf96308f14197d5f8bb02620d2, type: 3}
+    titleFontSize: -1
   levelUpsDone: 0
   speedIncrease: 0.3
 --- !u!114 &2724561924137807355
@@ -120,6 +122,7 @@ MonoBehaviour:
     name: Sunny Squee
     description: Increases the fire rate of weapons
     icon: {fileID: 2800000, guid: 6ecefc1fc03d3434db0ce584488e7eee, type: 3}
+    titleFontSize: -1
   levelUpsDone: 0
   fireRateIncrease: 0.05
 --- !u!114 &1297070300227585684
@@ -138,6 +141,7 @@ MonoBehaviour:
     name: Butterfly Wings
     description: Increases your move speed
     icon: {fileID: 2800000, guid: 534e89111aac93348b795499956abe9d, type: 3}
+    titleFontSize: -1
   levelUpsDone: 0
   walkSpeedMultiplier: 1.25
   scaleMultiplier: 1
@@ -157,6 +161,7 @@ MonoBehaviour:
     name: Lucky Lipstick
     description: Increases consumable spawn chance and pickup radius
     icon: {fileID: 2800000, guid: a8b18013a7afa894e95d8d182b3e9f86, type: 3}
+    titleFontSize: -1
   levelUpsDone: 0
   InitialPickUpRangeMultiplier: 2
   InitialSpawnChanceMultiplier: 0.05
@@ -178,6 +183,7 @@ MonoBehaviour:
     name: Fairy Wand
     description: Fires magic projectiles at the closest enemy
     icon: {fileID: 2800000, guid: 563c7c3dffa606b41b8f77aa4586f01e, type: 3}
+    titleFontSize: -1
   levelUpsDone: 0
   levelUpOptions:
   - type: 0
@@ -204,6 +210,7 @@ MonoBehaviour:
   projectileLocalSpace: 0
   projectilePrefab: {fileID: 6198564449727914785, guid: 9c4da975914a3824cbfd6887823916cd, type: 3}
   shootSoundName: Fairy_Wand
+  multishotType: 0
   Spread: 0
 --- !u!114 &6091703581706924927
 MonoBehaviour:
@@ -219,9 +226,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon:
     name: Glitter Bomb
-    description: Lobs bombs of glitter at random enemies, exploding after a short
-      delay
+    description: Lobs bombs of glitter at random enemies
     icon: {fileID: 2800000, guid: d591fb254fb40df4fb3368454a431a97, type: 3}
+    titleFontSize: -1
   levelUpsDone: 0
   levelUpOptions:
   - type: 0
@@ -248,6 +255,7 @@ MonoBehaviour:
   projectileLocalSpace: 0
   projectilePrefab: {fileID: 7227924247430886604, guid: f438532f88467be4ab0da1afd295f71d, type: 3}
   shootSoundName: Glitter_Bomb_Throw
+  multishotType: 0
   Spread: 0
 --- !u!114 &3817496222761909004
 MonoBehaviour:
@@ -265,6 +273,7 @@ MonoBehaviour:
     name: Tea Time
     description: Fires a tey cup that bounces around the screen like a screensaver
     icon: {fileID: 2800000, guid: bac4f19dde50a904b9ada28c8620a351, type: 3}
+    titleFontSize: -1
   levelUpsDone: 0
   levelUpOptions:
   - type: 0
@@ -291,6 +300,7 @@ MonoBehaviour:
   projectileLocalSpace: 0
   projectilePrefab: {fileID: 466492882040963849, guid: db69a31f668caf2498a1d2c85c1c2c17, type: 3}
   shootSoundName: 
+  multishotType: 0
   Spread: 0
 --- !u!114 &7051461549712998661
 MonoBehaviour:
@@ -308,6 +318,7 @@ MonoBehaviour:
     name: Chubby Cookie
     description: Increases projectile size.
     icon: {fileID: 2800000, guid: 83525f06fa72317449683ba20c77f41c, type: 3}
+    titleFontSize: -1
   levelUpsDone: 0
   projectileSizeIncrease: 0.11
 --- !u!114 &8728917983658432178
@@ -326,6 +337,7 @@ MonoBehaviour:
     name: Jumpin Jellybean
     description: Jellybean that bounces off enemies
     icon: {fileID: 2800000, guid: cd568a474cd9e5b78aa41efc560b72be, type: 3}
+    titleFontSize: 16
   levelUpsDone: 0
   levelUpOptions:
   - type: 0
@@ -352,6 +364,7 @@ MonoBehaviour:
   projectileLocalSpace: 0
   projectilePrefab: {fileID: 8617614301484164888, guid: e641acd7610a9bbbc89f8427044eb935, type: 3}
   shootSoundName: Jelly_Bean_Hit
+  multishotType: 0
   Spread: 0
   BounceSoundName: Jelly_Bean_Hit
 --- !u!114 &4851443988552811489
@@ -370,6 +383,7 @@ MonoBehaviour:
     name: Balloon Animal
     description: Slow projectile that expands then explodes
     icon: {fileID: 2800000, guid: 07c41882b0fd62e618895c7d08c16d2a, type: 3}
+    titleFontSize: -1
   levelUpsDone: 0
   levelUpOptions:
   - type: 0
@@ -396,6 +410,7 @@ MonoBehaviour:
   projectileLocalSpace: 0
   projectilePrefab: {fileID: 1696003635296911872, guid: 0cfbdd14428a4c0e6ab371283d748662, type: 3}
   shootSoundName: Balloon_Animal_Inflate
+  multishotType: 0
   Spread: 180
   BalloonAnimalStats:
     explosionSoundName: Balloon_Animal_Pop
@@ -421,6 +436,7 @@ MonoBehaviour:
     name: Lovely Lullaby
     description: Attacks in the area around the player
     icon: {fileID: 2800000, guid: 5df56890a87d70ae7955dad17274db72, type: 3}
+    titleFontSize: -1
   levelUpsDone: 0
   levelUpOptions:
   - type: 0
@@ -447,6 +463,7 @@ MonoBehaviour:
   projectileLocalSpace: 1
   projectilePrefab: {fileID: 3250261032997418282, guid: 3055f22084227ea39afde10008cfdfad, type: 3}
   shootSoundName: 
+  multishotType: 0
   Spread: 0
 --- !u!114 &1809436753416420170
 MonoBehaviour:
@@ -464,6 +481,7 @@ MonoBehaviour:
     name: Margarita The Pomeranian
     description: Dog who wanders and attacks enemies
     icon: {fileID: 2800000, guid: dec69ff2785837c8ca25b656231e9973, type: 3}
+    titleFontSize: 13
   levelUpsDone: 0
   levelUpOptions:
   - type: 0
@@ -504,6 +522,7 @@ MonoBehaviour:
     name: Cupquake
     description: Cupcakes falling from the sky!
     icon: {fileID: 2800000, guid: bd9e3d4157344a98590d2cd4f76bffae, type: 3}
+    titleFontSize: -1
   levelUpsDone: 0
   levelUpOptions:
   - type: 0
@@ -530,6 +549,7 @@ MonoBehaviour:
   projectileLocalSpace: 0
   projectilePrefab: {fileID: 158878207728383601, guid: 64a63230e8adae5049a7375ace4e0bbb, type: 3}
   shootSoundName: 
+  multishotType: 0
   Spread: 0
   CupquakeExplosionSize: 5
   CupquakeExplosionLifetime: 0.3
@@ -552,6 +572,7 @@ MonoBehaviour:
     name: Glass Shoemerang
     description: A shoe that's a boomerang!
     icon: {fileID: 2800000, guid: eb5f4de55bee2263db84509d64bf56fa, type: 3}
+    titleFontSize: 16
   levelUpsDone: 0
   levelUpOptions:
   - type: 0
@@ -580,6 +601,7 @@ MonoBehaviour:
   projectileLocalSpace: 0
   projectilePrefab: {fileID: 5249661839970473252, guid: b1036f69fe54546288774cf31d9dfcfa, type: 3}
   shootSoundName: 
+  multishotType: 0
   Spread: 12
   roundaboutTime: 0.5
   DistanceSpeedScaling: 0.25
@@ -601,6 +623,7 @@ MonoBehaviour:
     name: Pretty Parasol
     description: Slow but powerful melee attack
     icon: {fileID: 2800000, guid: 2fccefc1063f198c88001efbc6ce8a27, type: 3}
+    titleFontSize: -1
   levelUpsDone: 0
   levelUpOptions:
   - type: 0
@@ -627,6 +650,7 @@ MonoBehaviour:
   projectileLocalSpace: 0
   projectilePrefab: {fileID: 4414555733823826805, guid: 536edafd6f3098c7fa252b9d49fbf961, type: 3}
   shootSoundName: Parasol_Whoosh
+  multishotType: 0
   Spread: 0
   spritePrefab: {fileID: 8088032995622335006, guid: a0e9f4a9dd7100ed9b0a17a2b0b0a55c, type: 3}
 --- !u!114 &6232821952494979781
@@ -645,6 +669,7 @@ MonoBehaviour:
     name: SUGAR RUSH!!!
     description: Increases weapon damage
     icon: {fileID: 2800000, guid: 601c8c3a1f1d6b76186cef332fdc5784, type: 3}
+    titleFontSize: -1
   levelUpsDone: 0
   damageIncrease: 0.09
 --- !u!114 &7222985572356536306
@@ -663,6 +688,7 @@ MonoBehaviour:
     name: Buttercream
     description: Increase max health and a chance to heal on kill
     icon: {fileID: 2800000, guid: 17e1d9c91c7d0056b9214bcc2a2d4ccc, type: 3}
+    titleFontSize: -1
   levelUpsDone: 0
   maxHealthBuff: 10
   healChance: 0.1
@@ -683,6 +709,7 @@ MonoBehaviour:
     name: Bubble Blast
     description: Fires lots of bubbles!
     icon: {fileID: 2800000, guid: 7d644094f7241ed578625bd287426e13, type: 3}
+    titleFontSize: -1
   levelUpsDone: 0
   levelUpOptions:
   - type: 0
@@ -709,6 +736,7 @@ MonoBehaviour:
   projectileLocalSpace: 0
   projectilePrefab: {fileID: 4347030225597185653, guid: 3b60e233e997f34699bddce08efee732, type: 3}
   shootSoundName: Bubble_Blast
+  multishotType: 0
   Spread: 30
 --- !u!114 &2051232784743966262
 MonoBehaviour:
@@ -726,6 +754,7 @@ MonoBehaviour:
     name: Flocks of a Feather
     description: Feathers orbiting the player
     icon: {fileID: 2800000, guid: 9b3e953a2f0531d6b8811de393973975, type: 3}
+    titleFontSize: 15
   levelUpsDone: 0
   levelUpOptions:
   - type: 0
@@ -752,5 +781,6 @@ MonoBehaviour:
   projectileLocalSpace: 1
   projectilePrefab: {fileID: 8186855958207819470, guid: 749c81fd5949f0a70b039cf4d3da79c2, type: 3}
   shootSoundName: Feather_Fire
+  multishotType: 0
   Spread: 0
   OrbitRadius: 2

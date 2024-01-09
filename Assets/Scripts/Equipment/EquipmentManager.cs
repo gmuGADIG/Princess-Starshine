@@ -145,7 +145,8 @@ public class EquipmentManager : MonoBehaviour
             e.icon.name,
             e.icon.icon,
             $"Level: {e.levelUpsDone + 1}",
-            () => RemoveEquipment(e)
+            () => RemoveEquipment(e),
+            e.icon.titleFontSize
         )).ToList();
     }
 
@@ -195,7 +196,7 @@ public class EquipmentManager : MonoBehaviour
                     }
 
                 };
-                options.Add(new UpgradeOption(icon.name, icon.icon, description, onApply));
+                options.Add(new UpgradeOption(icon.name, icon.icon, description, onApply, icon.titleFontSize));
             }
             else // present new equipment
             {
@@ -203,7 +204,7 @@ public class EquipmentManager : MonoBehaviour
                 if (equipment is Passive && passiveCount >= MAX_PASSIVES) { continue; }
                 if (equipment is Weapon && weaponCount >= MAX_WEAPONS) { continue; }
                 Action onApply = () => AddNewEquipment(equipment);
-                options.Add(new UpgradeOption(icon.name, icon.icon, icon.description, onApply));
+                options.Add(new UpgradeOption(icon.name, icon.icon, icon.description, onApply, icon.titleFontSize));
             }
         }
 
@@ -262,13 +263,15 @@ public class UpgradeOption
     public Texture icon;
     public string description;
     public Action onSelect;
+    public int titleFontSize;
 
 
-    public UpgradeOption(string name, Texture icon, string description, Action onSelect)
+    public UpgradeOption(string name, Texture icon, string description, Action onSelect, int titleFontSize)
     {
         this.name = name;
         this.icon = icon;
         this.description = description;
         this.onSelect = onSelect;
+        this.titleFontSize = titleFontSize;
     }
 }
