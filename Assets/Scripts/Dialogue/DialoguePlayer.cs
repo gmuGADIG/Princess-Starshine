@@ -39,6 +39,9 @@ public class DialoguePlayer : MonoBehaviour
     [Tooltip("After the dialogue ends, this object is disabled and this event is invoked.")]
     public UnityEvent endEvent;
 
+    [Tooltip("After the player has read through past three dialogue options, this event is invoked.")]
+    public UnityEvent ReadThree;
+
     string[] lines;
     int currentLineIndex = 0;
     Dictionary<string, UnityEvent> commandDict;
@@ -68,6 +71,8 @@ public class DialoguePlayer : MonoBehaviour
 
     void Start()
     {
+        ReadThree.AddListener(() => print("ReadThree.Invoke"));
+
         currentPlayer = this;
         
         startEvent.Invoke();
@@ -101,13 +106,23 @@ public class DialoguePlayer : MonoBehaviour
         }
     }
 
+    int numRead;
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space)) // advance
         {
             if (dialogueBox.activeSelf == false) return;
             if (isTextInProgress) return;
-            else ProcessLine();
+            else {
+                numRead += 1;
+                if (numRead >= 3) { 
+                    // animation shouldn't invoke more than nessasary, since 
+                    // the animation disables the game object
+                    ReadThree.Invoke(); 
+                }
+
+                ProcessLine();
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.BackQuote)) SkipDialogue();
