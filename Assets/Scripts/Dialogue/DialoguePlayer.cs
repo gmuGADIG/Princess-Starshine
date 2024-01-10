@@ -452,6 +452,12 @@ public class DialoguePlayer : MonoBehaviour
         if (CutscenePlayer.instance != null) CutscenePlayer.instance.animator.enabled = false;
     }
 
+    public void SendOffscreen(Transform transform) { transform.position = new Vector3(
+        -200,
+        transform.position.y,
+        transform.position.z
+    ); }
+
     #endregion
 }
 

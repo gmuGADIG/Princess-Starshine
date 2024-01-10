@@ -25,7 +25,7 @@ public class BossHealth : MonoBehaviour
 
     void Update()
     {
-        if (Application.isEditor && Input.GetKeyDown(KeyCode.O)) Damage(100);
+        if (Application.isEditor && Input.GetKeyDown(KeyCode.O)) Damage(float.PositiveInfinity);
     }
 
     public void Damage(float damage)
