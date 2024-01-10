@@ -222,7 +222,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DamagedColor: {r: 0.85882354, g: 0, b: 0, a: 1}
   HealthyColor: {r: 1, g: 1, b: 1, a: 1}
-  sprite: {fileID: 0}
+  sprite: {fileID: 3831402979881293329}
 --- !u!1 &5963811496589159354
 GameObject:
   m_ObjectHideFlags: 0
