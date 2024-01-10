@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8645105995691419663}
   - component: {fileID: 8150891551442307099}
   - component: {fileID: 2572226453696878773}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -164,7 +164,7 @@ GameObject:
   - component: {fileID: 1794276742403398225}
   - component: {fileID: 7907863201526404621}
   - component: {fileID: 8781826179458503099}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: XpOrb
   m_TagString: xp
   m_Icon: {fileID: 0}
@@ -288,6 +288,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points: 1
+  fireMultiplier: 0.5
 --- !u!95 &8781826179458503099
 Animator:
   serializedVersion: 5
@@ -319,7 +320,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3122771236914988884}
   - component: {fileID: 5779625234242177789}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}

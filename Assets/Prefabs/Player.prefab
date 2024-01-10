@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 6598705012430054145}
   - component: {fileID: 7188339621603787822}
   - component: {fileID: 7001657317007819050}
+  - component: {fileID: 4722892996871579413}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -288,6 +289,23 @@ MonoBehaviour:
   DamagedColor: {r: 1, g: 0, b: 0, a: 1}
   HealthyColor: {r: 1, g: 1, b: 1, a: 1}
   sprite: {fileID: 4059327565965219088}
+--- !u!114 &4722892996871579413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4739150525570968963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8b33a9b6c4f18e428eeb63dd43dd236, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xpLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  radius: 4
+  pullMax: 8
 --- !u!1 &4807934055577374158
 GameObject:
   m_ObjectHideFlags: 0
