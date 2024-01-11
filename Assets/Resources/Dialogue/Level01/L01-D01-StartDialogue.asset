@@ -15,7 +15,7 @@ MonoBehaviour:
   text: "Imp: Ay lady, here\u2019s ya stop. %%Imp_Heres Ya Stop\r\nPrincess: Aw thanks!
     What a fun ride, the music in there just made me wanna dance the whole- %%Princess_Hai
     Hai\r\nImp: See ya\u2019 lady, I'm outta 'ere. %%Imp_Sure Thing Bub\r\n{imp_leave}\r\nPrincess:
-    What an adorable little critter, oooooh I just wanna give him a squeeze, he\u2019s
+    What an adorable little critter! Oooooh I just wanna give him a squeeze, he\u2019s
     so cute! :3  %%Princess_Byeee\r\n{princess_walk_around}\r\nPrincess: Wowie-zowie,
     this isn\u2019t my bedroom! What a lovely change of scenery, it\u2019s so warm
     and cozy.\r\nPrincess: OMG, I can\u2019t believe Papa never told me about the
@@ -36,9 +36,9 @@ MonoBehaviour:
     a Minute\r\nVirgil: Ahem, that certainly is a um\u2026 cool\u2026 story\u2026
     Say, it\u2019s really hot in here, how about we go back up to that elevator,
     my good ol' pal?\r\nPrincess: Go back already? But I just got here! I wanna see
-    all the wonderful stuff here! Only after I\u2019ve seen aaaaaabsolutely everything
+    all the wonderful stuff! Only after I\u2019ve seen aaaaaabsolutely everything
     will I go home!\r\nVirgil: Well Ms. Princess Starshine, I uh, happen to be a
-    um, a\u2026 Tour Guide\u2026! Yes, a tour guide here in hel- I mean, in the sauna!
+    um, a\u2026 Tour Guide\u2026! Yes, a tour guide here in hel- I mean, in the sauna!\nVirgil:
     How about I give you a tour of all there is to see, so that we- I mean, you,
     can go home!\r\nPrincess: Ooh that sounds like so much fun! :3 You\u2019re so
     smart Virgil! %%Princess_Yippee\r\nVirgil: Ah well, anything for someone as kind

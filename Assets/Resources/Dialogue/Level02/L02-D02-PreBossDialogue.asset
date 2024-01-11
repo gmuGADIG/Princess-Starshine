@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfdcc9cbed7effe47855230305df1a91, type: 3}
   m_Name: L02-D02-PreBossDialogue
   m_EditorClassIdentifier: 
-  text: "OfficeBoss: So that\u2019s the general idea, what do you guys think?\r\nYesMan1:
+  text: "OfficeBoss: So that\u2019s the general idea. What do you guys think?\r\nYesMan1:
     Brilliant!\r\nYesMan2: Excellent!\r\nYesMan3: Masterful gambit, sir!\r\nNoMan:
-    I dunno.\r\n{turn_to_no_man}\r\nOfficeBoss: 136.94.216.35\r\nNoMan: H-how do
-    you know that?\r\nOfficeBoss: Do you want to find out?\r\nNoMan: Uh\u2026 no,
-    no, it\u2019s a great idea.\n{away_from_no_man}\r\nOfficeBoss: Alright, it\u2019s
-    official. The work day is now 25 hours long. %%Boss_Glad I thought of that\r\n{virgil_look_at_bael}\r\nVirgil:
+    Eh, I dunno.\r\n{turn_to_no_man}\r\nOfficeBoss: 136.94.216.35\r\nNoMan: H-how
+    do you know that?\r\nOfficeBoss: Do you want to find out?\r\nNoMan: Uh\u2026
+    no, no, it\u2019s a great idea.\n{away_from_no_man}\r\nOfficeBoss: Alright, it\u2019s
+    official. The work day is now 25 hours long! %%Boss_Glad I thought of that\r\n{virgil_look_at_bael}\r\nVirgil:
     Hey, didn\u2019t we kill you?\r\nBael: Ahem, um, no.\r\nVirgil: So\u2026 what
     are you doing here?\r\nBael: This is my day job. I have a life outside of you.\r\n{boss_look_at_princess}\r\nOfficeBoss:
     You there, nameless employee, go tell everyone that the work day has been extended.\r\nPrincess:

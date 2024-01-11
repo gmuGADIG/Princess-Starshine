@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfdcc9cbed7effe47855230305df1a91, type: 3}
   m_Name: L05-D01-StartDialogue
   m_EditorClassIdentifier: 
-  text: "Princess: O. M. G. It\u2019s\u2026.it\u2019s\u2026.SO SPARKLY HERE!!!!!
-    :D %%Princess_Oh My Gosh\r\nVirgil: It\u2019s too\u2026bright here\u2026 %%Virgil_Hehe,
+  text: "Princess: O. M. G. It\u2019s\u2026it\u2019s\u2026SO SPARKLY HERE!!!!! :D
+    %%Princess_Oh My Gosh\r\nVirgil: It\u2019s too\u2026 bright here\u2026 %%Virgil_Hehe,
     no\r\nPrincess: Vi-Vi, I\u2019m over here! %%Princess_Hai Hai\n{virgil_walk_to_princess}\r\nVirgil:
     My apologies princess, I\u2026I can\u2019t see a thing\u2026 %%Virgil_Yes, Absolutely\r\nPrincess:
     Aw, old people. You\u2019re such silly billies! Always complaining about your
@@ -28,10 +28,10 @@ MonoBehaviour:
     So\n{princess_walk_to_patron}\r\nPrincess: Hi Mister! What\u2019s got you so
     happy? :P %%Princess_Hai Hai\r\nAngryPatron: A-ARE YOU MOCKING ME?!?!? GRRRRR\u2026.THE
     NERVE OF YOU!!!! I should have listened\u2026they said the house always wins\u2026but
-    I didn\u2019t believe it\u2026AND YET YOU HAVE THE GALL TO MOCK ME?!?! I-I\u2019LL
+    I didn\u2019t believe them\u2026AND YET YOU HAVE THE GALL TO MOCK ME?!?! I-I\u2019LL
     TEAR YOU TO SHREDS!\r\nPrincess: Yayyy! Playtime?\r\nVirgil: Look sir, as someone
     who\u2019s been traveling with this lady for a while, this will not end well.
     How about we all just calm down-\r\nAngryPatron: OH CAN IT! I WON\u2019T BE TALKED
-    DOWN TO BY A CANE TOPPER OR WHATEVER YOU ARE! I KNOW, I\u2019LL TAKE ALL YOUR
+    DOWN TO BY A CANE TOPPER OR WHATEVER YOU ARE! I KNOW! I\u2019LL TAKE ALL YOUR
     MONEY, AND FINALLY WIN IT BIG! BWAHAHAHAHA!\r\nVirgil: C-cane topper!?!? Starshine?
-    It\u2019s playtime.\r\nPrincess: Yippie!!!!! :D %%Princess_Yippee"
+    It\u2019s playtime.\r\nPrincess: Yippee!!!!! :D %%Princess_Yippee"

@@ -13,39 +13,39 @@ MonoBehaviour:
   m_Name: L01-D03-PostBossDialogue
   m_EditorClassIdentifier: 
   text: "{virgil_walk_to_bael}\nVirgil: Haha! Take that as my resignation letter,
-    you a!@#$%^&*! I\u2019d make you MY cane topper if I didn\u2019t have better
-    things to do! I\u2019m off to join a union and definitely not escape this place!\r\nPrincess:
-    Aw\u2026Playtime\u2019s over\u2026\r\nVirgil: Oh, how terribly sad. All good
-    things must come to an end though, so let's get a move on! This tour won't guide
-    itself!\n{princess_walk_to_bael} \r\nPrincess: poke\u2026poke\u2026 %%Princess_hehe\r\nVirgil:
-    What are you doing? %%Virgil_What do You want\r\nPrincess: Trying to turn him
-    back on!\r\nVirgil: \u2026He\u2019s not some oversized toy you know\u2026he was
-    my annoying and insufferable boss for 283985 years\u2026 %%Virgil_Sigh\r\nPrincess:
+    you a*****! I\u2019d make you MY cane topper if I didn\u2019t have better things
+    to do! \nVirgil: I\u2019m off to join a union and definitely not escape this
+    place!\r\nPrincess: Aw\u2026Playtime\u2019s over\u2026\r\nVirgil: Oh, how terribly
+    sad. All good things must come to an end though, so let's get a move on! This
+    tour won't guide itself!\n{princess_walk_to_bael} \r\nPrincess: *poke*\u2026*poke*\u2026
+    %%Princess_hehe\r\nVirgil: What are you doing? %%Virgil_What do You want\r\nPrincess:
+    Trying to turn him back on!\r\nVirgil: \u2026He\u2019s not some oversized toy
+    you know\u2026he was my annoying and insufferable boss for 283,985 years! %%Virgil_Sigh\r\nPrincess:
     Wait, he can't turn back on? Ooooooooooooh\u2026 Well, in that case, I\u2019m
     so done here!\r\nVirgil: Yes, yes we are done here! Now, let\u2019s go back home.
     %%Virgil_Eh, I suppose\r\nPrincess: But, I wanna go over there! Like, omg that
     lavafall looks super bright and pretty! %%Princess_Oh My Gosh\r\nVirgil: You
-    insuffer- sigh\u2026.You know, Princess,  pretty soon the uh, elementary school
+    insuffer- *sigh*\u2026.You know, Princess,  pretty soon the uh, elementary school
     goblins will be stopping by for a field trip, we should meet them at the Hellevator!
     %%Virgil_Sigh\r\nPrincess: Ooh I can't wait to see them! Those lil tater tots
     are always so cute! %%Princess_So So So Cute\r\nVirgil: Yes, let's. Now then,
-    the elevator is uh\u2026.um\u2026ah\u2026.\r\nPrincess: What\u2019s wrong, Vi-Vi?
+    the elevator is uh\u2026um\u2026ah\u2026\r\nPrincess: What\u2019s wrong, Vi-Vi?
     You sound like my papa whenever the townsfolk ask about me!\r\nVirgil: Yes, whatever
     you say, I am the best tour guide in all the lands, I just\u2026um\u2026maybe
     forgot where the Hellevator is\u2026l-look, it changes location every so often,
     it\u2019s not my fau-\r\n{hellevator_appears}\r\nPrincess: Oh, look! The elevator!
-    It was right behind us. Silly Vi-Vi. %%Princess_hehe\r\nVirgil: I-I knew that\u2026I-I
-    was just testing you\u2026\r\n{move_to_hellevator}\r\nPrincess: Oh boy, we\u2019re
+    It was right behind us. Silly Vi-Vi. %%Princess_hehe\r\nVirgil: I-I knew that\u2026
+    I-I was just testing you\u2026\r\n{move_to_hellevator}\r\nPrincess: Oh boy, we\u2019re
     back! I can\u2019t wait to write about all the fun I had so far in my diary!
     %%Princess_Yippee\r\nVirgil: Yes, yes, you do that\u2026 Now then, Mr. Elevator
-    Imp, please take us back to the Princess\u2019s Castle.\r\nPrincess: Aww\u2026.
-    was that the whole tour?\r\nImp: Sorry bub, only down.\r\nPrincess: Yaaaay! I
-    can\u2019t wait to explore more with you, Vi-Vi!\r\nVirgil: Oh you have got to
-    be kidding. T-then take us to the final floor: seventh floor, please! That one's
-    next after all!\r\nImp: Closed for maintenance.\r\nVirgil: Gaaah\u2026 Oh, hells
-    forbid that I forgot about the sixth floor! Please do take us there.\r\nImp:
-    Closed for maintenance.\r\nVirgil: W-what about the fifth?\r\nImp: Closed.\r\nVirgil:
+    Imp, please take us back to the Princess\u2019s Castle.\r\nPrincess: Aww... was
+    that the whole tour?\r\nImp: Sorry bub, only down.\r\nPrincess: Yaaaay! I can\u2019t
+    wait to explore more with you, Vi-Vi!\r\nVirgil: Oh you have got to be kidding.
+    T-then take us to the final floor: seventh floor, please! That one's next after
+    all!\r\nImp: Closed for maintenance.\r\nVirgil: Gaaah\u2026 Oh, hells forbid
+    that I forgot about the sixth floor! Please do take us there.\r\nImp: Closed
+    for maintenance.\r\nVirgil: W-what about the fifth?\r\nImp: Closed.\r\nVirgil:
     F-fourth!?!\r\nImp: For.\r\nVirgil: T-third!\r\nImp: Maintenance.\r\nVirgil:
     S-second\u2026?\r\nImp: Going down.\r\nPrincess: Oh boy! With you by my side,
-    Vergil, I can\u2019t wait to go through EVERY. SINGLE. FLOOR. %%Princess_Sparkle
+    Virgil, I can\u2019t wait to go through EVERY. SINGLE. FLOOR. %%Princess_Sparkle
     On\r\nVirgil: Dear Satan, I pray for strength in these trying times..."
