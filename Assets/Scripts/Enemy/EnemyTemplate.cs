@@ -151,7 +151,7 @@ public class EnemyTemplate : MonoBehaviour
     private void DistrubuteXP() {
         // Gettings position of enemy
         Vector3 ENEMY_POSITION = gameObject.transform.position;
-        for (int i = 0; i <= xpDropAmount; i++)
+        for (int i = 1; i <= xpDropAmount; i++)
         {
             var orb = Instantiate(XPOrb);
             orb.transform.position = ENEMY_POSITION + (Vector3)Random.insideUnitCircle * xpDropRadius;
