@@ -178,19 +178,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecb1a51eac09b6d419d01278ad36e5d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 40
+  maxHealth: 65
   movementSpeed: 2
   moveTowardsObject: {fileID: 0}
   knockbackMultiplier: 1
   knockbackDuration: 0.2
   XPOrb: {fileID: 6433517325453158020, guid: 1762732203a121541b8b0dde1f1223bd, type: 3}
-  xpDropAmount: 3
+  xpDropAmount: 2
   deathSoundName: Demon_Death_Sound
   projectilePrefab: {fileID: 5484213388468280392, guid: 624ff9c1693ff01469d7b5f6c797b15c, type: 3}
-  projectileSpeed: 30
+  projectileSpeed: 8
   lifeTime: 3
-  fireTimer: 1
-  bulletDamage: 2
+  fireTimer: 2.7
+  bulletDamage: 10
   perferredPlayerDistance: 4
 --- !u!114 &6813286328703354870
 MonoBehaviour:

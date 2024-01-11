@@ -224,7 +224,7 @@ MonoBehaviour:
   knockbackMultiplier: 1
   knockbackDuration: 0.2
   XPOrb: {fileID: 6433517325453158020, guid: 1762732203a121541b8b0dde1f1223bd, type: 3}
-  xpDropAmount: 3
+  xpDropAmount: 1
   deathSoundName: Demon_Death_Sound
 --- !u!114 &3855842121747218877
 MonoBehaviour:

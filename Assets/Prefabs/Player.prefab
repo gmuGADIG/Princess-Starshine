@@ -142,7 +142,7 @@ MonoBehaviour:
   maxSpeed: 5
   deceleration: 80
   initialXpToLevelUp: 1
-  increaseXP: 15
+  increaseXP: 12
   isTwirling: 0
   maxTwirlCharges: 3
   twirlCooldown: 2
@@ -456,6 +456,30 @@ PrefabInstance:
     - target: {fileID: 416059617501603780, guid: a26d146851436054ea68a288a76774ea, type: 3}
       propertyPath: m_Name
       value: EquipmentManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 2051232784743966262, guid: a26d146851436054ea68a288a76774ea, type: 3}
+      propertyPath: weaponStats.projectileSpeed
+      value: 2.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816434653988682659, guid: a26d146851436054ea68a288a76774ea, type: 3}
+      propertyPath: weaponStats.damage
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816434653988682659, guid: a26d146851436054ea68a288a76774ea, type: 3}
+      propertyPath: weaponStats.fireRate
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816434653988682659, guid: a26d146851436054ea68a288a76774ea, type: 3}
+      propertyPath: weaponStats.projectileSpeed
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 7222985572356536306, guid: a26d146851436054ea68a288a76774ea, type: 3}
+      propertyPath: healChance
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 7222985572356536306, guid: a26d146851436054ea68a288a76774ea, type: 3}
+      propertyPath: lifestealAmount
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
