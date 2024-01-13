@@ -382,6 +382,7 @@ public class DialoguePlayer : MonoBehaviour
         FindObjectOfType<EnemySpawner>().enabled = true;
         FindObjectOfType<BossWeapon>().enabled = true;
         FindObjectOfType<IBossMovement>().enabled = true;
+        FindObjectOfType<LevelMusicManager>().enabled = true;
     }
 
     /**

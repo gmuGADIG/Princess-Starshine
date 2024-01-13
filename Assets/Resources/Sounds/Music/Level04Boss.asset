@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Level04Boss
   m_EditorClassIdentifier: 
   audioVariants:
-  - {fileID: 8300000, guid: 3372312df7a9bce4caa949cf75679242, type: 3}
+  - {fileID: 8300000, guid: c9ffd253346e21b4eb28d96e09cb6ea4, type: 3}
   volume: 1
   volumeVariance: 0
   pitch: 1
