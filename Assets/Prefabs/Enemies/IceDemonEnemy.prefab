@@ -187,9 +187,9 @@ MonoBehaviour:
   xpDropAmount: 2
   deathSoundName: Demon_Death_Sound
   projectilePrefab: {fileID: 5484213388468280392, guid: 624ff9c1693ff01469d7b5f6c797b15c, type: 3}
-  projectileSpeed: 8
+  projectileSpeed: 6
   lifeTime: 3
-  fireTimer: 2.7
+  fireTimer: 4.5
   bulletDamage: 10
   perferredPlayerDistance: 4
 --- !u!114 &6813286328703354870

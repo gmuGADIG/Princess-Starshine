@@ -1238,8 +1238,20 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2312159100198718302, guid: 333f1395049277e41bdd270c005a334b, type: 3}
+      propertyPath: endSpawnRate
+      value: 6.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2312159100198718302, guid: 333f1395049277e41bdd270c005a334b, type: 3}
+      propertyPath: levelSeconds
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 2312159100198718302, guid: 333f1395049277e41bdd270c005a334b, type: 3}
       propertyPath: minSpawnRate
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2312159100198718302, guid: 333f1395049277e41bdd270c005a334b, type: 3}
+      propertyPath: startSpawnRate
+      value: 1.9
       objectReference: {fileID: 0}
     - target: {fileID: 2312159100198718302, guid: 333f1395049277e41bdd270c005a334b, type: 3}
       propertyPath: bossSceneOrEmpty

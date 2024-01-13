@@ -224,7 +224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 597d5a4ddd8837e419c1dfb104017bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 4000
+  maxHealth: 7500
   postBossDialogue: {fileID: 0}
   onDeathPrefab: {fileID: 0}
 --- !u!114 &8608746096506491626

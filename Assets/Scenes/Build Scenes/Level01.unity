@@ -1278,6 +1278,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2350949820540051793, guid: 668d6ed4de30419b0b1496a1418b2f7e, type: 3}
+      propertyPath: WalkSpeedMutliplier
+      value: 2.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2350949820540051793, guid: 668d6ed4de30419b0b1496a1418b2f7e, type: 3}
+      propertyPath: initialConsumableSpawnChance
+      value: 0.015
+      objectReference: {fileID: 0}
     - target: {fileID: 5786701419804346739, guid: 668d6ed4de30419b0b1496a1418b2f7e, type: 3}
       propertyPath: m_Name
       value: ConsumableManager
@@ -1415,7 +1423,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2312159100198718302, guid: 333f1395049277e41bdd270c005a334b, type: 3}
       propertyPath: endSpawnRate
-      value: 2.5
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2312159100198718302, guid: 333f1395049277e41bdd270c005a334b, type: 3}
+      propertyPath: levelSeconds
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 2312159100198718302, guid: 333f1395049277e41bdd270c005a334b, type: 3}
       propertyPath: minSpawnRate
@@ -1431,7 +1443,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2312159100198718302, guid: 333f1395049277e41bdd270c005a334b, type: 3}
       propertyPath: enemySpawns.Array.size
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2312159100198718302, guid: 333f1395049277e41bdd270c005a334b, type: 3}
       propertyPath: enemySpawns.Array.data[0].enemyType
@@ -1491,11 +1503,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2312159100198718302, guid: 333f1395049277e41bdd270c005a334b, type: 3}
       propertyPath: enemySpawns.Array.data[1].probabilityWeight
-      value: 0.2
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 2312159100198718302, guid: 333f1395049277e41bdd270c005a334b, type: 3}
       propertyPath: enemySpawns.Array.data[2].probabilityWeight
-      value: 0.15
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 2312159100198718302, guid: 333f1395049277e41bdd270c005a334b, type: 3}
       propertyPath: enemySpawns.Array.data[3].probabilityWeight

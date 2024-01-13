@@ -177,7 +177,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5867967396876368260}
-  - component: {fileID: 330298543585824688}
   - component: {fileID: 1886410856656000501}
   - component: {fileID: 3855842121747218877}
   - component: {fileID: 2163155196164173453}
@@ -200,29 +199,13 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.03, y: -0.03, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5617909933823253040}
   - {fileID: 4361237708317625776}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &330298543585824688
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3498557936519908969}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c527a775096a1dc479cfe80db31fa799, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bullet: {fileID: 5484213388468280392, guid: 624ff9c1693ff01469d7b5f6c797b15c, type: 3}
-  bulletSpeed: 5
-  bulletLifetime: 5
-  bulletDamage: 2
 --- !u!114 &1886410856656000501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,10 +219,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 450
-  movementSpeed: 1
+  movementSpeed: 0.8
   moveTowardsObject: {fileID: 0}
-  knockbackMultiplier: 0.3
-  knockbackDuration: 0.2
+  knockbackMultiplier: 0
+  knockbackDuration: 0.01
   XPOrb: {fileID: 6433517325453158020, guid: 1762732203a121541b8b0dde1f1223bd, type: 3}
   xpDropAmount: 2
   deathSoundName: Demon_Death_Sound
