@@ -275,7 +275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: befdc6b2505845645a436ffa305168fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 250
+  maxHealth: 188
   movementSpeed: 1
   moveTowardsObject: {fileID: 0}
   knockbackMultiplier: 1
