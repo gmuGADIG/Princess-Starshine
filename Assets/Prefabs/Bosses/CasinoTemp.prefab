@@ -118,15 +118,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a5cb1fa493c0a44dbc2d98340cd74d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenAttacks: 2
+  timeBetweenAttacks: 0
   machineGunEnabled: 1
   machineGunFrequency: 5
   machinegun:
-    machineGunDamage: 0
-    fireRate: 0.5
+    machineGunDamage: 15
+    fireRate: 0.8
     bulletQuantity: 50
-    bulletSpeed: 1
-    bulletSpread: 90
+    bulletSpeed: 5
+    bulletSpread: 45
     aimAtPlayer: 1
     shootFromCorner: 0
     machineGunProjectile: {fileID: 3558424262942054710, guid: e457d38db21e7544287fe1db4ddfd84e, type: 3}
