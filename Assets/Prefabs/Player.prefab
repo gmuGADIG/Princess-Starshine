@@ -458,6 +458,10 @@ PrefabInstance:
       value: EquipmentManager
       objectReference: {fileID: 0}
     - target: {fileID: 1809436753416420170, guid: a26d146851436054ea68a288a76774ea, type: 3}
+      propertyPath: icon.icon
+      value: 
+      objectReference: {fileID: 2800000, guid: 0b58ccfc211e3aa4ca9645bcb5cb7326, type: 3}
+    - target: {fileID: 1809436753416420170, guid: a26d146851436054ea68a288a76774ea, type: 3}
       propertyPath: weaponStats.size
       value: 1.15
       objectReference: {fileID: 0}
