@@ -44,14 +44,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b72ef671473b73192aa403322761c91b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ConsumableSpawnChance: 0.01
+  initialConsumableSpawnChance: 0.015
   HealthConsumableHealing: 100
   InvincibilityDuration: 5
+  initialConsumableCollisionRadius: 0.5
+  initialXpCollisionRadius: 0.5
+  InvincibleColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   OverpoweredBuffDuration: 5
   DamageDealtMutliplier: 5
-  WalkSpeedMutliplier: 5
+  WalkSpeedMutliplier: 2.4
   FireRateMutliplier: 5
-  DamageTakenMutliplier: 0.2
+  DamageTakenMutliplier: 1
   PlayerInvincible:
     m_PersistentCalls:
       m_Calls: []

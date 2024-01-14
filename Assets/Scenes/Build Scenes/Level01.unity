@@ -1279,12 +1279,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2350949820540051793, guid: 668d6ed4de30419b0b1496a1418b2f7e, type: 3}
-      propertyPath: WalkSpeedMutliplier
-      value: 2.4
+      propertyPath: FireRateMutliplier
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2350949820540051793, guid: 668d6ed4de30419b0b1496a1418b2f7e, type: 3}
-      propertyPath: initialConsumableSpawnChance
-      value: 0.015
+      propertyPath: DamageDealtMutliplier
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5786701419804346739, guid: 668d6ed4de30419b0b1496a1418b2f7e, type: 3}
       propertyPath: m_Name
