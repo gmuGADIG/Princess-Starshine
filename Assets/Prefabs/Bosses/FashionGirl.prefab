@@ -262,7 +262,7 @@ MonoBehaviour:
   machineGunEnabled: 1
   machineGunFrequency: 5
   machinegun:
-    machineGunDamage: 0
+    machineGunDamage: 5
     fireRate: 0.2
     bulletQuantity: 75
     bulletSpeed: 5
