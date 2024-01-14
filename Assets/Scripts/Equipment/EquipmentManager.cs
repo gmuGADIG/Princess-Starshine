@@ -13,9 +13,9 @@ using Random = UnityEngine.Random;
 public class EquipmentManager : MonoBehaviour
 {
     // constants
-    const int MAX_WEAPONS = 7;
-    const int MAX_PASSIVES = 5;
-    const int MAX_EQUIPMENT_LEVELS = 7;
+    const int MAX_WEAPONS = 5;
+    const int MAX_PASSIVES = 4;
+    const int MAX_EQUIPMENT_LEVELS = 6;
     
     
     // in inspector
