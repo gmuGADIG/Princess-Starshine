@@ -383,7 +383,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Boss
+  m_text: Bae Bae
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f035653345f1cb54286384740d641027, type: 2}
   m_sharedMaterial: {fileID: -6848375748860064462, guid: f035653345f1cb54286384740d641027, type: 2}

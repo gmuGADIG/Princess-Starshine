@@ -230,7 +230,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -290}
   m_SizeDelta: {x: 800, y: 114.2785}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &209445976855665685
@@ -261,9 +261,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Level Up!
-
-    Sparkle On, Starshine!!'
+  m_text: Sparkle On, Starshine!!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f035653345f1cb54286384740d641027, type: 2}
   m_sharedMaterial: {fileID: -6848375748860064462, guid: f035653345f1cb54286384740d641027, type: 2}
@@ -290,8 +288,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 32
+  m_fontSizeBase: 32
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -498,7 +496,7 @@ MonoBehaviour:
   subtitle: {fileID: 4151440169990518762}
   iconHolder: {fileID: 4024726319412199285}
   openOnStart: 1
-  hellsCurseStart: 1
+  hellsCurseStart: 0
   currentLevel: 2
   LevelUpTitle: 'Level Up!
 
