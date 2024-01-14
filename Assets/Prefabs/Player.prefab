@@ -470,8 +470,20 @@ PrefabInstance:
       value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 2051232784743966262, guid: a26d146851436054ea68a288a76774ea, type: 3}
+      propertyPath: weaponStats.damage
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 2051232784743966262, guid: a26d146851436054ea68a288a76774ea, type: 3}
       propertyPath: weaponStats.projectileSpeed
-      value: 2.8
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2051232784743966262, guid: a26d146851436054ea68a288a76774ea, type: 3}
+      propertyPath: weaponStats.projectilesPerShot
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2051232784743966262, guid: a26d146851436054ea68a288a76774ea, type: 3}
+      propertyPath: levelUpOptions.Array.data[3].amount
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2309382276257578686, guid: a26d146851436054ea68a288a76774ea, type: 3}
       propertyPath: PickUpRangeScalar
