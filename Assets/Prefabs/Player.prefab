@@ -145,9 +145,9 @@ MonoBehaviour:
   increaseXP: 12
   isTwirling: 0
   maxTwirlCharges: 3
-  twirlCooldown: 2
-  twirlSpeed: 12
-  twirlDuration: 0.3
+  twirlCooldown: 3
+  twirlSpeed: 13
+  twirlDuration: 0.4
   collisionRadius: 1
   playerAnimator: {fileID: 1201584929703181706}
   facingDirection: {x: 1, y: 0}
