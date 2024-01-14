@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 2256334573299170917}
   - component: {fileID: 4635017132028190888}
   - component: {fileID: -4286443614080884802}
+  - component: {fileID: -8934716710678712572}
   m_Layer: 0
   m_Name: Nepotism
   m_TagString: Boss
@@ -209,10 +210,10 @@ MonoBehaviour:
   machineGunEnabled: 1
   machineGunFrequency: 5
   machinegun:
-    machineGunDamage: 0
-    fireRate: 2
+    machineGunDamage: 5
+    fireRate: 1
     bulletQuantity: 5
-    bulletSpeed: 2
+    bulletSpeed: 8
     bulletSpread: 20
     aimAtPlayer: 1
     shootFromCorner: 0
@@ -311,6 +312,19 @@ MonoBehaviour:
   DamagedColor: {r: 1, g: 0, b: 0, a: 1}
   HealthyColor: {r: 1, g: 1, b: 1, a: 1}
   sprite: {fileID: 7418533569525167378}
+--- !u!114 &-8934716710678712572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6031957489174021204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccf1194074bf9f026900709e92d1621b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
 --- !u!1 &8917041634746136062
 GameObject:
   m_ObjectHideFlags: 0

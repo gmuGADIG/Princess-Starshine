@@ -474,8 +474,20 @@ PrefabInstance:
       value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 2051232784743966262, guid: a26d146851436054ea68a288a76774ea, type: 3}
+      propertyPath: weaponStats.damage
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 2051232784743966262, guid: a26d146851436054ea68a288a76774ea, type: 3}
       propertyPath: weaponStats.projectileSpeed
-      value: 2.8
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2051232784743966262, guid: a26d146851436054ea68a288a76774ea, type: 3}
+      propertyPath: weaponStats.projectilesPerShot
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2051232784743966262, guid: a26d146851436054ea68a288a76774ea, type: 3}
+      propertyPath: levelUpOptions.Array.data[3].amount
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2309382276257578686, guid: a26d146851436054ea68a288a76774ea, type: 3}
       propertyPath: PickUpRangeScalar
@@ -553,6 +565,14 @@ PrefabInstance:
       propertyPath: weaponStats.projectileSpeed
       value: 1.4
       objectReference: {fileID: 0}
+    - target: {fileID: 4851443988552811489, guid: a26d146851436054ea68a288a76774ea, type: 3}
+      propertyPath: BalloonAnimalStats.explosionDamage
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 5517776088446958833, guid: a26d146851436054ea68a288a76774ea, type: 3}
+      propertyPath: Spread
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5517776088446958833, guid: a26d146851436054ea68a288a76774ea, type: 3}
       propertyPath: levelUpOptions.Array.data[1].type
       value: 6
@@ -571,7 +591,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6091703581706924927, guid: a26d146851436054ea68a288a76774ea, type: 3}
       propertyPath: weaponStats.damage
-      value: 35
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 6091703581706924927, guid: a26d146851436054ea68a288a76774ea, type: 3}
       propertyPath: weaponStats.fireRate
@@ -595,7 +615,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7370942178866099648, guid: a26d146851436054ea68a288a76774ea, type: 3}
       propertyPath: weaponStats.damage
-      value: 8
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7370942178866099648, guid: a26d146851436054ea68a288a76774ea, type: 3}
+      propertyPath: weaponStats.dotRate
+      value: 1.3
       objectReference: {fileID: 0}
     - target: {fileID: 7370942178866099648, guid: a26d146851436054ea68a288a76774ea, type: 3}
       propertyPath: weaponStats.knockback
