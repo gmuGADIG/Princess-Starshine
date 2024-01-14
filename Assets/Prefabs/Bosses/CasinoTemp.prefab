@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 2526966978812421796}
   - component: {fileID: -7451705582046535496}
   - component: {fileID: 6633638261682970520}
+  - component: {fileID: -6816085207251569200}
   m_Layer: 0
   m_Name: CasinoTemp
   m_TagString: Boss
@@ -254,6 +255,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scriptNames:
   - House
+--- !u!114 &-6816085207251569200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3834822481319723375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccf1194074bf9f026900709e92d1621b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
 --- !u!1 &8644997855419299419
 GameObject:
   m_ObjectHideFlags: 0

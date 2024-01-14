@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 808841898361783896}
   - component: {fileID: 7589417649108688267}
   - component: {fileID: 8922309466989703139}
+  - component: {fileID: 7176959158237010312}
   m_Layer: 0
   m_Name: FashionGirl
   m_TagString: Boss
@@ -364,6 +365,19 @@ MonoBehaviour:
   DamagedColor: {r: 1, g: 0, b: 0, a: 1}
   HealthyColor: {r: 1, g: 1, b: 1, a: 1}
   sprite: {fileID: 2227782045428984177}
+--- !u!114 &7176959158237010312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2628070505168376622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccf1194074bf9f026900709e92d1621b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
 --- !u!1 &8798547322057694113
 GameObject:
   m_ObjectHideFlags: 0

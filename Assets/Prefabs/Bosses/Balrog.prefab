@@ -81,6 +81,7 @@ GameObject:
   - component: {fileID: 4957345443493847432}
   - component: {fileID: 7875624489932752235}
   - component: {fileID: 430055009651962807}
+  - component: {fileID: -8565990539420425528}
   m_Layer: 0
   m_Name: Balrog
   m_TagString: Boss
@@ -255,6 +256,19 @@ MonoBehaviour:
   DamagedColor: {r: 1, g: 0, b: 0, a: 1}
   HealthyColor: {r: 1, g: 1, b: 1, a: 1}
   sprite: {fileID: 1271895349687713298}
+--- !u!114 &-8565990539420425528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3834822481319723375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccf1194074bf9f026900709e92d1621b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
 --- !u!1 &6010484244140792609
 GameObject:
   m_ObjectHideFlags: 0

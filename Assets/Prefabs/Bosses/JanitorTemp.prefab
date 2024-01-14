@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4414830741808293254}
   - component: {fileID: 3194975080705201832}
   - component: {fileID: 2302865732076711125}
+  - component: {fileID: 8870577733162855063}
   m_Layer: 0
   m_Name: JanitorTemp
   m_TagString: Boss
@@ -202,6 +203,19 @@ MonoBehaviour:
   scriptNames:
   - JanitorUnknown
   - Janitor
+--- !u!114 &8870577733162855063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2266018917075444731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccf1194074bf9f026900709e92d1621b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
 --- !u!1 &4043348613999075060
 GameObject:
   m_ObjectHideFlags: 0

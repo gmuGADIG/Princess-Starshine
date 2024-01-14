@@ -114,6 +114,7 @@ GameObject:
   - component: {fileID: 5671032256934773680}
   - component: {fileID: 740131984479064916}
   - component: {fileID: -35307464131504197}
+  - component: {fileID: 2232484925290595267}
   m_Layer: 0
   m_Name: EPrincess
   m_TagString: Boss
@@ -337,6 +338,19 @@ MonoBehaviour:
   DamagedColor: {r: 1, g: 0, b: 0, a: 1}
   HealthyColor: {r: 1, g: 1, b: 1, a: 1}
   sprite: {fileID: 7374101521274815036}
+--- !u!114 &2232484925290595267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3834822481319723375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccf1194074bf9f026900709e92d1621b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
 --- !u!1 &7402072141698154545
 GameObject:
   m_ObjectHideFlags: 0
