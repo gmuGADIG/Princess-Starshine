@@ -215,6 +215,7 @@ public class EquipmentManager : MonoBehaviour
         currentEquipment.Remove(equipment);
         equipment.OnUnEquip();
         equipment.enabled = false;
+        equipment.levelUpsDone = 0;
 
         foreach (var prevEquipment in currentEquipment)
         {

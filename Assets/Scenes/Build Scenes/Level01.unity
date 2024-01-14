@@ -1383,6 +1383,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7216685152336547931, guid: 94ffe939b2266cb44a4692bbb66302f9, type: 3}
+      propertyPath: hellsCurseStart
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7990254352107752931, guid: 94ffe939b2266cb44a4692bbb66302f9, type: 3}
       propertyPath: m_Name
       value: LevelUpMenu
