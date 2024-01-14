@@ -124,7 +124,7 @@ MonoBehaviour:
   machinegun:
     machineGunDamage: 15
     fireRate: 0.8
-    bulletQuantity: 50
+    bulletQuantity: 12
     bulletSpeed: 5
     bulletSpread: 45
     aimAtPlayer: 1
@@ -157,7 +157,7 @@ MonoBehaviour:
     timeTilChanges: 0
     duration: 0
     orbitObject: {fileID: 0}
-  meleeEnabled: 1
+  meleeEnabled: 0
   meleeFrequency: 5
   melee:
     meleeDamage: 0
@@ -186,9 +186,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59b4c6e61c446ae43bd0026de7547dae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
-  waitTime: 3
-  detectionRadius: 5
+  speed: 2
+  waitTime: 1
+  detectionRadius: 12
   moveTo: {fileID: 0}
 --- !u!58 &2526966978812421796
 CircleCollider2D:
