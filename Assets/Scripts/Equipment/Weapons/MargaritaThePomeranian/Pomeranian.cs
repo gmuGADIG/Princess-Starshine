@@ -41,7 +41,7 @@ class MoveToEnemy : IPomeranianState {
 
         if (enemies.Length != 0) {
             enemy = enemies[UnityEngine.Random.Range(0, enemies.Length)].gameObject;
-        } 
+        }
     }
 
     public IPomeranianState NewState(Pomeranian pomeranian) {
@@ -112,16 +112,21 @@ public class Pomeranian : MonoBehaviour
     public float Speed = 3f;
     public float PauseTime = .5f;
 
+    Animator anim;
+
     IPomeranianState state;
+    Type lastState;
 
     // Start is called before the first frame update
     void Start()
     {
+        anim = GetComponentInChildren<Animator>();
         state = new MoveToEnemy(null);
 
         Player.instance.PlayerTwirled += () => {
             state = new TwirlReaction(this);
         };
+        lastState = state.GetType();
     }
 
     // Update is called once per frame
@@ -129,5 +134,17 @@ public class Pomeranian : MonoBehaviour
     {
         state.Update(this);
         state = state.NewState(this);
+        if (state.GetType() != lastState)
+        {
+            if (state is MoveToEnemy)
+            {
+                anim.Play("Margarita_Idle");
+            }
+            else if (state is Waiting)
+            {
+                anim.Play("Margarita_Bark");
+            }
+            lastState = state.GetType();
+        }
     }
 }
