@@ -496,7 +496,7 @@ MonoBehaviour:
   subtitle: {fileID: 4151440169990518762}
   iconHolder: {fileID: 4024726319412199285}
   openOnStart: 1
-  hellsCurseStart: 0
+  hellsCurseStart: 1
   currentLevel: 3
   LevelUpTitle: Sparkle On, Princess Starshine!!
   LevelUpSubtitle: 'Choose one:'

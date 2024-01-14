@@ -17,7 +17,6 @@ public class LevelUpUI : MonoBehaviour
     public Transform iconHolder;
     public bool openOnStart = true;
     public bool hellsCurseStart = true;
-    public int currentLevel = 2;
 
     [TextArea] public string LevelUpTitle = "Level Up!\nSparkle On, Princess Starshine!!";
     public string LevelUpSubtitle = "Choose one:";
@@ -51,7 +50,7 @@ public class LevelUpUI : MonoBehaviour
         if (hellsCurseStart) {
             title.text = HellsCurseTitle;
             subtitle.text = HellsCurseSubtitle;
-            ShowOptions(EquipmentManager.instance.GetHellsCurseOptions(currentLevel - 1));
+            ShowOptions(EquipmentManager.instance.GetHellsCurseOptions(SaveManager.SaveData.NextLevel - 1));
         } else {
             title.text = LevelUpTitle;
             subtitle.text = LevelUpSubtitle;
