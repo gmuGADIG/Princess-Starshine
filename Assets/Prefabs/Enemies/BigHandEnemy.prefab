@@ -281,7 +281,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 35
-  movementSpeed: 4
+  movementSpeed: 3.8
   moveTowardsObject: {fileID: 0}
   knockbackMultiplier: 1
   knockbackDuration: 0.2
