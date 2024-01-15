@@ -33,7 +33,7 @@ public class LuckyLipstick : Passive {
     public override void OnEquip() {
         collisionRadiusReceipt = ConsumableManager.Instance.ConsumableCollisionRadius.MultiplierBuff(InitialPickUpRangeMultiplier + 1);
         spawnChanceReceipt = ConsumableManager.Instance.ConsumableSpawnChance.MultiplierBuff(InitialSpawnChanceMultiplier + 1);
-        xpRadiusReceipt = ConsumableManager.Instance.XpCollisionRadius.MultiplierBuff(InitialPickUpRangeMultiplier + 1);
+        xpRadiusReceipt = XPVacuum.Instance.Radius.MultiplierBuff(InitialPickUpRangeMultiplier + 1);
     }
 
     public override void OnUnEquip() {
@@ -46,7 +46,7 @@ public class LuckyLipstick : Passive {
     protected override void Thaw(object _data) {
         var (radiusMultiplier, spawnChance) = ((float, float))_data;
         collisionRadiusReceipt = ConsumableManager.Instance.ConsumableCollisionRadius.MultiplierBuff(radiusMultiplier);
-        xpRadiusReceipt = ConsumableManager.Instance.XpCollisionRadius.MultiplierBuff(radiusMultiplier);
+        xpRadiusReceipt = XPVacuum.Instance.Radius.MultiplierBuff(radiusMultiplier);
         spawnChanceReceipt = ConsumableManager.Instance.ConsumableSpawnChance.MultiplierBuff(spawnChance);
     }
 }

@@ -478,6 +478,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2800000, guid: 564642f78a8b9b04ebc0c5d6545f12f7, type: 3}
     - target: {fileID: 2051232784743966262, guid: a26d146851436054ea68a288a76774ea, type: 3}
+      propertyPath: icon.description
+      value: Birds orbiting the player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2051232784743966262, guid: a26d146851436054ea68a288a76774ea, type: 3}
       propertyPath: weaponStats.size
       value: 0.5
       objectReference: {fileID: 0}
