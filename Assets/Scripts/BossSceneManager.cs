@@ -30,6 +30,9 @@ public class BossSceneManager : MonoBehaviour
 
     void Start()
     {
+    }
+
+    public void AfterPreBossDialogue() {
         EquipmentManager.instance.Thaw();
         InGameUI.UpdateItems();
 

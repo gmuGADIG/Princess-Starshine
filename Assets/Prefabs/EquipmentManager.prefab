@@ -462,7 +462,7 @@ MonoBehaviour:
   spawnProjectileAtTarget: 0
   projectileLocalSpace: 1
   projectilePrefab: {fileID: 3250261032997418282, guid: 3055f22084227ea39afde10008cfdfad, type: 3}
-  shootSoundName: 
+  shootSoundName: Lovely_Lullaby
   multishotType: 0
   Spread: 0
 --- !u!114 &1809436753416420170

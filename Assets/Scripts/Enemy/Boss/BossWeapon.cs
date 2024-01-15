@@ -180,6 +180,8 @@ public class BossWeapon : MonoBehaviour
 
     void Start()
     {
+        meleeEnabled = false;
+
         if(puddle.spawnOnBoss && puddle.spawnOnPlayer)
         {
             Debug.LogError("PUDDLE WEAPON: Spawning isn't set correctly only select one of the spawn on boxes");

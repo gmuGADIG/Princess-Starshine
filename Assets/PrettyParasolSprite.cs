@@ -29,6 +29,6 @@ public class PrettyParasolSprite : MonoBehaviour
     private void Update()
     {
         transform.position = Player.instance.transform.position + (Vector3)Player.instance.facingDirection * .5f;
-        transform.rotation = Quaternion.FromToRotation(Player.instance.transform.position, Player.instance.facingDirection);
+        transform.rotation = Quaternion.FromToRotation(Vector3.right, Player.instance.facingDirection);
     }
 }

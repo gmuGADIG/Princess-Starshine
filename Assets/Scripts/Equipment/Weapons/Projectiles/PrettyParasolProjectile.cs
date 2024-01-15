@@ -18,6 +18,7 @@ public class PrettyParasolProjectile : Projectile
         base.Setup(weapon, target, damage, pierceCount, speed, knockback, size, dotRate);
 
         transform.position = Player.instance.transform.position + (Vector3)Player.instance.facingDirection * 2;
-        transform.rotation = Quaternion.FromToRotation(Player.instance.transform.position, Player.instance.facingDirection);
+        // transform.rotation = Quaternion.FromToRotation(Player.instance.transform.position, Player.instance.facingDirection);
+        transform.rotation = Quaternion.FromToRotation(Vector3.right, Player.instance.facingDirection);
     }
 }

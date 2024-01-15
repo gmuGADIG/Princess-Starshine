@@ -172,7 +172,6 @@ public class Player : MonoBehaviour
         //check to see if the player is moving right or left
         //changes where the player is looking
         if (velocity != Vector2.zero) facingDirection = velocity.normalized;
-        //the checks after the &&s are to avoid making new Vector3 objects when not necessary
         if (facingDirection.x < 0)
             playerSprite.flipX = true;
         else if (facingDirection.x > 0)
@@ -240,8 +239,10 @@ public class Player : MonoBehaviour
     }
 
     void UpdateTwirl(Vector2 input) {
-
-        if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.Z)){
+        if (
+            (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.Z))
+            && !isTwirling && input != Vector2.zero
+        ){
             if (curTwirlCharges > 0) {
                 curTwirlCharges -= 1;
                 InGameUI.UpdateTwirls(curTwirlCharges);

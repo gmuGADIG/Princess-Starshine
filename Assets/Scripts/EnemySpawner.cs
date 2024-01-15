@@ -124,6 +124,10 @@ public class EnemySpawner : MonoBehaviour
         var secondsSinceStart = Time.time - startTime;
         var bossShouldSpawn = secondsSinceStart > levelSeconds;
 
+        if (Input.GetKey(KeyCode.B) && Input.GetKey(KeyCode.M) && Application.isEditor) {
+            bossShouldSpawn = true;
+        }
+
         if (bossShouldSpawn && bossSceneOrEmpty != "")
         {
             print("SPAWNING BOSS!");

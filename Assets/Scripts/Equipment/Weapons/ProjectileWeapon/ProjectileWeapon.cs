@@ -86,11 +86,6 @@ abstract public class ProjectileWeapon : Weapon
             );
 
             proj.Setup(this, target, Damage, PierceCount, ProjectileSpeed, Knockback, ProjectileSize, DotRate);
-            if (shootSoundName != "")
-            {
-                SoundManager.Instance.PlaySoundAtPosition(shootSoundName, Camera.main.transform.position, Camera.main.transform);
-                //SoundManager.Instance.PlaySoundGlobal(shootSoundName);
-            }
         }
         
         Vector3 playerPosition = Player.instance.transform.position;
@@ -115,6 +110,12 @@ abstract public class ProjectileWeapon : Weapon
             }
 
             FireToTarget(newTarget);
+        }
+
+        if (shootSoundName != "")
+        {
+            SoundManager.Instance.PlaySoundAtPosition(shootSoundName, Camera.main.transform.position, Camera.main.transform);
+            //SoundManager.Instance.PlaySoundGlobal(shootSoundName);
         }
     }
 
