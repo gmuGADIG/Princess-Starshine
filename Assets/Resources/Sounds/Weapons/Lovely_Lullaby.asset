@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68cff8a68a791994698281d8d8db14fe, type: 3}
   m_Name: Lovely_Lullaby
   m_EditorClassIdentifier: 
-  audioVariants: []
+  audioVariants:
+  - {fileID: 8300000, guid: 7c647680df9586a44adf6631e299f11a, type: 3}
   volume: 1
-  volumeVariance: 0.1
+  volumeVariance: 0
   pitch: 1
-  pitchVariance: 0.1
+  pitchVariance: 0
   minimumDistance: 10
   loop: 0
-  mixerGroup: {fileID: 0}
+  mixerGroup: {fileID: 4097208717474722708, guid: e61ba0ca00a19cd06b1d5c09bcb40e46, type: 2}
   source: {fileID: 0}
