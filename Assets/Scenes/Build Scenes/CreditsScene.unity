@@ -6249,7 +6249,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3317809347161519321, guid: c7c6fd239c89a524db36946515589636, type: 3}
       propertyPath: m_text
-      value: Joaquin Flores-Vaccari
+      value: Andy Levy
       objectReference: {fileID: 0}
     - target: {fileID: 3317809347161519321, guid: c7c6fd239c89a524db36946515589636, type: 3}
       propertyPath: m_fontSizeBase
