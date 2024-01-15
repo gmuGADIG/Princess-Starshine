@@ -752,7 +752,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon:
     name: Flocks of a Feather
-    description: Feathers orbiting the player
+    description: B orbiting the player
     icon: {fileID: 2800000, guid: 9b3e953a2f0531d6b8811de393973975, type: 3}
     titleFontSize: 15
   levelUpsDone: 0
