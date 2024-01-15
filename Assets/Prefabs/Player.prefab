@@ -526,6 +526,10 @@ PrefabInstance:
       value: 0.07
       objectReference: {fileID: 0}
     - target: {fileID: 3817496222761909004, guid: a26d146851436054ea68a288a76774ea, type: 3}
+      propertyPath: icon.description
+      value: Fires a tea cup that bounces around the screen like a screensaver.
+      objectReference: {fileID: 0}
+    - target: {fileID: 3817496222761909004, guid: a26d146851436054ea68a288a76774ea, type: 3}
       propertyPath: weaponStats.size
       value: 0.8
       objectReference: {fileID: 0}
