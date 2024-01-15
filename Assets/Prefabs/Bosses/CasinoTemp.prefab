@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: -7451705582046535496}
   - component: {fileID: 6633638261682970520}
   - component: {fileID: -6816085207251569200}
+  - component: {fileID: 4358375403142761267}
   m_Layer: 0
   m_Name: CasinoTemp
   m_TagString: Boss
@@ -268,6 +269,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
+--- !u!95 &4358375403142761267
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3834822481319723375}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4f89e6f0de2c88d488201d8e65b2314d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8644997855419299419
 GameObject:
   m_ObjectHideFlags: 0
