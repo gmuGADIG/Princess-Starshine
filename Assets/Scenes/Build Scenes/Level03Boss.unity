@@ -163,6 +163,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BossHealthBar
       objectReference: {fileID: 0}
+    - target: {fileID: 4537020741068694901, guid: afa0a459d95dfe449bf3a3b9d67e593c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5601084412053703949, guid: afa0a459d95dfe449bf3a3b9d67e593c, type: 3}
       propertyPath: m_text
       value: Ice Imp & Braxis
@@ -245,7 +249,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8541597463349818748, guid: afa0a459d95dfe449bf3a3b9d67e593c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -144.99998
+      value: -245
       objectReference: {fileID: 0}
     - target: {fileID: 8541597463349818748, guid: afa0a459d95dfe449bf3a3b9d67e593c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -877,12 +881,12 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 43014745}
-  - {fileID: 1649985818}
   - {fileID: 1302100881}
   - {fileID: 1439050334}
-  - {fileID: 585198637}
+  - {fileID: 43014745}
   - {fileID: 1236245342}
+  - {fileID: 1649985818}
+  - {fileID: 585198637}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

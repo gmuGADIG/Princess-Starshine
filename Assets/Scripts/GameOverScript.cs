@@ -21,7 +21,7 @@ public class GameOverScript : MonoBehaviour
         IsGameOver = true;
         gameOverScreen.SetActive(true);
         Time.timeScale = 0; // pause the game while gameovered
-        
+        FindObjectOfType<BossHealthBarUI>()?.gameObject.SetActive(false); // Disable boss screen
     }
     //Resarting the game on easy or normal as defined in the Diffuclty Manager will restart the game, and reset upgrades(Upgrade system not implemented yet)
     public void RestartButton() {
