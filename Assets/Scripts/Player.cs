@@ -109,6 +109,8 @@ public class Player : MonoBehaviour
         xpLevel = SaveManager.SaveData.PlayerLevel;
         xpThisLevel = SaveManager.SaveData.PlayerXP;
         heldConsumable = SaveManager.SaveData.HeldConsumable;
+
+        PickedUpConsumable.Invoke(ConsumableManager.Instance.ConsumableOfConsumableType(heldConsumable));
     }
 
     void Awake() {

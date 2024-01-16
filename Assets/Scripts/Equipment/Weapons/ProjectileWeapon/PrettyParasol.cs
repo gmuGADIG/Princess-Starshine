@@ -36,6 +36,11 @@ public class PrettyParasol : ProjectileWeapon {
         Setup();
     }
 
+    public override void OnUnEquip()
+    {
+        Destroy(sprite.gameObject);
+    }
+
     protected override void Thaw(object data) {
         base.Thaw(data);
         Setup();
