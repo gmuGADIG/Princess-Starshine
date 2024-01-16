@@ -18,5 +18,7 @@ public class ConsumableUI : MonoBehaviour
             image.sprite = consumable.GetComponentInChildren<SpriteRenderer>().sprite;
             UIParent.SetActive(true);
         };
+
+        Player.instance.Thaw();
     }
 }
