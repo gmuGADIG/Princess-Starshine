@@ -623,7 +623,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7222985572356536306, guid: a26d146851436054ea68a288a76774ea, type: 3}
       propertyPath: healChance
-      value: 0.01
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 7222985572356536306, guid: a26d146851436054ea68a288a76774ea, type: 3}
       propertyPath: lifestealAmount
