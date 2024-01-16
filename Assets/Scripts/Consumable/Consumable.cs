@@ -83,7 +83,8 @@ public class Consumable : MonoBehaviour
         } else if (consumableType == Type.OverpoweredBuff) { // make the player strong
             // attach the coroutine to the player, we cant start coroutines, we're not a monobehaviour :(
             Player.instance.StartCoroutine(OverpoweredBuffPayload());
-        } else if (consumableType == Type.LevelUp) { // level up the player
+        } else if (consumableType == Type.LevelUp &&
+            !(LevelUpUI.instance?.menuParent.activeSelf ?? true)) { // level up the player
             Player.instance.LevelUp();
         } else { // panic
             Debug.LogError("Unreachable in Consumable.Apply against variant " + consumableType);
