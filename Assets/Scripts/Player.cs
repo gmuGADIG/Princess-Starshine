@@ -73,7 +73,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     float collisionRadius = .5f;
 
-    RaycastHit2D[] collisions = new RaycastHit2D[50];
+    List<RaycastHit2D> collisions = new(50);
 
     // Time in seconds the player is immune to attacks. After getting hit, the player is immune for a short amount of time.
     // (in other words, i-frames)
@@ -109,6 +109,8 @@ public class Player : MonoBehaviour
         xpLevel = SaveManager.SaveData.PlayerLevel;
         xpThisLevel = SaveManager.SaveData.PlayerXP;
         heldConsumable = SaveManager.SaveData.HeldConsumable;
+
+        PickedUpConsumable?.Invoke(ConsumableManager.Instance.ConsumableOfConsumableType(heldConsumable));
     }
 
     void Awake() {
@@ -117,8 +119,6 @@ public class Player : MonoBehaviour
 
     // Start is called before the first frame update
     void Start() {
-        Thaw();
-
         camera = Camera.main;
         float aspectRatio = (float)Screen.width / Screen.height;
         float worldHeight = camera.orthographicSize * 2;
@@ -212,7 +212,17 @@ public class Player : MonoBehaviour
         UsedConsumable();
 
         // check collisions
-        int hits = Physics2D.CircleCastNonAlloc(transform.position, collisionRadius, Vector2.zero, collisions);
+        var filter = new ContactFilter2D();
+        filter.NoFilter();
+
+        int hits = Physics2D.CircleCast(
+            transform.position - Vector3.back * 1000, 
+            collisionRadius, 
+            Vector2.zero, 
+            filter,
+            collisions
+        );
+
         for (int i = 0; i < hits; i++)
         {
             OnCollision(collisions[i]);
