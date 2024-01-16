@@ -1225,6 +1225,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8580773079150676159, guid: 0482e1f963c9f2b48a28d3b0fa582508, type: 3}
+      propertyPath: SpawnChanceScalar
+      value: 0.25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

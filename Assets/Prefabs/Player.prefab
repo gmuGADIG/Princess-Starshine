@@ -507,7 +507,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2309382276257578686, guid: a26d146851436054ea68a288a76774ea, type: 3}
       propertyPath: SpawnChanceScalar
-      value: 1.1
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 2309382276257578686, guid: a26d146851436054ea68a288a76774ea, type: 3}
       propertyPath: InitialPickUpRangeMultiplier
