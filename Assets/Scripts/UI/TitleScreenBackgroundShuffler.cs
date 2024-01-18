@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TitleScreenBackgroundShuffler : MonoBehaviour
-{
+public class TitleScreenBackgroundShuffler : MonoBehaviour {
     [SerializeField] List<Image> backgrounds;
     [SerializeField] float changeTime = 5f;
     [SerializeField] float transitionTime = 2f;
@@ -13,14 +12,11 @@ public class TitleScreenBackgroundShuffler : MonoBehaviour
     Image currentImage;
 
 
-    private void Awake()
-    {
-        for (int i = 0; i < backgrounds.Count; i++)
-        {
+    private void Awake() {
+        for (int i = 0; i < backgrounds.Count; i++) {
             backgrounds[i].CrossFadeAlpha(0, 0, false);
         }
-        while (backgrounds.Count > 0)
-        {
+        while (backgrounds.Count > 0) {
             int index = Random.Range(0, backgrounds.Count - 1);
             Image image = backgrounds[index];
             backgrounds.Remove(image);
@@ -31,10 +27,8 @@ public class TitleScreenBackgroundShuffler : MonoBehaviour
         StartCoroutine(SwapBackgrounds());
     }
 
-    IEnumerator SwapBackgrounds()
-    {
-        while (true)
-        {
+    IEnumerator SwapBackgrounds() {
+        while (true) {
             yield return new WaitForSeconds(changeTime);
             Image next = shuffleOrder.Dequeue();
             shuffleOrder.Enqueue(currentImage);

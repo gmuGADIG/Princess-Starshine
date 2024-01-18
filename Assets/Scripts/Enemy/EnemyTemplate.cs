@@ -17,8 +17,7 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(Collider2D))]
-public class EnemyTemplate : MonoBehaviour
-{
+public class EnemyTemplate : MonoBehaviour {
     #region VariableSettings
     [Header("Health Settings")]
     [SerializeField] 
@@ -94,8 +93,7 @@ public class EnemyTemplate : MonoBehaviour
      * Called when the enemy should die
      * Default: Destroys the object and distributes XP
      */
-    public virtual void Die()
-    {
+    public virtual void Die() {
         if (isDead) { return; }
         Destroy(gameObject);
         EnemyDied?.Invoke();
@@ -114,8 +112,7 @@ public class EnemyTemplate : MonoBehaviour
     }
 
     protected virtual void MoveBehavior() {
-        if (moveTowardsObject != null)
-        {
+        if (moveTowardsObject != null) {
             var startPos = (Vector2)transform.position;
             var endPos = (Vector2)moveTowardsObject.transform.position;
             var resultPos = Vector2.MoveTowards(startPos, endPos, movementSpeed * Time.deltaTime);
@@ -133,8 +130,7 @@ public class EnemyTemplate : MonoBehaviour
     }
 
     /*
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
+    private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.CompareTag("Bullet")) {
             
             TakenDamageSoundEffect.Play();
@@ -151,8 +147,7 @@ public class EnemyTemplate : MonoBehaviour
     private void DistrubuteXP() {
         // Gettings position of enemy
         Vector3 ENEMY_POSITION = gameObject.transform.position;
-        for (int i = 1; i <= xpDropAmount; i++)
-        {
+        for (int i = 1; i <= xpDropAmount; i++) {
             var orb = Instantiate(XPOrb);
             orb.transform.position = ENEMY_POSITION + (Vector3)Random.insideUnitCircle * xpDropRadius;
 
@@ -178,8 +173,7 @@ public class EnemyTemplate : MonoBehaviour
      * Called when the object is created
      * Default: Sets the current health to the max health, and checks if the enemy is dead
      */
-    protected virtual void Start()
-    {
+    protected virtual void Start() {
         if (moveTowardsObject == null) { moveTowardsObject = GameObject.FindGameObjectWithTag("Player"); }
         if (XPOrb == null) { XPOrb = GameObject.FindGameObjectWithTag("XPOrb"); }
         if (tag.CompareTo("") == 0) { tag = "Enemy"; }
@@ -192,14 +186,12 @@ public class EnemyTemplate : MonoBehaviour
      * Called Every Frame
      * Default: Moves towards the object and handles collisions
      **/
-    protected virtual void Update()
-    {
+    protected virtual void Update() {
         MoveTowardsObject();
     }
 
 
-    IEnumerator DelayedDestroy()
-    {
+    IEnumerator DelayedDestroy() {
         yield return new WaitForSeconds(.05f);
         Destroy(gameObject);
     }

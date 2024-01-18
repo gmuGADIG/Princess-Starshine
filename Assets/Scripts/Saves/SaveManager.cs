@@ -3,8 +3,7 @@ using Newtonsoft.Json;
 using System.IO;
 //using UnityEditor;
 
-public class SaveManager : MonoBehaviour
-{
+public class SaveManager : MonoBehaviour {
     public static SaveManager Instance { get; private set; }
     public static SaveData SaveData = new();
 

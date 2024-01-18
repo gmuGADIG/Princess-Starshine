@@ -2,8 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ConsumableUI : MonoBehaviour
-{
+public class ConsumableUI : MonoBehaviour {
     public GameObject UIParent;
 
     void Start() {

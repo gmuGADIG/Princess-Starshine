@@ -5,8 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
-public class BossHealth : MonoBehaviour
-{
+public class BossHealth : MonoBehaviour {
     [SerializeField] float maxHealth = 100;
 
     float currentHealth;
@@ -18,22 +17,18 @@ public class BossHealth : MonoBehaviour
     [SerializeField, Tooltip("When the boss dies, this prefab is instantiated at it's position. Could be a dead sprite, particles, etc. Affects nothing if null.")]
     GameObject onDeathPrefab;
 
-    private void Start()
-    {
+    private void Start() {
         currentHealth = maxHealth;
     }
 
-    void Update()
-    {
+    void Update() {
         if (Application.isEditor && Input.GetKeyDown(KeyCode.O)) Damage(float.PositiveInfinity);
     }
 
-    public void Damage(float damage)
-    {
+    public void Damage(float damage) {
         if (isDead) return;
         currentHealth -= damage;
-        if (currentHealth <= 0)
-        {
+        if (currentHealth <= 0) {
             currentHealth = 0;
             Die();
         }
@@ -42,8 +37,7 @@ public class BossHealth : MonoBehaviour
         BossHealthBarUI.SetHealth(currentHealth / maxHealth);
     }
 
-    public void Die()
-    {
+    public void Die() {
         isDead = true;
         print("BOSS DEFEATED!!");
         

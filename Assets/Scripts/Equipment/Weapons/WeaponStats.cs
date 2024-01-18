@@ -2,8 +2,7 @@ using System;
 using UnityEngine;
 
 [Serializable]
-public struct WeaponStats
-{
+public struct WeaponStats {
     [Tooltip("The amount of damage each projectile does. Exact details are left to the projectile script.")]
     public float damage;
     

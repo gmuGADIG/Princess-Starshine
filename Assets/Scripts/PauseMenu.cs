@@ -3,21 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PauseMenu : MonoBehaviour
-{
+public class PauseMenu : MonoBehaviour {
     [SerializeField] GameObject pauseMenu;
     [SerializeField] GameObject optionsMenu;
     [SerializeField] string mainMenuSceneName = "TitleScreenScene";
 
-    private void Awake()
-    {
+    private void Awake() {
         pauseMenu.SetActive(false);
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
+    private void Update() {
+        if (Input.GetKeyDown(KeyCode.Escape)) {
             // If the pause menu is closed and nothing else is pausing the game:
             if (!pauseMenu.activeSelf && Time.timeScale != 0f) {
                 pauseMenu.SetActive(true);
@@ -28,23 +24,20 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
-    public void Resume()
-    {
+    public void Resume() {
         if (optionsMenu.activeSelf) { return; }
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
     }
 
-    public void Restart()
-    {
+    public void Restart() {
         if (optionsMenu.activeSelf) { return; }
         Time.timeScale = 1f;
         int sceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(sceneIndex);
     }
 
-    public void ReturnToMainMenu()
-    {
+    public void ReturnToMainMenu() {
         if (optionsMenu.activeSelf) { return; }
         Time.timeScale = 1f;
         SceneManager.LoadScene(mainMenuSceneName);
@@ -54,8 +47,7 @@ public class PauseMenu : MonoBehaviour
         optionsMenu.SetActive(true);
     }
 
-    public void ExitGame()
-    {
+    public void ExitGame() {
         if (optionsMenu.activeSelf) { return; }
         Time.timeScale = 1f;
         Application.Quit();

@@ -13,8 +13,7 @@ using Random = UnityEngine.Random;
  * To add a specific weapon, open the EquipmentManager (in the Player prefab) in the inspector and add new weapons there.
  */
 [Serializable]
-abstract public class ProjectileWeapon : Weapon
-{
+abstract public class ProjectileWeapon : Weapon {
     [Tooltip("Base stats of the weapon.")]
     [SerializeField] WeaponStats weaponStats;
     
@@ -67,8 +66,7 @@ abstract public class ProjectileWeapon : Weapon
     /**
      * Called whenever the weapon should fire, based on its `fireRate`.
      */
-    protected virtual void Fire()
-    {
+    protected virtual void Fire() {
         if (projectileSet.Count >= MaxProjectiles) return;
         
         void FireToTarget(Vector3 target) {
@@ -112,16 +110,14 @@ abstract public class ProjectileWeapon : Weapon
             FireToTarget(newTarget);
         }
 
-        if (shootSoundName != "")
-        {
+        if (shootSoundName != "") {
             SoundManager.Instance.PlaySoundAtPosition(shootSoundName, Camera.main.transform.position, Camera.main.transform);
             //SoundManager.Instance.PlaySoundGlobal(shootSoundName);
         }
     }
 
     /** Called by the projectiles whenever one is destroyed. Used to remove from the set of projectiles. */
-    public void OnProjectileDestroy(Projectile projectile)
-    {
+    public void OnProjectileDestroy(Projectile projectile) {
         projectileSet.Remove(projectile);
     }
     
@@ -142,21 +138,18 @@ abstract public class ProjectileWeapon : Weapon
      * Otherwise, it will be the player's position plus the direction with an arbitrary magnitude.
      */
     
-    Vector2 GetTarget(TargetType? targetingMethod = null)
-    {
+    Vector2 GetTarget(TargetType? targetingMethod = null) {
         targetingMethod = targetingMethod ?? this.targetingStrategy;
 
         var player = Player.instance;
         var enemies = getEnemies();
         
-        if (targetingMethod == TargetType.RandomDirection || enemies.Count == 0)
-        {
+        if (targetingMethod == TargetType.RandomDirection || enemies.Count == 0) {
             var randomRads = Random.Range(0, 2 * Mathf.PI);
             return (Vector2)player.transform.position + new Vector2(Mathf.Cos(randomRads), Mathf.Sin(randomRads));
         }
 
-        switch (targetingMethod)
-        {
+        switch (targetingMethod) {
             case TargetType.WalkingDirection:
                 return (Vector2) player.transform.position + player.facingDirection;
             case TargetType.RandomEnemy:
@@ -164,11 +157,9 @@ abstract public class ProjectileWeapon : Weapon
             case TargetType.NearestEnemy:
                 var min = new Vector2(0, 0);
                 var minDist = 1000000f;
-                foreach (var enemy in enemies)
-                {
+                foreach (var enemy in enemies) {
                     var dist = Vector2.Distance(player.transform.position, enemy.transform.position);
-                    if (dist < minDist)
-                    {
+                    if (dist < minDist) {
                         minDist = dist;
                         min = enemy.transform.position;
                     }
@@ -190,36 +181,30 @@ abstract public class ProjectileWeapon : Weapon
         }
     }
 
-    public override void Update()
-    {
+    public override void Update() {
         timeUntilNextFire -= Time.deltaTime;
-        if (timeUntilNextFire <= 0)
-        {
+        if (timeUntilNextFire <= 0) {
             Fire();
             timeUntilNextFire += 1f / FireRate    ; // infinity if fireRate is 0
         }
     }
 
-    public override void ProcessOther(Equipment other)
-    {
+    public override void ProcessOther(Equipment other) {
         // TODO: handle synergy
     }
 
-    public override void ProcessOtherRemoval(Equipment other)
-    {
+    public override void ProcessOtherRemoval(Equipment other) {
         // TODO: handle undoing synergy
     }
 
-    public override (string description, Action onApply) GetLevelUps()
-    {
+    public override (string description, Action onApply) GetLevelUps() {
         // shuffle levelUpOptions and get the first 2 (definitely not an optimal shuffle algorithm, but a simple and good-enough one)
         var levelUps = levelUpOptions.OrderBy(_ => Random.Range(0f, 1f)).Take(2).ToArray();
         var description =
              "Weapon Level Up!\n" +
             $"{levelUps[0]}\n" +
             $"{levelUps[1]}";
-        Action onApply = () =>
-        {
+        Action onApply = () => {
             foreach (var levelUp in levelUps)
                 ApplyLevelUp(levelUp);
             
@@ -230,10 +215,8 @@ abstract public class ProjectileWeapon : Weapon
         return (description, onApply);
     }
 
-    public virtual void ApplyLevelUp(WeaponLevelUp levelUp)
-    {
-        switch (levelUp.type)
-        {
+    public virtual void ApplyLevelUp(WeaponLevelUp levelUp) {
+        switch (levelUp.type) {
             case WeaponLevelUpType.Damage:
                 statModifiers.damage += levelUp.amount;
                 break;
@@ -277,8 +260,7 @@ abstract public class ProjectileWeapon : Weapon
     }
 }
 
-public enum TargetType
-{
+public enum TargetType {
     WalkingDirection, NearestEnemy, RandomEnemy, RandomDirection
 }
 

@@ -7,8 +7,7 @@ using UnityEngine;
  * This class implements the typewriter effect for the character dialogue
  * By Sheldon Tran
  */
-public class TypewriterEffect : MonoBehaviour
-{
+public class TypewriterEffect : MonoBehaviour {
 
     [SerializeField] private float typewriterSpeed = 50f;
 
@@ -16,27 +15,23 @@ public class TypewriterEffect : MonoBehaviour
 
     private Coroutine typingCoroutine;
 
-    public void Run(string textToType, TMP_Text textLabel)
-    {
+    public void Run(string textToType, TMP_Text textLabel) {
         typingCoroutine = StartCoroutine(TypeText(textToType, textLabel));
     }
 
-    public void Stop() 
-    {
+    public void Stop()  {
         StopCoroutine(typingCoroutine);
         isRunning = false;
     }
 
-    private IEnumerator TypeText(string textToType, TMP_Text textLabel)
-    {
+    private IEnumerator TypeText(string textToType, TMP_Text textLabel) {
         isRunning = true;
         textLabel.text = string.Empty;
 
         float t = 0;
         int charIndex = 0;
 
-        while (charIndex < textToType.Length)
-        {
+        while (charIndex < textToType.Length) {
             t += Time.deltaTime * typewriterSpeed;
             charIndex = Mathf.FloorToInt(t);
             charIndex = Mathf.Clamp(charIndex, 0, textToType.Length);

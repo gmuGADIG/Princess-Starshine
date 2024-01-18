@@ -4,8 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 // Responsible for spawning consumables and holding the configuration for consumables
-public class ConsumableManager : MonoBehaviour
-{
+public class ConsumableManager : MonoBehaviour {
     public static ConsumableManager Instance { get; private set; }
 
     [SerializeField] private float initialConsumableSpawnChance = 0.01f;
@@ -42,8 +41,7 @@ public class ConsumableManager : MonoBehaviour
     
     Wall wall;
 
-    void Awake() 
-    {
+    void Awake()  {
         Instance = this;
 
         ConsumableCollisionRadius = new(initialConsumableCollisionRadius);

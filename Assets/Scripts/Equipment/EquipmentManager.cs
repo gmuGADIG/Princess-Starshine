@@ -10,8 +10,7 @@ using Random = UnityEngine.Random;
  * Singleton class for managing all equipment (weapons and passives).
  * Responsible for selecting equipment, holding what equipment the player currently has, and calling the Equipment's functions.
  */
-public class EquipmentManager : MonoBehaviour
-{
+public class EquipmentManager : MonoBehaviour {
     // constants
     const int MAX_WEAPONS = 5;
     const int MAX_PASSIVES = 4;
@@ -74,18 +73,15 @@ public class EquipmentManager : MonoBehaviour
         InGameUI.UpdateItems();
     }
 
-    void Update()
-    {
+    void Update() {
         /*
-        foreach (var item in currentEquipment)
-        {
+        foreach (var item in currentEquipment) {
             item.Update();
         }
         */
         
         // TEMP
-        if (Input.GetKeyDown(KeyCode.P) && Application.isEditor)
-        {
+        if (Input.GetKeyDown(KeyCode.P) && Application.isEditor) {
             if (LevelUpUI.instance == null) Debug.LogError("Can't open level-up ui; none exists in this scene!");
             else LevelUpUI.instance.Open();
         }
@@ -116,8 +112,7 @@ public class EquipmentManager : MonoBehaviour
     /// a list with the player's highest level weapon, 
     /// or 1-4 of the weapons meeting the <paramref name="minLevel"/> constraint.
     /// </summary>
-    public List<UpgradeOption> GetHellsCurseOptions(int minLevel) 
-    {
+    public List<UpgradeOption> GetHellsCurseOptions(int minLevel)  {
         Thaw();
 
         // Don't destroy the player's last weapon.
@@ -155,8 +150,7 @@ public class EquipmentManager : MonoBehaviour
      * These can be either new equipment or an upgrade to old equipment.
      * Called when the LevelUpUI is instantiated.
      */
-    public List<UpgradeOption> GetUpgradeOptions(bool firstShow = false)
-    {
+    public List<UpgradeOption> GetUpgradeOptions(bool firstShow = false) {
         if (firstShow) {
             Thaw();
         }
@@ -165,14 +159,12 @@ public class EquipmentManager : MonoBehaviour
         var weaponCount = currentEquipment.Count(e => e is Weapon);
         var passiveCount = currentEquipment.Count(e => e is Passive);
 
-        foreach (var equipment in allEquipment)
-        {
+        foreach (var equipment in allEquipment) {
             // enforce first show rules 
             if (equipment is Weapon)
                 if (!(equipment as Weapon).availableAtStart && firstShow)
                     continue;
-            if (equipment is Passive)
-            {
+            if (equipment is Passive) {
                 if (firstShow) continue;
             }
 
@@ -180,12 +172,10 @@ public class EquipmentManager : MonoBehaviour
             
             var duplicate = currentEquipment.FirstOrDefault(e => e == equipment);
 
-            if (duplicate != null) // equipment is already in use. present level-up instead
-            {
+            if (duplicate != null) // equipment is already in use. present level-up instead {
                 if (duplicate.levelUpsDone >= MAX_EQUIPMENT_LEVELS) continue; // already max level
                 var (description, applyLevelUp) = equipment.GetLevelUps();
-                Action onApply = () =>
-                {
+                Action onApply = () => {
                     equipment.levelUpsDone += 1;
                     applyLevelUp();
 
@@ -198,8 +188,7 @@ public class EquipmentManager : MonoBehaviour
                 };
                 options.Add(new UpgradeOption(icon.name, icon.icon, description, onApply, icon.titleFontSize));
             }
-            else // present new equipment
-            {
+            else // present new equipment {
                 // only present new equipment if there's enough space
                 if (equipment is Passive && passiveCount >= MAX_PASSIVES) { continue; }
                 if (equipment is Weapon && weaponCount >= MAX_WEAPONS) { continue; }
@@ -217,22 +206,19 @@ public class EquipmentManager : MonoBehaviour
         equipment.enabled = false;
         equipment.levelUpsDone = 0;
 
-        foreach (var prevEquipment in currentEquipment)
-        {
+        foreach (var prevEquipment in currentEquipment) {
             if (prevEquipment == equipment) continue;
             
             equipment.ProcessOtherRemoval(prevEquipment);
         }
     }
 
-    private void AddNewEquipment(Equipment equipment)
-    {
+    private void AddNewEquipment(Equipment equipment) {
         this.currentEquipment.Add(equipment);
         equipment.OnEquip();
         equipment.enabled = true;
         
-        foreach (var prevEquipment in currentEquipment)
-        {
+        foreach (var prevEquipment in currentEquipment) {
             if (prevEquipment == equipment) continue;
             
             if (!(equipment is FlocksOfAFeather)) { // avoid double spawning feathers
@@ -243,13 +229,11 @@ public class EquipmentManager : MonoBehaviour
         }
     }
 
-    public List<Texture> EquippedWeaponIcons()
-    {
+    public List<Texture> EquippedWeaponIcons() {
         return currentEquipment.Where(e => e is Weapon).Select(e => e.icon.icon).ToList();
     }
     
-    public List<Texture> EquippedPassiveIcons()
-    {
+    public List<Texture> EquippedPassiveIcons() {
         return currentEquipment.Where(e => e is Passive).Select(e => e.icon.icon).ToList();
     }
 }
@@ -258,8 +242,7 @@ public class EquipmentManager : MonoBehaviour
  * Holds an option presented to the player when they level up. Can be either a new equipment or an item level-up.
  * onSelect is called when the user selects this upgrade, and should add the equipment or level-up the item.
  */
-public class UpgradeOption
-{
+public class UpgradeOption {
     public string name;
     public Texture icon;
     public string description;
@@ -267,8 +250,7 @@ public class UpgradeOption
     public int titleFontSize;
 
 
-    public UpgradeOption(string name, Texture icon, string description, Action onSelect, int titleFontSize)
-    {
+    public UpgradeOption(string name, Texture icon, string description, Action onSelect, int titleFontSize) {
         this.name = name;
         this.icon = icon;
         this.description = description;

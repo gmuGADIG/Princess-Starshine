@@ -6,8 +6,7 @@ using UnityEngine;
 /**
  * Basic projectile class. Extend it to add specific behavior. Modify it / add fields for common functionality.
  */
-public class Projectile : MonoBehaviour
-{
+public class Projectile : MonoBehaviour {
     /** After this many seconds, projectiles will be automatically removed. */
     [HideInInspector]
     public float maxLifeTime = float.PositiveInfinity;
@@ -28,19 +27,16 @@ public class Projectile : MonoBehaviour
     public Action LifetimeExpired;
     internal ProjectileCollision projectileCollision;
 
-    protected virtual void Start()
-    {
+    protected virtual void Start() {
         projectileCollision = GetComponent<ProjectileCollision>();
-        if (projectileCollision != null)
-        {
+        if (projectileCollision != null) {
             projectileCollision.Setup(this.damage, this.dotRate, this.knockback);
             projectileCollision.onHit += OnProjectileHit;
         }
     
 }
 
-    protected virtual void OnProjectileHit()
-    {
+    protected virtual void OnProjectileHit() {
         if (pierceCount == 0) Destroy(this.gameObject); // < 0 is fine, because -1 pierce means infinite
         this.pierceCount -= 1;
     }
@@ -49,10 +45,8 @@ public class Projectile : MonoBehaviour
         transform.position += (Vector3) velocity * Time.deltaTime;
     }
 
-    protected virtual void Update()
-    {
-        if (!hasBeenSetUp)
-        {
+    protected virtual void Update() {
+        if (!hasBeenSetUp) {
             Destroy(this.gameObject);
             throw new Exception("Projectile has not been set up! Destroying projectile.");
         }
@@ -60,23 +54,20 @@ public class Projectile : MonoBehaviour
         Move(); // foobar
 
         timeAlive += Time.deltaTime;
-        if (timeAlive > maxLifeTime)
-        {
+        if (timeAlive > maxLifeTime) {
             Destroy(this.gameObject);
             LifetimeExpired?.Invoke();
         }
     }
 
-    protected virtual void OnDestroy()
-    {
+    protected virtual void OnDestroy() {
         weapon.OnProjectileDestroy(this);
     }
 
     /**
      * Called by the weapon after creating the projectile (and after setting its position and place in the scene tree).
      */
-    public virtual void Setup(ProjectileWeapon weapon, Vector2 target, float damage, int pierceCount, float speed, float knockback, float size, float dotRate)
-    {
+    public virtual void Setup(ProjectileWeapon weapon, Vector2 target, float damage, int pierceCount, float speed, float knockback, float size, float dotRate) {
         timeAlive = 0;
 
         this.weapon = weapon;

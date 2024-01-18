@@ -9,8 +9,7 @@ public class TempConstantScript : MonoBehaviour {
     public float force;
     private float timer;
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player");
 
@@ -22,12 +21,10 @@ public class TempConstantScript : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         timer += Time.deltaTime;
 
-        if (timer > 2)
-        {
+        if (timer > 2) {
             Destroy(gameObject);
         }
     }

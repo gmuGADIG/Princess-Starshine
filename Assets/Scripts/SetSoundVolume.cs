@@ -4,12 +4,10 @@ using UnityEngine;
 using UnityEngine.Audio;
 using static OptionMenu;
 
-public class SetSoundVolume : MonoBehaviour
-{
+public class SetSoundVolume : MonoBehaviour {
     public AudioMixer mixer;
 
-    public void SetSound(float sliderValue)
-    {
+    public void SetSound(float sliderValue) {
         mixer.SetFloat("SFXSoundVolume", Mathf.Log10(sliderValue) * 20);
     }
 }

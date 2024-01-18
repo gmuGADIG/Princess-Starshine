@@ -9,8 +9,7 @@ using UnityEngine.Assertions;
  * Is instantiated after the player equips it.
  */
 [Serializable]
-public abstract class Equipment : MonoBehaviour
-{
+public abstract class Equipment : MonoBehaviour {
     [SerializeField] public EquipmentIcon icon;
     
     /// <summary>

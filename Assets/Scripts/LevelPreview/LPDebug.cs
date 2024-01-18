@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LPDebug : MonoBehaviour
-{
+public class LPDebug : MonoBehaviour {
     [Tooltip("Sets <b>SaveManager.SaveData.NextLevel</b> to nextLevel if the game is running in editor and <b>SaveManager.SaveData.NextLevel</b> is set to 0 (its default value).")]
     [SerializeField] int nextLevel;
 

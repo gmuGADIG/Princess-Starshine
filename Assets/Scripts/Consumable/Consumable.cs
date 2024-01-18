@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Consumable : MonoBehaviour
-{
+public class Consumable : MonoBehaviour {
     public Type ConsumableType = Type.None;
 
     public enum Type {
@@ -90,8 +89,7 @@ public class Consumable : MonoBehaviour
             Debug.LogError("Unreachable in Consumable.Apply against variant " + consumableType);
         }
     }
-    void Start()
-    {
+    void Start() {
         if (ConsumableType == Type.None) {
             Debug.LogError("Consumable has type none!");
         }

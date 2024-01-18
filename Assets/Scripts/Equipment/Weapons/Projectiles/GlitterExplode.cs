@@ -2,24 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GlitterExplode : MonoBehaviour
-{
+public class GlitterExplode : MonoBehaviour {
     float damage;
     string explodeSound = "Glitter_Bomb_Explode";
 
-    void Start()
-    {
+    void Start() {
         SoundManager.Instance.PlaySoundGlobal(explodeSound);
         StartCoroutine(Coroutine());
-        IEnumerator Coroutine()
-        {
+        IEnumerator Coroutine() {
             yield return new WaitForSeconds(1f);
             Destroy(gameObject);
         }
     }
 
-    public void Create(float newDamage, Vector3 scale)
-    {
+    public void Create(float newDamage, Vector3 scale) {
         this.transform.localScale = 2.5f*scale;
         this.damage = newDamage;
         this.GetComponent<ProjectileCollision>().Setup(newDamage, .1f, 0f);

@@ -4,19 +4,16 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class GameOverScript : MonoBehaviour
-{
+public class GameOverScript : MonoBehaviour {
     //public DifficultyManager difficulty;
     public bool IsGameOver { get; private set;}
     public GameObject gameOverScreen;
 
-    private void Start()
-    {
+    private void Start() {
         gameOverScreen.SetActive(false);
     }
 
-    public void DoGameOver()
-    {
+    public void DoGameOver() {
         LoadObjects();
         IsGameOver = true;
         gameOverScreen.SetActive(true);
@@ -33,29 +30,24 @@ public class GameOverScript : MonoBehaviour
     }
 
     //if in hardmode the game will restart, it may be redundant since exit game effectivley does the same thing
-    public void hardModeReset()
-    {
+    public void hardModeReset() {
             SceneManager.LoadScene("TitleScreenScene");
 
 
     }
 
     //Exits the game
-    public void ExitButton()
-    {
+    public void ExitButton() {
         Time.timeScale = 1;
         SceneManager.LoadScene("TitleScreenScene");
        
     }
 
-    private void Reset()
-    {
+    private void Reset() {
         LoadObjects();
     }
-    private void LoadObjects()
-    {
-        if (gameOverScreen == null)
-        {
+    private void LoadObjects() {
+        if (gameOverScreen == null) {
             gameOverScreen = this.gameObject;//theoretically should be the same
         }
     }

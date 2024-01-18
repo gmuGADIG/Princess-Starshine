@@ -33,23 +33,20 @@ public class ShooterScript : EnemyTemplate {
         renderer = GetComponentInChildren<SpriteRenderer>();
     }
 
-    protected override void Update()
-    {
+    protected override void Update() {
         base.Update();
 
         // Only shoot if the enemy is on screen
         if (!renderer.isVisible) { return; }
 
         fireTimer -= 1 * Time.deltaTime;
-        if (fireTimer <= 0)
-        {
+        if (fireTimer <= 0) {
             Fire();
             fireTimer = initialFireTimer;
         }
     }
 
-    protected override void MoveBehavior()
-    {
+    protected override void MoveBehavior() {
         // If the player is far
         if ((Player.instance.transform.position - transform.position).magnitude > perferredPlayerDistance) {
             // Walk towards it
@@ -68,8 +65,7 @@ public class ShooterScript : EnemyTemplate {
         }
     }
 
-    public void Fire()
-        { 
+    public void Fire() { 
         // Create an enemy bullet where the enemy stands
         var projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity)
             .GetComponent<EnemyBullet>();

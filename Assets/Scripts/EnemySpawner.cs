@@ -5,8 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
-public class EnemySpawner : MonoBehaviour
-{
+public class EnemySpawner : MonoBehaviour {
 
     //spawn an enemy
     //have public variables to adjust spawn rate, acceleration, enemy type
@@ -23,8 +22,7 @@ public class EnemySpawner : MonoBehaviour
     public string bossSceneOrEmpty;
 
     [System.Serializable]
-    public struct EnemySpawn
-    {
+    public struct EnemySpawn {
         public GameObject enemyType;
         public float probabilityWeight;
         public int spawnCount;
@@ -41,14 +39,12 @@ public class EnemySpawner : MonoBehaviour
 
     Wall wall;
 
-    public void RandomSpawn()
-    {
+    public void RandomSpawn() {
         SpawningEnemy.Invoke();
         
         // cumulativeWeights[i] = sum of weights 0 to i
         float[] cumulativeWeights = new float[enemySpawns.Length];
-        for (int i = 0; i < enemySpawns.Length; i++)
-        {
+        for (int i = 0; i < enemySpawns.Length; i++) {
             var prevWeight = cumulativeWeights.ElementAtOrDefault(i - 1);
             cumulativeWeights[i] = prevWeight + enemySpawns[i].probabilityWeight;
         }
@@ -62,20 +58,17 @@ public class EnemySpawner : MonoBehaviour
         Spawn(selectedSpawn);
     }
 
-    private void Spawn(EnemySpawn spawn)
-    {
+    private void Spawn(EnemySpawn spawn) {
         for (int i = 0; i < spawn.spawnCount; i++) {
             GameObject enemy = Instantiate(spawn.enemyType, GetSpawnPosition(), Quaternion.identity);
-            if (enemy.TryGetComponent(out Damage damage))
-            {
+            if (enemy.TryGetComponent(out Damage damage)) {
                 float t = (Time.time - startTime) / levelSeconds;
                 damage.damage = Mathf.Lerp(spawn.startingDamage, spawn.endingDamage, t);
             }
         }
     }
 
-    private Vector2 GetSpawnPosition()
-    {
+    private Vector2 GetSpawnPosition() {
         var camPos = Camera.main.transform.position;
 
         float halfHeight = Camera.main.orthographicSize;
@@ -86,41 +79,34 @@ public class EnemySpawner : MonoBehaviour
         // randomly spawn at the right, bottom, or top wall, weighted by the lengths of those walls
         if (wall == null) {
             var rand = Random.Range(0, halfHeight + halfWidth + halfWidth);
-            if (rand < halfHeight) // spawn at right wall
-            {
+            if (rand < halfHeight) // spawn at right wall {
                 return camPos + Vector3.right * (halfWidth + distanceFromBounds) + Vector3.up * Random.Range(-halfHeight, halfHeight);
             }
-            else if (rand < halfHeight + halfWidth) // spawn at bottom wall (right half)
-            {
+            else if (rand < halfHeight + halfWidth) // spawn at bottom wall (right half) {
                 return camPos + Vector3.down * (halfHeight + distanceFromBounds) + Vector3.right * Random.Range(0, halfWidth);
             }
-            else // spawn at top wall (right half)
-            {
+            else // spawn at top wall (right half) {
                 return camPos + Vector3.up * (halfHeight + distanceFromBounds) + Vector3.right * Random.Range(0, halfWidth);
             }
         } else {
             var rand = Random.Range(0, halfHeight + halfWidth + halfWidth);
-            if (rand < halfHeight) // spawn at right wall
-            {
+            if (rand < halfHeight) // spawn at right wall {
                 var maxY = wall.Border - camPos.y;
                 return camPos + Vector3.right * (halfWidth + distanceFromBounds) + Vector3.up * Random.Range(-halfHeight, maxY);
             }
-            else // spawn at bottom wall (right half)
-            {
+            else // spawn at bottom wall (right half) {
                 return camPos + Vector3.down * (halfHeight + distanceFromBounds) + Vector3.right * Random.Range(0, halfWidth);
             }
         }
 
     }
 
-    void Start()
-    {
+    void Start() {
         startTime = Time.time;
         wall = FindObjectOfType<Wall>();
     }
 
-    void Update()
-    {
+    void Update() {
         var secondsSinceStart = Time.time - startTime;
         var bossShouldSpawn = secondsSinceStart > levelSeconds;
 
@@ -128,8 +114,7 @@ public class EnemySpawner : MonoBehaviour
             bossShouldSpawn = true;
         }
 
-        if (bossShouldSpawn && bossSceneOrEmpty != "")
-        {
+        if (bossShouldSpawn && bossSceneOrEmpty != "") {
             print("SPAWNING BOSS!");
             SceneManager.LoadScene(bossSceneOrEmpty);
 
@@ -140,10 +125,8 @@ public class EnemySpawner : MonoBehaviour
         }
         
         timeTillNextSpawn -= Time.deltaTime;
-        if (timeTillNextSpawn <= 0)
-        {
-            if (EnemyManager.enemyManager.enemies.Count <= EnemyManager.enemyManager.maxEnemies)
-            {
+        if (timeTillNextSpawn <= 0) {
+            if (EnemyManager.enemyManager.enemies.Count <= EnemyManager.enemyManager.maxEnemies) {
                 RandomSpawn();
             }
 

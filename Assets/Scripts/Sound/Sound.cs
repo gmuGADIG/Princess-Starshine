@@ -4,8 +4,7 @@ using UnityEngine;
 using UnityEngine.Audio;
 
 [CreateAssetMenu(fileName = "NewSound", menuName = "Sound")]
-public class Sound : ScriptableObject
-{
+public class Sound : ScriptableObject {
     public AudioClip[] audioVariants;
 
 	[Range(0f, 2f)]
@@ -30,10 +29,8 @@ public class Sound : ScriptableObject
 	/// Gets an audio clip from audioVariants.
 	/// </summary>
 	/// <returns>A random audio clip from audioVariants. </returns>
-	public AudioClip GetRandomAudioClip()
-    {
-		if (audioVariants.Length == 0)
-        {
+	public AudioClip GetRandomAudioClip() {
+		if (audioVariants.Length == 0) {
 			return null;
         }
 		return audioVariants[Random.Range(0, audioVariants.Length)];

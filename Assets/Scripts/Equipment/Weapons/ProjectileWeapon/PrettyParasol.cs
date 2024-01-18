@@ -36,8 +36,7 @@ public class PrettyParasol : ProjectileWeapon {
         Setup();
     }
 
-    public override void OnUnEquip()
-    {
+    public override void OnUnEquip() {
         Destroy(sprite.gameObject);
     }
 
@@ -46,8 +45,7 @@ public class PrettyParasol : ProjectileWeapon {
         Setup();
     }
 
-    protected override void Fire()
-    {
+    protected override void Fire() {
         sprite.animator.speed = FireRateModifier;
         // invokes the animation, which will invoke sprite.ShouldFire which will call base.Fire
         sprite.Swinging = true; 

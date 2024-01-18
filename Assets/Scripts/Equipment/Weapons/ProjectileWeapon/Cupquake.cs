@@ -18,8 +18,7 @@ public class Cupquake : ProjectileWeapon {
     [Tooltip("The falling cupcake will follow the target.")]
     public bool FollowTarget = false;
     // I'm overriding this method so I can do a custom handling of projectiles per shot
-    protected override void Fire()
-    {
+    protected override void Fire() {
         var enemies = ProjectileWeapon.getEnemies()
             .Where(enemy => TeaTime.pointInCameraBoundingBox(
                 enemy.transform.position, 1, 1)).ToList();
@@ -36,8 +35,7 @@ public class Cupquake : ProjectileWeapon {
             proj.SetupExt(this, enemy, Damage, PierceCount, ProjectileSpeed, Knockback, ProjectileSize, DotRate, FollowTarget);
             projectileSet.Add(proj);
 
-            if (shootSoundName != "")
-            {
+            if (shootSoundName != "") {
                 SoundManager.Instance.PlaySoundGlobal(shootSoundName);
             }
         }

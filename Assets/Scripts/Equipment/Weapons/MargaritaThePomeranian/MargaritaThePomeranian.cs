@@ -95,14 +95,12 @@ public class MargaritaThePomeranian : Weapon {
         }
     }
 
-    public override void ProcessOther(Equipment other)
-    {
+    public override void ProcessOther(Equipment other) {
         // TODO: handle synergy
         PostLevelUp(); // handle the fact that some passives might give a static buff
     }
 
-    public override void ProcessOtherRemoval(Equipment other)
-    {
+    public override void ProcessOtherRemoval(Equipment other) {
         // TODO: handle undoing synergy
     }
 
@@ -119,16 +117,14 @@ public class MargaritaThePomeranian : Weapon {
         }
     }
 
-    public override (string description, Action onApply) GetLevelUps()
-    {
+    public override (string description, Action onApply) GetLevelUps() {
         // shuffle levelUpOptions and get the first 2 (definitely not an optimal shuffle algorithm, but a simple and good-enough one)
         var levelUps = levelUpOptions.OrderBy(_ => Random.Range(0f, 1f)).Take(2).ToArray();
         var description =
              "Weapon Level Up!\n" +
             $"{StringOfWeaponLevelUp(levelUps[0])}\n" +
             $"{StringOfWeaponLevelUp(levelUps[1])}";
-        Action onApply = () =>
-        {
+        Action onApply = () => {
             foreach (var levelUp in levelUps)
                 ApplyLevelUp(levelUp);
         };
@@ -144,10 +140,8 @@ public class MargaritaThePomeranian : Weapon {
         barkTimer = Mathf.Min(barkTimer, 1 / FireRate);
     }
 
-    public void ApplyLevelUp(WeaponLevelUp levelUp)
-    {
-        switch (levelUp.type)
-        {
+    public void ApplyLevelUp(WeaponLevelUp levelUp) {
+        switch (levelUp.type) {
             case WeaponLevelUpType.Damage:
                 statModifiers.damage += levelUp.amount;
                 break;

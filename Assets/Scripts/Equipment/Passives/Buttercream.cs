@@ -10,8 +10,7 @@ Buttercream
     * Increases Max Health and % chance to heal
 */
 
-class Buttercream : Passive
-{
+class Buttercream : Passive {
     class State {
         public float healthIncrease = 0;
         public float healChance = 0;

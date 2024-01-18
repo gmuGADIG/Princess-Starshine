@@ -5,25 +5,20 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(PlayerHealth))]
-public class PlayerDeath : MonoBehaviour
-{
+public class PlayerDeath : MonoBehaviour {
     public PlayerHealth health;
     //public DifficultyManager difficulty;
     public GameOverScript gameOver;
     /* Unsure of how lives and difficulty is supposed to work */
     //public int lives = 3;
-    private void Start()
-    {
+    private void Start() {
         LoadObjects();
     }
     
     bool gameOvered = false;
-    private void Update()
-    {
-        if (health.isDead && !gameOvered)
-        {
-            if (gameOver != null)
-            {
+    private void Update() {
+        if (health.isDead && !gameOvered) {
+            if (gameOver != null) {
                 gameOver.DoGameOver();
                 gameOvered = true;
             }
@@ -32,32 +27,24 @@ public class PlayerDeath : MonoBehaviour
 
 
     // Reset is called when the script is loaded or reset in the inspector
-    private void Reset()
-    {
+    private void Reset() {
         LoadObjects();
     }
 
-    private void LoadObjects()
-    {
-        if(health == null)
-        {
-            if(TryGetComponent(out PlayerHealth health))
-            {
+    private void LoadObjects() {
+        if(health == null) {
+            if(TryGetComponent(out PlayerHealth health)) {
                 this.health = health;
-            } else
-            {
+            } else {
                 Debug.LogError("PlayerDeath requires a PlayerHealth component.");
             }
         }
-        if (gameOver == null)
-        {
+        if (gameOver == null) {
             GameOverScript gameOver = FindObjectOfType<GameOverScript>(true);
-            if(gameOver == null)
-            {
+            if(gameOver == null) {
                 Debug.LogError("PlayerDeath requires a GameOverScript in the scene.");
             }
-            else
-            {
+            else {
                 this.gameOver = gameOver;
             }
         }

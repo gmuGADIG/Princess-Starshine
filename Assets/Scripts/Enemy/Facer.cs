@@ -5,8 +5,7 @@ using UnityEngine;
 /// <summary>
 /// A component to flip a sprite based on whether or not the sprite is moving left or right.
 /// </summary>
-public class Facer : MonoBehaviour
-{
+public class Facer : MonoBehaviour {
     float prevX = 0f;
 
     SpriteRenderer sprite;

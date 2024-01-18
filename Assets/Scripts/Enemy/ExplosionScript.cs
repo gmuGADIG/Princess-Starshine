@@ -4,16 +4,14 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using static UnityEngine.GraphicsBuffer;
 
-public class ExplosionScript : MonoBehaviour
-{
+public class ExplosionScript : MonoBehaviour {
     private GameObject player;
     private Rigidbody2D rb;
     public float force;
     private float timer;
     private bool hasCollided = false;
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player");
 
@@ -25,19 +23,15 @@ public class ExplosionScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         timer += Time.deltaTime;
 
-        if (timer > 2)
-        {
+        if (timer > 2) {
             Destroy(gameObject);
         }
     }
-    void OnTriggerEnter2D(Collider2D collider)
-    {
-        if (collider.gameObject.CompareTag("Player") && hasCollided == false)
-        {
+    void OnTriggerEnter2D(Collider2D collider) {
+        if (collider.gameObject.CompareTag("Player") && hasCollided == false) {
             hasCollided = true;
             collider.gameObject.GetComponent<PlayerHealth>().decreaseHealth(20);
             Debug.Log("oh");

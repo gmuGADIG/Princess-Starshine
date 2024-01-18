@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FlocksOfAFeather : ProjectileWeapon
-{
+public class FlocksOfAFeather : ProjectileWeapon {
     [Tooltip("How far away the projectiles spin around the player.")]
     public float OrbitRadius = 1f;
 
@@ -15,8 +14,7 @@ public class FlocksOfAFeather : ProjectileWeapon
 
     bool shouldSound = true;
 
-    public override void ApplyLevelUp(WeaponLevelUp? levelUp)
-    {
+    public override void ApplyLevelUp(WeaponLevelUp? levelUp) {
         print("applylevelup");
         // apply the level up
         if (levelUp != null) {

@@ -3,8 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyBullet : MonoBehaviour
-{
+public class EnemyBullet : MonoBehaviour {
     Vector2 velocity;
 
     IEnumerator LifetimeHandler(float lifetime) {

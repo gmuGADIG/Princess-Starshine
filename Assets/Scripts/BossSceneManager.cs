@@ -5,8 +5,7 @@ using UnityEngine;
 /// <summary>
 /// Runs stuff at the start of boss scenes.
 /// </summary>
-public class BossSceneManager : MonoBehaviour
-{
+public class BossSceneManager : MonoBehaviour {
     public static bool InBossScene = false;
 
     // There is a boss, but the health has been disabled.
@@ -28,8 +27,7 @@ public class BossSceneManager : MonoBehaviour
     void Awake() { InBossScene = true; }
     void OnDestroy() { InBossScene = false; }
 
-    void Start()
-    {
+    void Start() {
     }
 
     public void AfterPreBossDialogue() {

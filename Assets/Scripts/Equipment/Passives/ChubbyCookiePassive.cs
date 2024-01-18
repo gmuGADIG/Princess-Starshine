@@ -1,8 +1,7 @@
 using System;
 using UnityEngine;
 
-public class ChubbyCookiePassive : Passive
-{
+public class ChubbyCookiePassive : Passive {
     //increase in weapon size
     public float projectileSizeIncrease = 1.5f;
     float state = 0f;
@@ -14,8 +13,7 @@ public class ChubbyCookiePassive : Passive
         return ("Increase weapon size", applyProjectileSize);
     }
 
-    public void applyProjectileSize()
-    {
+    public void applyProjectileSize() {
         state += projectileSizeIncrease;
         ProjectileWeapon.staticStatModifiers.size += projectileSizeIncrease;
     }

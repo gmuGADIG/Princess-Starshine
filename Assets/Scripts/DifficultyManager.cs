@@ -2,10 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DifficultyManager : MonoBehaviour
-{
-    public enum DifficultyLevel
-    {
+public class DifficultyManager : MonoBehaviour {
+    public enum DifficultyLevel {
         Easy,
         Normal,
         Hard
@@ -15,18 +13,15 @@ public class DifficultyManager : MonoBehaviour
     public float enemySpawnRate = 2f; // Default enemy spawn rate
     public float projectileFireRate = 0.5f; // Default projectile fire rate
 
-    private void Start()
-    {
+    private void Start() {
         SetDifficulty(currentDifficulty);
     }
 
-    public void SetDifficulty(DifficultyLevel newDifficulty)
-    {
+    public void SetDifficulty(DifficultyLevel newDifficulty) {
         currentDifficulty = newDifficulty;
 
         // Adjust gameplay parameters based on difficulty
-        switch (currentDifficulty)
-        {
+        switch (currentDifficulty) {
             case DifficultyLevel.Easy:
                 enemySpawnRate = 1f; // Slower enemy spawn rate
                 projectileFireRate = 0.7f; // Slower projectile fire rate

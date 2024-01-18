@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyProjOnDeath : MonoBehaviour
-{
+public class EnemyProjOnDeath : MonoBehaviour {
     [Tooltip("The projectile that the enemy shoots.")]
     public GameObject bullet;
 
@@ -16,8 +15,7 @@ public class EnemyProjOnDeath : MonoBehaviour
     [Tooltip("How much damage the bullet will do.")]
     public float bulletDamage = 2f;
 
-    void OnDisable()
-    {
+    void OnDisable() {
         if(!gameObject.scene.isLoaded) return; // Prevents instantiating bullet when scene isn't loaded
         var projectile = Instantiate(bullet, transform.position, Quaternion.identity).GetComponent<EnemyBullet>();
 

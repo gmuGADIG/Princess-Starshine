@@ -75,8 +75,7 @@ class Moving : IHellevatorState {
     }
 }
 
-public class Hellevator : MonoBehaviour
-{
+public class Hellevator : MonoBehaviour {
     public float speed = 2f;
     public Animator titleAnimator;
     public TMP_Text levelTitle;
@@ -116,8 +115,7 @@ public class Hellevator : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         if (optionsMenuOpen) { return; }
 
         state.Update(this);

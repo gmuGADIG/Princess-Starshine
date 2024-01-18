@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class IBossMovement : MonoBehaviour
-{
+public abstract class IBossMovement : MonoBehaviour {
 
 }

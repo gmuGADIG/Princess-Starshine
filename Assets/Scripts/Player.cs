@@ -7,8 +7,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Player : MonoBehaviour
-{
+public class Player : MonoBehaviour {
     public static Player instance;
     
     // acceleration is by default set to 80, maxSpeed is set to 10, and deceleration is set to 30
@@ -143,8 +142,7 @@ public class Player : MonoBehaviour
         wall = FindObjectOfType<Wall>();
     }
 
-    void Update()
-    {
+    void Update() {
         // Kill the player if a keybind is pressed
         if (Application.isEditor && Input.GetKey(KeyCode.B) && Input.GetKey(KeyCode.L))
             GetComponent<PlayerHealth>().decreaseHealth(2 << 28); // is she hurt enough?
@@ -159,12 +157,10 @@ public class Player : MonoBehaviour
 
         //check to see if the character is stationary or not
 
-        if(input == Vector2.zero)
-        {
+        if(input == Vector2.zero) {
             playerAnimator.SetBool("Moving", false);
         }
-        else
-        {
+        else {
             playerAnimator.SetBool("Moving", true);
 
         }
@@ -223,8 +219,7 @@ public class Player : MonoBehaviour
             collisions
         );
 
-        for (int i = 0; i < hits; i++)
-        {
+        for (int i = 0; i < hits; i++) {
             OnCollision(collisions[i]);
         }
 
@@ -234,12 +229,9 @@ public class Player : MonoBehaviour
         if (immuneTime < 0) immuneTime = 0;
     }
 
-    void UsedConsumable()
-    {
-        if (Input.GetKeyDown("space") || Input.GetKeyDown("x"))
-        {
-            if (heldConsumable != Consumable.Type.None && Consumable.CanApply(heldConsumable))
-            {
+    void UsedConsumable() {
+        if (Input.GetKeyDown("space") || Input.GetKeyDown("x")) {
+            if (heldConsumable != Consumable.Type.None && Consumable.CanApply(heldConsumable)) {
                 Consumable.Apply(heldConsumable);
                 Debug.Log("Player.cs: Consumed Successfully");
                 heldConsumable = Consumable.Type.None;
@@ -273,8 +265,7 @@ public class Player : MonoBehaviour
         if (twirlRechargeTimeLeft <= 0) {
             twirlRechargeTimeLeft = twirlCooldown;
             print("recharging twirl");
-            if (curTwirlCharges < maxTwirlCharges)
-            {
+            if (curTwirlCharges < maxTwirlCharges) {
                 curTwirlCharges += 1;
                 InGameUI.UpdateTwirls(curTwirlCharges);                
             }
@@ -291,8 +282,7 @@ public class Player : MonoBehaviour
     }
 
     //current placeholder for xp function
-    public void AddXP(float points, bool playSound = true) 
-    {
+    public void AddXP(float points, bool playSound = true)  {
         cumulativeXpPoints += points;
         xpThisLevel += points;
         if (playSound) {
@@ -300,8 +290,7 @@ public class Player : MonoBehaviour
         }
 
         var goal = XpLevelUpGoal();
-        if (xpThisLevel >= goal)
-        {
+        if (xpThisLevel >= goal) {
             xpThisLevel -= goal;
             xpLevel += 1;
             onLevelUp?.Invoke(xpLevel, cumulativeXpPoints);
@@ -316,8 +305,7 @@ public class Player : MonoBehaviour
         AddXP(XpLevelUpGoal() - xpThisLevel);
     }
 
-    void OnCollision(RaycastHit2D hit)
-    {
+    void OnCollision(RaycastHit2D hit) {
         if (hit.collider.CompareTag("xp")) {
             var xpObj = hit.transform.gameObject.GetComponent<XpOrb>();
             AddXP(xpObj.points);
@@ -325,33 +313,28 @@ public class Player : MonoBehaviour
         }
 
         //else if (hit.collider.CompareTag("Enemy")|| hit.collider.CompareTag("WallOfFire") || hit.collider.CompareTag("EnemyProjectile"))
-        else if (hit.collider.TryGetComponent<Damage>(out var damage) && damage.enabled)
-        {
+        else if (hit.collider.TryGetComponent<Damage>(out var damage) && damage.enabled) {
             if (isTwirling) return;
             if (immuneTime > 0) return;
             
             OnAttacked(damage.damage);
         }
 
-        else if (hit.collider.CompareTag("Consumable"))
-        {
+        else if (hit.collider.CompareTag("Consumable")) {
             Consumable consumable = hit.collider.gameObject.GetComponent<Consumable>();
 
             // if we already have a consumable, stop here
-            if (heldConsumable != Consumable.Type.None && consumable.ConsumableType != Consumable.Type.Health)
-            {
+            if (heldConsumable != Consumable.Type.None && consumable.ConsumableType != Consumable.Type.Health) {
                 return;
             }
 
             Debug.Log("Hit consumable " + consumable.ConsumableType);
 
             // if the consumable is health, use it now
-            if (consumable.ConsumableType == Consumable.Type.Health)
-            {
+            if (consumable.ConsumableType == Consumable.Type.Health) {
                 Consumable.Apply(Consumable.Type.Health);
             }
-            else // otherwise just hold onto it
-            {
+            else // otherwise just hold onto it {
                 heldConsumable = consumable.ConsumableType;
                 PickedUpConsumable?.Invoke(consumable);
             }
@@ -362,8 +345,7 @@ public class Player : MonoBehaviour
     }
 
     //void OnAttacked(GameObject enemy)
-    void OnAttacked(float damage)
-    {
+    void OnAttacked(float damage) {
         immuneTime = ImmunityTimeBetweenHits;
         GetComponent<PlayerHealth>().decreaseHealth(damage);
         //print("oww!");

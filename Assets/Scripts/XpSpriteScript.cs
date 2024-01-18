@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class XpSpriteScript : MonoBehaviour
-{
+public class XpSpriteScript : MonoBehaviour {
 
     public SpriteRenderer spriteRenderer;
 
@@ -11,22 +10,19 @@ public class XpSpriteScript : MonoBehaviour
     public Sprite sprite2;
     public Sprite sprite3;
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
 
         //choose a random sprite to be
 
         int spriteNumber = Random.Range(1, 3);
 
-        if(spriteNumber == 2)
-        {
+        if(spriteNumber == 2) {
 
             spriteRenderer.sprite = sprite2;
 
         }
 
-        if (spriteNumber == 3)
-        {
+        if (spriteNumber == 3) {
 
             spriteRenderer.sprite = sprite3;
 
@@ -47,8 +43,7 @@ public class XpSpriteScript : MonoBehaviour
 
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         
     }
 }

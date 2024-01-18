@@ -1,8 +1,7 @@
 using System;
 using UnityEngine;
 
-public class PlayerHealth : MonoBehaviour
-{
+public class PlayerHealth : MonoBehaviour {
     public Action PlayerDied;
 
     [Tooltip("The player's max health.")]
@@ -24,8 +23,7 @@ public class PlayerHealth : MonoBehaviour
     [Tooltip("The amount the player heals per second.")]
     [SerializeField] float passiveHealAmount;
 
-    void Start()
-    {
+    void Start() {
         defaultDamageTakenMultiplier = damageTakenMultiplier;
         tempHealth = maxHealth;
         InGameUI.SetHp(1f);
@@ -37,8 +35,7 @@ public class PlayerHealth : MonoBehaviour
         increaseHealth(passiveHealAmount * Time.deltaTime);
     }
 
-    public void decreaseHealth(float num)
-    {
+    public void decreaseHealth(float num) {
         if (!invincible && !BossSceneManager.InPostDialogue) {
             SoundManager.Instance.PlaySoundGlobal(Player.instance.takeDamageSound);
 
@@ -56,8 +53,7 @@ public class PlayerHealth : MonoBehaviour
 
     }
 
-    public void increaseHealth(float num)
-    {
+    public void increaseHealth(float num) {
         tempHealth += num;
 
         if (tempHealth > maxHealth) {

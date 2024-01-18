@@ -8,8 +8,7 @@ public class FrozenEquipment {
     public object Data;
 }
 
-public class SaveData 
-{
+public class SaveData  {
     public int NextLevel;
     public List<FrozenEquipment> frozenEquipment = new();
     public int PlayerLevel = 1;

@@ -4,8 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class BalloonAnimalProjectile : Projectile
-{
+public class BalloonAnimalProjectile : Projectile {
     GameObject explosionPrefab;
     string explosionSoundName;
     float explosionSize;
@@ -17,8 +16,7 @@ public class BalloonAnimalProjectile : Projectile
     float rotationalVelocity;
     SpriteRenderer sprite;
 
-    public override void Setup(ProjectileWeapon weapon, Vector2 target, float damage, int pierceCount, float speed, float knockback, float size, float dotRate)
-    {
+    public override void Setup(ProjectileWeapon weapon, Vector2 target, float damage, int pierceCount, float speed, float knockback, float size, float dotRate) {
         base.Setup(weapon, target, damage, pierceCount, speed, knockback, size, dotRate);
 
         BalloonAnimal ba = (BalloonAnimal)weapon;
@@ -61,8 +59,7 @@ public class BalloonAnimalProjectile : Projectile
         sprite.transform.rotation *= Quaternion.Euler(0, 0, rotationalVelocity * Time.deltaTime);
     }
 
-    private void UpdateSize()
-    {
+    private void UpdateSize() {
         // set the intervals in which the balloon grows (numbers based on the inflating sound file)
         const float
             firstInflateStart = 0.5f,

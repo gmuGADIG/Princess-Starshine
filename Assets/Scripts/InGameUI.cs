@@ -6,8 +6,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InGameUI : MonoBehaviour
-{
+public class InGameUI : MonoBehaviour {
     private static InGameUI instance;
 
     [SerializeField] float secondHealthBarDelay = 1f;
@@ -27,13 +26,11 @@ public class InGameUI : MonoBehaviour
 
     float secondHealthBarTarget = 1;
     
-    void Awake()
-    {
+    void Awake() {
         instance = this;
     }
 
-    private void Update()
-    {
+    private void Update() {
         instance.secondHPBarMask.fillAmount = Mathf.Lerp(instance.secondHPBarMask.fillAmount, secondHealthBarTarget, secondHealthBarCorrectionSpeed * Time.deltaTime);
     }
 
@@ -41,25 +38,21 @@ public class InGameUI : MonoBehaviour
      * Updates the xp bar based on the given values.
      * fractionalLevelProgress should be in the range 0 to 1.
      */
-    public static void SetXp(int currentLevel, float fractionalLevelProgress)
-    {
+    public static void SetXp(int currentLevel, float fractionalLevelProgress) {
         instance.xpBarMask.fillAmount = fractionalLevelProgress;
         instance.xpBarText.text = "lvl " + currentLevel;
     }
 
-    public static void UpdateItems()
-    {
+    public static void UpdateItems() {
         SetItemList(instance.passives, EquipmentManager.instance.EquippedPassiveIcons());
         SetItemList(instance.weapons, EquipmentManager.instance.EquippedWeaponIcons());
     }
 
-    public static void UpdateTwirls(int count)
-    {
+    public static void UpdateTwirls(int count) {
         // TODO: make this method cope with the count being higher than the number of children
 
         var twirlsDrawn = 0;
-        foreach (Transform child in instance.twirlParent)
-        {
+        foreach (Transform child in instance.twirlParent) {
             var image = child.GetComponent<Image>();
             image.sprite =
                 twirlsDrawn < count
@@ -73,23 +66,19 @@ public class InGameUI : MonoBehaviour
      * Updates the hp bar based on the given values.
      * fractionalHp should be in the range 0 to 1.
      */
-    public static void SetHp(float fractionalHp)
-    {
-        if (instance.isActiveAndEnabled)
-        {
+    public static void SetHp(float fractionalHp) {
+        if (instance.isActiveAndEnabled) {
             instance.hpBarMask.fillAmount = fractionalHp;
             instance.StartCoroutine(SetSecondHP(fractionalHp));
         }
     }
 
-    public static IEnumerator SetSecondHP(float fractionalHp)
-    {
+    public static IEnumerator SetSecondHP(float fractionalHp) {
         yield return new WaitForSeconds(instance.secondHealthBarDelay);
         instance.secondHealthBarTarget = fractionalHp;
     }
 
-    private static void SetItemList(Transform group, List<Texture> icons)
-    {
+    private static void SetItemList(Transform group, List<Texture> icons) {
         for (int idx = 0; idx < group.childCount; idx++) {
             var image = group.GetChild(idx).GetComponent<RawImage>();
             image.texture = idx < icons.Count ? icons[idx] : instance.emptyItem;

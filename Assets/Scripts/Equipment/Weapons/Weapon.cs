@@ -5,8 +5,7 @@ using UnityEngine;
 // please recitfy the code in Consumable.OverpoweredBuffPayload
 
 [Serializable]
-public abstract class Weapon : Equipment
-{
+public abstract class Weapon : Equipment {
     /** The LevelUps that this weapon is capable of receiving on an upgrade. */
     public WeaponLevelUp[] levelUpOptions;
     

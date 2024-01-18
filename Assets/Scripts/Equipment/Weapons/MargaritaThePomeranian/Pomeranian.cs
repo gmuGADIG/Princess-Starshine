@@ -106,8 +106,7 @@ class TwirlReaction : IPomeranianState {
     }
 }
 
-public class Pomeranian : MonoBehaviour
-{
+public class Pomeranian : MonoBehaviour {
     [HideInInspector]
     public float Speed = 3f;
     public float PauseTime = .5f;
@@ -118,8 +117,7 @@ public class Pomeranian : MonoBehaviour
     Type lastState;
 
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         anim = GetComponentInChildren<Animator>();
         state = new MoveToEnemy(null);
 
@@ -130,18 +128,14 @@ public class Pomeranian : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         state.Update(this);
         state = state.NewState(this);
-        if (state.GetType() != lastState)
-        {
-            if (state is MoveToEnemy)
-            {
+        if (state.GetType() != lastState) {
+            if (state is MoveToEnemy) {
                 anim.Play("Margarita_Idle");
             }
-            else if (state is Waiting)
-            {
+            else if (state is Waiting) {
                 anim.Play("Margarita_Bark");
             }
             lastState = state.GetType();

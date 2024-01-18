@@ -6,8 +6,7 @@ interface ICupquakeTarget {
     void RenderLine(CupquakeProjectile projectile, LineRenderer line);
 }
 
-class CTPosition : ICupquakeTarget
-{
+class CTPosition : ICupquakeTarget {
     Vector3 target;
     public CTPosition(Vector3 target) {
         this.target = target;
@@ -22,8 +21,7 @@ class CTPosition : ICupquakeTarget
         line.SetPositions(new Vector3[] { projectile.transform.position, target });
     }
 }
-class CTGameObject : ICupquakeTarget
-{
+class CTGameObject : ICupquakeTarget {
     GameObject target;
 
     public CTGameObject(GameObject target) {
@@ -52,8 +50,7 @@ class CupquakeProjectile : Projectile {
 
     bool alt;
 
-    public override void Setup(ProjectileWeapon weapon, Vector2 target, float damage, int pierceCount, float speed, float knockback, float size, float dotRate)
-    {
+    public override void Setup(ProjectileWeapon weapon, Vector2 target, float damage, int pierceCount, float speed, float knockback, float size, float dotRate) {
         // use CupquakeProjectile.SetupExt
         throw new NotSupportedException();
     }
@@ -92,8 +89,7 @@ class CupquakeProjectile : Projectile {
         line = GetComponentInChildren<LineRenderer>(true);
     }
 
-    protected override void Move()
-    {
+    protected override void Move() {
         // we just want to move down
         transform.position += Vector3.down * speed * Time.deltaTime;
 

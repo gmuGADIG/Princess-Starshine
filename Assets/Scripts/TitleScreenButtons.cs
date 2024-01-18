@@ -6,16 +6,14 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 
-public class TitleSceenButtons : MonoBehaviour
-{
+public class TitleSceenButtons : MonoBehaviour {
     public string firstLevelSceneName; // update with level scene name once we have one
     public string savedLevelSceneName; // create function that tracks the level the player is on
     public GameObject OptionsUI;       // saves options ui prefab to toggle on/off, this script toggles ON
 
     [SerializeField] Sprite galaxyButton;
 
-    public void Start()
-    {
+    public void Start() {
         var levelNum = SaveManager.SaveData.NextLevel;
         var saveValid = levelNum <= 7 && levelNum >= 2; // precondition for level preview menu
 
@@ -23,12 +21,10 @@ public class TitleSceenButtons : MonoBehaviour
         var newRunButton = transform.Find("NewRunButton").GetComponent<RectTransform>();
         if (continueButton == null || newRunButton == null) throw new Exception("Title screen is missing some buttons! requires 'ContinueButton' and 'NewRunButton'");
 
-        if (saveValid)
-        {
+        if (saveValid) {
             continueButton.sizeDelta *= 1.3f;
         }
-        else
-        {
+        else {
             continueButton.gameObject.SetActive(false);
 
             newRunButton.sizeDelta *= 1.3f;
@@ -37,28 +33,24 @@ public class TitleSceenButtons : MonoBehaviour
         }
     }
 
-    public void ContinueButton()
-    {
+    public void ContinueButton() {
         // retrieve player data
         SceneManager.LoadScene(savedLevelSceneName);
         //Debug.Log("continue");
     }
 
-    public void NewRunButton()
-    {
+    public void NewRunButton() {
         SaveManager.ClearSaveData();
         SceneManager.LoadScene(firstLevelSceneName); 
         //Debug.Log("newrun");
     }
 
-    public void OptionsButton()
-    {
+    public void OptionsButton() {
         // load options
         OptionsUI.SetActive(true); 
     }
 
-    public void QuitButton()
-    {
+    public void QuitButton() {
         // quits game if not in platymode
         Application.Quit();
     }

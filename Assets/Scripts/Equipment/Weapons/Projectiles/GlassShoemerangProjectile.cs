@@ -11,8 +11,7 @@ public class GlassShoemerangProjectile : Projectile {
 
     Vector2 accel;
 
-    public override void Setup(ProjectileWeapon weapon, Vector2 target, float damage, int pierceCount, float speed, float knockback, float size, float dotRate)
-    {
+    public override void Setup(ProjectileWeapon weapon, Vector2 target, float damage, int pierceCount, float speed, float knockback, float size, float dotRate) {
         base.Setup(weapon, target, damage, pierceCount, speed, knockback, size, dotRate);
         
         maxLifeTime = 10;
@@ -30,8 +29,7 @@ public class GlassShoemerangProjectile : Projectile {
         accel = -velocity / decelerationTime;
     }
 
-    protected override void Update()
-    {
+    protected override void Update() {
         base.Update();
 
         transform.Rotate(Vector3.forward * rotationalSpeed * Time.deltaTime);

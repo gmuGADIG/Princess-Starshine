@@ -4,8 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
-enum BossWeaponType
-{
+enum BossWeaponType {
     MachineGun,
     Puddle,
     Orbit,
@@ -14,8 +13,7 @@ enum BossWeaponType
     None
 }
 
-public enum BossMovementType
-{
+public enum BossMovementType {
     Wander,
     Flee,
     Agressive,
@@ -23,8 +21,7 @@ public enum BossMovementType
 }
 
 
-public enum BossEnemySpawnLocation
-{
+public enum BossEnemySpawnLocation {
     OffScreen,
     OnScreen,
     OnBoss,
@@ -33,8 +30,7 @@ public enum BossEnemySpawnLocation
 }
 
 [Serializable]
-public struct MachineGun
-{
+public struct MachineGun {
     [Tooltip("The damage the machine gun does")]
     public float machineGunDamage;
     [Tooltip("The time in seconds to fire a projectile")]
@@ -54,8 +50,7 @@ public struct MachineGun
 }
 
 [Serializable]
-public struct Puddle
-{
+public struct Puddle {
     [Tooltip("How fast the puddles are spawned in seconds")]
     public float puddleSpawnTime;
     [Tooltip("How long a puddles exists before destroying itself")]
@@ -79,8 +74,7 @@ public struct Puddle
 }
 
 [Serializable]
-public struct Orbit
-{
+public struct Orbit {
     [Tooltip("The damage the projectile")]
     public float orbitDamage;
     [Tooltip("The amount of time the projectile takes to go around the circle: SMALL TIMES LOOK BROKEN")]
@@ -106,8 +100,7 @@ public struct Orbit
 }
 
 [Serializable]
-public struct Melee
-{
+public struct Melee {
     public float meleeDamage;
     public float radius;
     public float hitboxTime;
@@ -118,16 +111,14 @@ public struct Melee
 }
 
 [Serializable]
-public struct EnemySpawn
-{
+public struct EnemySpawn {
     public BossEnemySpawnLocation enemySpawnLocation;
     public GameObject enemy;
     public int enemyQuantity;
     public float additionalDelay;
 }
 
-public class BossWeapon : MonoBehaviour
-{
+public class BossWeapon : MonoBehaviour {
 
     public float timeBetweenAttacks;
     [Header("Machine Gun")]
@@ -178,36 +169,28 @@ public class BossWeapon : MonoBehaviour
    
 
 
-    void Start()
-    {
+    void Start() {
         meleeEnabled = false;
 
-        if(puddle.spawnOnBoss && puddle.spawnOnPlayer)
-        {
+        if(puddle.spawnOnBoss && puddle.spawnOnPlayer) {
             Debug.LogError("PUDDLE WEAPON: Spawning isn't set correctly only select one of the spawn on boxes");
         }
-        if(melee.numberRepeat == 0)
-        {
+        if(melee.numberRepeat == 0) {
             melee.numberRepeat = 1;
         }
-        if(!machineGunEnabled)
-        {
+        if(!machineGunEnabled) {
             machineGunFrequency = 0;
         }
-        if(!puddleEnabled)
-        {
+        if(!puddleEnabled) {
             puddleFrequency = 0;
         }
-        if(!orbitEnabled)
-        {
+        if(!orbitEnabled) {
             orbitFrequency = 0;
         }
-        if (!meleeEnabled)
-        {
+        if (!meleeEnabled) {
             meleeFrequency = 0;
         }
-        if(!enemySpawnEnabled)
-        {
+        if(!enemySpawnEnabled) {
             enemySpawnFrequency = 0;
         }
         frequencyTotal = machineGunFrequency + puddleFrequency + orbitFrequency + meleeFrequency + enemySpawnFrequency;
@@ -215,21 +198,17 @@ public class BossWeapon : MonoBehaviour
         orbitFrequency += puddleFrequency;
         meleeFrequency += orbitFrequency;
         enemySpawnFrequency += meleeFrequency;
-        if(frequencyTotal == 0)
-        {
+        if(frequencyTotal == 0) {
             Debug.LogError("Nothing is Enabled or has a frequency");
         }
-        if (meleeEnabled)
-        {
+        if (meleeEnabled) {
             meleeCollider.enabled = false;
             meleeCollider.radius = melee.radius;
         }
-        if(!TryGetComponent<IBossMovement>(out startMovement))
-        {
+        if(!TryGetComponent<IBossMovement>(out startMovement)) {
             Debug.LogError("BOSS HAS NO MOVEMENT");
         }
-        switch (melee.movementType)
-        {
+        switch (melee.movementType) {
             case BossMovementType.Agressive:
                 meleeMovement = gameObject.AddComponent<BossMovementAggressive>();
                 break;
@@ -246,84 +225,68 @@ public class BossWeapon : MonoBehaviour
                 break;
         }
         if (meleeMovement == null) { }
-        else
-        {
+        else {
             meleeMovement.enabled = false;
         }
     }
 
-    void Update()
-    {
-        if(attackTimer < timeBetweenAttacks)
-        {
+    void Update() {
+        if(attackTimer < timeBetweenAttacks) {
             attackTimer += Time.deltaTime;
             return;
         }
-        if (!isAttacking)
-        {
+        if (!isAttacking) {
             float randomNumber = UnityEngine.Random.Range(0.0f, frequencyTotal);
-            if (randomNumber <= machineGunFrequency && machineGunEnabled)
-            {
+            if (randomNumber <= machineGunFrequency && machineGunEnabled) {
                 currentWeapon = BossWeaponType.MachineGun;
                 bulletCount = 0;
-                if (machinegun.aimAtPlayer)
-                {
+                if (machinegun.aimAtPlayer) {
                     GetPlayerTarget();
                 }
-                else
-                {
+                else {
                     Rect camBox = TeaTime.cameraBoundingBox();
                     target = new GameObject();
                     target.transform.position = camBox.center;
                 }
                 //Machine Gun
             }
-            else if (randomNumber <= puddleFrequency && puddleEnabled)
-            {
+            else if (randomNumber <= puddleFrequency && puddleEnabled) {
                 currentWeapon = BossWeaponType.Puddle;
                 puddleCount = 0;
-                if (puddle.spawnOnPlayer)
-                {
+                if (puddle.spawnOnPlayer) {
                     GetPlayerTarget();
                 }
                 //Puddle
             }
-            else if (randomNumber <= orbitFrequency && orbitEnabled)
-            {
+            else if (randomNumber <= orbitFrequency && orbitEnabled) {
                 currentWeapon = BossWeaponType.Orbit;
                 orbitDurationTimer = 0;
                 orbitSpawned = false;
                 //Orbit
             }
-            else if (randomNumber <= meleeFrequency && meleeEnabled)
-            {
+            else if (randomNumber <= meleeFrequency && meleeEnabled) {
                 currentWeapon = BossWeaponType.Melee;
                 repeatCount = 0;
                 startMovement.enabled = false;
                 if (meleeMovement == null) { }
-                else
-                {
+                else {
                     meleeMovement.enabled = true;
                 }
                 //melee
             }
-            else if (randomNumber <= enemySpawnFrequency && enemySpawnEnabled)
-            {
+            else if (randomNumber <= enemySpawnFrequency && enemySpawnEnabled) {
                 currentWeapon = BossWeaponType.EnemySpawn;
                 additionalDelayTimer = 0;
                 spawnedEnemies = false;
                 //Enemy Spawns
             }
-            else
-            {
+            else {
                 Debug.LogError("Somehow the random generator broke");
             }
             isAttacking = true;
         }
-        else
-        {
-            switch (currentWeapon)
-            {
+        else {
+            switch (currentWeapon) {
                 case BossWeaponType.MachineGun:
                     MachineGun();
                     break;
@@ -350,25 +313,19 @@ public class BossWeapon : MonoBehaviour
         }
     }
 
-    private void MachineGun()
-    {
-        if(shotTimer < machinegun.fireRate)
-        {
+    private void MachineGun() {
+        if(shotTimer < machinegun.fireRate) {
             shotTimer += Time.deltaTime;
             return;
         }
-        else
-        {
-            if(machinegun.bulletQuantity < bulletCount)
-            {
+        else {
+            if(machinegun.bulletQuantity < bulletCount) {
                 isAttacking = false;
                 attackTimer = 0;
                 return;
             }
-            else
-            {
-                if (!machinegun.shootFromCorner)
-                {
+            else {
+                if (!machinegun.shootFromCorner) {
                     Vector3 currentPos = transform.position;
                     Vector3 targetPos = target.transform.position;
                     Vector2 triangle = currentPos - targetPos;
@@ -377,16 +334,13 @@ public class BossWeapon : MonoBehaviour
                     Vector2 velocity = new Vector2(Mathf.Cos(fireAngle), Mathf.Sin(fireAngle));
 
                     GameObject proj = Instantiate(machinegun.machineGunProjectile, currentPos, Quaternion.identity);
-                    if (proj.TryGetComponent<BossProjectile>(out var bossProjectile))
-                    {
+                    if (proj.TryGetComponent<BossProjectile>(out var bossProjectile)) {
                         bossProjectile.Setup(velocity, machinegun.machineGunDamage, machinegun.bulletSpeed, 5);
                     }
                     bulletCount++;
                 }
-                else
-                {
-                    for (int i = 0; i < 4; i++)
-                    {
+                else {
+                    for (int i = 0; i < 4; i++) {
                         Rect camBox = TeaTime.cameraBoundingBox();
                         Vector3 currentPos;
                         switch (i) {
@@ -413,8 +367,7 @@ public class BossWeapon : MonoBehaviour
                         Vector2 velocity = new Vector2(Mathf.Cos(fireAngle), Mathf.Sin(fireAngle));
 
                         GameObject proj = Instantiate(machinegun.machineGunProjectile, currentPos, Quaternion.identity);
-                        if (proj.TryGetComponent<BossProjectile>(out var bossProjectile))
-                        {
+                        if (proj.TryGetComponent<BossProjectile>(out var bossProjectile)) {
                             bossProjectile.Setup(velocity, machinegun.machineGunDamage, machinegun.bulletSpeed, 5);
                         }
                     }
@@ -425,112 +378,90 @@ public class BossWeapon : MonoBehaviour
         }
     }
 
-    private void RandomPuddle()
-    {
-        if (puddleSpawnTimer > puddle.puddleSpawnTime)
-        {
-            if (puddleCount < puddle.spawnQuantity)
-            {
+    private void RandomPuddle() {
+        if (puddleSpawnTimer > puddle.puddleSpawnTime) {
+            if (puddleCount < puddle.spawnQuantity) {
                 Rect camBox = TeaTime.cameraBoundingBox();
                 Vector3 puddlePos = new Vector3(UnityEngine.Random.Range(camBox.xMin, camBox.xMax), UnityEngine.Random.Range(camBox.yMin, camBox.yMax), 0);
                 GameObject temp = Instantiate(puddle.puddleObject, puddlePos, new Quaternion(0, 0, 0, 0));
                 PuddleProjectile puddleProj = null;
                 temp.TryGetComponent<PuddleProjectile>(out puddleProj);
-                if (puddleProj == null)
-                {
+                if (puddleProj == null) {
                     Debug.LogError("Puddle Projectile doesn't have the PuddleProjectile script");
                 }
                 puddleProj.Setup(puddle.puddleDamage, puddle.puddleAliveTime, puddle.puddleSizeChange, puddle.damageDelay, puddle.puddleSizeChangeAfterDelay);
                 puddleCount++;
                 puddleSpawnTimer = 0;
             }
-            else
-            {
+            else {
                 attackTimer = 0;
                 isAttacking = false;
                 return;
             }
         }
-        else
-        {
+        else {
             puddleSpawnTimer += Time.deltaTime;
         }
     }
-    private void PuddleOnPlayer()
-    {
-        if(puddleSpawnTimer > puddle.puddleSpawnTime)
-        {
-            if (puddleCount < puddle.spawnQuantity)
-            {
+    private void PuddleOnPlayer() {
+        if(puddleSpawnTimer > puddle.puddleSpawnTime) {
+            if (puddleCount < puddle.spawnQuantity) {
                 Vector3 targetPos = target.transform.position;
                 GameObject temp = Instantiate(puddle.puddleObject, targetPos, new Quaternion());
                 PuddleProjectile puddleProj = null;
                 temp.TryGetComponent<PuddleProjectile>(out puddleProj);
-                if (puddleProj == null)
-                {
+                if (puddleProj == null) {
                     Debug.LogError("Puddle Projectile doesn't have the PuddleProjectile script");
                 }
                 puddleProj.Setup(puddle.puddleDamage, puddle.puddleAliveTime, puddle.puddleSizeChange, puddle.damageDelay, puddle.puddleSizeChangeAfterDelay);
                 puddleCount++;
                 puddleSpawnTimer = 0;
             }
-            else
-            {
+            else {
                 attackTimer = 0;
                 isAttacking = false;
                 return;
             }
         }
-        else
-        {
+        else {
             puddleSpawnTimer += Time.deltaTime;
         }
     }
 
-    private void PuddleOnBoss()
-    {
-        if (puddleSpawnTimer > puddle.puddleSpawnTime)
-        {
-            if (puddleCount < puddle.spawnQuantity)
-            {
+    private void PuddleOnBoss() {
+        if (puddleSpawnTimer > puddle.puddleSpawnTime) {
+            if (puddleCount < puddle.spawnQuantity) {
                 Vector3 targetPos = gameObject.transform.position;
                 GameObject temp = Instantiate(puddle.puddleObject, targetPos, new Quaternion());
                 PuddleProjectile puddleProj = null;
                 temp.TryGetComponent<PuddleProjectile>(out puddleProj);
-                if (puddleProj == null)
-                {
+                if (puddleProj == null) {
                     Debug.LogError("Puddle Projectile doesn't have the PuddleProjectile script");
                 }
                 puddleProj.Setup(puddle.puddleDamage, puddle.puddleAliveTime, puddle.puddleSizeChange, puddle.damageDelay, puddle.puddleSizeChangeAfterDelay);
                 puddleCount++;
                 puddleSpawnTimer = 0;
             }
-            else
-            {
+            else {
                 attackTimer = 0;
                 isAttacking = false;
                 return;
             }
         }
-        else
-        {
+        else {
             puddleSpawnTimer += Time.deltaTime;
         }
     }
 
-    private void Orbit()
-    {
-        if (!orbitSpawned)
-        {
+    private void Orbit() {
+        if (!orbitSpawned) {
             float angleBetweenProj = ((2 * Mathf.PI) / orbit.projectileQuantity);
-            for (int i = 0; i < orbit.projectileQuantity; i++)
-            {
+            for (int i = 0; i < orbit.projectileQuantity; i++) {
                 GameObject temp = Instantiate(orbit.orbitObject, gameObject.transform);
                 temp.transform.position = new Vector3(orbit.distanceFromBoss * Mathf.Cos(i * angleBetweenProj), orbit.distanceFromBoss * Mathf.Sin(i * angleBetweenProj))+gameObject.transform.position;
                 OrbitProjectile orbitProj = null;
                 temp.TryGetComponent<OrbitProjectile>(out orbitProj);
-                if (orbitProj == null)
-                {
+                if (orbitProj == null) {
                     Debug.LogError("Orbit Prefab missing OribitProjectile script");
                     return;
                 }
@@ -539,8 +470,7 @@ public class BossWeapon : MonoBehaviour
             }
             orbitSpawned = true;
         }
-        if(orbitDurationTimer >= orbit.duration)
-        {
+        if(orbitDurationTimer >= orbit.duration) {
             isAttacking = false;
             attackTimer = 0;
             return;
@@ -548,15 +478,11 @@ public class BossWeapon : MonoBehaviour
         orbitDurationTimer += Time.deltaTime;
     }
 
-    public void Melee()
-    {
-        if(speedTimer >= melee.speed)
-        {
-            if(repeatCount < melee.numberRepeat)
-            {
+    public void Melee() {
+        if(speedTimer >= melee.speed) {
+            if(repeatCount < melee.numberRepeat) {
                 if (meleeMovement == null) { }
-                else
-                {
+                else {
                     meleeMovement.enabled = false;
                 }
                 meleeCollider.enabled = true;
@@ -564,11 +490,9 @@ public class BossWeapon : MonoBehaviour
                 speedTimer = 0;
                 repeatCount++;
             }
-            else
-            {
+            else {
                 if (meleeMovement == null) { }
-                else
-                {
+                else {
                     meleeMovement.enabled = false;
                 }
                 startMovement.enabled = true;
@@ -578,11 +502,9 @@ public class BossWeapon : MonoBehaviour
                 return;
             }
         }
-        if(hitboxTimer >= melee.hitboxTime)
-        {
+        if(hitboxTimer >= melee.hitboxTime) {
             if (meleeMovement == null){}
-            else
-            {
+            else {
                 meleeMovement.enabled = true;
             }
             meleeCollider.enabled = false;
@@ -591,74 +513,59 @@ public class BossWeapon : MonoBehaviour
         speedTimer += Time.deltaTime;
     }
 
-    public void EnemySpawn()
-    {
+    public void EnemySpawn() {
         GameObject temp;
         Rect camBox = TeaTime.cameraBoundingBox();
-        if (!spawnedEnemies)
-        {
-            switch (enemySpawn.enemySpawnLocation)
-            {
+        if (!spawnedEnemies) {
+            switch (enemySpawn.enemySpawnLocation) {
                 case BossEnemySpawnLocation.OffScreen:
-                    for (int i = 0; i < enemySpawn.enemyQuantity; i++)
-                    {
+                    for (int i = 0; i < enemySpawn.enemyQuantity; i++) {
                         float randomNum = UnityEngine.Random.Range(0, 4);
-                        if (randomNum <= 1)
-                        {
+                        if (randomNum <= 1) {
                             Vector3 offScreenLoc = new Vector3(UnityEngine.Random.Range(camBox.xMin, camBox.xMax), camBox.yMin - 3);
                             temp = Instantiate(enemySpawn.enemy, offScreenLoc, new Quaternion());
                         }
-                        else if (randomNum <= 2)
-                        {
+                        else if (randomNum <= 2) {
                             Vector3 offScreenLoc = new Vector3(camBox.xMin - 3, UnityEngine.Random.Range(camBox.yMin, camBox.yMax));
                             temp = Instantiate(enemySpawn.enemy, offScreenLoc, new Quaternion());
                         }
-                        else if (randomNum <= 3)
-                        {
+                        else if (randomNum <= 3) {
                             Vector3 offScreenLoc = new Vector3(UnityEngine.Random.Range(camBox.xMin, camBox.xMax), camBox.yMax + 3);
                             temp = Instantiate(enemySpawn.enemy, offScreenLoc, new Quaternion());
                         }
-                        else
-                        {
+                        else {
                             Vector3 offScreenLoc = new Vector3(camBox.xMax + 3, UnityEngine.Random.Range(camBox.yMin, camBox.yMax));
                             temp = Instantiate(enemySpawn.enemy, offScreenLoc, new Quaternion());
                         }
                     }
                     break;
                 case BossEnemySpawnLocation.OnScreen:
-                    for (int i = 0; i < enemySpawn.enemyQuantity; i++)
-                    {
+                    for (int i = 0; i < enemySpawn.enemyQuantity; i++) {
                         Vector3 onScreenLoc = new Vector3(UnityEngine.Random.Range(camBox.xMin, camBox.xMax), UnityEngine.Random.Range(camBox.yMin, camBox.yMax), 0);
                         temp = Instantiate(enemySpawn.enemy, onScreenLoc, new Quaternion());
                     }
                     break;
                 case BossEnemySpawnLocation.OnBoss:
-                    for (int i = 0; i < enemySpawn.enemyQuantity; i++)
-                    {
+                    for (int i = 0; i < enemySpawn.enemyQuantity; i++) {
                         temp = Instantiate(enemySpawn.enemy, new Vector3(transform.position.x + UnityEngine.Random.Range(-0.3f, 0.3f), transform.position.y + UnityEngine.Random.Range(-0.3f, 0.3f)), new Quaternion());
                     }
                     break;
                 case BossEnemySpawnLocation.InCorner:
-                    for (int i = 0; i < enemySpawn.enemyQuantity; i++)
-                    {
+                    for (int i = 0; i < enemySpawn.enemyQuantity; i++) {
                         float randomNum = UnityEngine.Random.Range(0, 4);
-                        if (randomNum <= 1)
-                        {
+                        if (randomNum <= 1) {
                             Vector3 offScreenLoc = new Vector3(camBox.xMin - 3, camBox.yMin - 3);
                             temp = Instantiate(enemySpawn.enemy, offScreenLoc, new Quaternion());
                         }
-                        else if (randomNum <= 2)
-                        {
+                        else if (randomNum <= 2) {
                             Vector3 offScreenLoc = new Vector3(camBox.xMin - 3, camBox.yMax + 3);
                             temp = Instantiate(enemySpawn.enemy, offScreenLoc, new Quaternion());
                         }
-                        else if (randomNum <= 3)
-                        {
+                        else if (randomNum <= 3) {
                             Vector3 offScreenLoc = new Vector3(camBox.xMax + 3, camBox.yMax + 3);
                             temp = Instantiate(enemySpawn.enemy, offScreenLoc, new Quaternion());
                         }
-                        else
-                        {
+                        else {
                             Vector3 offScreenLoc = new Vector3(camBox.xMax + 3, camBox.yMin - 3);
                             temp = Instantiate(enemySpawn.enemy, offScreenLoc, new Quaternion());
                         }
@@ -668,21 +575,18 @@ public class BossWeapon : MonoBehaviour
             }
             spawnedEnemies = true;
         }
-        if(enemySpawn.additionalDelay <= additionalDelayTimer)
-        {
+        if(enemySpawn.additionalDelay <= additionalDelayTimer) {
             isAttacking = false;
             attackTimer = 0;
         }
         additionalDelayTimer += Time.deltaTime;
     }
 
-    public void GetPlayerTarget()
-    {
+    public void GetPlayerTarget() {
         target = GameObject.FindGameObjectWithTag("Player");
     }
 
-    public void GetNearestObject()
-    {
+    public void GetNearestObject() {
         
     }
 

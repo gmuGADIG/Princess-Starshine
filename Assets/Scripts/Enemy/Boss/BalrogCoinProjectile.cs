@@ -2,12 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BalrogCoinProjectile : Projectile
-{
+public class BalrogCoinProjectile : Projectile {
 
     //Currently nothing will add as things are needed
-    public virtual void Setup(Vector2 target, float damage, int pierceCount, float speed, float knockback, float size)
-    {
+    public virtual void Setup(Vector2 target, float damage, int pierceCount, float speed, float knockback, float size) {
 
         velocity = target * speed;
         this.pierceCount = pierceCount;
@@ -18,8 +16,7 @@ public class BalrogCoinProjectile : Projectile
         maxLifeTime = 10;
     }
 
-    protected override void OnDestroy()
-    {
+    protected override void OnDestroy() {
         //Shouldn't do nothing
     }
 

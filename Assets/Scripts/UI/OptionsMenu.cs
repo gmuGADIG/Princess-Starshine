@@ -5,8 +5,7 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 using UnityEngine.Audio;
 
-public class OptionsMenu : MonoBehaviour
-{
+public class OptionsMenu : MonoBehaviour {
     const string musicVolKey = "musicVolume";
     const string sfxVolKey = "sfxVolume";
 

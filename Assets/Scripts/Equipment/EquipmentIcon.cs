@@ -9,8 +9,7 @@ using UnityEngine.UI;
  * Each EquipmentType should have one and only one EquipmentIcon set in the EquipmentManager.
  */
 [Serializable]
-public class EquipmentIcon
-{
+public class EquipmentIcon {
     public string name;
     public string description;
     public Texture icon;

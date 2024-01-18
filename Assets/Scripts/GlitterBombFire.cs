@@ -2,25 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GlitterBombFire : MonoBehaviour
-{
+public class GlitterBombFire : MonoBehaviour {
     public GameObject projectilePrefab;
     public Transform projectileSpawn;
     public float projectileSpeed = 30f;
     public float lifeTime = 3f;
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         
     }
 
     // Update is called once per frame
-    private void Update()
-    {
+    private void Update() {
         Fire();
     }
-    private void Fire()
-    {
+    private void Fire() {
         GameObject projectile = Instantiate(projectilePrefab);
         projectile.AddComponent(typeof(ConstantMove));
         projectile.AddComponent<Rigidbody2D>();
@@ -34,8 +30,7 @@ public class GlitterBombFire : MonoBehaviour
 
     }
 
-    private IEnumerator DestroyProjectile(GameObject projectile, float delay)
-    {
+    private IEnumerator DestroyProjectile(GameObject projectile, float delay) {
         yield return new WaitForSeconds(delay);
         Destroy(projectile);
     }

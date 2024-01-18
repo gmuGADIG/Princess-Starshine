@@ -73,8 +73,7 @@ public class BuffableStat {
     public class Receipt {
         private static bool quitting = false;
         [RuntimeInitializeOnLoadMethod]
-        static void RunOnStart()
-        {
+        static void RunOnStart() {
             Application.quitting += () => { quitting = true; };
         }
 

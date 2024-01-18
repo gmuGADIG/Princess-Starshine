@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class DebugButtons : MonoBehaviour
-{
+public class DebugButtons : MonoBehaviour {
     public void OnBackButtonClick() {
         SceneManager.LoadScene("TitleScreenScene");
     }

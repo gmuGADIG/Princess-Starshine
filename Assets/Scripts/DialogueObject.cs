@@ -2,8 +2,7 @@ using UnityEngine;
 
 [CreateAssetMenu(menuName = "Dialogue/DialogueObject")]
 
-public class DialogueObject : ScriptableObject
-{
+public class DialogueObject : ScriptableObject {
     [SerializeField][TextArea] private string[] names;
     [SerializeField][TextArea] private string[] dialogue;
 

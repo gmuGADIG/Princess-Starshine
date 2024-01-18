@@ -6,8 +6,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LevelUpUI : MonoBehaviour
-{
+public class LevelUpUI : MonoBehaviour {
     public static LevelUpUI instance;
 
     public GameObject iconPrefab;
@@ -24,22 +23,17 @@ public class LevelUpUI : MonoBehaviour
     public string HellsCurseSubtitle = "Choose one to lose:";
 
 
-    void Awake()
-    {
-        if (instance == null)
-        {
+    void Awake() {
+        if (instance == null) {
             instance = this;
         }
-        else
-        {
+        else {
             Destroy(this);
         }
     }
 
-    public void Start()
-    {
-        if (!openOnStart)
-        {
+    public void Start() {
+        if (!openOnStart) {
             this.gameObject.SetActive(false);
             return;
         }
@@ -61,8 +55,7 @@ public class LevelUpUI : MonoBehaviour
     /**
      * Opens the level-up menu, pausing the game until the player selects one of the four generated upgrades.
      */
-    public void Open()
-    {
+    public void Open() {
         this.gameObject.SetActive(true);
         this.menuParent.SetActive(true);
         Time.timeScale = 0;
@@ -72,16 +65,14 @@ public class LevelUpUI : MonoBehaviour
         ShowOptions(EquipmentManager.instance.GetUpgradeOptions());
     }
 
-    private void ShowOptions(List<UpgradeOption> upgradeOptions)
-    {
+    private void ShowOptions(List<UpgradeOption> upgradeOptions) {
         if (upgradeOptions.Count == 0) {
             Close();
         }
 
         if (iconHolder == null) throw new Exception("LevelUpUI failed to find icon holder!");
         foreach (Transform icon in iconHolder.transform) Destroy(icon.gameObject); // destroy left-over icons
-        foreach (var option in upgradeOptions)
-        {
+        foreach (var option in upgradeOptions) {
             var obj = Instantiate(iconPrefab, iconHolder);
             var name = obj.transform.Find("Name").GetComponent<TextMeshProUGUI>();
             var image = obj.transform.Find("Icon").GetComponent<RawImage>();
@@ -93,8 +84,7 @@ public class LevelUpUI : MonoBehaviour
             description.text = option.description;
 
             obj.GetComponent<Button>().onClick.AddListener(
-                () =>
-                {
+                () => {
                     option.onSelect();
                     InGameUI.UpdateItems();
                     this.Close();
@@ -103,8 +93,7 @@ public class LevelUpUI : MonoBehaviour
         }
     }
 
-    private void Close()
-    {
+    private void Close() {
         Time.timeScale = 1;
         menuParent.SetActive(false);
     }

@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Explosion : MonoBehaviour
-{
+public class Explosion : MonoBehaviour {
     [Tooltip("How big the explosion starts as.")]
     [SerializeField] float initialScale = 1f;
 

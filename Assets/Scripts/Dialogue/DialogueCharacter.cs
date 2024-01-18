@@ -6,8 +6,7 @@ using UnityEngine;
  * To give a single character multiple variations, create multiple DialogueCharacters, e.g. Princess and PrincessSurprised
  */
 [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/DialogueCharacter")]
-public class DialogueCharacter : ScriptableObject
-{
+public class DialogueCharacter : ScriptableObject {
     public string scriptName;
     public string displayName;
     public Texture picture;

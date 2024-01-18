@@ -1,8 +1,7 @@
 using UnityEngine;
 
 class FeatherProjectile : Projectile {
-    protected override void Move()
-    {
+    protected override void Move() {
         //
         // 10m/s
         // rev / s = 10 / pi * 2 * r

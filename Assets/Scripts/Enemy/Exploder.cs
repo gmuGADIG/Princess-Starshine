@@ -4,8 +4,7 @@ class Exploder : EnemyTemplate {
     [Header("Exploder Properties")]
     [SerializeField] GameObject explosionPrefab;
 
-    void OnDisable()
-    {
+    void OnDisable() {
         Instantiate(explosionPrefab, transform.position, Quaternion.identity);
     }
 }

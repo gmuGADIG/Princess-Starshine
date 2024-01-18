@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OrbitProjectile : BossProjectile
-{
+public class OrbitProjectile : BossProjectile {
     private Vector3 acceleration;
     private float centripetalAcceleration;
     private Vector3 velocityUnitVector;
@@ -18,8 +17,7 @@ public class OrbitProjectile : BossProjectile
     private bool finalLarger;
 
     // Update is called once per frame
-    void FixedUpdate()
-    {
+    void FixedUpdate() {
         transform.position += velocity * Time.fixedDeltaTime;
         velocity += acceleration * Time.fixedDeltaTime;
         velocityUnitVector = velocity.normalized;
@@ -31,41 +29,33 @@ public class OrbitProjectile : BossProjectile
         speed = ((2 * Mathf.PI * radius) / period);
         centripetalAcceleration = (Mathf.Pow(speed, 2) / radius);
 
-        if (timeUntilChange <= changeTimer)
-        {
+        if (timeUntilChange <= changeTimer) {
             radius += distanceChange;
-            if (finalLarger && finalPeriod <= period)
-            {
+            if (finalLarger && finalPeriod <= period) {
                 period = finalPeriod;
             }
-            else if (finalPeriod >= period)
-            {
+            else if (finalPeriod >= period) {
                 period = finalPeriod;
             }
-            else
-            {
+            else {
                 period += periodChange;
             }
 
             
         }
-        if (doChange)
-        {
+        if (doChange) {
             changeTimer += Time.fixedDeltaTime;
         }
-        if (aliveTimer >= maxAliveTime)
-        {
+        if (aliveTimer >= maxAliveTime) {
             Destroy(gameObject);
         }
         aliveTimer += Time.fixedDeltaTime;
     }
-    public override void Update()
-    {
+    public override void Update() {
 
     }
 
-    public void Setup(float damage, float period, float maxAliveTime, float startingAngle, float radius, float periodChange, float finalPeriod, float distanceChange, float timeTillChange, bool doChange)
-    {
+    public void Setup(float damage, float period, float maxAliveTime, float startingAngle, float radius, float periodChange, float finalPeriod, float distanceChange, float timeTillChange, bool doChange) {
         this.damage = damage;
         this.maxAliveTime = maxAliveTime;
         this.periodChange = periodChange;

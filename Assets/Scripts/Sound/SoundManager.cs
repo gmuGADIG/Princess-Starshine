@@ -4,8 +4,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public class SoundManager : MonoBehaviour
-{
+public class SoundManager : MonoBehaviour {
 	public static SoundManager Instance { get; private set; }
 	public int numOfPositionalSources = 100;
 
@@ -18,28 +17,23 @@ public class SoundManager : MonoBehaviour
 	private Queue<PositionalAudioSource> positionalSources = new Queue<PositionalAudioSource>();
 	private List<AudioSource> toUnpause = new List<AudioSource>();
 
-	void Awake()
-	{
-		if (Instance != null)
-		{
+	void Awake() {
+		if (Instance != null) {
 			Destroy(gameObject);
 		}
-		else
-		{
+		else {
 			Instance = this;
 			//DontDestroyOnLoad(gameObject);
 		}
 		sounds = Resources.LoadAll<Sound>(soundPath);
-		foreach (Sound s in sounds)
-		{
+		foreach (Sound s in sounds) {
 			s.source = gameObject.AddComponent<AudioSource>();
 			s.source.clip = s.GetRandomAudioClip();
 			s.source.loop = s.loop;
 			s.source.outputAudioMixerGroup = s.mixerGroup;
 		}
 		Transform positionalSourceParent = new GameObject("Positional Audio Sources").transform;
-        for (int i = 0; i < numOfPositionalSources; i++)
-        {
+        for (int i = 0; i < numOfPositionalSources; i++) {
 			PositionalAudioSource newPositional = new GameObject("Positional Audio Source").AddComponent<PositionalAudioSource>();
 			newPositional.transform.parent = positionalSourceParent;
 			positionalSources.Enqueue(newPositional);
@@ -52,11 +46,9 @@ public class SoundManager : MonoBehaviour
 	/// </summary>
 	/// <param soundName="soundName">The name used to identify the sound. Should match the Sound asset filename.</param>
 	/// <returns>The AudioSource that is playing the sound. null if sound not found.</returns>
-	public AudioSource PlaySoundGlobal(string soundName)
-    {
+	public AudioSource PlaySoundGlobal(string soundName) {
 		int soundID = GetSoundIndex(soundName);
-		if (soundID < 0 || soundID >= sounds.Length)
-		{
+		if (soundID < 0 || soundID >= sounds.Length) {
 			Debug.LogWarning("Invalid Sound ID: " + soundID);
 			return null;
 		}
@@ -75,11 +67,9 @@ public class SoundManager : MonoBehaviour
 	/// </summary>
 	/// <param soundName="soundName">The name used to identify the sound. Should match the Sound asset filename.</param>
 	/// <returns>The AudioSource that is playing the sound. null if sound not found.</returns>
-	public PositionalAudioSource PlaySoundAtPosition(string soundName, Vector3 position)
-    {
+	public PositionalAudioSource PlaySoundAtPosition(string soundName, Vector3 position) {
 		int soundID = GetSoundIndex(soundName);
-		if (soundID < 0 || soundID >= sounds.Length)
-		{
+		if (soundID < 0 || soundID >= sounds.Length) {
 			Debug.LogWarning("Invalid Sound ID: " + soundID);
 			return null;
 		}
@@ -100,8 +90,7 @@ public class SoundManager : MonoBehaviour
 	/// <param soundName="soundName">The name used to identify the sound. Should match the Sound asset filename.</param>
 	/// <param parent="parent"> The transform the AudioSource should be parented to. </param>
 	/// <returns>The AudioSource that is playing the sound. null if not found.</returns>
-	public PositionalAudioSource PlaySoundAtPosition(string soundName, Vector3 position, Transform parent)
-	{
+	public PositionalAudioSource PlaySoundAtPosition(string soundName, Vector3 position, Transform parent) {
 		PositionalAudioSource source = PlaySoundAtPosition(soundName, position);
 		//source.SetFollowTarget(parent);
 		source.transform.SetParent(parent);
@@ -112,12 +101,10 @@ public class SoundManager : MonoBehaviour
 	/// Stops playing the sound with name soundName.
 	/// </summary>
 	/// <param soundName="soundName">The name used to identify the sound. Should match the Sound asset filename.</param>
-	public void StopPlayingGlobal(string soundName)
-    {
+	public void StopPlayingGlobal(string soundName) {
 		int soundID = GetSoundIndex(soundName);
 		Sound sound = sounds[soundID];
-		if (sound.source != null)
-		{
+		if (sound.source != null) {
 			sound.source.volume = sound.volume * (1f + UnityEngine.Random.Range(-sound.volumeVariance / 2f, sound.volumeVariance / 2f));
 			sound.source.pitch = sound.pitch * (1f + UnityEngine.Random.Range(-sound.pitchVariance / 2f, sound.pitchVariance / 2f));
 
@@ -132,11 +119,9 @@ public class SoundManager : MonoBehaviour
 	/// </summary>
 	/// <param name="name">The name used to identify the sound. Should match the Sound asset filename.</param>
 	/// <returns>The sound index. -1 if the sound is not found.</returns>
-	int GetSoundIndex(string name)
-    {
+	int GetSoundIndex(string name) {
 		int id = Array.FindIndex(sounds, sound => sound.name == name);
-		if (id == -1)
-        {
+		if (id == -1) {
 			Debug.LogWarning("Sound with name: " + name + " does not exist!");
         }
 		return id;
@@ -145,13 +130,10 @@ public class SoundManager : MonoBehaviour
 	/// <summary>
 	/// Pauses all audio sources in the scene.
 	/// </summary>
-	public void PauseAllSounds()
-    {
+	public void PauseAllSounds() {
 		AudioSource[] sources = FindObjectsOfType<AudioSource>();
-		for (int i = 0; i < sources.Length; i++)
-        {
-			if (sources[i].isPlaying)
-            {
+		for (int i = 0; i < sources.Length; i++) {
+			if (sources[i].isPlaying) {
 				sources[i].Pause();
 				toUnpause.Add(sources[i]);
             }
@@ -162,10 +144,8 @@ public class SoundManager : MonoBehaviour
 	/// Unpauses all audio sources that were paused with PauseAllSounds(). If this method is called before PauseAllSounds() it will
 	/// do nothing.
 	/// </summary>
-	public void UnPauseAllSounds()
-    {
-		for (int i = 0; i < toUnpause.Count; i++)
-        {
+	public void UnPauseAllSounds() {
+		for (int i = 0; i < toUnpause.Count; i++) {
 			toUnpause[i].UnPause();
         }
 		toUnpause.Clear();

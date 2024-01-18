@@ -2,16 +2,14 @@ using System;
 using UnityEngine;
 
 class CupquakeExplosion : Projectile {
-    public override void Setup(ProjectileWeapon weapon, Vector2 target, float damage, int pierceCount, float speed, float knockback, float size, float dotRate)
-    {
+    public override void Setup(ProjectileWeapon weapon, Vector2 target, float damage, int pierceCount, float speed, float knockback, float size, float dotRate) {
         // use CupquakeExplosion.SetupExt
         throw new NotSupportedException();
     }
 
     public void SetupExt(ProjectileWeapon weapon, Vector2 target, float damage, 
         int pierceCount, float speed, float knockback, float size, float dotRate,
-        bool alt)
-    {
+        bool alt) {
         base.Setup(weapon, target, damage, pierceCount, speed, knockback, size, dotRate);
     
         var particleSystem = GetComponentInChildren<ParticleSystem>().main;

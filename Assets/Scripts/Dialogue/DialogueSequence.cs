@@ -9,8 +9,7 @@ using UnityEngine.Events;
  * Holds a single dialogue sequence or cutscene, to be played by a DialoguePlayer.
  */
 [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/DialogueSequence")]
-public class DialogueSequence : ScriptableObject
-{
+public class DialogueSequence : ScriptableObject {
     [TextArea(20, int.MaxValue)]
     public string text;
 }
@@ -21,8 +20,7 @@ public class DialogueSequence : ScriptableObject
  * e.g. `{imp_leave}` will call the command with name `imp_leave`. 
  */
 [Serializable]
-public class DialogueCommand
-{
+public class DialogueCommand {
     public string name;
     public UnityEvent action;
 }
